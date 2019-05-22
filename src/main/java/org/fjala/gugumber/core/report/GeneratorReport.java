@@ -12,13 +12,13 @@
 
 package org.fjala.gugumber.core.report;
 
-import net.masterthought.cucumber.Configuration;
-import net.masterthought.cucumber.ReportBuilder;
-import net.masterthought.cucumber.Reportable;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+
+import net.masterthought.cucumber.Configuration;
+import net.masterthought.cucumber.ReportBuilder;
+import net.masterthought.cucumber.Reportable;
 
 /**
  * GeneratorReport class.
@@ -42,7 +42,7 @@ public class GeneratorReport {
         final Configuration configuration = new Configuration(reportOutputDirectory, projectName);
         configuration.setRunWithJenkins(runWithJenkins);
         configuration.setBuildNumber(buildNumber);
-        // addidtional metadata presented on main page
+        // additional metadata presented on main page
         configuration.addClassifications("Platform", "Windows");
         configuration.addClassifications("Browser", "Chrome");
         configuration.addClassifications("Branch", "release/1.0");
