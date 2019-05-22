@@ -29,7 +29,7 @@ public class ReaderDriverProperties {
     /**
      * Constant for path of driver driverProperties.
      */
-    private static final String DRIVER_PROPERTIES = "driver.driverProperties";
+    private static final String DRIVER_PROPERTIES = "driver.properties";
     private static final String URL_SALESFORCE_PROPERTIES = "salesforce.properties";
     /**
      * Map for save driver properties.
