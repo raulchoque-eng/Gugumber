@@ -35,7 +35,6 @@ public class Chrome {
    */
   public WebDriver initDriver() {
     ChromeDriverManager.getInstance().version("74.0.3729.6").setup();
-//        System.setProperty("webdriver.chrome.driver", "C:\\tools\\chromedriver.exe");
     HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
     chromePrefs.put("profile.default_content_settings.popups", 0);
 

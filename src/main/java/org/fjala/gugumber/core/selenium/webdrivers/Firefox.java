@@ -30,9 +30,6 @@ public class Firefox {
      */
     public WebDriver initDriver() {
         FirefoxDriverManager.getInstance().setup();
-    //    FirefoxProfile profile = new FirefoxProfile();
-    //    profile.setPreference("browser.download.folderList", 2);
-    //    profile.setPreference("browser.download.dir", "C:\\Users\\Admin\\Downloads");
         return new FirefoxDriver();
     }
 }
