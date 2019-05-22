@@ -35,6 +35,7 @@ public class LoaderProperties {
      * Constructor protected.
      */
     protected LoaderProperties() {
+        addPropertiesPivotal();
     }
 
     public Map<String, String> getProperties() {
