@@ -22,7 +22,8 @@ dependencies {
     testCompile group: 'info.cukes', name: 'cucumber-testng', version: '1.2.5'
     testCompile 'io.cucumber:cucumber-java:2.4.0'
     testCompile 'io.cucumber:cucumber-junit:2.4.0'
-    testCompile group: 'net.masterthought', name: 'cucumber-reporting', version: '4.6.0'
+    // https://mvnrepository.com/artifact/net.masterthought/cucumber-reporting
+    compile group: 'net.masterthought', name: 'cucumber-reporting', version: '4.6.0'
 }
 
 // Task to define arguments and configurations to properties file
