@@ -5,11 +5,11 @@ Feature: Account manage
 
 
   @deleteContact
-  Scenario: Create a new workspace for an user with required data
+  Scenario: Create a new contact for an user with required data
     When I navigate to salesforce lightning page
     And  I create a new Contact the following data
-    salutation| First Name| Last Name|
-    Dr.       |Cxristian  |Lujan     |
-
+    |salutation| Dr.     |
+    |First Name|Cxristian|
+    |Last Name |Lujan    |
     Then The contact should be displayed on contact page
 
