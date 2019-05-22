@@ -29,7 +29,8 @@ public class ReaderDriverProperties {
     /**
      * Constant for path of driver driverProperties.
      */
-    private static final String DRIVER_PROPERTIES = "driver.driverProperties";
+    private static final String DRIVER_PROPERTIES = "driver.properties";
+
     /**
      * Map for save driver properties.
      */
@@ -68,4 +69,5 @@ public class ReaderDriverProperties {
         Properties driverFileProperties = LoaderProperties.getInstance().readFile(DRIVER_PROPERTIES);
         driverFileProperties.forEach((key, value) -> driverProperties.put(key.toString(), value.toString()));
     }
+
 }

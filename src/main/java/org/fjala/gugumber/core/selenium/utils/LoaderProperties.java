@@ -16,6 +16,8 @@ package org.fjala.gugumber.core.selenium.utils;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
 /**
@@ -25,6 +27,7 @@ import java.util.Properties;
  * @version 0.0.1
  */
 public class LoaderProperties {
+
     /**
      * Constructor protected.
      */
