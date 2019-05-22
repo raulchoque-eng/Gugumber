@@ -16,6 +16,8 @@ package org.fjala.gugumber.core.selenium.utils;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
 /**
@@ -25,10 +27,24 @@ import java.util.Properties;
  * @version 0.0.1
  */
 public class LoaderProperties {
+
+    private static final String URL_SALESFORCE_PROPERTIES = "salesforce.properties";
+    private Map<String, String> properties = new HashMap<>();
+
     /**
      * Constructor protected.
      */
     protected LoaderProperties() {
+        addPropertiesPivotal();
+    }
+
+    public Map<String, String> getProperties() {
+        return properties;
+    }
+
+    public void addPropertiesPivotal() {
+        Properties propertiesPivotal = readFile(URL_SALESFORCE_PROPERTIES);
+        propertiesPivotal.forEach((key, value) -> properties.put(key.toString(), value.toString()));
     }
 
     /**
