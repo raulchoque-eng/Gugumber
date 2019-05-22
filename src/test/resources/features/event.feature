@@ -2,6 +2,7 @@ Feature: Account manage.
   Backgroud:
   Given I log in with a valid username and password
   And  I navidate Home page
+
   @deleteEvent
   Scenario Create a new Event with required data
     When  I open the form Event from Home page
