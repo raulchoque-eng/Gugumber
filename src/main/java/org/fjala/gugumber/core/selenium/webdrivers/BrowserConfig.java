@@ -12,7 +12,7 @@
 
 package org.fjala.gugumber.core.selenium.webdrivers;
 
-import org.fjala.gugumber.core.selenium.webdrivers.utils.LoaderPropertiesFile;
+import org.fjala.gugumber.core.selenium.utils.LoaderProperties;
 
 /**
  * BrowserConfig class.
@@ -27,6 +27,6 @@ public class BrowserConfig {
     }
 
     public String getBrowserName() {
-        return LoaderPropertiesFile.getInstance().getProperties().get("browser");
+        return LoaderProperties.getInstance().getProperties().get("browser");
     }
 }

@@ -24,19 +24,13 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
  */
 public class IE {
 
-  /**
-   * Initializes Internet Explorer driver
-   * @return A new InternetExplorerDriver.
-   */
+    /**
+     * Initializes Internet Explorer driver
+     *
+     * @return A new InternetExplorerDriver.
+     */
     public WebDriver initDriver() {
         InternetExplorerDriverManager.getInstance().setup();
         return new InternetExplorerDriver();
-    }
-
-  /**
-   *
-   */
-    public void Patar() {
-        System.out.println("asd" );
     }
 }

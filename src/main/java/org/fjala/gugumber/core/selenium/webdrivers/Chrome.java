@@ -27,7 +27,7 @@ import org.openqa.selenium.remote.CapabilityType;
  * @author Cxrisstian
  * @version 0.0.1
  */
-class Chrome {
+public class Chrome {
 
   /**
    * Initializes Chrome driver.

@@ -10,8 +10,12 @@
  * with Jala Foundation.
  */
 
-package org.fjala.gugumber.core.selenium.webdrivers;
+package org.fjala.gugumber.core.selenium;
 
+import org.fjala.gugumber.core.selenium.webdrivers.BrowserType;
+import org.fjala.gugumber.core.selenium.webdrivers.Chrome;
+import org.fjala.gugumber.core.selenium.webdrivers.Firefox;
+import org.fjala.gugumber.core.selenium.webdrivers.IE;
 import org.openqa.selenium.WebDriver;
 
 /**

@@ -19,7 +19,6 @@ package org.fjala.gugumber.core.selenium.webdrivers;
  * @version 0.0.1
  */
 public enum BrowserType {
-    CHROME,
     FIREFOX,
     IE
 }
