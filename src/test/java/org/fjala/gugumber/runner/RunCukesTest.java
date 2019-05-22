@@ -14,10 +14,9 @@ package org.fjala.gugumber.runner;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
-import core.selenium.WebDriverManager;
+import org.fjala.gugumber.core.report.GeneratorReport;
+import org.fjala.gugumber.core.selenium.WebDriverManager;
 import org.testng.annotations.AfterTest;
-
-import static org.fjala.gugumber.core.report.GeneratorReport.generateReport;
 
 /**
  * RunCukesTest class.
@@ -32,9 +31,12 @@ import static org.fjala.gugumber.core.report.GeneratorReport.generateReport;
 
 public class RunCukesTest extends AbstractTestNGCucumberTests {
 
+    /**
+     * The method afterExecution executes the project and generate it report.
+     */
     @AfterTest
     public void afterExecution() {
         WebDriverManager.getInstance().getWebDriver().close();
-        generateReport();
+        GeneratorReport.getInstance().generateReport();
     }
 }

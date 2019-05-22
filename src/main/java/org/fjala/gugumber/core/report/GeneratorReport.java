@@ -27,21 +27,28 @@ import net.masterthought.cucumber.Reportable;
  * @version 0.0.1
  */
 public class GeneratorReport {
+
+    /**
+     * The method getInstance get a instance of GeneratorReport.
+     *
+     * @return an instance GeneratorReport
+     */
+    public static GeneratorReport getInstance() {
+        return new GeneratorReport();
+    }
+
     /**
      * The method generateReport is to set up and create a report.
      */
-    public static void generateReport() {
+    public void generateReport() {
         final File reportOutputDirectory = new File("target");
         final List<String> jsonFiles = new ArrayList<>();
-        jsonFiles.add("C:\\ui_testing\\final_project\\Gugumber\\target\\cucumber.json");
+        jsonFiles.add("\\target\\cucumber.json");
 
-        final String buildNumber = "1";
         final String projectName = "Salesforce";
         final boolean runWithJenkins = false;
 
         final Configuration configuration = new Configuration(reportOutputDirectory, projectName);
-        configuration.setRunWithJenkins(runWithJenkins);
-        configuration.setBuildNumber(buildNumber);
         // additional metadata presented on main page
         configuration.addClassifications("Platform", "Windows");
         configuration.addClassifications("Browser", "Chrome");
