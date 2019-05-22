@@ -30,7 +30,7 @@ public class ReaderDriverProperties {
      * Constant for path of driver driverProperties.
      */
     private static final String DRIVER_PROPERTIES = "driver.properties";
-    private static final String URL_SALESFORCE_PROPERTIES = "salesforce.properties";
+
     /**
      * Map for save driver properties.
      */
@@ -42,7 +42,6 @@ public class ReaderDriverProperties {
     private ReaderDriverProperties() {
         driverProperties = new HashMap<>();
         addPropertiesDriver();
-        addPropertiesPivotal();
     }
 
     /**
@@ -69,11 +68,6 @@ public class ReaderDriverProperties {
     private void addPropertiesDriver() {
         Properties driverFileProperties = LoaderProperties.getInstance().readFile(DRIVER_PROPERTIES);
         driverFileProperties.forEach((key, value) -> driverProperties.put(key.toString(), value.toString()));
-    }
-
-    public void addPropertiesPivotal() {
-        Properties propertiesPivotal = LoaderProperties.getInstance().readFile(URL_SALESFORCE_PROPERTIES);
-        propertiesPivotal.forEach((key, value) -> driverProperties.put(key.toString(), value.toString()));
     }
 
 }
