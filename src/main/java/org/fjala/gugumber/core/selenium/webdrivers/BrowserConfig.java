@@ -26,6 +26,10 @@ public class BrowserConfig {
         return new BrowserConfig();
     }
 
+    /**
+     *
+     * @return browser.
+     */
     public String getBrowserName() {
         return LoaderProperties.getInstance().getProperties().get("browser");
     }

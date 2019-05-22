@@ -26,6 +26,7 @@ import java.util.concurrent.TimeUnit;
  * @version 0.0.1
  */
 public class WebDriverManager {
+
     private WebDriverConfig webDriverConfig = WebDriverConfig.getInstance();
     private WebDriver webDriver;
     private WebDriverWait webDriverWait;

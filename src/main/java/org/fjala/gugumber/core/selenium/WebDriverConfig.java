@@ -22,6 +22,9 @@ import org.fjala.gugumber.core.selenium.common.ReaderDriverProperties;
  */
 public class WebDriverConfig {
 
+    /**
+     *
+     */
     private static final String BROWSER = "browser";
     private  static final String IMPLICIT = "implicitWaitTime";
     private  static final String EXPLICIT = "explicitWaitTime";
