@@ -15,7 +15,6 @@ package org.fjala.gugumber.core.report;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-
 import net.masterthought.cucumber.Configuration;
 import net.masterthought.cucumber.ReportBuilder;
 import net.masterthought.cucumber.Reportable;
