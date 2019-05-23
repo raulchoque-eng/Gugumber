@@ -15,51 +15,28 @@
 <<<<<<< HEAD
  */
 
-package org.fjala.gugumber.steps;import cucumber.api.java.en.Given;
-=======
- *
- */
-
 package org.fjala.gugumber.steps;
 
-import cucumber.api.java.en.When;
->>>>>>> 42061750e865a676850d781025c2865558ebac05
+
+import cucumber.api.java.en.Given;
 import org.fjala.gugumber.salesforce.ui.LoginPage;
 import org.fjala.gugumber.salesforce.ui.PageTransporter;
 
 /**
  * LoginSteps class.
  *
-<<<<<<< HEAD
- * @author Cxrisstian
- * @version 0.0.1
- */
-public class LoginSteps {
-
-    PageTransporter pageTransporter = PageTransporter.getInstance();
-
-    // Pages
-    private LoginPage loginPage;
-
-    @Given("^I log in with a valid username and password$")
-    public void logIn() {
-        loginPage = pageTransporter.navigateToLoginPage();
-        loginPage.login("usernameAdmin", "passwordAdmin");
-    }
-}
-=======
  * @author Areliez Vargas
  * @version 0.0.1
  */
 public class LoginSteps {
-    PageTransporter pageTransporter = PageTransporter.getInstance();
 
+    PageTransporter pageTransporter = PageTransporter.getInstance();
     LoginPage loginPage;
 
-    @When("^I am logged in SalesForce with \"([^\"]*)\" and \"([^\"]*)\"$")
-    public void logInWithUsernameAdminAndPasswordAdmin(String username, String password) {
+    @Given("^I log in with a valid username and password$")
+    public void iLogInWithAValidUsernameAndPassword() {
         loginPage = pageTransporter.navigateToLoginPage();
-        loginPage.login(username, password);
+        loginPage.login("usernameAdmin", "passwordAdmin");
     }
 }
->>>>>>> 42061750e865a676850d781025c2865558ebac05
+
