@@ -57,7 +57,7 @@ public class ReaderApplicationProperties {
      *
      * @return a map of properties.
      */
-    public Map<String, String> getApplicationProperties() {
+    public Map<String, String> getAppProperties() {
         return applicationProperties;
     }
 
