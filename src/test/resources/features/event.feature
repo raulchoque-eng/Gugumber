@@ -1,7 +1,7 @@
 Feature: Event manage.
-  Backgroud:
+  Background:
   Given I log in with a valid username and password
-  And  I navidate Home page
+  And  I navigate Home page
 
   @deleteEvent
   Scenario Create a new Event with required data

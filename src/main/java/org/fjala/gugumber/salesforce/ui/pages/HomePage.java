@@ -1,5 +1,5 @@
 /*
- * @(#) EventForm.java Copyright (c) 2019 Jala Foundation.
+ * @(#) HomePage.java Copyright (c) 2019 Jala Foundation.
  * 2643 Av. Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
  * All rights reserved.
  *
@@ -12,24 +12,22 @@
 
 package org.fjala.gugumber.salesforce.ui.pages;
 
-import org.fjala.gugumber.salesforce.entities.Event;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-
 /**
- * EventForm class
+ * HomePage class.
  *
- * @author Raúl Choque
+ * @author Raul Choque
  * @version 0.0.1
  */
-public class EventForm {
-    @FindBy(css = "div.modal-container slds-modal__container")
-    WebElement eventForm;
+public class HomePage {
+    public void openForm() {
+        System.out.println("TODO");
+    }
 
-    @FindBy(xpath = "//input[starts-with(@id, 'input')]")
-    WebElement sunjectTxtb;
+    public String getNameEvent() {
+        return "TODO";
+    }
 
-    public void createEvent(Event event) {
+    public void openDetail() {
         System.out.println("TODO");
     }
 }

@@ -1,5 +1,5 @@
 /*
- * @(#) EventForm.java Copyright (c) 2019 Jala Foundation.
+ * @(#) EventDetail.java Copyright (c) 2019 Jala Foundation.
  * 2643 Av. Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
  * All rights reserved.
  *
@@ -12,24 +12,18 @@
 
 package org.fjala.gugumber.salesforce.ui.pages;
 
-import org.fjala.gugumber.salesforce.entities.Event;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
- * EventForm class
+ * EventDetail class.
  *
- * @author Raúl Choque
+ * @author Raul Choque
  * @version 0.0.1
  */
-public class EventForm {
-    @FindBy(css = "div.modal-container slds-modal__container")
-    WebElement eventForm;
-
-    @FindBy(xpath = "//input[starts-with(@id, 'input')]")
-    WebElement sunjectTxtb;
-
-    public void createEvent(Event event) {
+public class EventDetail {
+    public Map<String, String> getData() {
         System.out.println("TODO");
+        return new HashMap<String, String>();
     }
 }
