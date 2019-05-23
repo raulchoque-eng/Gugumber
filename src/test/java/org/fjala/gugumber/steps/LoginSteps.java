@@ -28,15 +28,9 @@ public class LoginSteps {
     PageTransporter pageTransporter = PageTransporter.getInstance();
     private LoginPage loginPage;
 
-//    @Given("^I log in with a valid username and password$")
-//    public void iLogInWithAValidUsernameAndPassword() {
-//        loginPage = pageTransporter.navigateToLoginPage();
-//        loginPage.login();
-//    }
-
     @Given("^I log in with a valid username and password$")
-    public void i_log_in_with_a_valid_username_and_password() {
+    public void logInWithAValidUsernameAndPassword() {
         loginPage = pageTransporter.navigateToLoginPage();
-        loginPage.login();
+//        loginPage.login("usernameAdmin","passwordAdmin");
     }
 }

@@ -27,10 +27,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
  */
 public class LoginPage extends BasePage {
 
-    private Map<String,String> dataUser = ReaderApplicationProperties.getInstance()
-        .getApplicationProperties();
-    private String userName = dataUser.get("username.admin");
-    private String password = dataUser.get("password.admin");
+
+//    private String userName = ReaderApplicationProperties.getInstance().getApplicationProperties().get("username.admin");
+//    private String password = ReaderApplicationProperties.getInstance().getApplicationProperties().get("password.admin");
     @FindBy(id = "wrapper")
     private WebElement loginPnl;
     @FindBy(id = "idcard-identity")
@@ -48,10 +47,12 @@ public class LoginPage extends BasePage {
     /**
      *
      */
-    public void login() {
+    public void login(String userName, String password) {
+        ReaderApplicationProperties.getInstance().getApplicationProperties().get(userName);
+        ReaderApplicationProperties.getInstance().getApplicationProperties().get(password);
         setIdentity(userName);
         setPassword(password);
-        loginBtn.click();
+        clickNextSignInBtn();
     }
 
     public void setIdentity(String identityName) {
@@ -62,6 +63,9 @@ public class LoginPage extends BasePage {
     public void setPassword(String password) {
         passwordTxtb.clear();
         passwordTxtb.sendKeys(password);
+    }
+    private void clickNextSignInBtn() {
+        loginBtn.click();;
     }
 }
 

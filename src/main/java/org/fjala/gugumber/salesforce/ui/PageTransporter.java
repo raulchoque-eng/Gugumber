@@ -27,7 +27,7 @@ import org.openqa.selenium.WebDriver;
  */
 public class PageTransporter {
 
-    Map<String,String> salesforceProperties = ReaderApplicationProperties.getInstance().getApplicationProperties();
+//    Map<String,String> salesforceProperties = ReaderApplicationProperties.getInstance().getApplicationProperties();
     private WebDriver webDriver;
 
     private static PageTransporter instance;
@@ -77,8 +77,8 @@ public class PageTransporter {
      * @return New instance of LoginPage.
      */
     public LoginPage navigateToLoginPage() {
-        String url = salesforceProperties.get("login");
-        goToURL(url);
+        System.out.println("123456");
+        goToURL(ReaderApplicationProperties.getInstance().getApplicationProperties().get("login"));
         return new LoginPage();
     }
 }

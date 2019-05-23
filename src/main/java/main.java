@@ -26,8 +26,8 @@ import java.net.URL;
  */
 public class main {
     public static void main(String[] args) throws MalformedURLException {
-        WebDriver webDriver = WebDriverManager.getInstance().getWebDriver();
-        webDriver.navigate().to(new URL("https://login.salesforce.com/"));
+//        WebDriver webDriver = WebDriverManager.getInstance().getWebDriver();
+//        webDriver.navigate().to(new URL("https://login.salesforce.com/"));
 //        System.out.println(ReaderApplicationProperties.getInstance().getApplicationProperties()+ "1111111111");
         PageTransporter.getInstance().navigateToLoginPage();
     }
