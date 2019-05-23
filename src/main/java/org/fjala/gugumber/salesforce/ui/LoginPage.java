@@ -29,10 +29,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
  */
 public class LoginPage extends BasePage {
     @FindBy(id = "username")
-    private WebElement userNameTxtBox;
+    private WebElement userNameTxtB;
 
     @FindBy(id = "password")
-    private WebElement passwordTxtBox;
+    private WebElement passwordTxtB;
 
     @FindBy(id = "Login")
     private WebElement loginBtn;
@@ -44,6 +44,12 @@ public class LoginPage extends BasePage {
     public void waitUntilPageObjectIsLoaded() {
         wait.until(ExpectedConditions.visibilityOf(loginForm));
     }
+
+    /**
+     * Log in in the application.
+     * @param userName of the user.
+     * @param password of the user.
+     */
     public void login(String userName, String password){
         setUserName(ReaderApplicationProperties.getInstance().getApplicationProperties().get(userName));
         setPassword(ReaderApplicationProperties.getInstance().getApplicationProperties().get(password));
@@ -51,11 +57,11 @@ public class LoginPage extends BasePage {
     }
 
     public void setUserName(String userName) {
-        userNameTxtBox.sendKeys(userName);
+        userNameTxtB.sendKeys(userName);
     }
 
     public void setPassword(String password) {
-        passwordTxtBox.sendKeys(password);
+        passwordTxtB.sendKeys(password);
     }
 
     public void clickNextSignInBtn() {

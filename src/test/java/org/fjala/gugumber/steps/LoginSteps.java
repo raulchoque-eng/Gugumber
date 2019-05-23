@@ -29,7 +29,10 @@ import org.fjala.gugumber.salesforce.ui.PageTransporter;
  * @version 0.0.1
  */
 public class LoginSteps {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 733ee0e765611874a2153788f8f10561636c1eb4
     PageTransporter pageTransporter = PageTransporter.getInstance();
     LoginPage loginPage;
 
