@@ -26,7 +26,7 @@ import org.testng.annotations.AfterTest;
  */
 @CucumberOptions(
         plugin = {"pretty", "html:target/cucumber", "json:target/cucumber.json"},
-        glue = {"steps"}, features = {"src/test/resources/features"},
+        glue = {"steps"}, features = {"src/test/resources/features/contact.feature"},
         monochrome = true)
 
 public class RunCukesTest extends AbstractTestNGCucumberTests {
@@ -36,7 +36,7 @@ public class RunCukesTest extends AbstractTestNGCucumberTests {
      */
     @AfterTest
     public void afterExecution() {
-        WebDriverManager.getInstance().getWebDriver().close();
-        GeneratorReport.getInstance().generateReport();
+       WebDriverManager.getInstance().getWebDriver().close();
+        //GeneratorReport.getInstance().generateReport();
     }
 }
