@@ -1,5 +1,5 @@
 /*
- * @(#) LoginSteps.java Copyright (c) 2019 Jala Foundation.
+ * @(#) WebDriveFactory.java Copyright (c) 2019 Jala Foundation.
  * 2643 Av Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
  * All rights reserved.
  *
@@ -10,10 +10,7 @@
  * with Jala Foundation.
  */
 
-package org.fjala.gugumber.steps;
-
-
-import cucumber.api.java.en.Given;
+package org.fjala.gugumber.steps;import cucumber.api.java.en.Given;
 import org.fjala.gugumber.salesforce.ui.LoginPage;
 import org.fjala.gugumber.salesforce.ui.PageTransporter;
 
@@ -26,11 +23,13 @@ import org.fjala.gugumber.salesforce.ui.PageTransporter;
 public class LoginSteps {
 
     PageTransporter pageTransporter = PageTransporter.getInstance();
+
+    // Pages
     private LoginPage loginPage;
 
     @Given("^I log in with a valid username and password$")
-    public void logInWithAValidUsernameAndPassword() {
+    public void logIn() {
         loginPage = pageTransporter.navigateToLoginPage();
-//        loginPage.login("usernameAdmin","passwordAdmin");
+        loginPage.login("usernameAdmin", "passwordAdmin");
     }
 }

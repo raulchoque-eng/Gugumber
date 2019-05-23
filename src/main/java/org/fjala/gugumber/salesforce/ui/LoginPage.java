@@ -27,9 +27,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
  */
 public class LoginPage extends BasePage {
 
-
-//    private String userName = ReaderApplicationProperties.getInstance().getApplicationProperties().get("username.admin");
-//    private String password = ReaderApplicationProperties.getInstance().getApplicationProperties().get("password.admin");
     @FindBy(id = "wrapper")
     private WebElement loginPnl;
     @FindBy(id = "idcard-identity")
@@ -65,7 +62,7 @@ public class LoginPage extends BasePage {
         passwordTxtb.sendKeys(password);
     }
     private void clickNextSignInBtn() {
-        loginBtn.click();;
+        loginBtn.click();
     }
 }
 

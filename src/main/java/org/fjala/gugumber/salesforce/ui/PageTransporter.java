@@ -77,7 +77,6 @@ public class PageTransporter {
      * @return New instance of LoginPage.
      */
     public LoginPage navigateToLoginPage() {
-        System.out.println("123456");
         goToURL(ReaderApplicationProperties.getInstance().getApplicationProperties().get("login"));
         return new LoginPage();
     }
