@@ -12,8 +12,10 @@ import java.util.Map;
  * @version 0.0.1
  */
 public class EventSteps {
-    private EventForm eventForm = new EventForm;
+    private EventForm eventForm;
     private Event event;
+    private HomePage homePage;
+    private EventDetail eventDetail;
 
     public EventSteps(Event event) {
         this.event = event;
@@ -21,7 +23,7 @@ public class EventSteps {
 
     @When("^I open the form Event from Home page$")
     public void openFormEvent(){
-        eventForm.openForm();
+        homePage.openForm();
     }
 
     @When("^I add a new Event with the following data$")
@@ -32,17 +34,17 @@ public class EventSteps {
 
     @Then("^the Subject of new Event should be displayed on Calendar Section$")
     public void validateNameEvent() {
-        assertEquals(eventForm.getNameEvent(), event.getName());
+        assertEquals(homePage.getNameEvent(), event.getName());
     }
 
-    @When("^I open the Subject link$")
+    @When("^I open the new Event$")
     public void openEventDetail() {
-        eventForm.openDetail();
+        homePage.openDetail();
     }
 
-    @Then("^the Event Detail section should be displayed$")
+    @Then("^the data of new Event should be displayed from Event Detail page$")
     public void validateEventDetail() {
-        Map<String, String> eventFormData = eventForm.getData();
+        Map<String, String> eventFormData = eventDetail.getData();
         assertTrue(event.isEqualEvent(eventFormData));
     }
 }
