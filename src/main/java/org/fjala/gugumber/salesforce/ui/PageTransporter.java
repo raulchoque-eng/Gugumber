@@ -29,7 +29,7 @@ import java.net.URL;
 public class PageTransporter {
     private static PageTransporter instance;
     WebDriver webDriver;
-    String baseURL = "https://www.pivotaltracker.com/";
+    String baseURL = ReaderApplicationProperties.getInstance().getAppProperties().get("url");
 
     protected PageTransporter() {
         initialize();

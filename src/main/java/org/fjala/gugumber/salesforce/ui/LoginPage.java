@@ -41,6 +41,12 @@ public class LoginPage extends BasePage {
     protected void waitUntilPageObjectIsLoaded() {
         wait.until(ExpectedConditions.visibilityOf(loginForm));
     }
+
+    /**
+     * Log in in the application.
+     * @param userName of the user.
+     * @param password of the user.
+     */
     public void login(String userName, String password){
         setUserName(ReaderApplicationProperties.getInstance().getAppProperties().get(userName));
         setPassword(ReaderApplicationProperties.getInstance().getAppProperties().get(password));

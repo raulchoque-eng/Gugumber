@@ -25,7 +25,6 @@ import org.fjala.gugumber.salesforce.ui.PageTransporter;
  */
 public class LoginSteps {
     PageTransporter pageTransporter = PageTransporter.getInstance();
-
     LoginPage loginPage;
 
     @When("^I am logged in SalesForce with \"([^\"]*)\" and \"([^\"]*)\"$")
