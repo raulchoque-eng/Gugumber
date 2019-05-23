@@ -12,12 +12,12 @@
 
 package org.fjala.gugumber.salesforce.ui;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.Map;
 import org.fjala.gugumber.core.selenium.WebDriverManager;
 import org.fjala.gugumber.salesforce.common.ReaderApplicationProperties;
 import org.openqa.selenium.WebDriver;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 /**
  * PageTransporter class.
@@ -26,11 +26,9 @@ import org.openqa.selenium.WebDriver;
  * @version 0.0.1
  */
 public class PageTransporter {
-
-//    Map<String,String> salesforceProperties = ReaderApplicationProperties.getInstance().getApplicationProperties();
-    private WebDriver webDriver;
-
     private static PageTransporter instance;
+    WebDriver webDriver;
+    String baseURL = "https://www.pivotaltracker.com/";
 
     /**
      * Constructor of page transporter.
@@ -77,7 +75,9 @@ public class PageTransporter {
      * @return New instance of LoginPage.
      */
     public LoginPage navigateToLoginPage() {
-        goToURL(ReaderApplicationProperties.getInstance().getApplicationProperties().get("login"));
+        goToURL(ReaderApplicationProperties.getInstance().getAppProperties().get("login"));
         return new LoginPage();
     }
+
+
 }
