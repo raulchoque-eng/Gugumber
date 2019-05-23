@@ -26,10 +26,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
  */
 public class LoginPage extends BasePage {
     @FindBy(id = "username")
-    private WebElement userNameTxtBox;
+    private WebElement userNameTxtB;
 
     @FindBy(id = "password")
-    private WebElement passwordTxtBox;
+    private WebElement passwordTxtB;
 
     @FindBy(id = "Login")
     private WebElement loginBtn;
@@ -54,11 +54,11 @@ public class LoginPage extends BasePage {
     }
 
     public void setUserName(String userName) {
-        userNameTxtBox.sendKeys(userName);
+        userNameTxtB.sendKeys(userName);
     }
 
     public void setPassword(String password) {
-        passwordTxtBox.sendKeys(password);
+        passwordTxtB.sendKeys(password);
     }
 
     public void clickNextSignInBtn() {
