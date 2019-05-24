@@ -28,7 +28,7 @@ import java.net.URL;
 public class PageTransporter {
     private static PageTransporter instance;
     WebDriver webDriver;
-    String baseURL = ReaderApplicationProperties.getInstance().getAppProperties().get("url");
+    String baseURL = ReaderApplicationProperties.getInstance().getApplicationProperties().get("url");
 
     /**
      * Constructor of page transporter.
@@ -78,6 +78,5 @@ public class PageTransporter {
         goToURL(ReaderApplicationProperties.getInstance().getApplicationProperties().get("login"));
         return new LoginPage();
     }
-
 
 }

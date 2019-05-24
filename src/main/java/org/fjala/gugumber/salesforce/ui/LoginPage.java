@@ -25,6 +25,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
  * @version 0.0.1
  */
 public class LoginPage extends BasePage {
+
     @FindBy(id = "username")
     private WebElement userNameTxtB;
 
