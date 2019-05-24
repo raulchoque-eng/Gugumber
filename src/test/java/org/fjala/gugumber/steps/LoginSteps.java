@@ -1,9 +1,5 @@
 /*
-<<<<<<< HEAD
- * @(#) WebDriveFactory.java Copyright (c) 2019 Jala Foundation.
-=======
  * @(#) LoginSteps.java Copyright (c) 2019 Jala Foundation.
->>>>>>> 42061750e865a676850d781025c2865558ebac05
  * 2643 Av Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
  * All rights reserved.
  *
@@ -12,8 +8,7 @@
  * disclose such Confidential Information and shall use it only in
  * accordance with the terms of the license agreement you entered into
  * with Jala Foundation.
-<<<<<<< HEAD
- */
+  */
 
 package org.fjala.gugumber.steps;
 
