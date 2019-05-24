@@ -12,12 +12,12 @@
 
 package org.fjala.gugumber.core.selenium;
 
-import java.util.concurrent.TimeUnit;
-
 import org.fjala.gugumber.core.selenium.webdrivers.BrowserConfig;
 import org.fjala.gugumber.core.selenium.webdrivers.BrowserType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * WebDriverManager class.
@@ -30,7 +30,6 @@ public class WebDriverManager {
     private WebDriverConfig webDriverConfig = WebDriverConfig.getInstance();
     private WebDriver webDriver;
     private WebDriverWait webDriverWait;
-
     private static WebDriverManager instance = null;
 
     /**

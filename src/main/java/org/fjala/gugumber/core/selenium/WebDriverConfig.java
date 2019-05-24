@@ -26,47 +26,56 @@ public class WebDriverConfig {
      * Constant for browser.
      */
     private static final String BROWSER = "browser";
+
     /**
      * Constant for the implicit wait  time.
      */
     private static final String IMPLICIT = "implicitWaitTime";
+
     /**
      * Constant for the explicit wait  time.
      */
     private static final String EXPLICIT = "explicitWaitTime";
+
     /**
      * Constant for the sleep wait  time.
      */
     private static final String WAIT_SLEEP_TIME = "waitSleepTime";
+
     /**
-     * The browser is a variable with the name of browser.
+     * Browsers is a variable with the name of browser.
      */
     private String browser;
+
     /**
-     * The implicit wait time saves the implicit wait time.
+     * Implicit wait time saves the implicit wait time.
      */
     private int implicitWaitTime;
+
     /**
-     * The implicit wait time saves the explicit wait time.
+     * Explicit wait time saves the explicit wait time.
      */
     private int explicitWaitTime;
+
     /**
-     * The implicit wait time saves the Sleep wait time.
+     * Sleeps wait time saves the Sleep wait time.
      */
+
     private int waitSleepTime;
+
     /**
-     *
+     * Variable for  initialize Web driver config.
      */
     private static WebDriverConfig instance;
 
     /**
-     *
+     * Constructor WebDriverConfig.
      */
-    protected WebDriverConfig() {
+    private WebDriverConfig() {
         initialize();
     }
+
     /**
-     * Constructor of WebDriverConfig.
      * Gets WebDriverConfig as Singleton.
      *
      * @return a instance.

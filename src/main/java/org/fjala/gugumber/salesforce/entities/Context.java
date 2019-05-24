@@ -1,5 +1,5 @@
 /*
- * @(#) BrowserType.java Copyright (c) 2019 Jala Foundation.
+ * @(#) WebDriveFactory.java Copyright (c) 2019 Jala Foundation.
  * 2643 Av Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
  * All rights reserved.
  *
@@ -10,25 +10,29 @@
  * with Jala Foundation.
  */
 
-package org.fjala.gugumber.core.selenium.webdrivers;
+package org.fjala.gugumber.salesforce.entities;
 
 /**
- * BrowserType enum.
+ * Context class.
  *
  * @author Cxrisstian
  * @version 0.0.1
  */
-public enum BrowserType {
+public class Context {
+    private Contact contact;
+
     /**
-     * Option Chrome for Type of Browser.
+     * Context for creation of the constructor.
      */
-    CHROME,
+    public Context() {
+        this.contact = new Contact();
+    }
+
     /**
-     * Option Firefox for Type of Browser.
+     * Get contact.
+     * @return contact.
      */
-    FIREFOX,
-    /**
-     * Option Internet Explorer for Type of Browser.
-     */
-    IE
+    public Contact getContact() {
+        return contact;
+    }
 }

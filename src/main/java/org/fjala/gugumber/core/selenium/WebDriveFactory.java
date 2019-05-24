@@ -27,9 +27,9 @@ import org.openqa.selenium.WebDriver;
 public class WebDriveFactory {
 
     /**
-    *
-    * @param type
-    * @return
+    * Get Web driver for a Browser.
+    * @param type of browser.
+    * @return driver manager.
     */
     public static WebDriver getManager(BrowserType type) {
         WebDriver driverManager;

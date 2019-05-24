@@ -1,5 +1,5 @@
 /*
- * @(#) BrowserType.java Copyright (c) 2019 Jala Foundation.
+ * @(#) WebDriveFactory.java Copyright (c) 2019 Jala Foundation.
  * 2643 Av Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
  * All rights reserved.
  *
@@ -10,25 +10,19 @@
  * with Jala Foundation.
  */
 
-package org.fjala.gugumber.core.selenium.webdrivers;
+package org.fjala.gugumber.core.selenium.utils;
 
 /**
- * BrowserType enum.
+ * StrategySetter class.
  *
  * @author Cxrisstian
  * @version 0.0.1
  */
-public enum BrowserType {
+@FunctionalInterface
+public interface StrategySetter {
+
     /**
-     * Option Chrome for Type of Browser.
+     * Executes method for a Page or an entity.
      */
-    CHROME,
-    /**
-     * Option Firefox for Type of Browser.
-     */
-    FIREFOX,
-    /**
-     * Option Internet Explorer for Type of Browser.
-     */
-    IE
+    void executeMethod();
 }
