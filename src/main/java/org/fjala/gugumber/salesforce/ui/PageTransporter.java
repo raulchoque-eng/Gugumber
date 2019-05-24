@@ -31,6 +31,8 @@ public class PageTransporter {
     private static PageTransporter instance;
     WebDriver webDriver;
     String baseURL = ReaderApplicationProperties.getInstance().getAppProperties().get("url");
+    String pageLayoutName = PageLayoutConfig.getInstance().getPageLayoutName().toUpperCase();
+    PageLayoutType pageLayoutType = PageLayoutType.valueOf(pageLayoutName);
 
     protected PageTransporter() {
         initialize();
@@ -45,6 +47,8 @@ public class PageTransporter {
 
     private void initialize() {
         webDriver = WebDriverManager.getInstance().getWebDriver();
+        pageLayoutName = PageLayoutConfig.getInstance().getPageLayoutName().toUpperCase();
+        pageLayoutType = PageLayoutType.valueOf(pageLayoutName);
     }
 
     private void goToURL(final String url) {
@@ -61,16 +65,16 @@ public class PageTransporter {
     }
 
     public HomePage navigateToHomePage() {
-
-        String pageLayouttName = PageLayoutConfig.getInstance().getBrowserName().toUpperCase();
-        HomePage homePage = PageLayouFactory.getManager(PageLayoutType.valueOf(pageLayouttName));
-        switch (pageLayouttName) {
-            case "CLASSIC":
-                goToURL(ReaderApplicationProperties.getInstance().getAppProperties().get("baseURL"));
-            case "Ligthing":
-                goToURL(ReaderApplicationProperties.getInstance().getAppProperties().get("urlnew"));
-                default: null;
+        switch (pageLayoutType) {
+            case CLASSIC:
+                goToURL(ReaderApplicationProperties.getInstance().getAppProperties().get("classic-url"));
+                break;
+            case LIGHTNING:
+                goToURL(ReaderApplicationProperties.getInstance().getAppProperties().get("lightning-url"));
+                break;
         }
+        HomePage homePage = PageLayouFactory.getManager(pageLayoutType);
+
         return homePage;
     }
 

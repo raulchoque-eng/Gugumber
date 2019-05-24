@@ -12,7 +12,7 @@ public class PageLayoutConfig {
      *
      * @return browser.
      */
-    public String getBrowserName() {
+    public String getPageLayoutName() {
         return ReaderDriverProperties.getInstance().getDriverProperties().get("type-layout");
     }
 
