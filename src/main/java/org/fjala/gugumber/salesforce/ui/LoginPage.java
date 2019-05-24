@@ -8,10 +8,7 @@
  * disclose such Confidential Information and shall use it only in
  * accordance with the terms of the license agreement you entered into
  * with Jala Foundation.
-<<<<<<< HEAD
-=======
  *
->>>>>>> 42061750e865a676850d781025c2865558ebac05
  */
 
 package org.fjala.gugumber.salesforce.ui;
