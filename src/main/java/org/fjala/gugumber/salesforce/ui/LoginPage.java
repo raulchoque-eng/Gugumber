@@ -49,8 +49,8 @@ public class LoginPage extends BasePage {
      * @param password of the user.
      */
     public void login(String userName, String password){
-        setUserName(ReaderApplicationProperties.getInstance().getApplicationProperties().get(userName));
-        setPassword(ReaderApplicationProperties.getInstance().getApplicationProperties().get(password));
+        setUserName(ReaderApplicationProperties.getInstance().getAppProperties().get(userName));
+        setPassword(ReaderApplicationProperties.getInstance().getAppProperties().get(password));
         clickNextSignInBtn();
     }
 

@@ -13,11 +13,11 @@
 
 package org.fjala.gugumber.salesforce.common;
 
+import org.fjala.gugumber.core.selenium.utils.LoaderProperties;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
-
-import org.fjala.gugumber.core.selenium.utils.LoaderProperties;
 
 /**
  * ReaderApplicationProperties class.
@@ -57,7 +57,7 @@ public class ReaderApplicationProperties {
      *
      * @return a map of properties.
      */
-    public Map<String, String> getApplicationProperties() {
+    public Map<String, String> getAppProperties() {
 
         return applicationProperties;
     }

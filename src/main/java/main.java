@@ -10,13 +10,9 @@
  * with Jala Foundation.
  */
 
-import org.fjala.gugumber.core.selenium.WebDriverManager;
-import org.fjala.gugumber.salesforce.common.ReaderApplicationProperties;
 import org.fjala.gugumber.salesforce.ui.PageTransporter;
-import org.openqa.selenium.WebDriver;
 
 import java.net.MalformedURLException;
-import java.net.URL;
 
 /**
  * main class.
