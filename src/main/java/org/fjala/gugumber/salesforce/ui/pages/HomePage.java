@@ -12,13 +12,16 @@
 
 package org.fjala.gugumber.salesforce.ui.pages;
 
+import org.fjala.gugumber.salesforce.ui.BasePage;
+
 /**
  * HomePage class.
  *
  * @author Raul Choque
  * @version 0.0.1
  */
-public class HomePage {
+public abstract class HomePage extends BasePage {
+
     public void openForm() {
         System.out.println("TODO");
     }

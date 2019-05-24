@@ -15,6 +15,7 @@ package org.fjala.gugumber.salesforce.ui;
 
 import org.fjala.gugumber.core.selenium.WebDriverManager;
 import org.fjala.gugumber.salesforce.common.ReaderApplicationProperties;
+import org.fjala.gugumber.salesforce.ui.pages.HomePage;
 import org.openqa.selenium.WebDriver;
 
 import java.net.MalformedURLException;
@@ -57,6 +58,20 @@ public class PageTransporter {
     public LoginPage navigateToLoginPage() {
         goToURL(ReaderApplicationProperties.getInstance().getAppProperties().get("login"));
         return new LoginPage();
+    }
+
+    public HomePage navigateToHomePage() {
+
+        String pageLayouttName = PageLayoutConfig.getInstance().getBrowserName().toUpperCase();
+        HomePage homePage = PageLayouFactory.getManager(PageLayoutType.valueOf(pageLayouttName));
+        switch (pageLayouttName) {
+            case "CLASSIC":
+                goToURL(ReaderApplicationProperties.getInstance().getAppProperties().get("baseURL"));
+            case "Ligthing":
+                goToURL(ReaderApplicationProperties.getInstance().getAppProperties().get("urlnew"));
+                default: null;
+        }
+        return homePage;
     }
 
 
