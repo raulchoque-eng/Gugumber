@@ -32,6 +32,7 @@ public class LoginSteps {
     public void logInWithUsernameAdminAndPasswordAdmin(String username, String password) {
         loginPage = pageTransporter.navigateToLoginPage();
         loginPage.login(username, password);
+        homePage = pageTransporter.navigateToHomePage();
     }
 }
 
