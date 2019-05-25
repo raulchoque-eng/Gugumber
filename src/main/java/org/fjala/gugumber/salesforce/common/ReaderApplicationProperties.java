@@ -13,11 +13,11 @@
 
 package org.fjala.gugumber.salesforce.common;
 
+import org.fjala.gugumber.core.selenium.utils.LoaderProperties;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
-
-import org.fjala.gugumber.core.selenium.utils.LoaderProperties;
 
 /**
  * ReaderApplicationProperties class.
@@ -27,7 +27,7 @@ import org.fjala.gugumber.core.selenium.utils.LoaderProperties;
  */
 public class ReaderApplicationProperties {
     /**
-     * Constant for path of application roperties.
+     * Constant for path of application properties.
      */
     private static final String SALESFORCE_PROPERTIES = "salesforce.properties";
     /**
@@ -58,11 +58,12 @@ public class ReaderApplicationProperties {
      * @return a map of properties.
      */
     public Map<String, String> getAppProperties() {
+
         return applicationProperties;
     }
 
     /**
-     * Adds properties f the salesforce to map applicationProperties.
+     * Adds properties for the Salesforce to map applicationProperties.
      */
     private void addSalesForceProperties() {
         Properties propertiesSalesForce = LoaderProperties.getInstance().readFile(SALESFORCE_PROPERTIES);

@@ -27,13 +27,16 @@ import org.openqa.selenium.WebDriver;
 public class WebDriveFactory {
 
     /**
-    *
-    * @param type
-    * @return
+    * Get Web driver for a Browser.
+    * @param type of browser.
+    * @return driver manager.
     */
     public static WebDriver getManager(BrowserType type) {
         WebDriver driverManager;
             switch (type) {
+            case CHROME:
+                driverManager = new Chrome().initDriver();
+                break;
             case FIREFOX:
                 driverManager = new Firefox().initDriver();
                 break;

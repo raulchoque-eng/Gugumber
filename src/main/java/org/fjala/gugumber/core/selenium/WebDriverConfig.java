@@ -23,29 +23,58 @@ import org.fjala.gugumber.core.selenium.common.ReaderDriverProperties;
 public class WebDriverConfig {
 
     /**
-     * constant for browser
+     * Constant for browser.
      */
     private static final String BROWSER = "browser";
 
     /**
-     *
+     * Constant for the implicit wait  time.
      */
-    private  static final String IMPLICIT = "implicitWaitTime";
-    private  static final String EXPLICIT = "explicitWaitTime";
-    private  static final String WAIT_SLEEP_TIME = "waitSleepTime";
+    private static final String IMPLICIT = "implicitWaitTime";
 
+    /**
+     * Constant for the explicit wait  time.
+     */
+    private static final String EXPLICIT = "explicitWaitTime";
+
+    /**
+     * Constant for the sleep wait  time.
+     */
+    private static final String WAIT_SLEEP_TIME = "waitSleepTime";
+
+    /**
+     * Browsers is a variable with the name of browser.
+     */
     private String browser;
+
+    /**
+     * Implicit wait time saves the implicit wait time.
+     */
     private int implicitWaitTime;
+
+    /**
+     * Explicit wait time saves the explicit wait time.
+     */
     private int explicitWaitTime;
+
+    /**
+     * Sleeps wait time saves the Sleep wait time.
+     */
     private int waitSleepTime;
 
+    /**
+     * Variable for  initialize Web driver config.
+     */
     private static WebDriverConfig instance;
 
-    protected WebDriverConfig() {
+    /**
+     * Constructor WebDriverConfig.
+     */
+    private WebDriverConfig() {
         initialize();
     }
+
     /**
-     * Constructor of WebDriverConfig.
      * Gets WebDriverConfig as Singleton.
      *
      * @return a instance.
@@ -54,7 +83,6 @@ public class WebDriverConfig {
         if (instance == null) {
             instance = new WebDriverConfig();
         }
-
         return instance;
     }
 
@@ -62,7 +90,7 @@ public class WebDriverConfig {
      * Initializes WebDriverConfig.
      */
     public void initialize() {
-        //browser = System.getProperty(BROWSER);  //Get the browser system property
+        browser = System.getProperty(BROWSER);
         implicitWaitTime = Integer.parseInt(ReaderDriverProperties.getInstance().getDriverProperties().get(IMPLICIT));
         explicitWaitTime = Integer.parseInt(ReaderDriverProperties.getInstance().getDriverProperties().get(EXPLICIT));
         waitSleepTime = Integer.parseInt(ReaderDriverProperties.getInstance().getDriverProperties().get(WAIT_SLEEP_TIME));

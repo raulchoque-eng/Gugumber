@@ -8,7 +8,6 @@
  * disclose such Confidential Information and shall use it only in
  * accordance with the terms of the license agreement you entered into
  * with Jala Foundation.
- *
  */
 
 package org.fjala.gugumber.salesforce.ui;
@@ -23,18 +22,26 @@ import java.net.URL;
 /**
  * PageTransporter class.
  *
- * @author Areliez Vargas
+ * @author Cxrisstian
  * @version 0.0.1
  */
 public class PageTransporter {
     private static PageTransporter instance;
     WebDriver webDriver;
-    String baseURL = ReaderApplicationProperties.getInstance().getAppProperties().get("url");
+    String baseURL = ReaderApplicationProperties.getInstance().getApplicationProperties().get("url");
 
+    /**
+     * Constructor of page transporter.
+     */
     protected PageTransporter() {
         initialize();
     }
 
+    /**
+     * Gets instance of SelectSiteUserConfig.
+     *
+     * @return the instance or a new instance.
+     */
     public static PageTransporter getInstance() {
         if (instance == null) {
             instance = new PageTransporter();
@@ -42,10 +49,18 @@ public class PageTransporter {
         return instance;
     }
 
+    /**
+     * Initializes page transporter.
+     */
     private void initialize() {
         webDriver = WebDriverManager.getInstance().getWebDriver();
     }
 
+    /**
+     * Goes to the given URL.
+     *
+     * @param url - Site's URL.
+     */
     private void goToURL(final String url) {
         try {
             webDriver.navigate().to(new URL(url));
@@ -54,10 +69,14 @@ public class PageTransporter {
         }
     }
 
+    /**
+     * Navigates to Login Page.
+     *
+     * @return New instance of LoginPage.
+     */
     public LoginPage navigateToLoginPage() {
-        goToURL(ReaderApplicationProperties.getInstance().getAppProperties().get("login"));
+        goToURL(ReaderApplicationProperties.getInstance().getApplicationProperties().get("login"));
         return new LoginPage();
     }
-
 
 }

@@ -8,12 +8,12 @@
  * disclose such Confidential Information and shall use it only in
  * accordance with the terms of the license agreement you entered into
  * with Jala Foundation.
- *
- */
+  */
 
 package org.fjala.gugumber.steps;
 
-import cucumber.api.java.en.When;
+
+import cucumber.api.java.en.Given;
 import org.fjala.gugumber.salesforce.ui.LoginPage;
 import org.fjala.gugumber.salesforce.ui.PageTransporter;
 
@@ -27,9 +27,10 @@ public class LoginSteps {
     PageTransporter pageTransporter = PageTransporter.getInstance();
     LoginPage loginPage;
 
-    @When("^I am logged in SalesForce with \"([^\"]*)\" and \"([^\"]*)\"$")
+    @Given("^I am logged in SalesForce with \"([^\"]*)\" and \"([^\"]*)\"$")
     public void logInWithUsernameAdminAndPasswordAdmin(String username, String password) {
         loginPage = pageTransporter.navigateToLoginPage();
         loginPage.login(username, password);
     }
 }
+

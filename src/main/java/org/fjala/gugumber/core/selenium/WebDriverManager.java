@@ -30,7 +30,6 @@ public class WebDriverManager {
     private WebDriverConfig webDriverConfig = WebDriverConfig.getInstance();
     private WebDriver webDriver;
     private WebDriverWait webDriverWait;
-
     private static WebDriverManager instance = null;
 
     /**
