@@ -60,7 +60,6 @@ public class WebDriverConfig {
     /**
      * Sleeps wait time saves the Sleep wait time.
      */
-
     private int waitSleepTime;
 
     /**

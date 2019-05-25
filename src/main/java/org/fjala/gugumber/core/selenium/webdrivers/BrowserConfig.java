@@ -23,7 +23,7 @@ import org.fjala.gugumber.core.selenium.common.ReaderDriverProperties;
 public class BrowserConfig {
 
     /**
-     * Instance browser Config.
+     * Instances browser Config.
      *
      * @return browserConfig.
      */
