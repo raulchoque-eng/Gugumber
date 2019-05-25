@@ -23,11 +23,6 @@ import org.fjala.gugumber.core.selenium.common.ReaderDriverProperties;
 public class WebDriverConfig {
 
     /**
-     * Constant for browser.
-     */
-    private static final String BROWSER = "browser";
-
-    /**
      * Constant for the implicit wait  time.
      */
     private static final String IMPLICIT = "implicitWaitTime";
@@ -41,11 +36,6 @@ public class WebDriverConfig {
      * Constant for the sleep wait  time.
      */
     private static final String WAIT_SLEEP_TIME = "waitSleepTime";
-
-    /**
-     * Browsers is a variable with the name of browser.
-     */
-    private String browser;
 
     /**
      * Implicit wait time saves the implicit wait time.
@@ -70,7 +60,7 @@ public class WebDriverConfig {
     /**
      * Constructor WebDriverConfig.
      */
-    private WebDriverConfig() {
+    protected WebDriverConfig() {
         initialize();
     }
 
@@ -90,20 +80,11 @@ public class WebDriverConfig {
      * Initializes WebDriverConfig.
      */
     public void initialize() {
-        browser = System.getProperty(BROWSER);
         implicitWaitTime = Integer.parseInt(ReaderDriverProperties.getInstance().getDriverProperties().get(IMPLICIT));
         explicitWaitTime = Integer.parseInt(ReaderDriverProperties.getInstance().getDriverProperties().get(EXPLICIT));
         waitSleepTime = Integer.parseInt(ReaderDriverProperties.getInstance().getDriverProperties().get(WAIT_SLEEP_TIME));
     }
 
-    /**
-     * Gets the browser in which the tests are being executed.
-     *
-     * @return Browser.
-     */
-    public String getBrowser() {
-        return browser;
-    }
 
     /**
      * Gets the implicit wait time set for the WebDriver.
