@@ -1,5 +1,5 @@
 /*
- * @(#) BasePage.java Copyright (c) 2019 Jala Foundation.
+ * @(#) PageLayoutType.java Copyright (c) 2019 Jala Foundation.
  * 2643 Av Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
  * All rights reserved.
  *
@@ -13,12 +13,20 @@
 package org.fjala.gugumber.salesforce.ui;
 
 /**
- * Enumerable for page layout type.
+ * PageLayoutType enumerable.
  *
  * @author Areliez Vargas
  * @version 0.0.1
  */
 public enum PageLayoutType {
+
+    /**
+     * Page layout classic.
+     */
     CLASSIC,
+
+    /**
+     * Page layout lightning.
+     */
     LIGHTNING
 }

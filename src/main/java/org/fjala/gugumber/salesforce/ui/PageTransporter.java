@@ -28,6 +28,7 @@ import org.openqa.selenium.WebDriver;
  * @version 0.0.1
  */
 public class PageTransporter {
+
     /**
      * Variable to initializes the PageTransporter.
      */
