@@ -12,10 +12,10 @@
 
 package org.fjala.gugumber.steps;
 
-
 import cucumber.api.java.en.Given;
 import org.fjala.gugumber.salesforce.ui.LoginPage;
 import org.fjala.gugumber.salesforce.ui.PageTransporter;
+import org.fjala.gugumber.salesforce.ui.pages.HomePage;
 
 /**
  * LoginSteps class.
@@ -24,13 +24,15 @@ import org.fjala.gugumber.salesforce.ui.PageTransporter;
  * @version 0.0.1
  */
 public class LoginSteps {
-    PageTransporter pageTransporter = PageTransporter.getInstance();
-    LoginPage loginPage;
+    private PageTransporter pageTransporter = PageTransporter.getInstance();
+    private LoginPage loginPage;
+    private HomePage homePage;
 
     @Given("^I am logged in SalesForce with \"([^\"]*)\" and \"([^\"]*)\"$")
     public void logInWithUsernameAdminAndPasswordAdmin(String username, String password) {
         loginPage = pageTransporter.navigateToLoginPage();
         loginPage.login(username, password);
+        homePage = pageTransporter.navigateToHomePage();
     }
 }
 

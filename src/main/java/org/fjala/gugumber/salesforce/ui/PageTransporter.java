@@ -14,6 +14,7 @@ package org.fjala.gugumber.salesforce.ui;
 
 import org.fjala.gugumber.core.selenium.WebDriverManager;
 import org.fjala.gugumber.salesforce.common.ReaderApplicationProperties;
+import org.fjala.gugumber.salesforce.ui.pages.HomePage;
 import org.openqa.selenium.WebDriver;
 
 import java.net.MalformedURLException;
@@ -22,13 +23,30 @@ import java.net.URL;
 /**
  * PageTransporter class.
  *
- * @author Cxrisstian
+ * @author Areliez Vargas
  * @version 0.0.1
  */
 public class PageTransporter {
+
+    /**
+     * Variable to initializes the PageTransporter.
+     */
     private static PageTransporter instance;
-    WebDriver webDriver;
-    String baseURL = ReaderApplicationProperties.getInstance().getApplicationProperties().get("url");
+
+    /**
+     * Variable for webdriver.
+     */
+    private WebDriver webDriver;
+
+    /**
+     * Variable for the name of page layout.
+     */
+    private String pageLayoutName;
+
+    /**
+     * Variable for the page layout type.
+     */
+    private PageLayoutType pageLayoutType;
 
     /**
      * Constructor of page transporter.
@@ -38,9 +56,9 @@ public class PageTransporter {
     }
 
     /**
-     * Gets instance of SelectSiteUserConfig.
+     * Gets instance of page transporter.
      *
-     * @return the instance or a new instance.
+     * @return a new instance if it was initialised.
      */
     public static PageTransporter getInstance() {
         if (instance == null) {
@@ -50,16 +68,18 @@ public class PageTransporter {
     }
 
     /**
-     * Initializes page transporter.
+     * Initializes the attributes.
      */
     private void initialize() {
         webDriver = WebDriverManager.getInstance().getWebDriver();
+        pageLayoutName = PageLayoutConfig.getInstance().getPageLayoutName().toUpperCase();
+        pageLayoutType = PageLayoutType.valueOf(pageLayoutName);
     }
 
     /**
-     * Goes to the given URL.
+     * Navigates to a page sending the url.
      *
-     * @param url - Site's URL.
+     * @param url for navigate.
      */
     private void goToURL(final String url) {
         try {
@@ -70,13 +90,32 @@ public class PageTransporter {
     }
 
     /**
-     * Navigates to Login Page.
+     * Navigates to the login page.
      *
-     * @return New instance of LoginPage.
+     * @return a new login page.
      */
     public LoginPage navigateToLoginPage() {
-        goToURL(ReaderApplicationProperties.getInstance().getApplicationProperties().get("login"));
+        goToURL(ReaderApplicationProperties.getInstance().getAppProperties().get("login"));
         return new LoginPage();
     }
 
+    /**
+     * Navigates a the home page according to the page layout.
+     *
+     * @return a home page according to the page layout.
+     */
+    public HomePage navigateToHomePage() {
+        switch (pageLayoutType) {
+            case CLASSIC:
+                goToURL(ReaderApplicationProperties.getInstance().getAppProperties().get("classic-url"));
+                break;
+            case LIGHTNING:
+                goToURL(ReaderApplicationProperties.getInstance().getAppProperties().get("lightning-url"));
+                break;
+            default:
+                goToURL(ReaderApplicationProperties.getInstance().getAppProperties().get("classic-url"));
+                break;
+        }
+        return PageLayoutFactory.getHomePageManager(pageLayoutType);
+    }
 }
