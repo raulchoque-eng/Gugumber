@@ -8,18 +8,16 @@
  * disclose such Confidential Information and shall use it only in
  * accordance with the terms of the license agreement you entered into
  * with Jala Foundation.
- *
  */
 
 package org.fjala.gugumber.salesforce.ui;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-
 import org.fjala.gugumber.core.selenium.WebDriverManager;
 import org.fjala.gugumber.salesforce.common.ReaderApplicationProperties;
-import org.fjala.gugumber.salesforce.ui.pages.HomePage;
 import org.openqa.selenium.WebDriver;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 /**
  * PageTransporter class.

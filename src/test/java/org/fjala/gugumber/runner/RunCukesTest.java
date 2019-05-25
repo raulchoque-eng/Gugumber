@@ -15,7 +15,6 @@ package org.fjala.gugumber.runner;
 import cucumber.api.CucumberOptions;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 import org.fjala.gugumber.core.report.GeneratorReport;
-import org.fjala.gugumber.core.selenium.WebDriverManager;
 import org.testng.annotations.AfterTest;
 
 /**
@@ -27,7 +26,7 @@ import org.testng.annotations.AfterTest;
 @CucumberOptions(
         plugin = {"pretty", "html:target/cucumber", "json:target/cucumber.json"},
         glue = {"org/fjala/gugumber/steps"},
-        features = {"src/test/resources/features/login.feature"},
+        features = {"src/test/resources/features"},
         monochrome = true)
 
 public class RunCukesTest extends AbstractTestNGCucumberTests {
@@ -37,7 +36,7 @@ public class RunCukesTest extends AbstractTestNGCucumberTests {
      */
     @AfterTest
     public void afterExecution() {
-        WebDriverManager.getInstance().getWebDriver().close();
+//        WebDriverManager.getInstance().getWebDriver().close();
         GeneratorReport.getInstance().generateReport();
     }
 }

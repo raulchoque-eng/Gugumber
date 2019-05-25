@@ -13,18 +13,19 @@
 
 package org.fjala.gugumber.salesforce.ui;
 
+import org.fjala.gugumber.salesforce.BasePage;
+
 import org.fjala.gugumber.salesforce.common.ReaderApplicationProperties;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
- * LoginPage class.
- *
  * @author Areliez Vargas
  * @version 0.0.1
  */
 public class LoginPage extends BasePage {
+
     @FindBy(id = "username")
     private WebElement userNameTxtB;
 
@@ -38,7 +39,7 @@ public class LoginPage extends BasePage {
     private WebElement loginForm;
 
     @Override
-    protected void waitUntilPageObjectIsLoaded() {
+    public void waitUntilPageObjectIsLoaded() {
         wait.until(ExpectedConditions.visibilityOf(loginForm));
     }
 
@@ -65,3 +66,4 @@ public class LoginPage extends BasePage {
         loginBtn.click();
     }
 }
+
