@@ -13,8 +13,6 @@
 
 package org.fjala.gugumber.salesforce.ui;
 
-import org.fjala.gugumber.salesforce.BasePage;
-
 import org.fjala.gugumber.salesforce.common.ReaderApplicationProperties;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

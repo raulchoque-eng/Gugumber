@@ -14,6 +14,7 @@ package org.fjala.gugumber.salesforce.ui;
 
 import org.fjala.gugumber.core.selenium.WebDriverManager;
 import org.fjala.gugumber.salesforce.common.ReaderApplicationProperties;
+import org.fjala.gugumber.salesforce.ui.pages.HomePage;
 import org.openqa.selenium.WebDriver;
 
 import java.net.MalformedURLException;
