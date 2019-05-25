@@ -85,7 +85,6 @@ public class WebDriverConfig {
         waitSleepTime = Integer.parseInt(ReaderDriverProperties.getInstance().getDriverProperties().get(WAIT_SLEEP_TIME));
     }
 
-
     /**
      * Gets the implicit wait time set for the WebDriver.
      *
