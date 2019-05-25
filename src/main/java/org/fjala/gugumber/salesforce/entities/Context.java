@@ -21,7 +21,7 @@ package org.fjala.gugumber.salesforce.entities;
 public class Context {
 
     /**
-     * Contact of type contact.
+     * contact of type contact.
      */
     private Contact contact;
 
