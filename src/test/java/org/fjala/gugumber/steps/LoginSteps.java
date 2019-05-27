@@ -8,7 +8,7 @@
  * disclose such Confidential Information and shall use it only in
  * accordance with the terms of the license agreement you entered into
  * with Jala Foundation.
-  */
+ */
 
 package org.fjala.gugumber.steps;
 
@@ -18,7 +18,7 @@ import org.fjala.gugumber.salesforce.ui.PageTransporter;
 import org.fjala.gugumber.salesforce.ui.pages.HomePage;
 
 /**
- * LoginSteps class.
+ * LoginSteps class for steps definitions.
  *
  * @author Areliez Vargas
  * @version 0.0.1
@@ -26,14 +26,12 @@ import org.fjala.gugumber.salesforce.ui.pages.HomePage;
 public class LoginSteps {
     private PageTransporter pageTransporter = PageTransporter.getInstance();
     private LoginPage loginPage;
-    private HomePage homePage;
 
 
     @Given("^I am logged in SalesForce with \"([^\"]*)\" and \"([^\"]*)\"$")
     public void logInWithUsernameAdminAndPasswordAdmin(String username, String password) {
         loginPage = pageTransporter.navigateToLoginPage();
         loginPage.login(username, password);
-        homePage = pageTransporter.navigateToHomePage();
     }
 }
 
