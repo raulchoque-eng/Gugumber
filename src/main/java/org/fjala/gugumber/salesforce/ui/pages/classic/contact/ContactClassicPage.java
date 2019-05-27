@@ -10,16 +10,12 @@
  * with Jala Foundation.
  */
 
-package org.fjala.gugumber.salesforce.ui.contact;
+package org.fjala.gugumber.salesforce.ui.pages.classic.contact;
 
-import org.fjala.gugumber.core.selenium.utils.StrategySetter;
-import org.fjala.gugumber.salesforce.ui.BasePage;
+import org.fjala.gugumber.salesforce.ui.pages.HomePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * ContactClassicPage class.
@@ -27,7 +23,7 @@ import java.util.Map;
  * @author Cxrisstian
  * @version 0.0.1
  */
-public class ContactClassicPage extends BasePage {
+public class ContactClassicPage extends HomePage {
 
     /**
      * Locator for first name with text box.
@@ -78,18 +74,6 @@ public class ContactClassicPage extends BasePage {
 
     public void clickSaveBtn() {
         saveBtn.click();
-    }
-
-    public void processInformation (final Map<String,String> newContact) {
-        HashMap<String, StrategySetter> strategyMap = composeStrategyMap(newContact);
-        newContact.keySet().forEach(key -> {
-            strategyMap.get(key).executeMethod();});
-    }
-
-    public HashMap<String,StrategySetter> composeStrategyMap(final Map<String,String> newContact) {
-        HashMap<String, StrategySetter>strategyMap = new HashMap<>();
-        strategyMap.put("First Name",()-> setFirstName(newContact.get("First Name")));
-        return strategyMap;
     }
 
 }

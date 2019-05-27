@@ -10,9 +10,9 @@
  * with Jala Foundation.
  */
 
-package org.fjala.gugumber.salesforce.ui.contact;
+package org.fjala.gugumber.salesforce.ui.pages.lightning.contact;
 
-import org.fjala.gugumber.salesforce.ui.BasePage;
+import org.fjala.gugumber.salesforce.ui.pages.HomePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -23,8 +23,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
  * @author Cxrisstian
  * @version 0.0.1
  */
-public class ContacLightningPopUp extends BasePage {
+public class ContacLightningPopUp extends HomePage {
 
+    /**
+     *
+     */
     @FindBy(css = "div[class='modal-container slds-modal__container]'")
     private WebElement newContactModal;
 

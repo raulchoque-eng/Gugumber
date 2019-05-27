@@ -12,11 +12,6 @@
 
 package org.fjala.gugumber.steps;
 
-<<<<<<< HEAD
-
-import cucumber.api.java.en.And;
-=======
->>>>>>> e9b7db69858b721b0e72be0760c02bb62e013266
 import cucumber.api.java.en.Given;
 import org.fjala.gugumber.salesforce.ui.LoginPage;
 import org.fjala.gugumber.salesforce.ui.PageTransporter;
@@ -39,12 +34,6 @@ public class LoginSteps {
         loginPage = pageTransporter.navigateToLoginPage();
         loginPage.login(username, password);
         homePage = pageTransporter.navigateToHomePage();
-    }
-
-    @And("^I navigate home page$")
-    public void navigateHomePage() {
-        homePage = pageTransporter.navigateToHomePage();
-        context.setHomePage(homePage);
     }
 }
 

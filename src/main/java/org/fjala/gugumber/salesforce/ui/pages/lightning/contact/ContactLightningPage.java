@@ -10,9 +10,9 @@
  * with Jala Foundation.
  */
 
-package org.fjala.gugumber.salesforce.ui.contact;
+package org.fjala.gugumber.salesforce.ui.pages.lightning.contact;
 
-import org.fjala.gugumber.salesforce.ui.BasePage;
+import org.fjala.gugumber.salesforce.ui.pages.HomePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -23,8 +23,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
  * @author Cxrisstian
  * @version 0.0.1
  */
-public class ContactLightningPage extends BasePage {
+public class ContactLightningPage extends HomePage {
 
+    /**
+     *
+     */
     @FindBy(css = "div[class='slds-brand-band slds-brand-band_cover slds-brand-band_medium slds-template_bottom-magnet brand-band_magnetic forceBrandBand']")
     private WebElement newContactModal;
 
@@ -32,4 +35,6 @@ public class ContactLightningPage extends BasePage {
     protected void waitUntilPageObjectIsLoaded() {
         wait.until(ExpectedConditions.visibilityOf(newContactModal));
     }
+
+
 }
