@@ -15,6 +15,7 @@ package org.fjala.gugumber.salesforce.ui;
 import org.fjala.gugumber.core.selenium.WebDriverManager;
 import org.fjala.gugumber.salesforce.common.ReaderApplicationProperties;
 import org.fjala.gugumber.salesforce.ui.pages.HomePage;
+import org.fjala.gugumber.salesforce.ui.pages.NavBar;
 import org.openqa.selenium.WebDriver;
 
 import java.net.MalformedURLException;
@@ -117,5 +118,14 @@ public class PageTransporter {
                 break;
         }
         return PageLayoutFactory.getHomePageManager(pageLayoutType);
+    }
+
+    /**
+     * Navigate to Contact page.
+     *
+     * @return New instance of Contact.
+     */
+    public NavBar getNavBar() {
+        return PageLayoutFactory.getNavigateToNavBar(pageLayoutType);
     }
 }

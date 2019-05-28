@@ -13,6 +13,7 @@
 package org.fjala.gugumber.salesforce.ui.pages;
 
 import org.fjala.gugumber.salesforce.ui.BasePage;
+import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ContactPage;
 
 /**
  * NavBar class.
@@ -22,10 +23,18 @@ import org.fjala.gugumber.salesforce.ui.BasePage;
  */
 public abstract class NavBar extends BasePage {
 
+//    /**
+//     * Returns Account page after clicking on account option.
+//     *
+//     * @return an Account page.
+//     */
+//    public abstract AccountsPage clickAccountsOption();
+
     /**
-     * Returns Account page after clicking on account option.
+     * Returns Account page after clicking on contact option.
      *
      * @return an Account page.
      */
-    public abstract AccountsPage clickAccountsOption();
+    public abstract ContactPage goContactPage();
+
 }

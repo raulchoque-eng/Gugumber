@@ -13,8 +13,11 @@
 package org.fjala.gugumber.salesforce.ui;
 
 import org.fjala.gugumber.salesforce.ui.pages.HomePage;
+import org.fjala.gugumber.salesforce.ui.pages.NavBar;
 import org.fjala.gugumber.salesforce.ui.pages.classic.HomeClassicPage;
+import org.fjala.gugumber.salesforce.ui.pages.classic.NavBarClassic;
 import org.fjala.gugumber.salesforce.ui.pages.lightning.HomeLightningPage;
+import org.fjala.gugumber.salesforce.ui.pages.lightning.NavBarLightning;
 
 /**
  * PageLayoutFactory class.
@@ -44,5 +47,21 @@ public class PageLayoutFactory {
                 break;
         }
         return homePage;
+    }
+
+    public static NavBar getNavigateToNavBar(final PageLayoutType type) {
+        final NavBar navBar;
+        switch (type) {
+            case CLASSIC:
+                navBar = new NavBarClassic();
+                break;
+            case LIGHTNING:
+                navBar = new NavBarLightning();
+                break;
+            default:
+                navBar = new NavBarLightning();
+                break;
+        }
+        return navBar;
     }
 }

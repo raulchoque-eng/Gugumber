@@ -20,7 +20,7 @@ import java.util.Map;
 /**
  * Contact class.
  *
- * @author Cxrisstian
+ * @author Cristian Lujan
  * @version 0.0.1
  */
 public class Contact {
@@ -42,6 +42,19 @@ public class Contact {
     private final static String FAX = "Fax";
     private final static String ASSISTANT = "Assistant";
     private final static String ASST_PHONE = "Asst Phone";
+    private final static String MAILING_STREET = "Mailing Street";
+    private final static String MAILING_CITY = "Mailing City";
+    private final static String MAILING_STATE = "Mailing State/Province";
+    private final static String MAILING_POSTAL_CODE = "Mailing Zip/Postal Code";
+    private final static String MAILING_COUNTRY = "Mailing Country";
+    private final static String OTHER_STREET = "Other Street";
+    private final static String OTHER_CITY = "Other City";
+    private final static String OTHER_STATE = "Other State/Province";
+    private final static String OTHER_POSTAL_CODE = "Other Zip/Postal Code";
+    private final static String OTHER_COUNTRY = "Other Country";
+    private final static String LANGUAGES = "Languages";
+    private final static String LEVEL = "Level";
+    private final static String DESCRIPTION = "Description";
 
     private String Salutation;
     private String firstName;
@@ -60,6 +73,19 @@ public class Contact {
     private int fax;
     private String assistant;
     private int asstPhone;
+    private String mailingStreet;
+    private String mailingCity;
+    private String mailingState;
+    private String mailingPostalCode;
+    private String mailingCountry;
+    private String otherStreet;
+    private String otherCity;
+    private String otherState;
+    private String otherZipPostalCode;
+    private String otherCountry;
+    private String languages;
+    private String level;
+    private String description;
 
     public String getSalutation() {
         return Salutation;
@@ -69,12 +95,52 @@ public class Contact {
         Salutation = salutation;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public int getPhone() {
+        return phone;
+    }
+
+    public void setPhone(int phone) {
+        this.phone = phone;
+    }
+
     public int getHomePhone() {
         return homePhone;
     }
 
     public void setHomePhone(int homePhone) {
         this.homePhone = homePhone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getAccount() {
+        return account;
+    }
+
+    public void setAccount(String account) {
+        this.account = account;
     }
 
     public String getTitle() {
@@ -157,46 +223,109 @@ public class Contact {
         this.asstPhone = asstPhone;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getMailingStreet() {
+        return mailingStreet;
     }
 
-    public String getAccount() {
-        return account;
+    public void setMailingStreet(String mailingStreet) {
+        this.mailingStreet = mailingStreet;
     }
 
-    public int getPhone() {
-        return phone;
+    public String getMailingCity() {
+        return mailingCity;
     }
 
-    public String getEmail() {
-        return email;
+    public void setMailingCity(String mailingCity) {
+        this.mailingCity = mailingCity;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getMailingState() {
+        return mailingState;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setMailingState(String mailingState) {
+        this.mailingState = mailingState;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public String getMailingPostalCode() {
+        return mailingPostalCode;
     }
 
-    public void setAccount(String account) {
-        this.account = account;
+    public void setMailingPostalCode(String mailingPostalCode) {
+        this.mailingPostalCode = mailingPostalCode;
     }
 
-    public void setPhone(int phone) {
-        this.phone = phone;
+    public String getMailingCountry() {
+        return mailingCountry;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setMailingCountry(String mailingCountry) {
+        this.mailingCountry = mailingCountry;
     }
 
+    public String getOtherStreet() {
+        return otherStreet;
+    }
+
+    public void setOtherStreet(String otherStreet) {
+        this.otherStreet = otherStreet;
+    }
+
+    public String getOtherCity() {
+        return otherCity;
+    }
+
+    public void setOtherCity(String otherCity) {
+        this.otherCity = otherCity;
+    }
+
+    public String getOtherState() {
+        return otherState;
+    }
+
+    public void setOtherState(String otherState) {
+        this.otherState = otherState;
+    }
+
+    public String getOtherZipPostalCode() {
+        return otherZipPostalCode;
+    }
+
+    public void setOtherZipPostalCode(String otherZipPostalCode) {
+        this.otherZipPostalCode = otherZipPostalCode;
+    }
+
+    public String getOtherCountry() {
+        return otherCountry;
+    }
+
+    public void setOtherCountry(String otherCountry) {
+        this.otherCountry = otherCountry;
+    }
+
+    public String getLanguages() {
+        return languages;
+    }
+
+    public void setLanguages(String languages) {
+        this.languages = languages;
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public void processInformation (final Map<String,String> newContact){
         HashMap<String, StrategySetter>strategyMap = composeStrategyMap(newContact);
@@ -223,6 +352,19 @@ public class Contact {
         strategyMap.put(FAX,()-> setFax(Integer.parseInt(newContact.get(FAX))));
         strategyMap.put(ASSISTANT,()-> setAssistant(newContact.get(ASSISTANT)));
         strategyMap.put(ASST_PHONE,()-> setAsstPhone(Integer.parseInt(newContact.get(ASST_PHONE))));
+        strategyMap.put(MAILING_STREET,()-> setMailingStreet(newContact.get(MAILING_STREET)));
+        strategyMap.put(MAILING_CITY,()-> setMailingCity(newContact.get(MAILING_CITY)));
+        strategyMap.put(MAILING_STATE,()-> setMailingState(newContact.get(MAILING_STATE)));
+        strategyMap.put(MAILING_POSTAL_CODE,()-> setMailingPostalCode(newContact.get(MAILING_POSTAL_CODE)));
+        strategyMap.put(MAILING_COUNTRY,()-> setMailingCountry(newContact.get(MAILING_COUNTRY)));
+        strategyMap.put(OTHER_STREET,()-> setOtherStreet(newContact.get(OTHER_STREET)));
+        strategyMap.put(OTHER_CITY,()-> setOtherCity(newContact.get(OTHER_CITY)));
+        strategyMap.put(OTHER_STATE,()-> setOtherState(newContact.get(OTHER_STATE)));
+        strategyMap.put(OTHER_POSTAL_CODE,()-> setOtherZipPostalCode(newContact.get(OTHER_POSTAL_CODE)));
+        strategyMap.put(OTHER_COUNTRY,()-> setOtherCountry(newContact.get(OTHER_COUNTRY)));
+        strategyMap.put(LANGUAGES,()-> setLanguages(newContact.get(LANGUAGES)));
+        strategyMap.put(LEVEL,()-> setLevel(newContact.get(LEVEL)));
+        strategyMap.put(DESCRIPTION,()-> setDescription(newContact.get(DESCRIPTION)));
         return strategyMap;
     }
 

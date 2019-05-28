@@ -12,7 +12,6 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.lightning;
 
-import org.fjala.gugumber.salesforce.ui.pages.lightning.contact.ContactLightningPage;
 import org.fjala.gugumber.salesforce.ui.pages.HomePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -29,9 +28,6 @@ public class HomeLightningPage extends HomePage {
     @FindBy(id = "brandBand_1")
     private WebElement homeForm;
 
-    @FindBy(css = "a[href*='Contact'][href*=lightning]")
-    private WebElement contactMenuBtn;
-
     /**
      * Waits until page object is loaded.
      */
@@ -40,19 +36,4 @@ public class HomeLightningPage extends HomePage {
         wait.until(ExpectedConditions.visibilityOf(homeForm));
     }
 
-    /**
-     * Contact menu button.
-     */
-    public void clickContactMenu() {
-        contactMenuBtn.click();
-    }
-
-    /**
-     * Click in the contact button.
-     * @return Contact Lightning Page.
-     */
-    public ContactLightningPage goContactLightningPage() {
-        clickContactMenu();
-        return new ContactLightningPage();
-    }
 }

@@ -1,5 +1,5 @@
 /*
- * @(#) ContactClassicPage.java Copyright (c) 2019 Jala Foundation.
+ * @(#) ContactClassicForm.java Copyright (c) 2019 Jala Foundation.
  * 2643 Av Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
  * All rights reserved.
  *
@@ -13,66 +13,61 @@
 package org.fjala.gugumber.salesforce.ui.pages.classic.contact;
 
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ContactForm;
-import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ContactPage;
+import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ProfileContactPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
- * ContactClassicPage class.
+ * ContactClassicForm class
  *
  * @author Cristian Lujan
  * @version 0.0.1
  */
-public class ContactClassicPage extends ContactPage {
+public class ContactClassicForm extends ContactForm {
+
 
     /**
-     * Web element for the contact option.
+     * Locator for text box of salutation.
      */
-    @FindBy(id = "Contact_Tab")
-    private WebElement contactMenuBtn;
+    @FindBy(css = "select[id^='name_salutationcon']")
+    private WebElement salutationLs;
 
     /**
      * Locator for text box of first name.
      */
-    @FindBy(id = "name_first")
+    @FindBy(css = "input[id^='name_firstcon']")
     private WebElement firstNameTxtb;
 
     /**
      * Locator for text box of Last name.
      */
-    @FindBy(id = "name_last")
+    @FindBy(css = "input[id^='name_lastcon']")
     private WebElement lastNameTxtb;
 
     /**
      * Locator for text box of Account.
      */
-    @FindBy(id = "account")
+    @FindBy(id = "con4")
     private WebElement accountTxtb;
 
     /**
      * Locator for text box of Phone.
      */
-    @FindBy(id = "phone1")
-    private WebElement phone1Txtb;
+    @FindBy(id = "con10")
+    private WebElement phoneTxtb;
 
     /**
      * Locator for text box of Email.
      */
-    @FindBy(id = "email")
+    @FindBy(id = "con15")
     private WebElement emailTxtb;
 
     /**
-     * Locator for button of save button.
+     * Locator for text box of save button.
      */
-    @FindBy(xpath = "//input[@value='save']")
+    @FindBy(css = "td[id='topButtonRow'] [value=' Save ']")
     private WebElement saveBtn;
-
-    /**
-     * Locator for button of new button.
-     */
-    @FindBy(css = "[class='pbButton']")
-    private WebElement newContactBtn;
 
     /**
      * Waits until page object is loaded.
@@ -82,9 +77,14 @@ public class ContactClassicPage extends ContactPage {
         wait.until(ExpectedConditions.visibilityOf(lastNameTxtb));
     }
 
+    /**
+     * Sets the first name.
+     * @param firstName of type String
+     */
     public void setFirstName(String firstName) {
         firstNameTxtb.sendKeys(firstName);
     }
+
 
     public void setLastName(String lastName) {
         lastNameTxtb.sendKeys(lastName);
@@ -94,8 +94,8 @@ public class ContactClassicPage extends ContactPage {
         accountTxtb.sendKeys(account);
     }
 
-    public void setPhone1(String phone1) {
-        phone1Txtb.sendKeys(phone1);
+    public void setPhone(String phone1) {
+        phoneTxtb.sendKeys(phone1);
     }
 
     public void setEmail(String email) {
@@ -106,13 +106,9 @@ public class ContactClassicPage extends ContactPage {
         saveBtn.click();
     }
 
-    private void clickNewContactBtn() {
-        newContactBtn.click();
-    }
-
     @Override
-    public ContactForm clickNewContact() {
-        clickNewContactBtn();
-        return new ContactClassicForm();
+    public ProfileContactPage clickSaveNewContact() {
+        clickSaveBtn();
+        return new ProfileContactPage();
     }
 }

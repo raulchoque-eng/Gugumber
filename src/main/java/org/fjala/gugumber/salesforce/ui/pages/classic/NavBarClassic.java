@@ -13,7 +13,7 @@
 package org.fjala.gugumber.salesforce.ui.pages.classic;
 
 import org.fjala.gugumber.salesforce.ui.pages.NavBar;
-import org.fjala.gugumber.salesforce.ui.pages.classic.accounts.AccountsClassicPage;
+import org.fjala.gugumber.salesforce.ui.pages.classic.contact.ContactClassicPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -39,6 +39,12 @@ public class NavBarClassic extends NavBar {
     private WebElement accountOption;
 
     /**
+     * Web element for the contact option.
+     */
+    @FindBy(id = "Contact_Tab")
+    private WebElement contactMenuBtn;
+
+    /**
      * Waits until page object is loaded.
      */
     @Override
@@ -46,14 +52,30 @@ public class NavBarClassic extends NavBar {
         wait.until(ExpectedConditions.visibilityOf(tabBar));
     }
 
+//    /**
+//     * Returns the account classic page after clicking on account option.
+//     *
+//     * @return a account classic page.
+//     */
+//    @Override
+//    public AccountsClassicPage clickAccountsOption() {
+//        accountOption.click();
+//        return new AccountsClassicPage();
+//    }
+
     /**
-     * Returns the account classic page after clicking on account option.
-     *
-     * @return a account classic page.
+     * Contact menu button.
      */
-    @Override
-    public AccountsClassicPage clickAccountsOption() {
-        accountOption.click();
-        return new AccountsClassicPage();
+    private void clickContactOption() {
+        contactMenuBtn.click();
+    }
+
+    /**
+     * Click in the contact button.
+     * @return Contact Lightning Page.
+     */
+    public ContactClassicPage goContactPage() {
+        clickContactOption();
+        return new ContactClassicPage();
     }
 }

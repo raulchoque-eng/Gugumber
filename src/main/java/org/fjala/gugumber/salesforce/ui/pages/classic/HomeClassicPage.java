@@ -12,7 +12,6 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.classic;
 
-import org.fjala.gugumber.salesforce.ui.pages.classic.contact.ContactClassicPage;
 import org.fjala.gugumber.salesforce.ui.pages.HomePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -30,11 +29,8 @@ public class HomeClassicPage extends HomePage {
     @FindBy(id = "AppBodyHeader")
     private WebElement homeClassicTopBar;
 
-    @FindBy(id = "bodyDiv brdPalette brandPrimaryBrd")
+    @FindBy(css = "div[class='bodyDiv brdPalette brandPrimaryBrd']")
     private WebElement homeClassicForm;
-
-    @FindBy(id = "Contact_Tab")
-    private WebElement contactMenuBtn;
 
     /**
      * Waits until page object is loaded.
@@ -44,19 +40,4 @@ public class HomeClassicPage extends HomePage {
         wait.until(ExpectedConditions.visibilityOf(homeClassicForm));
     }
 
-    /**
-     * Contact menu button.
-     */
-    public void clickContactMenu() {
-        contactMenuBtn.click();
-    }
-
-    /**
-     * Click in the contact button.
-     * @return Contact Lightning Page.
-     */
-    public ContactClassicPage goContactLightningPage() {
-        clickContactMenu();
-        return new ContactClassicPage();
-    }
 }

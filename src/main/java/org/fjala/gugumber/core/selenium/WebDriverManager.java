@@ -56,7 +56,7 @@ public class WebDriverManager {
      */
     private void initialize() {
         String browserName = BrowserConfig.getInstance().getBrowserName().toUpperCase();
-        this.webDriver = WebDriveFactory.getManager(BrowserType.valueOf(browserName));
+        this.webDriver = WebDriveFactory.getWebDriver(BrowserType.valueOf(browserName));
         this.webDriver.manage().window().maximize();
         this.webDriver.manage()
                 .timeouts()

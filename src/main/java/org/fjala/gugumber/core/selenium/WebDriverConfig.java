@@ -23,37 +23,37 @@ import org.fjala.gugumber.core.selenium.common.ReaderDriverProperties;
 public class WebDriverConfig {
 
     /**
-     * Constant for the implicit wait  time.
+     * Constant for the implicit wait time.
      */
     private static final String IMPLICIT = "implicitWaitTime";
 
     /**
-     * Constant for the explicit wait  time.
+     * Constant for the explicit wait time.
      */
     private static final String EXPLICIT = "explicitWaitTime";
 
     /**
-     * Constant for the sleep wait  time.
+     * Constant for the sleep wait time.
      */
     private static final String WAIT_SLEEP_TIME = "waitSleepTime";
 
     /**
-     * Implicit wait time saves the implicit wait time.
+     * Variable to implicit wait time.
      */
     private int implicitWaitTime;
 
     /**
-     * Explicit wait time saves the explicit wait time.
+     * Variable to explicit wait time.
      */
     private int explicitWaitTime;
 
     /**
-     * Sleeps wait time saves the Sleep wait time.
+     * Variable to sleep wait time.
      */
     private int waitSleepTime;
 
     /**
-     * Variable for  initialize Web driver config.
+     * Variable for initialize Web driver config.
      */
     private static WebDriverConfig instance;
 
@@ -65,7 +65,7 @@ public class WebDriverConfig {
     }
 
     /**
-     * Gets WebDriverConfig as Singleton.
+     * Gets the instance of WebDriverConfig.
      *
      * @return a instance.
      */
