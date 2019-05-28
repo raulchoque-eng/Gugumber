@@ -42,7 +42,7 @@ public class GeneratorReport {
     public void generateReport() {
         final File reportOutputDirectory = new File("target");
         final List<String> jsonFiles = new ArrayList<>();
-        jsonFiles.add("\\target\\cucumber.json");
+        jsonFiles.add("target/cucumber.json");
 
         final String projectName = "Salesforce";
         final boolean runWithJenkins = false;
