@@ -10,7 +10,7 @@
  * with Jala Foundation.
  */
 
-package org.fjala.gugumber.salesforce.ui.pages;
+package org.fjala.gugumber.salesforce.ui.pages.events;
 
 import java.util.HashMap;
 import java.util.Map;
