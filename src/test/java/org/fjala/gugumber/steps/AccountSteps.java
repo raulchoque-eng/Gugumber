@@ -12,12 +12,15 @@
 
 package org.fjala.gugumber.steps;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
-import org.fjala.gugumber.salesforce.entities.Account;
+import cucumber.api.java.en.Then;
 import org.fjala.gugumber.salesforce.entities.Context;
 import org.fjala.gugumber.salesforce.ui.PageTransporter;
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountForm;
+import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountProfilePage;
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountsPage;
+import org.testng.Assert;
 
 import java.util.Map;
 
@@ -30,6 +33,7 @@ import java.util.Map;
 public class AccountSteps {
     private AccountsPage accountsPage;
     private AccountForm accountForm;
+    private AccountProfilePage accountProfilePage;
     private PageTransporter pageTransporter = PageTransporter.getInstance();
     Context context;
 
@@ -44,5 +48,15 @@ public class AccountSteps {
         accountForm = accountsPage.clickNewBtn();
         accountForm.enterNameAccount(context.getAccount().getNameAccount());
         accountForm.clickOnSaveBtnFoot();
+    }
+
+    @Then("^I should see the information on the profile of new account$")
+    public void seeTheInformationOnTheProfileOfNewAccount() {
+        Assert.assertEquals(accountProfilePage.getNameAccount(), context.getAccount().getNameAccount());
+    }
+
+    @Then("^I should see the account on Accounts page$")
+    public void iShouldSeeTheAccountOnAccountsPage() {
+        Assert.assertTrue(accountsPage.getListOfAccountsName().contains(context.getAccount().getNameAccount()));
     }
 }

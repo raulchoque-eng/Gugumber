@@ -21,4 +21,6 @@ import org.fjala.gugumber.salesforce.ui.pages.BasePage;
  * @version 0.0.1
  */
 public abstract class AccountProfilePage extends BasePage {
+
+    public abstract String getNameAccount();
 }

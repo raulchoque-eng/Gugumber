@@ -13,6 +13,9 @@
 package org.fjala.gugumber.salesforce.ui.pages.lightning.accounts;
 
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountProfilePage;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
  * AccountProfileLightningPage class.
@@ -21,8 +24,19 @@ import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountProfilePa
  * @version 0.0.1
  */
 public class AccountProfileLightningPage extends AccountProfilePage {
+
+    @FindBy(id = "div[class='slds-grid primaryFieldRow']")
+    private WebElement headerProfile;
+
+    @FindBy(css = "span[class='custom-truncate uiOutputText']")
+    private WebElement accountTitle;
     @Override
     protected void waitUntilPageObjectIsLoaded() {
+        wait.until(ExpectedConditions.visibilityOf(headerProfile));
+    }
 
+    @Override
+    public String getNameAccount() {
+        return accountTitle.getText();
     }
 }

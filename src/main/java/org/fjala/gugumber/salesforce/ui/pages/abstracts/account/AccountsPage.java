@@ -14,6 +14,8 @@ package org.fjala.gugumber.salesforce.ui.pages.abstracts.account;
 
 import org.fjala.gugumber.salesforce.ui.pages.BasePage;
 
+import java.util.List;
+
 /**
  * AccountsPage class.
  *
@@ -28,4 +30,6 @@ public abstract class AccountsPage extends BasePage {
      * @return an account form page.
      */
     public abstract AccountForm clickNewBtn();
+
+    public abstract List<String> getListOfAccountsName();
 }

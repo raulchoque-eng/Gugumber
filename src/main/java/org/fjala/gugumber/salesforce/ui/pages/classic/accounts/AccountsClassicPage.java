@@ -18,6 +18,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * AccountsClassicPage class.
  *
@@ -31,6 +34,9 @@ public class AccountsClassicPage extends AccountsPage {
     @FindBy(css = "input[class='btn'][name='new']")
     private WebElement newAccountBtn;
 
+    @FindBy(css = "table[class='list']")
+    private List<WebElement> AccountsNameList;
+
     /**
      * Waits until page object is loaded.
      */
@@ -43,5 +49,14 @@ public class AccountsClassicPage extends AccountsPage {
     public AccountForm clickNewBtn() {
         newAccountBtn.click();
         return new AccountClassicForm();
+    }
+
+    @Override
+    public List<String> getListOfAccountsName() {
+        List<String> accountsName = new ArrayList<>();
+        for (WebElement accountName : AccountsNameList) {
+            accountsName.add(accountName.getText());
+        }
+        return accountsName;
     }
 }

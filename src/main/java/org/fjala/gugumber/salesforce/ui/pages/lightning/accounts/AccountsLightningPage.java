@@ -18,6 +18,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * AccountsLightningPage class.
  *
@@ -28,8 +31,13 @@ public class AccountsLightningPage extends AccountsPage {
 
     @FindBy(xpath = "//div[@data-aura-class='forceListViewManagerHeader']")
     private WebElement headerList;
+
     @FindBy(xpath = "//a[@title='New']")
     private WebElement newAccoutnBtn;
+
+    @FindBy(css = "table[class='list']")
+    private List<WebElement> AccountsNameList;
+
     /**
      * Waits until page object is loaded.
      */
@@ -42,5 +50,14 @@ public class AccountsLightningPage extends AccountsPage {
     public AccountForm clickNewBtn() {
         newAccoutnBtn.click();
         return new AccountLightningForm();
+    }
+
+    @Override
+    public List<String> getListOfAccountsName() {
+        List<String> accountsName = new ArrayList<>();
+        for (WebElement accountName : AccountsNameList) {
+            accountsName.add(accountName.getText());
+        }
+        return accountsName;
     }
 }

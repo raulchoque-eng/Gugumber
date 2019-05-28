@@ -10,3 +10,5 @@ Feature: Create a new account
     And I create a new Account with the following information
     |Name Account | AccountTest11 |
     Then I should see the information on the profile of new account
+    When I navigate to the Accounts page
+    Then I should see the account on Accounts page

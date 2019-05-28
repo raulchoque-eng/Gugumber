@@ -13,6 +13,9 @@
 package org.fjala.gugumber.salesforce.ui.pages.classic.accounts;
 
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountProfilePage;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
  * AccountProfileClassicPage class.
@@ -22,7 +25,19 @@ import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountProfilePa
  */
 public class AccountProfileClassicPage extends AccountProfilePage {
 
+    @FindBy(id = "bodyCell")
+    private WebElement bodyProfile;
+
+    @FindBy(css = "h2[class='topName']")
+    private WebElement accountTitle;
+
     @Override
     protected void waitUntilPageObjectIsLoaded() {
+        wait.until(ExpectedConditions.visibilityOf(bodyProfile));
+    }
+
+    @Override
+    public String getNameAccount() {
+        return accountTitle.getText();
     }
 }
