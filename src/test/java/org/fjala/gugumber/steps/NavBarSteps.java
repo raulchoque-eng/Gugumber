@@ -13,8 +13,9 @@
 package org.fjala.gugumber.steps;
 
 import cucumber.api.java.en.When;
-import org.fjala.gugumber.salesforce.ui.pages.AccountsPage;
-import org.fjala.gugumber.salesforce.ui.pages.NavBar;
+import org.fjala.gugumber.salesforce.ui.PageTransporter;
+import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountsPage;
+import org.fjala.gugumber.salesforce.ui.pages.common.NavBar;
 
 /**
  * NavBarSteps class for steps definition.
@@ -24,11 +25,13 @@ import org.fjala.gugumber.salesforce.ui.pages.NavBar;
  */
 public class NavBarSteps {
 
+    private PageTransporter pageTransporter = PageTransporter.getInstance();
     private NavBar navBar;
     private AccountsPage accountsPage;
 
     @When("^I navigate to the Accounts page$")
     public void navigateToAccountsPage() {
+        navBar = pageTransporter.getNavBar();
         accountsPage = navBar.clickAccountsOption();
     }
 }
