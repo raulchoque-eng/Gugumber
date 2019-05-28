@@ -41,8 +41,8 @@ public class NavBarLightning extends NavBar {
     /**
      * Web element for the contact option.
      */
-    @FindBy(css = "a[href*='Contact'][href*=lightning]")
-    private WebElement contactMenuBtn;
+    @FindBy(css = "[data-id='Contact']")
+    private WebElement contactTab;
 
     /**
      * Waits until page object is loaded.
@@ -67,7 +67,7 @@ public class NavBarLightning extends NavBar {
      * Contact menu button.
      */
     public void clickContactOption() {
-        contactMenuBtn.click();
+        contactTab.click();
     }
 
     /**

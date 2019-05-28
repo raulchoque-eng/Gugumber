@@ -33,9 +33,9 @@ public class Contact {
     private final static String EMAIL = "Email";
     private final static String HOME_PHONE = "Home Phone";
     private final static String TITLE = "Title";
-    private final static String DEPARTMEN = "Department";
+    private final static String DEPARTMENT = "Department";
     private final static String BIRTHDATE = "Birthdate";
-    private final static String REPOST_TO = "Repost To";
+    private final static String REPORTS_TO = "Reports To";
     private final static String LEAD_SOURCE = "Lead Source";
     private final static String MOBILE = "Mobile";
     private final static String OTHER_PHONE = "Other Phone";
@@ -66,7 +66,7 @@ public class Contact {
     private String title;
     private String department;
     private String birthdate;
-    private String repostTo;
+    private String reportsTo;
     private String leadSource;
     private int mobile;
     private int otherPhone;
@@ -167,12 +167,12 @@ public class Contact {
         this.birthdate = birthdate;
     }
 
-    public String getRepostTo() {
-        return repostTo;
+    public String getReportsTo() {
+        return reportsTo;
     }
 
-    public void setRepostTo(String repostTo) {
-        this.repostTo = repostTo;
+    public void setReportsTo(String reportsTo) {
+        this.reportsTo = reportsTo;
     }
 
     public String getLeadSource() {
@@ -327,12 +327,23 @@ public class Contact {
         this.description = description;
     }
 
+
+    /**
+     * Process information for composing the strategy map.
+     * @param newContact of type string
+     */
     public void processInformation (final Map<String,String> newContact){
         HashMap<String, StrategySetter>strategyMap = composeStrategyMap(newContact);
         newContact.keySet().forEach(key -> {
             strategyMap.get(key).executeMethod();});
     }
 
+
+    /**
+     * Build the contact values.
+     * @param newContact of type String.
+     * @return The HashMap
+     */
     public HashMap<String,StrategySetter> composeStrategyMap(final Map<String,String> newContact) {
         HashMap<String, StrategySetter>strategyMap = new HashMap<>();
         strategyMap.put(SALUTATION,()-> setSalutation(newContact.get(SALUTATION)));
@@ -343,9 +354,9 @@ public class Contact {
         strategyMap.put(EMAIL,()-> setEmail(newContact.get(EMAIL)));
         strategyMap.put(HOME_PHONE,()-> setHomePhone(Integer.parseInt(newContact.get(HOME_PHONE))));
         strategyMap.put(TITLE,()-> setTitle(newContact.get(TITLE)));
-        strategyMap.put(DEPARTMEN,()-> setDepartment(newContact.get(DEPARTMEN)));
+        strategyMap.put(DEPARTMENT,()-> setDepartment(newContact.get(DEPARTMENT)));
         strategyMap.put(BIRTHDATE,()-> setBirthdate(newContact.get(BIRTHDATE)));
-        strategyMap.put(REPOST_TO,()-> setRepostTo(newContact.get(REPOST_TO)));
+        strategyMap.put(REPORTS_TO,()-> setReportsTo(newContact.get(REPORTS_TO)));
         strategyMap.put(LEAD_SOURCE,()-> setLeadSource(newContact.get(LEAD_SOURCE)));
         strategyMap.put(MOBILE,()-> setMobile(Integer.parseInt(newContact.get(MOBILE))));
         strategyMap.put(OTHER_PHONE,()-> setOtherPhone(Integer.parseInt(newContact.get(OTHER_PHONE))));
@@ -367,5 +378,4 @@ public class Contact {
         strategyMap.put(DESCRIPTION,()-> setDescription(newContact.get(DESCRIPTION)));
         return strategyMap;
     }
-
 }

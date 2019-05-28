@@ -31,7 +31,7 @@ public class ContactLightningPage extends ContactPage {
      * Web Element form Contact
      */
     @FindBy(css = "div[class='slds-brand-band slds-brand-band_cover slds-brand-band_medium slds-template_bottom-magnet brand-band_magnetic forceBrandBand']")
-    private WebElement newContactModal;
+    private WebElement newContactForm;
 
     /**
      * Web Element form Contact
@@ -46,14 +46,14 @@ public class ContactLightningPage extends ContactPage {
      */
     @Override
     protected void waitUntilPageObjectIsLoaded() {
-        wait.until(ExpectedConditions.visibilityOf(newContactModal));
+        wait.until(ExpectedConditions.visibilityOf(newContactForm));
     }
 
 
     @Override
     public ContactForm clickNewContact() {
         clickNewContactBtn();
-        return new ContactClassicForm();
+        return new ContactLightningForm();
     }
 
     private void clickNewContactBtn() {
@@ -61,3 +61,4 @@ public class ContactLightningPage extends ContactPage {
     }
 
 }
+

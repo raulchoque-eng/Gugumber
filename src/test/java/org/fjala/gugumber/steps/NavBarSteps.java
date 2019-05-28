@@ -33,6 +33,5 @@ public class NavBarSteps {
     public void navigateToTheContactsPage() {
         navBar = pageTransporter.getNavBar();
         contactPage = navBar.goContactPage();
-
     }
 }

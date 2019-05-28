@@ -14,10 +14,13 @@ package org.fjala.gugumber.salesforce.ui;
 
 import org.fjala.gugumber.salesforce.ui.pages.HomePage;
 import org.fjala.gugumber.salesforce.ui.pages.NavBar;
+import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ContactPage;
 import org.fjala.gugumber.salesforce.ui.pages.classic.HomeClassicPage;
 import org.fjala.gugumber.salesforce.ui.pages.classic.NavBarClassic;
+import org.fjala.gugumber.salesforce.ui.pages.classic.contact.ContactClassicPage;
 import org.fjala.gugumber.salesforce.ui.pages.lightning.HomeLightningPage;
 import org.fjala.gugumber.salesforce.ui.pages.lightning.NavBarLightning;
+import org.fjala.gugumber.salesforce.ui.pages.lightning.contact.ContactLightningPage;
 
 /**
  * PageLayoutFactory class.
@@ -63,5 +66,21 @@ public class PageLayoutFactory {
                 break;
         }
         return navBar;
+    }
+
+    public static ContactPage getNavigateContact(final PageLayoutType type) {
+        final ContactPage contactPage;
+        switch (type) {
+            case CLASSIC:
+                contactPage = new ContactClassicPage();
+                break;
+            case LIGHTNING:
+                contactPage = new ContactLightningPage();
+                break;
+            default:
+                contactPage = new ContactLightningPage();
+                break;
+        }
+        return contactPage;
     }
 }

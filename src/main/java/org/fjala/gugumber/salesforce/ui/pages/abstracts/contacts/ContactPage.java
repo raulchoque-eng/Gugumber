@@ -23,4 +23,6 @@ import org.fjala.gugumber.salesforce.ui.BasePage;
 public abstract class ContactPage extends BasePage {
 
     public abstract ContactForm clickNewContact();
+
+
 }

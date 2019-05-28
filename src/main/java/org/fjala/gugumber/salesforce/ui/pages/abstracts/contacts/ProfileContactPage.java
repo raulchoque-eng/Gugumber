@@ -12,12 +12,17 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts;
 
+import org.fjala.gugumber.salesforce.ui.BasePage;
+
 /**
  * ProfileContactPage class
  *
  * @author Cristian Lujan
  * @version 0.0.1
  */
-public class ProfileContactPage {
-    //TODO 
+public abstract class ProfileContactPage extends BasePage {
+
+    public abstract String getLastNameContact();
+
+    public abstract boolean verifyNewContact();
 }

@@ -1,5 +1,5 @@
 /*
- * @(#) ContacLightningPopUp.java Copyright (c) 2019 Jala Foundation.
+ * @(#) ContactLightningForm.java Copyright (c) 2019 Jala Foundation.
  * 2643 Av Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
  * All rights reserved.
  *
@@ -19,24 +19,24 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
- * ContacLightningPopUp class.
+ * ContactLightningForm class.
  *
  * @author Cristian Lujan
  * @version 0.0.1
  */
-public class ContacLightningPopUp extends ContactForm {
+public class ContactLightningForm extends ContactForm {
 
     /**
      * Locator for text box of Contact Modal.
      */
-    @FindBy(css = "div[class='modal-container slds-modal__container]'")
-    private WebElement newContactModal;
+    @FindBy(css = "div[class='modal-container slds-modal__container']")
+    private WebElement newContactForm;
 
     /**
      * Locator for text box of salutation.
      */
     @FindBy(css = "div[class='salutation compoundTLRadius compoundTRRadius compoundBorderBottom form-element__row uiMenu'] div[id^='140']")
-    private WebElement salutationLs;
+    private WebElement salutationCmbb;
 
     /**
      * Locator for text box of first name.
@@ -87,10 +87,16 @@ public class ContacLightningPopUp extends ContactForm {
     private WebElement birthdateTxtb;
 
     /**
+     * Locator for text box of birth date.
+     */
+    @FindBy(css = "div[id^='533']")
+    private WebElement reportToTxtb;
+
+    /**
      * Locator for text box of load Source.
      */
     @FindBy(css = "div[id^='533']")
-    private WebElement loadSourceTxtb;
+    private WebElement leadSourceCmbb;
 
     /**
      * Locator for text box of mobile.
@@ -198,7 +204,7 @@ public class ContacLightningPopUp extends ContactForm {
      * Locator for text box of level.
      */
     @FindBy(css = "div[id^='777'][class='uiPopupTrigger']")
-    private WebElement levelTxtb;
+    private WebElement levelCmbb;
 
     /**
      * Locator for text box of description.
@@ -217,7 +223,12 @@ public class ContacLightningPopUp extends ContactForm {
      */
     @Override
     protected void waitUntilPageObjectIsLoaded() {
-        wait.until(ExpectedConditions.visibilityOf(newContactModal));
+        wait.until(ExpectedConditions.visibilityOf(newContactForm));
+    }
+
+    @Override
+    protected void setSalutation(String salutation) {
+        salutationCmbb.sendKeys(salutation);
     }
 
     /**
@@ -256,8 +267,14 @@ public class ContacLightningPopUp extends ContactForm {
         birthdateTxtb.sendKeys(birthdate);
     }
 
-    public void setLoadSource(String loadSource) {
-        loadSourceTxtb.sendKeys(loadSource);
+    @Override
+    protected void setReportsTo(String reportsTo) {
+        reportToTxtb.sendKeys(reportsTo);
+    }
+
+    @Override
+    protected void setLeadSource(String leadSource) {
+        leadSourceCmbb.sendKeys(leadSource);
     }
 
     public void setMobile(int mobile) {
@@ -292,13 +309,14 @@ public class ContacLightningPopUp extends ContactForm {
         mailingCityTxtb.sendKeys(mailingCity);
     }
 
-    public void setMailingStateProvince(String mailingStateProvince)
-    {
-        mailingStateProvinceTxtb.sendKeys(mailingStateProvince);
+    @Override
+    protected void setMailingState(String mailingState) {
+        mailingStateProvinceTxtb.sendKeys(mailingState);
     }
 
-    public void setMailingZipPostalCode(String mailingZipPostalCode) {
-        mailingZipPostalCodeTxtb.sendKeys(mailingZipPostalCode);
+    @Override
+    protected void setMailingPostalCode(String mailingPostalCode) {
+        mailingZipPostalCodeTxtb.sendKeys(mailingPostalCode);
     }
 
     public void setMailingCountry(String mailingCountry) {
@@ -313,12 +331,14 @@ public class ContacLightningPopUp extends ContactForm {
         otherCityTxtb.sendKeys(otherCity);
     }
 
-    public void setOtherStateProvince(String otherStateProvince) {
-        otherStateProvinceTxtb.sendKeys(otherStateProvince);
+    @Override
+    protected void setOtherState(String otherState) {
+        otherStateProvinceTxtb.sendKeys(otherState);
     }
 
-    public void setOtherZipPostalCode(String otherZipPostalCode) {
-        otherZipPostalCodeTxtb.sendKeys(otherZipPostalCode);
+    @Override
+    protected void setOtherPostalCode(String otherPostalCode) {
+
     }
 
     public void setOtherCountry(String otherCountry) {
@@ -330,7 +350,7 @@ public class ContacLightningPopUp extends ContactForm {
     }
 
     public void setLevel(String level) {
-        levelTxtb.sendKeys(level);
+        levelCmbb.sendKeys(level);
     }
 
     public void setDescription(String description) {
@@ -345,6 +365,6 @@ public class ContacLightningPopUp extends ContactForm {
     @Override
     public ProfileContactPage clickSaveNewContact() {
         clickSaveBtn();
-        return new ProfileContactPage();
+        return new ProfileContactLightningPage();
     }
 }

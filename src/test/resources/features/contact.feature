@@ -1,4 +1,4 @@
-Feature: Account manage
+Feature: Contact manage
   Background:
     Given I am logged in SalesForce with "username.admin" and "password.admin"
       And I navigate to the Home page
@@ -6,9 +6,10 @@ Feature: Account manage
   @deleteContact
   Scenario: Create a new contact for an user with only required data
     When I navigate to the Contacts page
-    And  I create a new Contact the following data
-      |Last Name |Valdez    |
-    Then The contact should be displayed on contact page
+      And  I create a new Contact with the following information
+        |Last Name |Valdez    |
+#    Then I should see a green message "Contact was created."
+      Then The contact should displayed on contact page
 #
 #  @deleteContact
 #  Scenario: Create a new contact for an user with all data

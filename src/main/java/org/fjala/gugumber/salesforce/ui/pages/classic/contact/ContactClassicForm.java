@@ -26,7 +26,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
  */
 public class ContactClassicForm extends ContactForm {
 
-
     /**
      * Locator for text box of salutation.
      */
@@ -63,6 +62,18 @@ public class ContactClassicForm extends ContactForm {
     @FindBy(id = "con15")
     private WebElement emailTxtb;
 
+//    /**
+//     * Locator for text box of Phone.
+//     */
+//    @FindBy(id = "con10")
+//    private WebElement phoneTxtb;
+//
+//    /**
+//     * Locator for text box of Email.
+//     */
+//    @FindBy(id = "con15")
+//    private WebElement emailTxtb;
+
     /**
      * Locator for text box of save button.
      */
@@ -75,6 +86,11 @@ public class ContactClassicForm extends ContactForm {
     @Override
     public void waitUntilPageObjectIsLoaded() {
         wait.until(ExpectedConditions.visibilityOf(lastNameTxtb));
+    }
+
+    @Override
+    protected void setSalutation(final String salutation) {
+
     }
 
     /**
@@ -94,12 +110,133 @@ public class ContactClassicForm extends ContactForm {
         accountTxtb.sendKeys(account);
     }
 
-    public void setPhone(String phone1) {
-        phoneTxtb.sendKeys(phone1);
+    @Override
+    protected void setPhone(int phone) {
+        phoneTxtb.sendKeys(String.valueOf(phone));
     }
 
     public void setEmail(String email) {
         emailTxtb.sendKeys(email);
+    }
+
+    @Override
+    protected void setHomePhone(int homePhone) {
+
+    }
+
+    @Override
+    protected void setTitle(String tittle) {
+
+    }
+
+    @Override
+    protected void setDepartment(String department) {
+
+    }
+
+    @Override
+    protected void setBirthdate(String birthdate) {
+
+    }
+
+    @Override
+    protected void setReportsTo(String reportsTo) {
+
+    }
+
+    @Override
+    protected void setLeadSource(String leadSource) {
+
+    }
+
+    @Override
+    protected void setMobile(int mobile) {
+
+    }
+
+    @Override
+    protected void setOtherPhone(int otherPhone) {
+
+    }
+
+    @Override
+    protected void setFax(int fax) {
+
+    }
+
+    @Override
+    protected void setAssistant(String assistant) {
+
+    }
+
+    @Override
+    protected void setAsstPhone(int AsstPhone) {
+
+    }
+
+    @Override
+    protected void setMailingStreet(String mailingStreet) {
+
+    }
+
+    @Override
+    protected void setMailingCity(String mailingCity) {
+
+    }
+
+    @Override
+    protected void setMailingState(String mailingState) {
+
+    }
+
+    @Override
+    protected void setMailingPostalCode(String mailingPostalCode) {
+
+    }
+
+    @Override
+    protected void setMailingCountry(String mailingCountry) {
+
+    }
+
+    @Override
+    protected void setOtherStreet(String otherStreet) {
+
+    }
+
+    @Override
+    protected void setOtherCity(String otherCity) {
+
+    }
+
+    @Override
+    protected void setOtherState(String otherState) {
+
+    }
+
+    @Override
+    protected void setOtherPostalCode(String otherPostalCode) {
+
+    }
+
+    @Override
+    protected void setOtherCountry(String otherCountry) {
+
+    }
+
+    @Override
+    protected void setLanguages(String languages) {
+
+    }
+
+    @Override
+    protected void setLevel(String level) {
+
+    }
+
+    @Override
+    protected void setDescription(String description) {
+
     }
 
     public void clickSaveBtn() {
@@ -109,6 +246,6 @@ public class ContactClassicForm extends ContactForm {
     @Override
     public ProfileContactPage clickSaveNewContact() {
         clickSaveBtn();
-        return new ProfileContactPage();
+        return new ProfileContactClassicPage();
     }
 }
