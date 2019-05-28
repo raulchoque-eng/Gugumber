@@ -14,7 +14,7 @@ package org.fjala.gugumber.steps;
 
 import cucumber.api.java.en.When;
 import org.fjala.gugumber.salesforce.ui.PageTransporter;
-import org.fjala.gugumber.salesforce.ui.pages.HomePage;
+import org.fjala.gugumber.salesforce.ui.pages.abstracts.HomePage;
 
 /**
  * HomeSteps class for steps definitions.

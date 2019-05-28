@@ -10,9 +10,9 @@
  * with Jala Foundation.
  */
 
-package org.fjala.gugumber.salesforce.ui.pages;
+package org.fjala.gugumber.salesforce.ui.pages.abstracts;
 
-import org.fjala.gugumber.salesforce.ui.BasePage;
+import org.fjala.gugumber.salesforce.ui.pages.BasePage;
 
 /**
  * HomePage class.

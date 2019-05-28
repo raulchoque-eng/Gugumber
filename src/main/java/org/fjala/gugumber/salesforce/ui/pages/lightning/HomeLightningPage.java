@@ -12,7 +12,7 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.lightning;
 
-import org.fjala.gugumber.salesforce.ui.pages.HomePage;
+import org.fjala.gugumber.salesforce.ui.pages.abstracts.HomePage;
 
 /**
  * HomeLightningPage class.

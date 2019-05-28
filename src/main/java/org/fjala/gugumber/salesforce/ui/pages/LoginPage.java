@@ -11,14 +11,17 @@
  *
  */
 
-package org.fjala.gugumber.salesforce.ui;
+package org.fjala.gugumber.salesforce.ui.pages;
 
 import org.fjala.gugumber.salesforce.common.ReaderApplicationProperties;
+import org.fjala.gugumber.salesforce.ui.pages.BasePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
+ * LoginPage class.
+ *
  * @author Areliez Vargas
  * @version 0.0.1
  */

@@ -12,7 +12,7 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.classic;
 
-import org.fjala.gugumber.salesforce.ui.pages.HomePage;
+import org.fjala.gugumber.salesforce.ui.pages.abstracts.HomePage;
 
 /**
  * HomeClassicPage class.

@@ -11,7 +11,7 @@
  *
  */
 
-package org.fjala.gugumber.salesforce.ui;
+package org.fjala.gugumber.salesforce.ui.pages;
 
 import org.fjala.gugumber.core.selenium.WebDriverManager;
 import org.openqa.selenium.WebDriver;

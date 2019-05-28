@@ -12,7 +12,7 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.abstracts.account;
 
-import org.fjala.gugumber.salesforce.ui.pages.abstracts.BasePage;
+import org.fjala.gugumber.salesforce.ui.pages.BasePage;
 
 /**
  * AccountForm abstract class.
