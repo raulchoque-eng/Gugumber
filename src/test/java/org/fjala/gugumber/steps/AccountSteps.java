@@ -47,7 +47,7 @@ public class AccountSteps {
         accountsPage = pageTransporter.getAccountPage();
         accountForm = accountsPage.clickNewBtn();
         accountForm.enterNameAccount(context.getAccount().getNameAccount());
-        accountForm.clickOnSaveBtnFoot();
+        accountProfilePage = accountForm.clickOnSaveBtnFoot();
     }
 
     @Then("^I should see the information on the profile of new account$")
@@ -55,8 +55,8 @@ public class AccountSteps {
         Assert.assertEquals(accountProfilePage.getNameAccount(), context.getAccount().getNameAccount());
     }
 
-    @Then("^I should see the account on Accounts page$")
-    public void iShouldSeeTheAccountOnAccountsPage() {
+    @Then("^The account should display on Account page$")
+    public void displayAccountOnAccountsPage() {
         Assert.assertTrue(accountsPage.getListOfAccountsName().contains(context.getAccount().getNameAccount()));
     }
 }

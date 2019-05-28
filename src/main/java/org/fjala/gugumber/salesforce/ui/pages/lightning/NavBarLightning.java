@@ -36,7 +36,7 @@ public class NavBarLightning extends NavBar {
     /**
      * Web element for the account option.
      */
-    @FindBy(xpath = "//a[@title='Accounts']")
+    @FindBy(xpath = "//one-app-nav-bar-item-root[@data-id=\"Account\"]")
     private WebElement accountsOption;
 
     /**

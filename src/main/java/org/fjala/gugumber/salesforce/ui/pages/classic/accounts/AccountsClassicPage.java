@@ -12,14 +12,14 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.classic.accounts;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountForm;
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountsPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * AccountsClassicPage class.
@@ -34,7 +34,7 @@ public class AccountsClassicPage extends AccountsPage {
     @FindBy(css = "input[class='btn'][name='new']")
     private WebElement newAccountBtn;
 
-    @FindBy(css = "table[class='list']")
+    @FindBy(css = "th[class=' dataCell  ']")
     private List<WebElement> AccountsNameList;
 
     /**

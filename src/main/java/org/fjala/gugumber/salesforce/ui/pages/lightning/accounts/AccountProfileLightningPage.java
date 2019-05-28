@@ -25,14 +25,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
  */
 public class AccountProfileLightningPage extends AccountProfilePage {
 
-    @FindBy(id = "div[class='slds-grid primaryFieldRow']")
-    private WebElement headerProfile;
+    @FindBy(css = "div[class='flexipagePage oneRecordHomeFlexipage']")
+    private WebElement accountProfile;
 
     @FindBy(css = "span[class='custom-truncate uiOutputText']")
     private WebElement accountTitle;
     @Override
     protected void waitUntilPageObjectIsLoaded() {
-        wait.until(ExpectedConditions.visibilityOf(headerProfile));
+        wait.until(ExpectedConditions.visibilityOf(accountProfile));
     }
 
     @Override

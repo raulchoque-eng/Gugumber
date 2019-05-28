@@ -35,7 +35,7 @@ public class AccountsLightningPage extends AccountsPage {
     @FindBy(xpath = "//a[@title='New']")
     private WebElement newAccoutnBtn;
 
-    @FindBy(css = "table[class='list']")
+    @FindBy(css = "a[data-aura-class='forceOutputLookup']")
     private List<WebElement> AccountsNameList;
 
     /**
