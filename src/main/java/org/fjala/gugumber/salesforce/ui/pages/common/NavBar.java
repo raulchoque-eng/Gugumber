@@ -10,9 +10,10 @@
  * with Jala Foundation.
  */
 
-package org.fjala.gugumber.salesforce.ui.pages;
+package org.fjala.gugumber.salesforce.ui.pages.common;
 
-import org.fjala.gugumber.salesforce.ui.BasePage;
+import org.fjala.gugumber.salesforce.ui.pages.abstracts.BasePage;
+import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountsPage;
 
 /**
  * NavBar class.

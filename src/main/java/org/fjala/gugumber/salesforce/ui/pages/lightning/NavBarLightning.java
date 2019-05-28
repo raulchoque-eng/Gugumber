@@ -12,7 +12,8 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.lightning;
 
-import org.fjala.gugumber.salesforce.ui.pages.NavBar;
+import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountsPage;
+import org.fjala.gugumber.salesforce.ui.pages.common.NavBar;
 import org.fjala.gugumber.salesforce.ui.pages.lightning.accounts.AccountsLightningPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -52,7 +53,7 @@ public class NavBarLightning extends NavBar {
      * @return a account lightning page.
      */
     @Override
-    public AccountsLightningPage clickAccountsOption() {
+    public AccountsPage clickAccountsOption() {
         accountsOption.click();
         return new AccountsLightningPage();
     }

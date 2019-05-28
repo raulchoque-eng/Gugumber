@@ -12,7 +12,8 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.classic;
 
-import org.fjala.gugumber.salesforce.ui.pages.NavBar;
+import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountsPage;
+import org.fjala.gugumber.salesforce.ui.pages.common.NavBar;
 import org.fjala.gugumber.salesforce.ui.pages.classic.accounts.AccountsClassicPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -35,7 +36,7 @@ public class NavBarClassic extends NavBar {
     /**
      * Web element for the account option.
      */
-    @FindBy(id = "Account_Tab")
+    @FindBy(xpath = "//li[@id='Account_Tab']//a")
     private WebElement accountOption;
 
     /**
@@ -52,7 +53,7 @@ public class NavBarClassic extends NavBar {
      * @return a account classic page.
      */
     @Override
-    public AccountsClassicPage clickAccountsOption() {
+    public AccountsPage clickAccountsOption() {
         accountOption.click();
         return new AccountsClassicPage();
     }
