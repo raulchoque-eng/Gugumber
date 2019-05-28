@@ -37,6 +37,7 @@ public class Chrome {
         ChromeDriverManager.getInstance().version("74.0.3729.6").setup();
         HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
         chromePrefs.put("profile.default_content_settings.popups", 0);
+        chromePrefs.put("profile.default_content_setting_values.notifications", 2);
 
         //Boolean which specifies whether we should ask the user if we should download a file (true) or just download it
         //automatically.
