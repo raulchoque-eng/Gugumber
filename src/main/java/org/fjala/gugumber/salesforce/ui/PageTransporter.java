@@ -12,6 +12,9 @@
 
 package org.fjala.gugumber.salesforce.ui;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import org.fjala.gugumber.core.selenium.WebDriverManager;
 import org.fjala.gugumber.salesforce.common.ReaderApplicationProperties;
 import org.fjala.gugumber.salesforce.ui.pages.LoginPage;
@@ -19,9 +22,6 @@ import org.fjala.gugumber.salesforce.ui.pages.abstracts.HomePage;
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountsPage;
 import org.fjala.gugumber.salesforce.ui.pages.common.NavBar;
 import org.openqa.selenium.WebDriver;
-
-import java.net.MalformedURLException;
-import java.net.URL;
 
 /**
  * PageTransporter class.

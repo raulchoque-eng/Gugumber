@@ -12,7 +12,7 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.lightning.accounts;
 
-import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountProfilePage;
+import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.ProfileAccountPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -23,20 +23,35 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
  * @author Areliez Vargas
  * @version 0.0.1
  */
-public class AccountProfileLightningPage extends AccountProfilePage {
+public class AccountProfileLightningPage extends ProfileAccountPage {
 
+    /**
+     * Web element for the body of profile account.
+     */
     @FindBy(css = "div[class='flexipagePage oneRecordHomeFlexipage']")
     private WebElement accountProfile;
 
+    /**
+     * Web element for the account name of the profile header.
+     */
     @FindBy(css = "span[class='custom-truncate uiOutputText']")
     private WebElement accountTitle;
+
+    /**
+     * Waits until page object is loaded.
+     */
     @Override
     protected void waitUntilPageObjectIsLoaded() {
         wait.until(ExpectedConditions.visibilityOf(accountProfile));
     }
 
+    /**
+     * Return the text of name account from the profile header.
+     *
+     * @return the name account as string.
+     */
     @Override
-    public String getNameAccount() {
+    public String getNameAccountFromProfileHeader() {
         return accountTitle.getText();
     }
 }

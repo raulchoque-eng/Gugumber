@@ -13,7 +13,7 @@
 package org.fjala.gugumber.salesforce.ui.pages.classic.accounts;
 
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountForm;
-import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountProfilePage;
+import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.ProfileAccountPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -44,19 +44,32 @@ public class AccountClassicForm extends AccountForm {
     @FindBy(css = "td[id='bottomButtonRow'] input[name='save']")
     private WebElement saveBtnfoot;
 
+    /**
+     * Waits until page object is loaded.
+     */
     @Override
     protected void waitUntilPageObjectIsLoaded() {
         wait.until(ExpectedConditions.visibilityOf(form));
     }
 
+    /**
+     * Enters the name for the account sending a string.
+     *
+     * @param accountName to set the account name.
+     */
     @Override
-    public void enterNameAccount(String accountName) {
+    public void setNameAccountOnTxtB(final String accountName) {
         accountNameTxtB.sendKeys(accountName);
     }
 
+    /**
+     * Returns a new account profile after clicking on save button.
+     *
+     * @return a new account profile classic page.
+     */
     @Override
-    public AccountProfilePage clickOnSaveBtnFoot() {
+    public ProfileAccountPage clickOnSaveBtnFoot() {
         saveBtnfoot.click();
-        return new AccountProfileClassicPage();
+        return new ProfileAccountClassicPage();
     }
 }

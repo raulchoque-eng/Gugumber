@@ -13,6 +13,9 @@
 package org.fjala.gugumber.salesforce.ui.pages.classic;
 
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.HomePage;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
  * HomeClassicPage class.
@@ -23,9 +26,16 @@ import org.fjala.gugumber.salesforce.ui.pages.abstracts.HomePage;
 public class HomeClassicPage extends HomePage {
 
     /**
+     * Web element for the body the the home page in layout classic.
+     */
+    @FindBy(css = "div[class='bodyDiv brdPalette brandPrimaryBrd']")
+    private WebElement bodyHomePage;
+
+    /**
      * Waits until page object is loaded.
      */
     @Override
     protected void waitUntilPageObjectIsLoaded() {
+        wait.until(ExpectedConditions.visibilityOf(bodyHomePage));
     }
 }

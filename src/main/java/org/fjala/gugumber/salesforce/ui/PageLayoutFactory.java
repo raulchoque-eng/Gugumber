@@ -30,7 +30,10 @@ import org.fjala.gugumber.salesforce.ui.pages.lightning.accounts.AccountsLightni
  */
 public class PageLayoutFactory {
 
-    private static PageLayoutType type;
+    /**
+     * Constructor of PageLayoutFactory.
+     */
+    protected PageLayoutFactory() {}
 
     /**
      * Returns the home page according the page layout.
@@ -60,8 +63,8 @@ public class PageLayoutFactory {
      * @param type of page layout.
      * @return a the navigation bar.
      */
-    public static NavBar getNavBar(PageLayoutType type) {
-        NavBar navBar;
+    public static NavBar getNavBar(final PageLayoutType type) {
+        final NavBar navBar;
         switch (type) {
             case CLASSIC:
                 navBar = new NavBarClassic();
@@ -82,8 +85,8 @@ public class PageLayoutFactory {
      * @param type of page layout.
      * @return a the accounts page.
      */
-    public static AccountsPage getAccountsPage(PageLayoutType type) {
-        AccountsPage accountsPage;
+    public static AccountsPage getAccountsPage(final PageLayoutType type) {
+        final AccountsPage accountsPage;
         switch (type) {
             case CLASSIC:
                 accountsPage = new AccountsClassicPage();

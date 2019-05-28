@@ -25,10 +25,24 @@ import org.fjala.gugumber.salesforce.ui.pages.common.NavBar;
  */
 public class NavBarSteps {
 
+    /**
+     * Variable for the home page.
+     */
     private PageTransporter pageTransporter = PageTransporter.getInstance();
+
+    /**
+     * Variable for the navigation bar.
+     */
     private NavBar navBar;
+
+    /**
+     * Variable for the accounts page.
+     */
     private AccountsPage accountsPage;
 
+    /**
+     * Navigates to the accounts page.
+     */
     @When("^I navigate to the Accounts page$")
     public void navigateToAccountsPage() {
         navBar = pageTransporter.getNavBar();

@@ -12,17 +12,16 @@
 
 package org.fjala.gugumber.steps;
 
-import cucumber.api.PendingException;
+import java.util.Map;
+
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import org.fjala.gugumber.salesforce.entities.Context;
 import org.fjala.gugumber.salesforce.ui.PageTransporter;
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountForm;
-import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountProfilePage;
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountsPage;
+import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.ProfileAccountPage;
 import org.testng.Assert;
-
-import java.util.Map;
 
 /**
  * AccountSteps class.
@@ -31,30 +30,66 @@ import java.util.Map;
  * @version 0.0.1
  */
 public class AccountSteps {
+
+    /**
+     * Variable for the account page.
+     */
     private AccountsPage accountsPage;
+
+    /**
+     * Variable for the account form.
+     */
     private AccountForm accountForm;
-    private AccountProfilePage accountProfilePage;
+
+    /**
+     * Variable for the profile account page.
+     */
+    private ProfileAccountPage profileaccountPage;
+
+    /**
+     * Variable for the page transporter.
+     */
     private PageTransporter pageTransporter = PageTransporter.getInstance();
+
+    /**
+     * Variable for the context.
+     */
     Context context;
 
-    public AccountSteps(Context context) {
+    /**
+     * Constructor of account steps sending the context.
+     *
+     * @param context init the context.
+     */
+    public AccountSteps(final Context context) {
         this.context = context;
     }
 
+    /**
+     * Creates a new account sending the information.
+     *
+     * @param accountMap for the information of account.
+     */
     @And("^I create a new Account with the following information$")
-    public void createANewAccountWithTheFollowingInformation(Map<String,String> accountMap) {
+    public void createANewAccountWithTheFollowingInformation(final Map<String,String> accountMap) {
         context.getAccount().setAccountInformation(accountMap);
         accountsPage = pageTransporter.getAccountPage();
         accountForm = accountsPage.clickNewBtn();
-        accountForm.enterNameAccount(context.getAccount().getNameAccount());
-        accountProfilePage = accountForm.clickOnSaveBtnFoot();
+        accountForm.setNameAccountOnTxtB(context.getAccount().getNameAccount());
+        profileaccountPage = accountForm.clickOnSaveBtnFoot();
     }
 
-    @Then("^I should see the information on the profile of new account$")
-    public void seeTheInformationOnTheProfileOfNewAccount() {
-        Assert.assertEquals(accountProfilePage.getNameAccount(), context.getAccount().getNameAccount());
+    /**
+     * Verifies the information in the profile account.
+     */
+    @Then("^The information account should display in the profile account$")
+    public void displayTheInformationOnTheProfileOfNewAccount() {
+        Assert.assertEquals(profileaccountPage.getNameAccountFromProfileHeader(), context.getAccount().getNameAccount());
     }
 
+    /**
+     * Verifies that account is displayed on recents list of account page.
+     */
     @Then("^The account should display on Account page$")
     public void displayAccountOnAccountsPage() {
         Assert.assertTrue(accountsPage.getListOfAccountsName().contains(context.getAccount().getNameAccount()));

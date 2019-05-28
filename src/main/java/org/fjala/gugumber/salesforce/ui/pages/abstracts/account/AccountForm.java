@@ -27,12 +27,12 @@ public abstract class AccountForm extends BasePage {
      *
      * @param accountName to set the account name.
      */
-    public abstract void enterNameAccount(String accountName);
+    public abstract void setNameAccountOnTxtB(String accountName);
 
     /**
      * Returns an Account Profile page after clicking on save button of the footer.
      *
      * @return an account profile page.
      */
-    public abstract AccountProfilePage clickOnSaveBtnFoot();
+    public abstract ProfileAccountPage clickOnSaveBtnFoot();
 }

@@ -12,10 +12,10 @@
 
 package org.fjala.gugumber.salesforce.entities;
 
-import org.fjala.gugumber.salesforce.utils.StrategySetter;
-
 import java.util.HashMap;
 import java.util.Map;
+
+import org.fjala.gugumber.salesforce.utils.StrategySetter;
 
 /**
  * Account class.
@@ -49,7 +49,7 @@ public class Account {
      *
      * @param nameAccount for the name of the account.
      */
-    public void setNameAccount(String nameAccount) {
+    public void setNameAccount(final String nameAccount) {
         this.nameAccount = nameAccount;
     }
 
@@ -58,7 +58,7 @@ public class Account {
      *
      * @param accountMap to set the information.
      */
-    public void setAccountInformation(Map<String, String> accountMap) {
+    public void setAccountInformation(final Map<String, String> accountMap) {
         HashMap<String, StrategySetter> strategyMap = composeStrategyMap(accountMap);
         accountMap.keySet().forEach(key -> strategyMap.get(key).executeMethod());
     }
@@ -69,7 +69,7 @@ public class Account {
      * @param accountMap to set the information.
      * @return strateg ma with the information of account.
      */
-    private HashMap<String, StrategySetter> composeStrategyMap(Map<String, String> accountMap) {
+    private HashMap<String, StrategySetter> composeStrategyMap(final Map<String, String> accountMap) {
         HashMap<String, StrategySetter> strategyMap = new HashMap<>();
         strategyMap.put(NAME_ACCOUNT, () -> setNameAccount(accountMap.get(NAME_ACCOUNT)));
         return strategyMap;

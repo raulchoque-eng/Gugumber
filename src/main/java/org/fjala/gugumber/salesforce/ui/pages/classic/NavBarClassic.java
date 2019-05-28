@@ -13,8 +13,8 @@
 package org.fjala.gugumber.salesforce.ui.pages.classic;
 
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountsPage;
-import org.fjala.gugumber.salesforce.ui.pages.common.NavBar;
 import org.fjala.gugumber.salesforce.ui.pages.classic.accounts.AccountsClassicPage;
+import org.fjala.gugumber.salesforce.ui.pages.common.NavBar;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -28,7 +28,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class NavBarClassic extends NavBar {
 
     /**
-     * Web element of tab-bar.
+     * Web element of tab-bar of navigation bar.
      */
     @FindBy(id = "tabBar")
     private WebElement tabBar;

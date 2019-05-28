@@ -45,15 +45,24 @@ public class AccountsClassicPage extends AccountsPage {
         wait.until(ExpectedConditions.visibilityOf(body));
     }
 
+    /**
+     * Returns a new account form for the layout classic after clicking on new button.
+     *
+     * @return a new account classic form.
+     */
     @Override
     public AccountForm clickNewBtn() {
         newAccountBtn.click();
         return new AccountClassicForm();
     }
 
+    /**
+     * Returns a list of name accounts from the accounts page.
+     * @return a list with the name accounts.
+     */
     @Override
     public List<String> getListOfAccountsName() {
-        List<String> accountsName = new ArrayList<>();
+        final List<String> accountsName = new ArrayList<>();
         for (WebElement accountName : AccountsNameList) {
             accountsName.add(accountName.getText());
         }

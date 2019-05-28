@@ -12,14 +12,14 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.lightning.accounts;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountForm;
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountsPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * AccountsLightningPage class.
@@ -29,12 +29,21 @@ import java.util.List;
  */
 public class AccountsLightningPage extends AccountsPage {
 
+    /**
+     * Web element to the header the accounts page.
+     */
     @FindBy(xpath = "//div[@data-aura-class='forceListViewManagerHeader']")
-    private WebElement headerList;
+    private WebElement accountsHeaderPage;
 
+    /**
+     * Web element for the button new of accounts page.
+     */
     @FindBy(xpath = "//a[@title='New']")
     private WebElement newAccoutnBtn;
 
+    /**
+     * List of web elements for accounts name.
+     */
     @FindBy(css = "a[data-aura-class='forceOutputLookup']")
     private List<WebElement> AccountsNameList;
 
@@ -43,18 +52,27 @@ public class AccountsLightningPage extends AccountsPage {
      */
     @Override
     protected void waitUntilPageObjectIsLoaded() {
-        wait.until(ExpectedConditions.visibilityOf(headerList));
+        wait.until(ExpectedConditions.visibilityOf(accountsHeaderPage));
     }
 
+    /**
+     * return a new account form for the layout lightning after clicking on new button.
+     *
+     * @return a account lightning form.
+     */
     @Override
     public AccountForm clickNewBtn() {
         newAccoutnBtn.click();
         return new AccountLightningForm();
     }
 
+    /**
+     * Returns a list with the account name from accounts page.
+     * @return a list with accounts names as string.
+     */
     @Override
     public List<String> getListOfAccountsName() {
-        List<String> accountsName = new ArrayList<>();
+        final List<String> accountsName = new ArrayList<>();
         for (WebElement accountName : AccountsNameList) {
             accountsName.add(accountName.getText());
         }
