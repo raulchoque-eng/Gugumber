@@ -15,6 +15,8 @@ package org.fjala.gugumber.salesforce.ui;
 import org.fjala.gugumber.core.selenium.WebDriverManager;
 import org.fjala.gugumber.salesforce.common.ReaderApplicationProperties;
 import org.fjala.gugumber.salesforce.ui.pages.HomePage;
+import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountsPage;
+import org.fjala.gugumber.salesforce.ui.pages.common.NavBar;
 import org.openqa.selenium.WebDriver;
 
 import java.net.MalformedURLException;
@@ -117,5 +119,23 @@ public class PageTransporter {
                 break;
         }
         return PageLayoutFactory.getHomePageManager(pageLayoutType);
+    }
+
+    /**
+     * Returns the navigation bar according to the page layout.
+     *
+     * @return a nav-bar.
+     */
+    public NavBar getNavBar() {
+        return PageLayoutFactory.getNavBar(pageLayoutType);
+    }
+
+    /**
+     * Returns the account page according to the page layout.
+     *
+     * @return an accounts page.
+     */
+    public AccountsPage getAccountPage() {
+        return PageLayoutFactory.getAccountsPage(pageLayoutType);
     }
 }

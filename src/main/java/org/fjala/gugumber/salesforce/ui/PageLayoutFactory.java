@@ -13,8 +13,14 @@
 package org.fjala.gugumber.salesforce.ui;
 
 import org.fjala.gugumber.salesforce.ui.pages.HomePage;
+import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountsPage;
 import org.fjala.gugumber.salesforce.ui.pages.classic.HomeClassicPage;
+import org.fjala.gugumber.salesforce.ui.pages.classic.NavBarClassic;
+import org.fjala.gugumber.salesforce.ui.pages.classic.accounts.AccountsClassicPage;
+import org.fjala.gugumber.salesforce.ui.pages.common.NavBar;
 import org.fjala.gugumber.salesforce.ui.pages.lightning.HomeLightningPage;
+import org.fjala.gugumber.salesforce.ui.pages.lightning.NavBarLightning;
+import org.fjala.gugumber.salesforce.ui.pages.lightning.accounts.AccountsLightningPage;
 
 /**
  * PageLayoutFactory class.
@@ -24,8 +30,10 @@ import org.fjala.gugumber.salesforce.ui.pages.lightning.HomeLightningPage;
  */
 public class PageLayoutFactory {
 
+    private static PageLayoutType type;
+
     /**
-     * Gets the home page according the page layout.
+     * Returns the home page according the page layout.
      *
      * @param type of page layout.
      * @return a home page.
@@ -44,5 +52,49 @@ public class PageLayoutFactory {
                 break;
         }
         return homePage;
+    }
+
+    /**
+     * Returns the navigation bar according the page layout.
+     *
+     * @param type of page layout.
+     * @return a the navigation bar.
+     */
+    public static NavBar getNavBar(PageLayoutType type) {
+        NavBar navBar;
+        switch (type) {
+            case CLASSIC:
+                navBar = new NavBarClassic();
+                break;
+            case LIGHTNING:
+                navBar = new NavBarLightning();
+                break;
+            default:
+                navBar = new NavBarLightning();
+                break;
+        }
+        return navBar;
+    }
+
+    /**
+     * Returns the accounts page bar according the page layout.
+     *
+     * @param type of page layout.
+     * @return a the accounts page.
+     */
+    public static AccountsPage getAccountsPage(PageLayoutType type) {
+        AccountsPage accountsPage;
+        switch (type) {
+            case CLASSIC:
+                accountsPage = new AccountsClassicPage();
+                break;
+            case LIGHTNING:
+                accountsPage = new AccountsLightningPage();
+                break;
+            default:
+                accountsPage = new AccountsClassicPage();
+                break;
+        }
+        return accountsPage;
     }
 }
