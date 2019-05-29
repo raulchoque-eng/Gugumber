@@ -29,7 +29,6 @@ public class BaseAppPageSteps {
     private ContactPageAbstract contactPage;
     private BaseAppPage baseAppPage;
 
-
     @When("^I go to the Contacts page$")
     public void GoToTheContactsPage() {
         baseAppPage = PageLayoutFactory.getBaseAppPage();
