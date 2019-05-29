@@ -37,6 +37,4 @@ public class BaseAppLightningPage extends BaseAppPage {
     public NavBar getNavBar() {
         return new NavBarLightning();
     }
-
-
 }
