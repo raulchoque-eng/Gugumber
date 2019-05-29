@@ -13,7 +13,7 @@
 package org.fjala.gugumber.salesforce.ui.pages.classic.contact;
 
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ContactForm;
-import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ProfileContactPage;
+import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ContactProfilePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -281,8 +281,8 @@ public class ContactClassicForm extends ContactForm {
     }
 
     @Override
-    public ProfileContactPage clickSaveNewContact() {
+    public ContactProfilePage clickSaveNewContact() {
         clickSaveBtn();
-        return new ProfileContactClassicPage();
+        return new ContactClassicProfilePage();
     }
 }

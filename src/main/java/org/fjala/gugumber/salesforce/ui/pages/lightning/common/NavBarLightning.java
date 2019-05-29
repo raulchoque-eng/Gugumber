@@ -72,13 +72,13 @@ public class NavBarLightning extends NavBar {
     }
 
     /**
-     * Click in the contact button.
-     * @return Contact Lightning Page.
+     * Returns contact lightning page after clicking in contact option.
+     *
+     * @return Contact lightning Page.
      */
     @Override
     public ContactPageAbstract goToContactsPage() {
         clickContactOption();
         return new ContactLightningPageAbstract();
     }
-
 }

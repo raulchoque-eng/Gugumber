@@ -12,14 +12,14 @@
 
 package org.fjala.gugumber.salesforce.ui;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import org.fjala.gugumber.core.selenium.WebDriverManager;
 import org.fjala.gugumber.salesforce.common.ReaderApplicationProperties;
 import org.fjala.gugumber.salesforce.ui.pages.HomePage;
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ContactPageAbstract;
 import org.openqa.selenium.WebDriver;
-
-import java.net.MalformedURLException;
-import java.net.URL;
 
 /**
  * PageTransporter class.
@@ -42,9 +42,12 @@ public class PageTransporter {
     /**
      * Constant for the page layout type.
      */
-    private PageLayoutType PAGE_LAYOUT_TYPE = PageLayoutConfig.getPageLayoutName();
+    private static final PageLayoutType PAGE_LAYOUT_TYPE = PageLayoutConfig.getPageLayoutName();
 
-
+    /**
+     * Constant for the message of exception.
+     */
+    private static final String MESSAGE_FOR_UNKNOWN_LAYOUT = "Unknown layout type";
 
     /**
      * Constructor of page transporter.
@@ -109,7 +112,7 @@ public class PageTransporter {
                 goToURL(ReaderApplicationProperties.getInstance().getAppProperties().get("lightning-url"));
                 break;
             default:
-                throw new RuntimeException();
+                throw new RuntimeException(MESSAGE_FOR_UNKNOWN_LAYOUT);
         }
         return PageLayoutFactory.getHomePageManager();
     }

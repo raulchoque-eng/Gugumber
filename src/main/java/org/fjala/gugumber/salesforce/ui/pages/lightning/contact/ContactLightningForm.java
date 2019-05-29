@@ -13,7 +13,7 @@
 package org.fjala.gugumber.salesforce.ui.pages.lightning.contact;
 
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ContactForm;
-import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ProfileContactPage;
+import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ContactProfilePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -527,6 +527,9 @@ public class ContactLightningForm extends ContactForm {
         descriptionTxtb.sendKeys(description);
     }
 
+    /**
+     * Contact save button.
+     */
     public void clickSaveBtn() {
         saveBtn.click();
     }
@@ -537,8 +540,8 @@ public class ContactLightningForm extends ContactForm {
      * @return new profile contact lighting page.
      */
     @Override
-    public ProfileContactPage clickSaveNewContact() {
+    public ContactProfilePage clickSaveNewContact() {
         clickSaveBtn();
-        return new ProfileContactLightningPage();
+        return new ContactLightningProfilePage();
     }
 }

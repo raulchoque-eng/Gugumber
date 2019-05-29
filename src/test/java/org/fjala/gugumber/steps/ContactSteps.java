@@ -7,10 +7,9 @@ import org.fjala.gugumber.salesforce.entities.Contact;
 import org.fjala.gugumber.salesforce.entities.Context;
 import org.fjala.gugumber.salesforce.ui.PageLayoutFactory;
 import org.fjala.gugumber.salesforce.ui.PageTransporter;
-import org.fjala.gugumber.salesforce.ui.pages.abstracts.common.BaseAppPage;
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ContactForm;
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ContactPageAbstract;
-import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ProfileContactPage;
+import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ContactProfilePage;
 
 import java.util.Map;
 
@@ -32,7 +31,7 @@ public class ContactSteps {
     //pages
     private ContactPageAbstract contactPage;
     private ContactForm contactForm;
-    private ProfileContactPage profileContactPage;
+    private ContactProfilePage contactProfilePage;
 
     public ContactSteps(Context context) {
         this.context = context;
@@ -41,7 +40,7 @@ public class ContactSteps {
 
     @When("^I open Contact form$")
     public void OpenContactForm() {
-        contactPage = PageLayoutFactory.getNavigateContact();
+        contactPage = PageLayoutFactory.getContactsPage();
         contactForm = contactPage.clickNewContact();
     }
 
@@ -49,18 +48,18 @@ public class ContactSteps {
     public void CreateANewContactInContactForm(Map<String, String> contactMap) {
         contact.processInformation(contactMap);
         contactForm.setContactInformation(contactMap);
-        profileContactPage = contactForm.clickSaveNewContact();
+        contactProfilePage = contactForm.clickSaveNewContact();
     }
 
 //    @Then("^a message that indicates the Contact was created should be displayed$")
 //    public void MessageThatIndicatesTheContactWasCreated() {
-//        ProfileContactLightningPage profileContactLightningPage = new ProfileContactLightningPage();
+//        ContactLightningProfilePage profileContactLightningPage = new ContactLightningProfilePage();
 //        assertEquals(message, profileContactLightningPage, "not successfully deleted");
 //    }
 
     @Then("^the contact last name should be displayed in the Contact Profile page$")
     public void theContactLastNameShouldBeDisplayedInTheContactProfilePage() {
-        assertTrue(profileContactPage.isTheNewContact());
+        assertTrue(contactProfilePage.isTheNewContact());
     }
 
 

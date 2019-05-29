@@ -164,5 +164,5 @@ public abstract class ContactForm extends BasePage {
 
     protected abstract void setDescription(String description);
 
-    public abstract ProfileContactPage clickSaveNewContact();
+    public abstract ContactProfilePage clickSaveNewContact();
 }

@@ -13,6 +13,7 @@
 package org.fjala.gugumber.salesforce.ui.pages.classic.common;
 
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.common.NavBar;
+import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ContactPageAbstract;
 import org.fjala.gugumber.salesforce.ui.pages.classic.contact.ContactClassicPageAbstract;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -72,9 +73,11 @@ public class NavBarClassic extends NavBar {
 
     /**
      * Click in the contact button.
+     *
      * @return Contact Lightning Page.
      */
-    public ContactClassicPageAbstract goToContactsPage() {
+    @Override
+    public ContactPageAbstract goToContactsPage() {
         clickContactOption();
         return new ContactClassicPageAbstract();
     }

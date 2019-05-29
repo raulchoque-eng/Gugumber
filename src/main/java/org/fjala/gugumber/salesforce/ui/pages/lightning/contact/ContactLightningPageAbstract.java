@@ -48,13 +48,20 @@ public class ContactLightningPageAbstract extends ContactPageAbstract {
         wait.until(ExpectedConditions.visibilityOf(newContactForm));
     }
 
-
+    /**
+     * Gets New Contact form.
+     *
+     * @return new profile contact lighting form.
+     */
     @Override
     public ContactForm clickNewContact() {
         clickNewContactBtn();
         return new ContactLightningForm();
     }
 
+    /**
+     * Contact new contact button.
+     */
     private void clickNewContactBtn() {
         newContactBtn.click();
     }

@@ -85,7 +85,7 @@ public class PageLayoutFactory {
      *
      * @return a contact page.
      */
-    public static ContactPageAbstract getNavigateContact() {
+    public static ContactPageAbstract getContactsPage() {
         final ContactPageAbstract contactPageAbstract;
         switch (PAGE_LAYOUT_TYPE) {
             case CLASSIC:
@@ -99,5 +99,4 @@ public class PageLayoutFactory {
         }
         return contactPageAbstract;
     }
-
 }
