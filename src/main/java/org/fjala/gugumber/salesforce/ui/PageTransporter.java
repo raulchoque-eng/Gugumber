@@ -12,6 +12,8 @@
 
 package org.fjala.gugumber.salesforce.ui;
 
+import static org.fjala.gugumber.salesforce.ui.PageLayoutFactory.MESSAGE_FOR_UNKNOWN_LAYOUT;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -20,7 +22,7 @@ import org.fjala.gugumber.salesforce.common.ReaderApplicationProperties;
 import org.fjala.gugumber.salesforce.ui.pages.LoginPage;
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.HomePage;
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountsPage;
-import org.fjala.gugumber.salesforce.ui.pages.common.NavBar;
+import org.fjala.gugumber.salesforce.ui.pages.abstracts.common.NavBar;
 import org.openqa.selenium.WebDriver;
 
 /**
@@ -116,8 +118,7 @@ public class PageTransporter {
                 goToURL(ReaderApplicationProperties.getInstance().getAppProperties().get("lightning-url"));
                 break;
             default:
-                goToURL(ReaderApplicationProperties.getInstance().getAppProperties().get("classic-url"));
-                break;
+                throw new RuntimeException(MESSAGE_FOR_UNKNOWN_LAYOUT);
         }
         return PageLayoutFactory.getHomePageManager(pageLayoutType);
     }

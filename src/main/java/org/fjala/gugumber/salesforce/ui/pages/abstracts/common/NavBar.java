@@ -10,7 +10,7 @@
  * with Jala Foundation.
  */
 
-package org.fjala.gugumber.salesforce.ui.pages.common;
+package org.fjala.gugumber.salesforce.ui.pages.abstracts.common;
 
 import org.fjala.gugumber.salesforce.ui.pages.BasePage;
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountsPage;

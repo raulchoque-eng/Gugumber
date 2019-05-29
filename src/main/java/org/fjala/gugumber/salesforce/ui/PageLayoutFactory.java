@@ -14,13 +14,13 @@ package org.fjala.gugumber.salesforce.ui;
 
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.HomePage;
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountsPage;
+import org.fjala.gugumber.salesforce.ui.pages.abstracts.common.NavBar;
 import org.fjala.gugumber.salesforce.ui.pages.classic.HomeClassicPage;
-import org.fjala.gugumber.salesforce.ui.pages.classic.NavBarClassic;
 import org.fjala.gugumber.salesforce.ui.pages.classic.accounts.AccountsClassicPage;
-import org.fjala.gugumber.salesforce.ui.pages.common.NavBar;
+import org.fjala.gugumber.salesforce.ui.pages.classic.common.NavBarClassic;
 import org.fjala.gugumber.salesforce.ui.pages.lightning.HomeLightningPage;
-import org.fjala.gugumber.salesforce.ui.pages.lightning.NavBarLightning;
 import org.fjala.gugumber.salesforce.ui.pages.lightning.accounts.AccountsLightningPage;
+import org.fjala.gugumber.salesforce.ui.pages.lightning.common.NavBarLightning;
 
 /**
  * PageLayoutFactory class.
@@ -29,6 +29,8 @@ import org.fjala.gugumber.salesforce.ui.pages.lightning.accounts.AccountsLightni
  * @version 0.0.1
  */
 public class PageLayoutFactory {
+
+    public static final String MESSAGE_FOR_UNKNOWN_LAYOUT = "Unknown layout type";
 
     /**
      * Constructor of PageLayoutFactory.
@@ -51,8 +53,7 @@ public class PageLayoutFactory {
                 homePage = new HomeLightningPage();
                 break;
             default:
-                homePage = new HomeClassicPage();
-                break;
+                throw new RuntimeException(MESSAGE_FOR_UNKNOWN_LAYOUT);
         }
         return homePage;
     }
@@ -73,8 +74,7 @@ public class PageLayoutFactory {
                 navBar = new NavBarLightning();
                 break;
             default:
-                navBar = new NavBarLightning();
-                break;
+                throw new RuntimeException(MESSAGE_FOR_UNKNOWN_LAYOUT);
         }
         return navBar;
     }
@@ -95,8 +95,7 @@ public class PageLayoutFactory {
                 accountsPage = new AccountsLightningPage();
                 break;
             default:
-                accountsPage = new AccountsClassicPage();
-                break;
+                throw new RuntimeException(MESSAGE_FOR_UNKNOWN_LAYOUT);
         }
         return accountsPage;
     }

@@ -14,8 +14,9 @@ package org.fjala.gugumber.steps;
 
 import java.util.Map;
 
-import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import org.fjala.gugumber.salesforce.entities.Account;
 import org.fjala.gugumber.salesforce.entities.Context;
 import org.fjala.gugumber.salesforce.ui.PageTransporter;
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountForm;
@@ -56,6 +57,7 @@ public class AccountSteps {
      */
     Context context;
 
+    Account account;
     /**
      * Constructor of account steps sending the context.
      *
@@ -63,6 +65,7 @@ public class AccountSteps {
      */
     public AccountSteps(final Context context) {
         this.context = context;
+        this.account = context.getAccount();
     }
 
     /**
@@ -70,7 +73,7 @@ public class AccountSteps {
      *
      * @param accountMap for the information of account.
      */
-    @And("^I create a new Account with the following information$")
+    @When("^I create a new Account with the following information$")
     public void createANewAccountWithTheFollowingInformation(final Map<String,String> accountMap) {
         context.getAccount().setAccountInformation(accountMap);
         accountsPage = pageTransporter.getAccountPage();
@@ -82,7 +85,7 @@ public class AccountSteps {
     /**
      * Verifies the information in the profile account.
      */
-    @Then("^The information account should display in the profile account$")
+    @Then("^the information account should be displayed in the Account Profile page$")
     public void displayTheInformationOnTheProfileOfNewAccount() {
         Assert.assertEquals(profileaccountPage.getNameAccountFromProfileHeader(), context.getAccount().getNameAccount());
     }
@@ -90,7 +93,7 @@ public class AccountSteps {
     /**
      * Verifies that account is displayed on recents list of account page.
      */
-    @Then("^The account should display on Account page$")
+    @Then("^the account should be displayed on Accounts page$")
     public void displayAccountOnAccountsPage() {
         Assert.assertTrue(accountsPage.getListOfAccountsName().contains(context.getAccount().getNameAccount()));
     }

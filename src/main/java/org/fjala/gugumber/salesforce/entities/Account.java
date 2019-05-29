@@ -28,7 +28,7 @@ public class Account {
     /**
      * Constant for key of name account.
      */
-    private static final String NAME_ACCOUNT = "Name Account";
+    private static final String NAME_ACCOUNT = "Account Name";
 
     /**
      * Variable for the name account of an Account.
