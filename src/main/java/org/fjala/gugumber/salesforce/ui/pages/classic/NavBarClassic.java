@@ -12,7 +12,7 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.classic;
 
-import org.fjala.gugumber.salesforce.ui.pages.NavBar;
+import org.fjala.gugumber.salesforce.ui.pages.abstracts.common.NavBar;
 import org.fjala.gugumber.salesforce.ui.pages.classic.accounts.AccountsClassicPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -46,14 +46,13 @@ public class NavBarClassic extends NavBar {
         wait.until(ExpectedConditions.visibilityOf(tabBar));
     }
 
-    /**
-     * Returns the account classic page after clicking on account option.
+   /**
+     * Returns contact classic page after clicking in contact option.
      *
-     * @return a account classic page.
+     * @return contact classic page.
      */
     @Override
-    public AccountsClassicPage clickAccountsOption() {
-        accountOption.click();
-        return new AccountsClassicPage();
+    public ContactPageAbstract goToContactPage() {
+        return null;
     }
 }
