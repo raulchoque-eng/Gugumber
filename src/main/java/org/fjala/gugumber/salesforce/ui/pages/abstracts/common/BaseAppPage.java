@@ -11,9 +11,9 @@ import org.fjala.gugumber.salesforce.ui.BasePage;
 public abstract class BaseAppPage extends BasePage {
 
     /**
-     * Gets navBar.
+     * Gets NavBar.
      *
-     * @return navBar.
+     * @return NavBar.
      */
     public abstract NavBar getNavBar();
 }
