@@ -227,7 +227,7 @@ public class ContactLightningForm extends ContactForm {
     }
 
     @Override
-    protected void setSalutation(String salutation) {
+    protected void setSalutation(final String salutation) {
         salutationCmbb.sendKeys(salutation);
     }
 
@@ -239,11 +239,11 @@ public class ContactLightningForm extends ContactForm {
         firstNameTxtb.sendKeys(firstName);
     }
 
-    public void setLastName(final String lastName) {
+    protected void setLastName(final String lastName) {
         lastNameTxtb.sendKeys(lastName);
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(final int phone) {
         phoneTxtb.sendKeys(String.valueOf(phone));
     }
 

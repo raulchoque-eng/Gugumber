@@ -108,7 +108,7 @@ public abstract class ContactForm extends BasePage {
 
     protected abstract void setFirstName(String firstName);
 
-    public abstract void setLastName(String lastName);
+    protected abstract void setLastName(String lastName);
 
     protected abstract void setAccount(String account);
 

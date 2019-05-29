@@ -1,7 +1,7 @@
 package org.fjala.gugumber.salesforce.ui.pages.lightning.common;
 
-import org.fjala.gugumber.salesforce.ui.pages.abstracts.common.NavBar;
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.common.BaseAppPage;
+import org.fjala.gugumber.salesforce.ui.pages.abstracts.common.NavBar;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
