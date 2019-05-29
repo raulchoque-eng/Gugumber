@@ -15,7 +15,6 @@ package org.fjala.gugumber.steps;
 import cucumber.api.java.en.When;
 import org.fjala.gugumber.salesforce.ui.PageLayoutFactory;
 import org.fjala.gugumber.salesforce.ui.PageTransporter;
-import org.fjala.gugumber.salesforce.ui.pages.abstracts.common.NavBar;
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.common.BaseAppPage;
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ContactPageAbstract;
 
@@ -27,14 +26,13 @@ import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ContactPageAbst
  */
 public class BaseAppPageSteps {
 
-    PageTransporter pageTransporter = PageTransporter.getInstance();
     private ContactPageAbstract contactPage;
     private BaseAppPage baseAppPage;
 
 
     @When("^I go to the Contacts page$")
-    public void iGoToTheContactsPage() {
+    public void GoToTheContactsPage() {
         baseAppPage = PageLayoutFactory.getBaseAppPage();
-        baseAppPage.getNavBar().goToContactPage();
+        baseAppPage.getNavBar().goToContactsPage();
     }
 }

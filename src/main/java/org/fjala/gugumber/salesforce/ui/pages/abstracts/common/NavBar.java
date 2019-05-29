@@ -35,6 +35,6 @@ public abstract class NavBar extends BasePage {
      *
      * @return an Account page.
      */
-    public abstract ContactPageAbstract goToContactPage();
+    public abstract ContactPageAbstract goToContactsPage();
 
 }

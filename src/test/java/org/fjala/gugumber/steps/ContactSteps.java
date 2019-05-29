@@ -5,7 +5,9 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.fjala.gugumber.salesforce.entities.Contact;
 import org.fjala.gugumber.salesforce.entities.Context;
+import org.fjala.gugumber.salesforce.ui.PageLayoutFactory;
 import org.fjala.gugumber.salesforce.ui.PageTransporter;
+import org.fjala.gugumber.salesforce.ui.pages.abstracts.common.BaseAppPage;
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ContactForm;
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ContactPageAbstract;
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ProfileContactPage;
@@ -18,7 +20,7 @@ import static org.testng.Assert.assertTrue;
 /**
  * ContactSteps class.
  *
- * @author Cxrisstian
+ * @author Cristian Lujan
  * @version 0.0.1
  */
 public class ContactSteps {
@@ -38,7 +40,8 @@ public class ContactSteps {
     }
 
     @When("^I open Contact form$")
-    public void openContactForm() {
+    public void OpenContactForm() {
+        contactPage = PageLayoutFactory.getNavigateContact();
         contactForm = contactPage.clickNewContact();
     }
 
@@ -49,15 +52,16 @@ public class ContactSteps {
         profileContactPage = contactForm.clickSaveNewContact();
     }
 
-//    @Then("^I should see a green message \"([^\"]*)\"$")
-//    public void iShouldSeeAGreenMessage(String message) {
+//    @Then("^a message that indicates the Contact was created should be displayed$")
+//    public void MessageThatIndicatesTheContactWasCreated() {
 //        ProfileContactLightningPage profileContactLightningPage = new ProfileContactLightningPage();
 //        assertEquals(message, profileContactLightningPage, "not successfully deleted");
 //    }
-
 
     @Then("^the contact last name should be displayed in the Contact Profile page$")
     public void theContactLastNameShouldBeDisplayedInTheContactProfilePage() {
         assertTrue(profileContactPage.isTheNewContact());
     }
+
+
 }

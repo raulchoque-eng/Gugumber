@@ -24,5 +24,4 @@ public abstract class ContactPageAbstract extends BasePage {
 
     public abstract ContactForm clickNewContact();
 
-
 }
