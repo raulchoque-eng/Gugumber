@@ -15,6 +15,7 @@ package org.fjala.gugumber.salesforce.ui;
 import org.fjala.gugumber.core.selenium.WebDriverManager;
 import org.fjala.gugumber.salesforce.common.ReaderApplicationProperties;
 import org.fjala.gugumber.salesforce.ui.pages.HomePage;
+import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ContactPageAbstract;
 import org.openqa.selenium.WebDriver;
 
 import java.net.MalformedURLException;
@@ -39,14 +40,11 @@ public class PageTransporter {
     private WebDriver webDriver;
 
     /**
-     * Variable for the name of page layout.
-     */
-    private String pageLayoutName;
-
-    /**
      * Variable for the page layout type.
      */
-    private PageLayoutType pageLayoutType;
+    private PageLayoutType PAGE_LAYOUT_TYPE = PageLayoutConfig.getPageLayoutName();
+
+
 
     /**
      * Constructor of page transporter.
@@ -72,8 +70,6 @@ public class PageTransporter {
      */
     private void initialize() {
         webDriver = WebDriverManager.getInstance().getWebDriver();
-        pageLayoutName = PageLayoutConfig.getInstance().getPageLayoutName().toUpperCase();
-        pageLayoutType = PageLayoutType.valueOf(pageLayoutName);
     }
 
     /**
@@ -105,7 +101,7 @@ public class PageTransporter {
      * @return a home page according to the page layout.
      */
     public HomePage navigateToHomePage() {
-        switch (pageLayoutType) {
+        switch (PAGE_LAYOUT_TYPE) {
             case CLASSIC:
                 goToURL(ReaderApplicationProperties.getInstance().getAppProperties().get("classic-url"));
                 break;
@@ -116,6 +112,6 @@ public class PageTransporter {
                 goToURL(ReaderApplicationProperties.getInstance().getAppProperties().get("classic-url"));
                 break;
         }
-        return PageLayoutFactory.getHomePageManager(pageLayoutType);
+        return PageLayoutFactory.getHomePageManager();
     }
 }
