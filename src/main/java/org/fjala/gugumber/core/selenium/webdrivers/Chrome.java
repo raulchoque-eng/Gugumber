@@ -24,7 +24,7 @@ import org.openqa.selenium.remote.CapabilityType;
 /**
  * Chrome class.
  *
- * @author Cxrisstian
+ * @author Cristian Lujan
  * @version 0.0.1
  */
 public class Chrome {
