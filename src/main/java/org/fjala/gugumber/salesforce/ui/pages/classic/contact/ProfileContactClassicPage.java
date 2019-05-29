@@ -37,7 +37,7 @@ public class ProfileContactClassicPage extends ProfileContactPage {
     }
 
     @Override
-    public boolean verifyNewContact() {
+    public boolean isTheNewContact() {
         return false;
     }
 }

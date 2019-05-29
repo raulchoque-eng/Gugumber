@@ -62,17 +62,54 @@ public class ContactClassicForm extends ContactForm {
     @FindBy(id = "con15")
     private WebElement emailTxtb;
 
-//    /**
-//     * Locator for text box of Phone.
-//     */
-//    @FindBy(id = "con10")
-//    private WebElement phoneTxtb;
-//
-//    /**
-//     * Locator for text box of Email.
-//     */
-//    @FindBy(id = "con15")
-//    private WebElement emailTxtb;
+/**
+     * Locator for text box of title.
+     */
+    @FindBy(id = "con5")
+    private WebElement titleTxtb;
+
+/**
+     * Locator for text box of department.
+     */
+    @FindBy(id = "con6")
+    private WebElement departmentTxtb;
+
+    /**
+     * Locator for text box of birth date.
+     */
+    @FindBy(id = "con7")
+    private WebElement birthdateTxtb;
+
+    /**
+     * Locator for text box of report to.
+     */
+    @FindBy(id = "con8")
+    private WebElement reportToTxtb;
+
+    /**
+     * Locator for text box of lead Source.
+     */
+    @FindBy(id = "con9")
+    private WebElement leadSourceCmbb;
+
+    /**
+     * Locator for text box of home phone.
+     */
+    @FindBy(id = "")
+    private WebElement hPhoneTxtb;
+
+    /**
+     * Locator for text box of mobile.
+     */
+    @FindBy(id = "con12")
+    private WebElement mobileTxtb;
+
+    /**
+     * Locator for text box of other phone.
+     */
+    @FindBy(id = "con14")
+    private WebElement otherPhoneTxtb;
+
 
     /**
      * Locator for text box of save button.

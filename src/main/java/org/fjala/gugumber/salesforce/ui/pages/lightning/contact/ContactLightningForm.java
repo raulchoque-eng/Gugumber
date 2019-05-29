@@ -87,13 +87,13 @@ public class ContactLightningForm extends ContactForm {
     private WebElement birthdateTxtb;
 
     /**
-     * Locator for text box of birth date.
+     * Locator for text box of report to.
      */
     @FindBy(css = "div[id^='533']")
     private WebElement reportToTxtb;
 
     /**
-     * Locator for text box of load Source.
+     * Locator for text box of lead Source.
      */
     @FindBy(css = "div[id^='533']")
     private WebElement leadSourceCmbb;

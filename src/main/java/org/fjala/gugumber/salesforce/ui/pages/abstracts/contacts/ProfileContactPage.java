@@ -24,5 +24,5 @@ public abstract class ProfileContactPage extends BasePage {
 
     public abstract String getLastNameContact();
 
-    public abstract boolean verifyNewContact();
+    public abstract boolean isTheNewContact();
 }

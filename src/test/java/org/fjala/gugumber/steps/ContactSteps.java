@@ -1,15 +1,13 @@
 package org.fjala.gugumber.steps;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import org.fjala.gugumber.salesforce.entities.Contact;
 import org.fjala.gugumber.salesforce.entities.Context;
 import org.fjala.gugumber.salesforce.ui.PageTransporter;
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ContactForm;
-import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ContactPage;
+import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ContactPageAbstract;
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ProfileContactPage;
-import org.fjala.gugumber.salesforce.ui.pages.lightning.contact.ProfileContactLightningPage;
 
 import java.util.Map;
 
@@ -29,7 +27,7 @@ public class ContactSteps {
     private Contact contact;
 
     //pages
-    private ContactPage contactPage;
+    private ContactPageAbstract contactPage;
     private ContactForm contactForm;
     private ProfileContactPage profileContactPage;
 
@@ -53,9 +51,13 @@ public class ContactSteps {
 //        assertEquals(message, profileContactLightningPage, "not successfully deleted");
 //    }
 
-    @Then("^The contact should displayed on contact page$")
-    public void contactShouldDisplayedOnContactPage() {
-        assertTrue(profileContactPage.verifyNewContact());
+    @Then("^The contact should displayed on profile Contact page$")
+    public void ContactShouldDisplayedOnProfileContactPage() {
+        assertTrue(profileContactPage.isTheNewContact());
     }
 
+//    @When("^I open Contact form$")
+//    public void openContactForm() {
+//        contactForm =
+//    }
 }

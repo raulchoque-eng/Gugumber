@@ -10,10 +10,10 @@
  * with Jala Foundation.
  */
 
-package org.fjala.gugumber.salesforce.ui.pages.lightning;
+package org.fjala.gugumber.salesforce.ui.pages.lightning.common;
 
-import org.fjala.gugumber.salesforce.ui.pages.NavBar;
-import org.fjala.gugumber.salesforce.ui.pages.lightning.contact.ContactLightningPage;
+import org.fjala.gugumber.salesforce.ui.pages.abstracts.common.NavBar;
+import org.fjala.gugumber.salesforce.ui.pages.lightning.contact.ContactLightningPageAbstract;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -75,9 +75,9 @@ public class NavBarLightning extends NavBar {
      * @return Contact Lightning Page.
      */
     @Override
-    public ContactLightningPage goContactPage() {
+    public ContactLightningPageAbstract goToContactPage() {
         clickContactOption();
-        return new ContactLightningPage();
+        return new ContactLightningPageAbstract();
     }
 
 }

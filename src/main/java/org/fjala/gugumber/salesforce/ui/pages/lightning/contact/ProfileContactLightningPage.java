@@ -41,9 +41,7 @@ public class ProfileContactLightningPage extends ProfileContactPage {
     }
 
     @Override
-    public boolean verifyNewContact() {
+    public boolean isTheNewContact() {
         return contactTitle.isDisplayed();
     }
-
-
 }

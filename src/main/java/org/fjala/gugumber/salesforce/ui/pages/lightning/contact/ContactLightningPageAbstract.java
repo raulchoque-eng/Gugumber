@@ -1,5 +1,5 @@
 /*
- * @(#) ContactLightningPage.java Copyright (c) 2019 Jala Foundation.
+ * @(#) ContactLightningPageAbstract.java Copyright (c) 2019 Jala Foundation.
  * 2643 Av Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
  * All rights reserved.
  *
@@ -13,19 +13,18 @@
 package org.fjala.gugumber.salesforce.ui.pages.lightning.contact;
 
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ContactForm;
-import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ContactPage;
-import org.fjala.gugumber.salesforce.ui.pages.classic.contact.ContactClassicForm;
+import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ContactPageAbstract;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
- * ContactLightningPage class.
+ * ContactLightningPageAbstract class.
  *
  * @author Cristian Lujan
  * @version 0.0.1
  */
-public class ContactLightningPage extends ContactPage {
+public class ContactLightningPageAbstract extends ContactPageAbstract {
 
     /**
      * Web Element form Contact

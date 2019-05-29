@@ -1,5 +1,5 @@
 /*
- * @(#) ContactClassicPage.java Copyright (c) 2019 Jala Foundation.
+ * @(#) ContactClassicPageAbstract.java Copyright (c) 2019 Jala Foundation.
  * 2643 Av Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
  * All rights reserved.
  *
@@ -13,18 +13,18 @@
 package org.fjala.gugumber.salesforce.ui.pages.classic.contact;
 
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ContactForm;
-import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ContactPage;
+import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ContactPageAbstract;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
- * ContactClassicPage class.
+ * ContactClassicPageAbstract class.
  *
  * @author Cristian Lujan
  * @version 0.0.1
  */
-public class ContactClassicPage extends ContactPage {
+public class ContactClassicPageAbstract extends ContactPageAbstract {
 
     /**
      * Web element for the contact option.
