@@ -28,9 +28,16 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
  * @version 0.0.1
  */
 public class AccountsClassicPage extends AccountsPage {
+
+    /**
+     * Web element for the body of the account page.
+     */
     @FindBy(id = "bodyCell")
     private WebElement body;
 
+    /**
+     * Web element for the button new.
+     */
     @FindBy(css = "input[class='btn'][name='new']")
     private WebElement newAccountBtn;
 
@@ -58,6 +65,7 @@ public class AccountsClassicPage extends AccountsPage {
 
     /**
      * Returns a list of name accounts from the accounts page.
+     *
      * @return a list with the name accounts.
      */
     @Override

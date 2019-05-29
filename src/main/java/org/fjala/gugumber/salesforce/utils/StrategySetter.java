@@ -19,5 +19,9 @@ package org.fjala.gugumber.salesforce.utils;
  * @version 0.0.1
  */
 public interface StrategySetter {
+
+    /**
+     * Executes the method.
+     */
     void executeMethod();
 }
