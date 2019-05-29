@@ -52,17 +52,6 @@ public class NavBarClassic extends NavBar {
         wait.until(ExpectedConditions.visibilityOf(tabBar));
     }
 
-//    /**
-//     * Returns the account classic page after clicking on account option.
-//     *
-//     * @return a account classic page.
-//     */
-//    @Override
-//    public AccountsClassicPage clickAccountsOption() {
-//        accountOption.click();
-//        return new AccountsClassicPage();
-//    }
-
     /**
      * Contact menu button.
      */

@@ -30,6 +30,7 @@ public class BaseAppLightningPage extends BaseAppPage {
 
     /**
      * Gets for navBar.
+     *
      * @return new navBar lighting.
      */
     @Override
