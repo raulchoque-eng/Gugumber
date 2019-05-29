@@ -99,5 +99,4 @@ public class PageLayoutFactory {
         }
         return contactPageAbstract;
     }
-
 }
