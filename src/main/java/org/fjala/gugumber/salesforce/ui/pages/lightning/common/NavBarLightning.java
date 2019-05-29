@@ -69,5 +69,4 @@ public class NavBarLightning extends NavBar {
         openContactOption();
         return new ContactLightningPageAbstract();
     }
-
 }
