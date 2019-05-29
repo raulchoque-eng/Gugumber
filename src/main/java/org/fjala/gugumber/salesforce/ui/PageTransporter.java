@@ -40,11 +40,14 @@ public class PageTransporter {
     private WebDriver webDriver;
 
     /**
-     * Variable for the page layout type.
+     * Constant for the page layout type.
      */
     private PageLayoutType PAGE_LAYOUT_TYPE = PageLayoutConfig.getPageLayoutName();
 
-
+    /**
+     * Constant for the message of exception.
+     */
+    private static final String MESSAGE_FOR_UNKNOWN_LAYOUT = "Unknown layout type";
 
     /**
      * Constructor of page transporter.
@@ -109,8 +112,7 @@ public class PageTransporter {
                 goToURL(ReaderApplicationProperties.getInstance().getAppProperties().get("lightning-url"));
                 break;
             default:
-                goToURL(ReaderApplicationProperties.getInstance().getAppProperties().get("classic-url"));
-                break;
+                throw new RuntimeException(MESSAGE_FOR_UNKNOWN_LAYOUT);
         }
         return PageLayoutFactory.getHomePageManager();
     }

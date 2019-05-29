@@ -30,8 +30,15 @@ import org.fjala.gugumber.salesforce.ui.pages.lightning.contact.ContactLightning
  */
 public class PageLayoutFactory {
 
-
+    /**
+     * Constant for the page layout type.
+     */
     private static final PageLayoutType PAGE_LAYOUT_TYPE = PageLayoutConfig.getPageLayoutName();
+
+    /**
+     * Constant for the message of exception.
+     */
+    private static final String MESSAGE_FOR_UNKNOWN_LAYOUT = "Unknown layout type";
 
     /**
      * Gets the home page according the page layout.
@@ -48,11 +55,16 @@ public class PageLayoutFactory {
                 homePage = new HomeLightningPage();
                 break;
             default:
-                throw new RuntimeException();
+                throw new RuntimeException(MESSAGE_FOR_UNKNOWN_LAYOUT);
         }
         return homePage;
     }
 
+    /**
+     * Gets the Base App page according the page layout.
+     *
+     * @return a base app page.
+     */
      public static BaseAppPage getBaseAppPage() {
         final BaseAppPage baseAppPage;
         switch (PAGE_LAYOUT_TYPE) {
@@ -63,12 +75,16 @@ public class PageLayoutFactory {
                 baseAppPage = new BaseAppLightningPage();
                 break;
             default:
-                throw new RuntimeException();
+                throw new RuntimeException(MESSAGE_FOR_UNKNOWN_LAYOUT);
         }
         return baseAppPage;
     }
 
-
+    /**
+     * Gets the navigate navigate contact according the page layout.
+     *
+     * @return a contact page.
+     */
     public static ContactPageAbstract getNavigateContact() {
         final ContactPageAbstract contactPageAbstract;
         switch (PAGE_LAYOUT_TYPE) {
@@ -79,7 +95,7 @@ public class PageLayoutFactory {
                 contactPageAbstract = new ContactLightningPageAbstract();
                 break;
             default:
-                throw new RuntimeException();
+                throw new RuntimeException(MESSAGE_FOR_UNKNOWN_LAYOUT);
         }
         return contactPageAbstract;
     }

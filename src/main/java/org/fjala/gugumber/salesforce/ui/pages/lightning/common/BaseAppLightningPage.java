@@ -9,19 +9,29 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 /**
  * BaseAppLightningPage class.
  *
- * @author Cxrisstian
+ * @author Cristian Lujan
  * @version 0.0.1
  */
 public class BaseAppLightningPage extends BaseAppPage {
 
+    /**
+     * Locator for header of base page.
+     */
     @FindBy(css = "[class='slds-global-header slds-grid slds-grid--align-spread']")
     private WebElement basePageHeader;
 
+    /**
+     * Waits until page object is loaded.
+     */
     @Override
     protected void waitUntilPageObjectIsLoaded() {
         wait.until(ExpectedConditions.visibilityOf(basePageHeader));
     }
 
+    /**
+     * Gets for navBar.
+     * @return new navBar lighting.
+     */
     @Override
     public NavBar getNavBar() {
         return new NavBarLightning();

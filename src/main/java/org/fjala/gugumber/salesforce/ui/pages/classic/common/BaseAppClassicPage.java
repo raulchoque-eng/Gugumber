@@ -9,20 +9,29 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 /**
  * BaseAppClassicPage class.
  *
- * @author Cxrisstian
+ * @author Cristian Lujan
  * @version 0.0.1
  */
 public class BaseAppClassicPage extends BaseAppPage {
 
-//    private NavBar navBar;
+    /**
+     * Locator for header of base page.
+     */
     @FindBy(id = "AppBodyHeader")
     private WebElement basePageHeader;
 
+    /**
+     * Waits until page object is loaded.
+     */
     @Override
     protected void waitUntilPageObjectIsLoaded() {
         wait.until(ExpectedConditions.visibilityOf(basePageHeader));
     }
 
+    /**
+     * Gets for navBar.
+     * @return new navBar Classic.
+     */
     @Override
     public NavBar getNavBar() {
         return new NavBarClassic();
