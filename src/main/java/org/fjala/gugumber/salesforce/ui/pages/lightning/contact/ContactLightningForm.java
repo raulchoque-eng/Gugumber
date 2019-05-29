@@ -226,6 +226,11 @@ public class ContactLightningForm extends ContactForm {
         wait.until(ExpectedConditions.visibilityOf(newContactForm));
     }
 
+     /**
+     * Sets the salutation name.
+      *
+     * @param salutation of type String
+     */
     @Override
     protected void setSalutation(final String salutation) {
         salutationCmbb.sendKeys(salutation);
@@ -233,128 +238,292 @@ public class ContactLightningForm extends ContactForm {
 
     /**
      * Sets the first name.
+     *
      * @param firstName of type String
      */
+    @Override
     protected void setFirstName(final String firstName) {
         firstNameTxtb.sendKeys(firstName);
     }
 
+    /**
+     * Sets the last name.
+     *
+     * @param lastName of type String.
+     */
+    @Override
     protected void setLastName(final String lastName) {
         lastNameTxtb.sendKeys(lastName);
     }
 
-    public void setPhone(final int phone) {
+    /**
+     * Sets the phone.
+     *
+     * @param phone of type int.
+     */
+    @Override
+    protected void setPhone(final int phone) {
         phoneTxtb.sendKeys(String.valueOf(phone));
     }
 
-    public void setHomePhone(int phone) {
+    /**
+     * Sets the phone.
+     *
+     * @param phone of type int.
+     */
+    @Override
+    protected void setHomePhone(final int phone) {
         hPhoneTxtb.sendKeys(String.valueOf(phone));
     }
 
-    public void setTitle(String title) {
+    /**
+     * Sets the title.
+     *
+     * @param title of type String.
+     */
+    @Override
+    protected void setTitle(final String title) {
         titleTxtb.sendKeys(title);
     }
 
-    public void setAccount(String account) {
+    /**
+     * Sets the account.
+     *
+     * @param account of type String.
+     */
+    @Override
+    protected void setAccount(final String account) {
         accountTxtb.sendKeys(account);
     }
 
-    public void setDepartment(String department) {
+    /**
+     * Sets the department.
+     *
+     * @param department of type String.
+     */
+    @Override
+    protected void setDepartment(final String department) {
         departmentTxtb.sendKeys(department);
     }
 
-    public void setBirthdate(String birthdate) {
+    /**
+     * Sets the birthdate.
+     *
+     * @param birthdate of type String.
+     */
+    @Override
+    protected void setBirthdate(final String birthdate) {
         birthdateTxtb.sendKeys(birthdate);
     }
 
+    /**
+     * Sets the reports to.
+     *
+     * @param reportsTo of type String.
+     */
     @Override
-    protected void setReportsTo(String reportsTo) {
+    protected void setReportsTo(final String reportsTo) {
         reportToTxtb.sendKeys(reportsTo);
     }
 
+    /**
+     * Sets the lead Source.
+     *
+     * @param leadSource of type String.
+     */
     @Override
-    protected void setLeadSource(String leadSource) {
+    protected void setLeadSource(final String leadSource) {
         leadSourceCmbb.click();
 //        driver.findElement(By.cssSelector(statusElements.replace("element", status))).click();
     }
 
-    public void setMobile(int mobile) {
+    /**
+     * Sets the Mobile.
+     *
+     * @param mobile of type int.
+     */
+    @Override
+    protected void setMobile(final int mobile) {
         mobileTxtb.sendKeys(String.valueOf(mobile));
     }
 
-    public void setOtherPhone(int phone) {
+    /**
+     * Sets the Phone.
+     *
+     * @param phone of type int.
+     */
+    @Override
+    protected void setOtherPhone(final int phone) {
         otherPhoneTxtb.sendKeys(String.valueOf(phone));
     }
 
-    public void setFax(int fax) {
+    /**
+     * Sets the fax.
+     *
+     * @param fax of type int.
+     */
+    @Override
+    protected void setFax(final int fax) {
         faxTxtb.sendKeys(String.valueOf(fax));
     }
 
-    public void setEmail(String email) {
+    /**
+     * Sets the email.
+     *
+     * @param email of type String.
+     */
+    @Override
+    protected void setEmail(final String email) {
         emailTxtb.sendKeys(email);
     }
 
-    public void setAssistant(String assistant) {
+    /**
+     * Sets the assistant.
+     *
+     * @param assistant of type String.
+     */
+    @Override
+    protected void setAssistant(final String assistant) {
         assistantTxtb.sendKeys(assistant);
     }
 
-    public void setAsstPhone(int AsstPhone) {
-        asstPhoneTxtb.sendKeys(String.valueOf(AsstPhone));
+    /**
+     * Sets the asstPhone.
+     *
+     * @param asstPhone of type String.
+     */
+    @Override
+    protected void setAsstPhone(final int asstPhone) {
+        asstPhoneTxtb.sendKeys(String.valueOf(asstPhone));
     }
 
-    public void setMailingStreet(String mailingStreet) {
+    /**
+     * Sets the mailingStreet.
+     *
+     * @param mailingStreet of type String.
+     */
+    @Override
+    protected void setMailingStreet(final String mailingStreet) {
         mailingStreetTxtb.sendKeys(mailingStreet);
     }
 
-    public void setMailingCity(String mailingCity) {
+    /**
+     * Sets the mailingCity.
+     *
+     * @param mailingCity of type String.
+     */
+    @Override
+    protected void setMailingCity(final String mailingCity) {
         mailingCityTxtb.sendKeys(mailingCity);
     }
 
+    /**
+     * Sets the mailingState.
+     *
+     * @param mailingState of type String.
+     */
     @Override
-    protected void setMailingState(String mailingState) {
+    protected void setMailingState(final String mailingState) {
         mailingStateProvinceTxtb.sendKeys(mailingState);
     }
 
+    /**
+     * Sets the mailingPostalCode.
+     *
+     * @param mailingPostalCode of type String.
+     */
     @Override
-    protected void setMailingPostalCode(String mailingPostalCode) {
+    protected void setMailingPostalCode(final String mailingPostalCode) {
         mailingZipPostalCodeTxtb.sendKeys(mailingPostalCode);
     }
 
-    public void setMailingCountry(String mailingCountry) {
+    /**
+     * Sets the mailingCountry.
+     *
+     * @param mailingCountry of type String.
+     */
+    @Override
+    protected void setMailingCountry(final String mailingCountry) {
         mailingCountryTxtb.sendKeys(mailingCountry);
     }
 
-    public void setOtherStreet(String otherStreet) {
+    /**
+     * Sets the otherStreet.
+     *
+     * @param otherStreet of type String.
+     */
+    @Override
+    protected void setOtherStreet(final String otherStreet) {
         otherStreetTxtb.sendKeys(otherStreet);
     }
 
-    public void setOtherCity(String otherCity) {
+    /**
+     * Sets the otherCity.
+     *
+     * @param otherCity of type String.
+     */
+    @Override
+    protected void setOtherCity(final String otherCity) {
         otherCityTxtb.sendKeys(otherCity);
     }
 
+    /**
+     * Sets the otherState.
+     *
+     * @param otherState of type String.
+     */
     @Override
-    protected void setOtherState(String otherState) {
+    protected void setOtherState(final String otherState) {
         otherStateProvinceTxtb.sendKeys(otherState);
     }
 
+    /**
+     * Sets the otherPostalCode.
+     *
+     * @param otherPostalCode of type String.
+     */
     @Override
-    protected void setOtherPostalCode(String otherPostalCode) {
+    protected void setOtherPostalCode(final String otherPostalCode) {
 
     }
 
-    public void setOtherCountry(String otherCountry) {
+    /**
+     * Sets the otherCountry.
+     *
+     * @param otherCountry of type String.
+     */
+    @Override
+    protected void setOtherCountry(final String otherCountry) {
         otherCountryTxtb.sendKeys(otherCountry);
     }
 
-    public void setLanguages(String languages) {
+    /**
+     * Sets the languages.
+     *
+     * @param languages of type String.
+     */
+    @Override
+    protected void setLanguages(final String languages) {
         languagesTxtb.sendKeys(languages);
     }
 
-    public void setLevel(String level) {
+    /**
+     * Sets the level.
+     *
+     * @param level of type String.
+     */
+    @Override
+    protected void setLevel(final String level) {
         levelCmbb.sendKeys(level);
     }
 
-    public void setDescription(String description) {
+    /**
+     * Sets the description.
+     *
+     * @param description of type String.
+     */
+    @Override
+    protected void setDescription(final String description) {
         descriptionTxtb.sendKeys(description);
     }
 
@@ -362,7 +531,11 @@ public class ContactLightningForm extends ContactForm {
         saveBtn.click();
     }
 
-
+    /**
+     * Gets New Contact.
+     *
+     * @return new profile contact lighting page.
+     */
     @Override
     public ProfileContactPage clickSaveNewContact() {
         clickSaveBtn();
