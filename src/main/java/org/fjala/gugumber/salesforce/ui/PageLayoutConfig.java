@@ -42,7 +42,7 @@ public class PageLayoutConfig {
      * @return page layout.
      */
     public static PageLayoutType getPageLayoutName() {
-        String layoutName = ReaderApplicationProperties.getInstance().getAppProperties().get(LAYOUT).toUpperCase();
+        final String layoutName = ReaderApplicationProperties.getInstance().getAppProperties().get(LAYOUT).toUpperCase();
         return PageLayoutType.valueOf(layoutName);
     }
 }
