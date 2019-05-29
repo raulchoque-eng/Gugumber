@@ -6,29 +6,28 @@ Feature: Contact manage
 
      @deleteContact
   Scenario: Create a new contact for an user with only required data
-    When I navigate to the Contacts page
-#      And I open Contact form
-      And I create a new Contact with the following information
-        | Last Name | Valdez |
-#    Then I should see a green message "Contact was created."
-#    Then a message that indicates the Contact was created should be displayed
-    Then The contact should displayed on profile Contact page
-#  Then the contact last name should be displayed in the Contact Profile page
-#  When I navigate to the Contacts page
-
-  @deleteContact
-  Scenario: Create a new contact for an user with only required data
-    When I navigate to the Contacts page
+    When I go to the Contacts page
       And I open Contact form
       And I create a new Contact with the following information in Contact form
         | Last Name | Valdez |
-#    Then I should see a green message "Contact was created."
-#    Then a message that indicates the Contact was created should be displayed
+    Then a message that indicates the Contact was created should be displayed
     Then The contact should displayed on profile Contact page
-#  Then the contact last name should be displayed in the Contact Profile page
-  When I navigate to the Contacts page
-  Then the contact last name should be displayed in the contacts list of Contacts page
-#    Then The contact should be displayed on list of contact page
+    Then the contact last name should be displayed in the Contact Profile page
+#  When I navigate to the Contacts page
+
+#  @deleteContact
+#  Scenario: Create a new contact for an user with only required data
+#    When I navigate to the Contacts page
+#      And I open Contact form
+#      And I create a new Contact with the following information in Contact form
+#        | Last Name | Valdez |
+##    Then I should see a green message "Contact was created."
+##    Then a message that indicates the Contact was created should be displayed
+#    Then The contact should displayed on profile Contact page
+##  Then the contact last name should be displayed in the Contact Profile page
+#  When I navigate to the Contacts page
+#  Then the contact last name should be displayed in the contacts list of Contacts page
+##    Then The contact should be displayed on list of contact page
 #
 #  @deleteContact
 #  Scenario: Create a new contact for an user with all data

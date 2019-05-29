@@ -46,5 +46,4 @@ public class PageLayoutConfig {
         return PageLayoutType.valueOf(layoutName);
     }
 
-
 }

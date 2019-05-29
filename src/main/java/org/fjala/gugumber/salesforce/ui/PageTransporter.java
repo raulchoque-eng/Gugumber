@@ -40,7 +40,7 @@ public class PageTransporter {
     private WebDriver webDriver;
 
     /**
-     * Variable for the page layout type.
+     * Constant for the page layout type.
      */
     private PageLayoutType PAGE_LAYOUT_TYPE = PageLayoutConfig.getPageLayoutName();
 
@@ -109,13 +109,8 @@ public class PageTransporter {
                 goToURL(ReaderApplicationProperties.getInstance().getAppProperties().get("lightning-url"));
                 break;
             default:
-                goToURL(ReaderApplicationProperties.getInstance().getAppProperties().get("classic-url"));
-                break;
+                throw new RuntimeException();
         }
         return PageLayoutFactory.getHomePageManager();
-    }
-
-    public ContactPageAbstract getContactPage() {
-        return PageLayoutFactory.getNavigateContact();
     }
 }

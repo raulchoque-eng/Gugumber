@@ -28,12 +28,12 @@ import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ContactPageAbst
 public class BaseAppPageSteps {
 
     PageTransporter pageTransporter = PageTransporter.getInstance();
-    private NavBar navBar;
     private ContactPageAbstract contactPage;
     private BaseAppPage baseAppPage;
 
-    @When("^I navigate to the Contacts page$") // I go to / I open
-    public void navigateToTheContactsPage() {
+
+    @When("^I go to the Contacts page$")
+    public void iGoToTheContactsPage() {
         baseAppPage = PageLayoutFactory.getBaseAppPage();
         baseAppPage.getNavBar().goToContactPage();
     }

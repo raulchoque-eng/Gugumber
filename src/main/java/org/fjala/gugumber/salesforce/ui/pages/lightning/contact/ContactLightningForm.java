@@ -274,7 +274,8 @@ public class ContactLightningForm extends ContactForm {
 
     @Override
     protected void setLeadSource(String leadSource) {
-        leadSourceCmbb.sendKeys(leadSource);
+        leadSourceCmbb.click();
+//        driver.findElement(By.cssSelector(statusElements.replace("element", status))).click();
     }
 
     public void setMobile(int mobile) {
