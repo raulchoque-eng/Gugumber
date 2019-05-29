@@ -10,10 +10,10 @@
  * with Jala Foundation.
  */
 
-package org.fjala.gugumber.salesforce.ui.pages.classic;
+package org.fjala.gugumber.salesforce.ui.pages.classic.common;
 
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.common.NavBar;
-import org.fjala.gugumber.salesforce.ui.pages.classic.accounts.AccountsClassicPage;
+import org.fjala.gugumber.salesforce.ui.pages.classic.contact.ContactClassicPageAbstract;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -39,6 +39,12 @@ public class NavBarClassic extends NavBar {
     private WebElement accountOption;
 
     /**
+     * Web element for the contact option.
+     */
+    @FindBy(id = "Contact_Tab")
+    private WebElement contactMenuBtn;
+
+    /**
      * Waits until page object is loaded.
      */
     @Override
@@ -46,13 +52,19 @@ public class NavBarClassic extends NavBar {
         wait.until(ExpectedConditions.visibilityOf(tabBar));
     }
 
-   /**
-     * Returns contact classic page after clicking in contact option.
-     *
-     * @return contact classic page.
+    /**
+     * Contact menu button.
      */
-    @Override
-    public ContactPageAbstract goToContactPage() {
-        return null;
+    private void clickContactOption() {
+        contactMenuBtn.click();
+    }
+
+    /**
+     * Click in the contact button.
+     * @return Contact Lightning Page.
+     */
+    public ContactClassicPageAbstract goToContactPage() {
+        clickContactOption();
+        return new ContactClassicPageAbstract();
     }
 }

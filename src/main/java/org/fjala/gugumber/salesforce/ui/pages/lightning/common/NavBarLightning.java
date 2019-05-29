@@ -10,10 +10,10 @@
  * with Jala Foundation.
  */
 
-package org.fjala.gugumber.salesforce.ui.pages.lightning;
+package org.fjala.gugumber.salesforce.ui.pages.lightning.common;
 
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.common.NavBar;
-import org.fjala.gugumber.salesforce.ui.pages.lightning.accounts.AccountsLightningPage;
+import org.fjala.gugumber.salesforce.ui.pages.lightning.contact.ContactLightningPageAbstract;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -39,6 +39,12 @@ public class NavBarLightning extends NavBar {
     private WebElement accountsOption;
 
     /**
+     * Web element for the contact option.
+     */
+    @FindBy(css = "[data-id='Contact']")
+    private WebElement contactTab;
+
+    /**
      * Waits until page object is loaded.
      */
     @Override
@@ -47,12 +53,20 @@ public class NavBarLightning extends NavBar {
     }
 
     /**
-     * Returns contact lightning page after clicking in contact option.
+     * Contact menu button.
+     */
+    public void openContactOption() {
+        contactTab.click();
+    }
+
+    /**
+     * Click in the contact button.
      *
-     * @return contact lightning page.
+     * @return Contact Lightning Page.
      */
     @Override
-    public ContactPageAbstract goToContactPage() {
-        return null;
+    public ContactLightningPageAbstract goToContactPage() {
+        openContactOption();
+        return new ContactLightningPageAbstract();
     }
 }

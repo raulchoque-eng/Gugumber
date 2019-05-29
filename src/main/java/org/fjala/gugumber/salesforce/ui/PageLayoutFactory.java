@@ -13,8 +13,14 @@
 package org.fjala.gugumber.salesforce.ui;
 
 import org.fjala.gugumber.salesforce.ui.pages.HomePage;
+import org.fjala.gugumber.salesforce.ui.pages.abstracts.common.BaseAppPage;
+import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ContactPageAbstract;
 import org.fjala.gugumber.salesforce.ui.pages.classic.HomeClassicPage;
+import org.fjala.gugumber.salesforce.ui.pages.classic.common.BaseAppClassicPage;
+import org.fjala.gugumber.salesforce.ui.pages.classic.contact.ContactClassicPageAbstract;
 import org.fjala.gugumber.salesforce.ui.pages.lightning.HomeLightningPage;
+import org.fjala.gugumber.salesforce.ui.pages.lightning.common.BaseAppLightningPage;
+import org.fjala.gugumber.salesforce.ui.pages.lightning.contact.ContactLightningPageAbstract;
 
 /**
  * PageLayoutFactory class.
@@ -25,14 +31,23 @@ import org.fjala.gugumber.salesforce.ui.pages.lightning.HomeLightningPage;
 public class PageLayoutFactory {
 
     /**
+     * Constant for the page layout type.
+     */
+    private static final PageLayoutType PAGE_LAYOUT_TYPE = PageLayoutConfig.getPageLayoutName();
+
+    /**
+     * Constant for the message of exception.
+     */
+    private static final String MESSAGE_FOR_UNKNOWN_LAYOUT = "Unknown layout type";
+
+    /**
      * Gets the home page according the page layout.
      *
-     * @param type of page layout.
      * @return a home page.
      */
-    public static HomePage getHomePageManager(final PageLayoutType type) {
+    public static HomePage getHomePageManager() {
         final HomePage homePage;
-        switch (type) {
+        switch (PAGE_LAYOUT_TYPE) {
             case CLASSIC:
                 homePage = new HomeClassicPage();
                 break;
@@ -40,9 +55,48 @@ public class PageLayoutFactory {
                 homePage = new HomeLightningPage();
                 break;
             default:
-                homePage = new HomeClassicPage();
-                break;
+                throw new RuntimeException(MESSAGE_FOR_UNKNOWN_LAYOUT);
         }
         return homePage;
+    }
+
+    /**
+     * Gets the Base App page according the page layout.
+     *
+     * @return a base app page.
+     */
+     public static BaseAppPage getBaseAppPage() {
+        final BaseAppPage baseAppPage;
+        switch (PAGE_LAYOUT_TYPE) {
+            case CLASSIC:
+                baseAppPage = new BaseAppClassicPage();
+                break;
+            case LIGHTNING:
+                baseAppPage = new BaseAppLightningPage();
+                break;
+            default:
+                throw new RuntimeException(MESSAGE_FOR_UNKNOWN_LAYOUT);
+        }
+        return baseAppPage;
+    }
+
+    /**
+     * Gets the navigate navigate contact according the page layout.
+     *
+     * @return a contact page.
+     */
+    public static ContactPageAbstract getContactPage() {
+        final ContactPageAbstract contactPageAbstract;
+        switch (PAGE_LAYOUT_TYPE) {
+            case CLASSIC:
+                contactPageAbstract = new ContactClassicPageAbstract();
+                break;
+            case LIGHTNING:
+                contactPageAbstract = new ContactLightningPageAbstract();
+                break;
+            default:
+                throw new RuntimeException(MESSAGE_FOR_UNKNOWN_LAYOUT);
+        }
+        return contactPageAbstract;
     }
 }

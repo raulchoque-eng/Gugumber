@@ -14,7 +14,6 @@ package org.fjala.gugumber.steps;
 
 import cucumber.api.java.en.When;
 import org.fjala.gugumber.salesforce.ui.pages.AccountsPage;
-import org.fjala.gugumber.salesforce.ui.pages.NavBar;
 
 /**
  * NavBarSteps class for steps definition.

@@ -10,9 +10,10 @@
  * with Jala Foundation.
  */
 
-package org.fjala.gugumber.salesforce.ui.pages;
+package org.fjala.gugumber.salesforce.ui.pages.abstracts.common;
 
 import org.fjala.gugumber.salesforce.ui.BasePage;
+import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ContactPageAbstract;
 
 /**
  * NavBar class.
@@ -23,9 +24,10 @@ import org.fjala.gugumber.salesforce.ui.BasePage;
 public abstract class NavBar extends BasePage {
 
     /**
-     * Returns Account page after clicking on account option.
+     * Returns Account page after clicking on contact option.
      *
      * @return an Account page.
      */
-    public abstract AccountsPage clickAccountsOption();
+    public abstract ContactPageAbstract goToContactPage();
+
 }
