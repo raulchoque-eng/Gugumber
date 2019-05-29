@@ -61,6 +61,7 @@ public class NavBarLightning extends NavBar {
 
     /**
      * Click in the contact button.
+     *
      * @return Contact Lightning Page.
      */
     @Override
