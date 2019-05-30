@@ -12,11 +12,14 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.lightning.contact;
 
+import org.fjala.gugumber.core.selenium.utils.DriverMethods;
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ContactForm;
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ContactProfilePage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
 
 /**
  * ContactLightningForm class.
@@ -35,7 +38,7 @@ public class ContactLightningForm extends ContactForm {
     /**
      * Locator for text box of salutation.
      */
-    @FindBy(css = "div[class='salutation compoundTLRadius compoundTRRadius compoundBorderBottom form-element__row uiMenu'] div[id^='140']")
+    @FindBy(css = "[id^='140'] [class='select']")
     private WebElement salutationCmbb;
 
     /**
@@ -60,7 +63,7 @@ public class ContactLightningForm extends ContactForm {
      * Locator for text box of home phone.
      */
     @FindBy(css = "input[id^='199'][type='tel']")
-    private WebElement hPhoneTxtb;
+    private WebElement homePhoneTxtb;
 
     /**
      * Locator for text box of title.
@@ -218,6 +221,8 @@ public class ContactLightningForm extends ContactForm {
     @FindBy(css = "[class='slds-button slds-button--neutral uiButton--default uiButton--brand uiButton forceActionButton']")
     private WebElement saveBtn;
 
+    final String cmbReplace = "li[class='uiMenuItem uiRadioMenuItem'] a[title='nameTitle']";
+
     /**
      * Waits until page object is loaded.
      */
@@ -228,12 +233,12 @@ public class ContactLightningForm extends ContactForm {
 
      /**
      * Sets the salutation name.
-      *
+     *
      * @param salutation of type String
      */
     @Override
     protected void setSalutation(final String salutation) {
-        salutationCmbb.sendKeys(salutation);
+        DriverMethods.selectCmb(salutationCmbb, driver, cmbReplace, salutation);
     }
 
     /**
@@ -243,7 +248,7 @@ public class ContactLightningForm extends ContactForm {
      */
     @Override
     protected void setFirstName(final String firstName) {
-        firstNameTxtb.sendKeys(firstName);
+        DriverMethods.setTxt(firstNameTxtb,firstName);
     }
 
     /**
@@ -253,7 +258,7 @@ public class ContactLightningForm extends ContactForm {
      */
     @Override
     protected void setLastName(final String lastName) {
-        lastNameTxtb.sendKeys(lastName);
+        DriverMethods.setTxt(lastNameTxtb, lastName);
     }
 
     /**
@@ -263,7 +268,7 @@ public class ContactLightningForm extends ContactForm {
      */
     @Override
     protected void setPhone(final int phone) {
-        phoneTxtb.sendKeys(String.valueOf(phone));
+        DriverMethods.setTxt(phoneTxtb, String.valueOf(phone));
     }
 
     /**
@@ -273,7 +278,7 @@ public class ContactLightningForm extends ContactForm {
      */
     @Override
     protected void setHomePhone(final int phone) {
-        hPhoneTxtb.sendKeys(String.valueOf(phone));
+        DriverMethods.setTxt(phoneTxtb, String.valueOf(phone));
     }
 
     /**
@@ -283,7 +288,7 @@ public class ContactLightningForm extends ContactForm {
      */
     @Override
     protected void setTitle(final String title) {
-        titleTxtb.sendKeys(title);
+        DriverMethods.setTxt(titleTxtb, title);
     }
 
     /**
@@ -293,7 +298,7 @@ public class ContactLightningForm extends ContactForm {
      */
     @Override
     protected void setAccount(final String account) {
-        accountTxtb.sendKeys(account);
+        DriverMethods.setTxt(accountTxtb, account);
     }
 
     /**
@@ -303,7 +308,7 @@ public class ContactLightningForm extends ContactForm {
      */
     @Override
     protected void setDepartment(final String department) {
-        departmentTxtb.sendKeys(department);
+        DriverMethods.setTxt(departmentTxtb, department);
     }
 
     /**
@@ -313,7 +318,7 @@ public class ContactLightningForm extends ContactForm {
      */
     @Override
     protected void setBirthdate(final String birthdate) {
-        birthdateTxtb.sendKeys(birthdate);
+       DriverMethods.setTxt(birthdateTxtb, birthdate);
     }
 
     /**
@@ -323,7 +328,7 @@ public class ContactLightningForm extends ContactForm {
      */
     @Override
     protected void setReportsTo(final String reportsTo) {
-        reportToTxtb.sendKeys(reportsTo);
+       DriverMethods.setTxt(reportToTxtb, reportsTo);
     }
 
     /**
@@ -344,7 +349,7 @@ public class ContactLightningForm extends ContactForm {
      */
     @Override
     protected void setMobile(final int mobile) {
-        mobileTxtb.sendKeys(String.valueOf(mobile));
+        DriverMethods.setTxt(mobileTxtb, String.valueOf(mobile));
     }
 
     /**
@@ -354,7 +359,7 @@ public class ContactLightningForm extends ContactForm {
      */
     @Override
     protected void setOtherPhone(final int phone) {
-        otherPhoneTxtb.sendKeys(String.valueOf(phone));
+        DriverMethods.setTxt(phoneTxtb, String.valueOf(phone));
     }
 
     /**
@@ -364,7 +369,7 @@ public class ContactLightningForm extends ContactForm {
      */
     @Override
     protected void setFax(final int fax) {
-        faxTxtb.sendKeys(String.valueOf(fax));
+        DriverMethods.setTxt(faxTxtb, String.valueOf(fax));
     }
 
     /**
@@ -374,7 +379,7 @@ public class ContactLightningForm extends ContactForm {
      */
     @Override
     protected void setEmail(final String email) {
-        emailTxtb.sendKeys(email);
+        DriverMethods.setTxt(emailTxtb, email);
     }
 
     /**
@@ -384,7 +389,7 @@ public class ContactLightningForm extends ContactForm {
      */
     @Override
     protected void setAssistant(final String assistant) {
-        assistantTxtb.sendKeys(assistant);
+        DriverMethods.setTxt(assistantTxtb, assistant);
     }
 
     /**
@@ -394,7 +399,7 @@ public class ContactLightningForm extends ContactForm {
      */
     @Override
     protected void setAsstPhone(final int asstPhone) {
-        asstPhoneTxtb.sendKeys(String.valueOf(asstPhone));
+        DriverMethods.setTxt(asstPhoneTxtb, String.valueOf(asstPhone));
     }
 
     /**
@@ -404,7 +409,7 @@ public class ContactLightningForm extends ContactForm {
      */
     @Override
     protected void setMailingStreet(final String mailingStreet) {
-        mailingStreetTxtb.sendKeys(mailingStreet);
+        DriverMethods.setTxt(mailingStreetTxtb, mailingStreet);
     }
 
     /**
@@ -414,7 +419,7 @@ public class ContactLightningForm extends ContactForm {
      */
     @Override
     protected void setMailingCity(final String mailingCity) {
-        mailingCityTxtb.sendKeys(mailingCity);
+        DriverMethods.setTxt(mailingCityTxtb, mailingCity);
     }
 
     /**
@@ -424,7 +429,7 @@ public class ContactLightningForm extends ContactForm {
      */
     @Override
     protected void setMailingState(final String mailingState) {
-        mailingStateProvinceTxtb.sendKeys(mailingState);
+        DriverMethods.setTxt(mailingStateProvinceTxtb, mailingState);
     }
 
     /**
@@ -434,7 +439,7 @@ public class ContactLightningForm extends ContactForm {
      */
     @Override
     protected void setMailingPostalCode(final String mailingPostalCode) {
-        mailingZipPostalCodeTxtb.sendKeys(mailingPostalCode);
+        DriverMethods.setTxt(mailingZipPostalCodeTxtb, mailingPostalCode);
     }
 
     /**
@@ -444,7 +449,7 @@ public class ContactLightningForm extends ContactForm {
      */
     @Override
     protected void setMailingCountry(final String mailingCountry) {
-        mailingCountryTxtb.sendKeys(mailingCountry);
+        DriverMethods.setTxt(mailingCountryTxtb, mailingCountry);
     }
 
     /**
@@ -454,7 +459,7 @@ public class ContactLightningForm extends ContactForm {
      */
     @Override
     protected void setOtherStreet(final String otherStreet) {
-        otherStreetTxtb.sendKeys(otherStreet);
+        DriverMethods.setTxt(otherStreetTxtb, otherStreet);
     }
 
     /**
@@ -464,7 +469,7 @@ public class ContactLightningForm extends ContactForm {
      */
     @Override
     protected void setOtherCity(final String otherCity) {
-        otherCityTxtb.sendKeys(otherCity);
+        DriverMethods.setTxt(otherCityTxtb, otherCity);
     }
 
     /**
@@ -474,7 +479,7 @@ public class ContactLightningForm extends ContactForm {
      */
     @Override
     protected void setOtherState(final String otherState) {
-        otherStateProvinceTxtb.sendKeys(otherState);
+        DriverMethods.setTxt(otherStateProvinceTxtb, otherState);
     }
 
     /**
@@ -484,7 +489,7 @@ public class ContactLightningForm extends ContactForm {
      */
     @Override
     protected void setOtherPostalCode(final String otherPostalCode) {
-
+        DriverMethods.setTxt(otherZipPostalCodeTxtb, otherPostalCode);
     }
 
     /**
@@ -494,7 +499,7 @@ public class ContactLightningForm extends ContactForm {
      */
     @Override
     protected void setOtherCountry(final String otherCountry) {
-        otherCountryTxtb.sendKeys(otherCountry);
+        DriverMethods.setTxt(otherCountryTxtb, otherCountry);
     }
 
     /**
@@ -504,7 +509,7 @@ public class ContactLightningForm extends ContactForm {
      */
     @Override
     protected void setLanguages(final String languages) {
-        languagesTxtb.sendKeys(languages);
+        DriverMethods.setTxt(languagesTxtb, languages);
     }
 
     /**
@@ -514,7 +519,7 @@ public class ContactLightningForm extends ContactForm {
      */
     @Override
     protected void setLevel(final String level) {
-        levelCmbb.sendKeys(level);
+       DriverMethods.setTxt(levelCmbb, level);
     }
 
     /**
@@ -524,7 +529,7 @@ public class ContactLightningForm extends ContactForm {
      */
     @Override
     protected void setDescription(final String description) {
-        descriptionTxtb.sendKeys(description);
+        DriverMethods.setTxt(descriptionTxtb, description);
     }
 
     /**

@@ -5,7 +5,9 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.fjala.gugumber.salesforce.entities.Contact;
 import org.fjala.gugumber.salesforce.entities.Context;
+import org.fjala.gugumber.salesforce.ui.PageLayoutConfig;
 import org.fjala.gugumber.salesforce.ui.PageLayoutFactory;
+import org.fjala.gugumber.salesforce.ui.PageLayoutType;
 import org.fjala.gugumber.salesforce.ui.PageTransporter;
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ContactForm;
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ContactPageAbstract;
@@ -14,6 +16,7 @@ import org.fjala.gugumber.salesforce.ui.pages.lightning.contact.ContactLightning
 
 import java.util.Map;
 
+import static org.fjala.gugumber.salesforce.ui.PageLayoutType.LIGHTNING;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
@@ -58,17 +61,17 @@ public class ContactSteps {
             ContactLightningProfilePage profileContactLightningPage = new ContactLightningProfilePage();
             final String message = (profileContactLightningPage.getMessageSave());
             assertEquals(message, "Contact was created.", "not successfully created");
-        } catch(ClassCastException e) {
+        } catch (ClassCastException e) {
             System.out.println("In classic theme is not message of confirmation");
         }
-
     }
+
 
     @Then("^the contact last name should be displayed in the Contact Profile page$")
     public void theContactLastNameShouldBeDisplayedInTheContactProfilePage() {
-        assertEquals(contactProfilePage.getLastNameContact(),contact.getLastName(),"the Contact Last name not displayed");
-        assertTrue(contactProfilePage.isTheNewContact());
-
+        final String titleAux = contact.getSalutation() + contact.getFirstName() + contact.getLastName();
+        assertEquals(contactProfilePage.getLastNameContact(),titleAux,"the Contact Last name not displayed");
+//        assertTrue(contactProfilePage.isTheNewContact());
     }
 
 

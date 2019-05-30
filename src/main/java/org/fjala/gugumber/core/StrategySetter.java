@@ -10,7 +10,7 @@
  * with Jala Foundation.
  */
 
-package org.fjala.gugumber.core.selenium;
+package org.fjala.gugumber.core;
 
 /**
  * StrategySetter class.

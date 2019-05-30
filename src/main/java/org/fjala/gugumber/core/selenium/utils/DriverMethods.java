@@ -1,5 +1,5 @@
 /*
- * @(#) DriverMethod.java Copyright (c) 2019 Jala Foundation.
+ * @(#) DriverMethods.java Copyright (c) 2019 Jala Foundation.
  * 2643 Av. Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
  * All rights reserved.
  *
@@ -12,15 +12,17 @@
 
 package org.fjala.gugumber.core.selenium.utils;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 /**
- * DriverMethod class.
+ * DriverMethods class.
  *
  * @author Raul Choque
  * @version 0.0.1
  */
-public class DriverMethod {
+public class DriverMethods {
 
     /**
      * Sets the text into the webElement.
@@ -33,7 +35,18 @@ public class DriverMethod {
         webElement.sendKeys(text);
     }
 
-    //TODO method to select a checkbox
+    /**
+     * Sets the comboBox into the webElement.
+     *
+     * @param webElement that sets its comboBox.
+     * @param driver that connection for web elements.
+     * @param replaceCmb value for replace.
+     * @param text new value of webElement.
+     */
+    public static  void selectCmb(final WebElement webElement, final WebDriver driver, final String replaceCmb, final String text) {
+        webElement.click();
+        driver.findElement(By.cssSelector(replaceCmb.replace("nameTitle", text))).click();
+    }
 
     //TODO method to clear a checkbox
 

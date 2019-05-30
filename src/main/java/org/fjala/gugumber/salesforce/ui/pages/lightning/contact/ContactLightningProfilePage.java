@@ -34,7 +34,7 @@ public class ContactLightningProfilePage extends ContactProfilePage {
     /**
      * Web Element of profile contact with title.
      */
-    @FindBy(css = "[class='toastMessage slds-text-heading--small forceActionsText']")
+    @FindBy(css = "[class='forceVisualMessageQueue'] [class='toastMessage slds-text-heading--small forceActionsText']")
     private WebElement contactMessageSaveTxt;
 
     @Override

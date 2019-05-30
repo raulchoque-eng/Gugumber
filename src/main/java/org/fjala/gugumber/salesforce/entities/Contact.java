@@ -15,7 +15,7 @@ package org.fjala.gugumber.salesforce.entities;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import org.fjala.gugumber.core.selenium.StrategySetter;
+import org.fjala.gugumber.core.StrategySetter;
 
 /**
  * Contact class.
@@ -25,7 +25,7 @@ import org.fjala.gugumber.core.selenium.StrategySetter;
  */
 public class Contact {
 
-    private final static String SALUTATION = "salutation";
+    private final static String SALUTATION = "Salutation";
     private final static String FIRST_NAME = "First Name";
     private final static String LAST_NAME = "Last Name";
     private final static String ACCOUNT = "Account";
