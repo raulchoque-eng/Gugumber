@@ -14,6 +14,8 @@ package org.fjala.gugumber.steps;
 
 import java.util.Map;
 
+import cucumber.api.PendingException;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.fjala.gugumber.salesforce.entities.Context;
@@ -61,6 +63,15 @@ public class AccountSteps {
     }
 
     /**
+     * Opens the account form from accounts page.
+     */
+    @When("^I open the Account form from Accounts page$")
+    public void iOpenTheAccountFormFromAccountsPage() {
+        accountsPage = PageLayoutFactory.getAccountsPage();
+        accountForm = accountsPage.clickNewBtn();
+    }
+
+    /**
      * Creates a new account sending the information.
      *
      * @param accountMap for the information of account.
@@ -68,8 +79,6 @@ public class AccountSteps {
     @When("^I create a new Account with the following information$")
     public void createANewAccountWithTheFollowingInformation(final Map<String,String> accountMap) {
         context.getAccount().setAccountInformation(accountMap);
-        accountsPage = PageLayoutFactory.getAccountsPage();
-        accountForm = accountsPage.clickNewBtn();
         accountForm.setNameAccountOnTxtB(context.getAccount().getNameAccount());
         accountProfilePage = accountForm.clickOnSaveBtnFoot();
     }

@@ -36,10 +36,10 @@ public class BaseAppSteps {
     private BaseAppPage baseAppPage;
 
     /**
-     * Navigates to the accounts page.
+     * Opens the accounts page.
      */
-    @When("^I navigate to the Accounts page$")
-    public void navigateToAccountsPage() {
+    @When("^I open the Accounts page$")
+    public void openTheAccountsPage() {
         baseAppPage = PageLayoutFactory.getBaseAppPage();
         accountsPage = baseAppPage.getNavBar().clickAccountsOption();
     }
