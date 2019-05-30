@@ -1,20 +1,19 @@
 /*
- * @(#) NavBarLightning.java Copyright (c) 2019 Jala Foundation.
- * 2643 Av Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
- * All rights reserved.
+ * @(#) GeneratorReport.java Copyright (c) 2019 Jala Foundation.
+ * 2643 Av. Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
+ *  All rights reserved.
  *
  * This software is the confidential and proprietary information of Jala
  * Foundation, Inc. ("Confidential Information"). You shall not
  * disclose such Confidential Information and shall use it only in
  * accordance with the terms of the license agreement you entered into
- * with Jala Foundation.
+ *  with Jala Foundation.
  */
 
-package org.fjala.gugumber.salesforce.ui.pages.lightning.common;
+package org.fjala.gugumber.salesforce.ui.pages.components;
 
-import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountsPage;
-import org.fjala.gugumber.salesforce.ui.pages.abstracts.common.NavBar;
-import org.fjala.gugumber.salesforce.ui.pages.lightning.accounts.AccountsLightningPage;
+import org.fjala.gugumber.salesforce.ui.pages.account.AccountsLightningPage;
+import org.fjala.gugumber.salesforce.ui.pages.account.AccountsPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;

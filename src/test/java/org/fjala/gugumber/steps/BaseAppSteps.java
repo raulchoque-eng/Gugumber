@@ -14,8 +14,8 @@ package org.fjala.gugumber.steps;
 
 import cucumber.api.java.en.When;
 import org.fjala.gugumber.salesforce.ui.PageLayoutFactory;
-import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountsPage;
-import org.fjala.gugumber.salesforce.ui.pages.abstracts.common.BaseAppPage;
+import org.fjala.gugumber.salesforce.ui.pages.app.BaseAppPage;
+import org.fjala.gugumber.salesforce.ui.pages.account.AccountsPage;
 
 /**
  * BaseAppSteps class for steps definition.

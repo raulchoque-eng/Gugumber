@@ -18,9 +18,9 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.fjala.gugumber.salesforce.entities.Context;
 import org.fjala.gugumber.salesforce.ui.PageLayoutFactory;
-import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountForm;
-import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountProfilePage;
-import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountsPage;
+import org.fjala.gugumber.salesforce.ui.pages.account.AccountForm;
+import org.fjala.gugumber.salesforce.ui.pages.account.AccountProfilePage;
+import org.fjala.gugumber.salesforce.ui.pages.account.AccountsPage;
 import org.testng.Assert;
 
 /**
@@ -44,7 +44,7 @@ public class AccountSteps {
     /**
      * Variable for the profile account page.
      */
-    private AccountProfilePage profileaccountPage;
+    private AccountProfilePage accountProfilePage;
 
     /**
      * Variable for the context.
@@ -71,7 +71,7 @@ public class AccountSteps {
         accountsPage = PageLayoutFactory.getAccountsPage();
         accountForm = accountsPage.clickNewBtn();
         accountForm.setNameAccountOnTxtB(context.getAccount().getNameAccount());
-        profileaccountPage = accountForm.clickOnSaveBtnFoot();
+        accountProfilePage = accountForm.clickOnSaveBtnFoot();
     }
 
     /**
@@ -79,7 +79,7 @@ public class AccountSteps {
      */
     @Then("^the information account should be displayed in the Account Profile page$")
     public void displayTheInformationOnTheProfileOfNewAccount() {
-        Assert.assertEquals(profileaccountPage.getNameAccountFromProfileHeader(), context.getAccount().getNameAccount());
+        Assert.assertEquals(accountProfilePage.getNameAccountFromProfileHeader(), context.getAccount().getNameAccount());
     }
 
     /**

@@ -12,17 +12,17 @@
 
 package org.fjala.gugumber.steps;
 
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
-import org.fjala.gugumber.salesforce.entities.Event;
-import org.fjala.gugumber.salesforce.ui.pages.events.EventDetail;
-import org.fjala.gugumber.salesforce.ui.pages.events.EventForm;
-import org.fjala.gugumber.salesforce.ui.pages.abstracts.HomePage;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 import java.util.Map;
 
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import org.fjala.gugumber.salesforce.entities.Event;
+import org.fjala.gugumber.salesforce.ui.pages.Home.HomePage;
+import org.fjala.gugumber.salesforce.ui.pages.events.EventDetail;
+import org.fjala.gugumber.salesforce.ui.pages.events.EventForm;
 
 /**
  * EventSteps class

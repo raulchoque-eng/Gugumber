@@ -15,7 +15,7 @@ package org.fjala.gugumber.salesforce.entities;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.fjala.gugumber.salesforce.utils.StrategySetter;
+import org.fjala.gugumber.core.StrategySetter;
 
 /**
  * Account class.

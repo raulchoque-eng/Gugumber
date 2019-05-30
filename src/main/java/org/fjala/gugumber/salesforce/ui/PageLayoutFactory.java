@@ -12,15 +12,15 @@
 
 package org.fjala.gugumber.salesforce.ui;
 
-import org.fjala.gugumber.salesforce.ui.pages.abstracts.HomePage;
-import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountsPage;
-import org.fjala.gugumber.salesforce.ui.pages.abstracts.common.BaseAppPage;
-import org.fjala.gugumber.salesforce.ui.pages.classic.HomeClassicPage;
-import org.fjala.gugumber.salesforce.ui.pages.classic.accounts.AccountsClassicPage;
-import org.fjala.gugumber.salesforce.ui.pages.classic.common.BaseAppClassicPage;
-import org.fjala.gugumber.salesforce.ui.pages.lightning.HomeLightningPage;
-import org.fjala.gugumber.salesforce.ui.pages.lightning.accounts.AccountsLightningPage;
-import org.fjala.gugumber.salesforce.ui.pages.lightning.common.BaseAppLightningPage;
+import org.fjala.gugumber.salesforce.ui.pages.Home.HomeClassicPage;
+import org.fjala.gugumber.salesforce.ui.pages.Home.HomeLightningPage;
+import org.fjala.gugumber.salesforce.ui.pages.Home.HomePage;
+import org.fjala.gugumber.salesforce.ui.pages.account.AccountsClassicPage;
+import org.fjala.gugumber.salesforce.ui.pages.account.AccountsLightningPage;
+import org.fjala.gugumber.salesforce.ui.pages.account.AccountsPage;
+import org.fjala.gugumber.salesforce.ui.pages.app.BaseAppClassicPage;
+import org.fjala.gugumber.salesforce.ui.pages.app.BaseAppLightningPage;
+import org.fjala.gugumber.salesforce.ui.pages.app.BaseAppPage;
 
 /**
  * PageLayoutFactory class.

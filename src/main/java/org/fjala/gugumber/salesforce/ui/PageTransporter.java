@@ -17,8 +17,8 @@ import java.net.URL;
 
 import org.fjala.gugumber.core.selenium.WebDriverManager;
 import org.fjala.gugumber.salesforce.common.ReaderApplicationProperties;
+import org.fjala.gugumber.salesforce.ui.pages.Home.HomePage;
 import org.fjala.gugumber.salesforce.ui.pages.LoginPage;
-import org.fjala.gugumber.salesforce.ui.pages.abstracts.HomePage;
 import org.openqa.selenium.WebDriver;
 
 /**
