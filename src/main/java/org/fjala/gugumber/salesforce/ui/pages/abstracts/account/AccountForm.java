@@ -34,5 +34,5 @@ public abstract class AccountForm extends BasePage {
      *
      * @return an account profile page.
      */
-    public abstract ProfileAccountPage clickOnSaveBtnFoot();
+    public abstract AccountProfilePage clickOnSaveBtnFoot();
 }

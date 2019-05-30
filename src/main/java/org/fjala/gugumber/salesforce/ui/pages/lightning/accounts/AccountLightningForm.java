@@ -13,7 +13,7 @@
 package org.fjala.gugumber.salesforce.ui.pages.lightning.accounts;
 
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountForm;
-import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.ProfileAccountPage;
+import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountProfilePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -69,7 +69,7 @@ public class AccountLightningForm extends AccountForm {
      * @return a profile account lightning.
      */
     @Override
-    public ProfileAccountPage clickOnSaveBtnFoot() {
+    public AccountProfilePage clickOnSaveBtnFoot() {
         saveBtn.click();
         return new AccountProfileLightningPage();
     }

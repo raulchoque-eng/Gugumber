@@ -1,5 +1,5 @@
 /*
- * @(#) ProfileAccountClassicPage.java Copyright (c) 2019 Jala Foundation.
+ * @(#) AccountProfileClassicPage.java Copyright (c) 2019 Jala Foundation.
  * 2643 Av Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
  * All rights reserved.
  *
@@ -12,18 +12,18 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.classic.accounts;
 
-import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.ProfileAccountPage;
+import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountProfilePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
- * ProfileAccountClassicPage class.
+ * AccountProfileClassicPage class.
  *
  * @author Areliez Vargas
  * @version 0.0.1
  */
-public class ProfileAccountClassicPage extends ProfileAccountPage {
+public class AccountProfileClassicPage extends AccountProfilePage {
 
     /**
      * Web element for the body of the profile account.

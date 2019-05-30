@@ -12,7 +12,7 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.lightning.accounts;
 
-import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.ProfileAccountPage;
+import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountProfilePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -23,7 +23,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
  * @author Areliez Vargas
  * @version 0.0.1
  */
-public class AccountProfileLightningPage extends ProfileAccountPage {
+public class AccountProfileLightningPage extends AccountProfilePage {
 
     /**
      * Web element for the body of profile account.

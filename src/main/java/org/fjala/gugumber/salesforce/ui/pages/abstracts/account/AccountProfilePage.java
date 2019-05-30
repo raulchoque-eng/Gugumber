@@ -1,5 +1,5 @@
 /*
- * @(#) ProfileAccountPage.java Copyright (c) 2019 Jala Foundation.
+ * @(#) AccountProfilePage.java Copyright (c) 2019 Jala Foundation.
  * 2643 Av Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
  * All rights reserved.
  *
@@ -15,12 +15,12 @@ package org.fjala.gugumber.salesforce.ui.pages.abstracts.account;
 import org.fjala.gugumber.salesforce.ui.pages.BasePage;
 
 /**
- * ProfileAccountPage abstract class.
+ * AccountProfilePage abstract class.
  *
  * @author Areliez Vargas
  * @version 0.0.1
  */
-public abstract class ProfileAccountPage extends BasePage {
+public abstract class AccountProfilePage extends BasePage {
 
     /**
      * Returns the Name of account from a header profile.

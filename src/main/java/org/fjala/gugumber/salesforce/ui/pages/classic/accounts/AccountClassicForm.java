@@ -13,7 +13,7 @@
 package org.fjala.gugumber.salesforce.ui.pages.classic.accounts;
 
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountForm;
-import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.ProfileAccountPage;
+import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountProfilePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -68,8 +68,8 @@ public class AccountClassicForm extends AccountForm {
      * @return a new account profile classic page.
      */
     @Override
-    public ProfileAccountPage clickOnSaveBtnFoot() {
+    public AccountProfilePage clickOnSaveBtnFoot() {
         saveBtnfoot.click();
-        return new ProfileAccountClassicPage();
+        return new AccountProfileClassicPage();
     }
 }

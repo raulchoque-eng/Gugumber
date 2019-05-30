@@ -16,13 +16,11 @@ import java.util.Map;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.fjala.gugumber.salesforce.entities.Account;
 import org.fjala.gugumber.salesforce.entities.Context;
 import org.fjala.gugumber.salesforce.ui.PageLayoutFactory;
-import org.fjala.gugumber.salesforce.ui.PageTransporter;
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountForm;
+import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountProfilePage;
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountsPage;
-import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.ProfileAccountPage;
 import org.testng.Assert;
 
 /**
@@ -46,7 +44,7 @@ public class AccountSteps {
     /**
      * Variable for the profile account page.
      */
-    private ProfileAccountPage profileaccountPage;
+    private AccountProfilePage profileaccountPage;
 
     /**
      * Variable for the context.
