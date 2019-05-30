@@ -18,6 +18,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.fjala.gugumber.salesforce.entities.Account;
 import org.fjala.gugumber.salesforce.entities.Context;
+import org.fjala.gugumber.salesforce.ui.PageLayoutFactory;
 import org.fjala.gugumber.salesforce.ui.PageTransporter;
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountForm;
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountsPage;
@@ -48,16 +49,10 @@ public class AccountSteps {
     private ProfileAccountPage profileaccountPage;
 
     /**
-     * Variable for the page transporter.
-     */
-    private PageTransporter pageTransporter = PageTransporter.getInstance();
-
-    /**
      * Variable for the context.
      */
     Context context;
 
-    Account account;
     /**
      * Constructor of account steps sending the context.
      *
@@ -65,7 +60,6 @@ public class AccountSteps {
      */
     public AccountSteps(final Context context) {
         this.context = context;
-        this.account = context.getAccount();
     }
 
     /**
@@ -76,7 +70,7 @@ public class AccountSteps {
     @When("^I create a new Account with the following information$")
     public void createANewAccountWithTheFollowingInformation(final Map<String,String> accountMap) {
         context.getAccount().setAccountInformation(accountMap);
-        accountsPage = pageTransporter.getAccountPage();
+        accountsPage = PageLayoutFactory.getAccountsPage();
         accountForm = accountsPage.clickNewBtn();
         accountForm.setNameAccountOnTxtB(context.getAccount().getNameAccount());
         profileaccountPage = accountForm.clickOnSaveBtnFoot();

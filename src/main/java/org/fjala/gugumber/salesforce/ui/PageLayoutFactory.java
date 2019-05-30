@@ -14,13 +14,13 @@ package org.fjala.gugumber.salesforce.ui;
 
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.HomePage;
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.account.AccountsPage;
-import org.fjala.gugumber.salesforce.ui.pages.abstracts.common.NavBar;
+import org.fjala.gugumber.salesforce.ui.pages.abstracts.common.BaseAppPage;
 import org.fjala.gugumber.salesforce.ui.pages.classic.HomeClassicPage;
 import org.fjala.gugumber.salesforce.ui.pages.classic.accounts.AccountsClassicPage;
-import org.fjala.gugumber.salesforce.ui.pages.classic.common.NavBarClassic;
+import org.fjala.gugumber.salesforce.ui.pages.classic.common.BaseAppClassicPage;
 import org.fjala.gugumber.salesforce.ui.pages.lightning.HomeLightningPage;
 import org.fjala.gugumber.salesforce.ui.pages.lightning.accounts.AccountsLightningPage;
-import org.fjala.gugumber.salesforce.ui.pages.lightning.common.NavBarLightning;
+import org.fjala.gugumber.salesforce.ui.pages.lightning.common.BaseAppLightningPage;
 
 /**
  * PageLayoutFactory class.
@@ -30,7 +30,15 @@ import org.fjala.gugumber.salesforce.ui.pages.lightning.common.NavBarLightning;
  */
 public class PageLayoutFactory {
 
-    public static final String MESSAGE_FOR_UNKNOWN_LAYOUT = "Unknown layout type";
+    /**
+     * Constant for the page layout type.
+     */
+    private static final PageLayoutType PAGE_LAYOUT_TYPE = PageLayoutConfig.getPageLayoutName();
+
+    /**
+     * Constant for the message of exception.
+     */
+    private static final String MESSAGE_FOR_UNKNOWN_LAYOUT = "Unknown layout type";
 
     /**
      * Constructor of PageLayoutFactory.
@@ -40,12 +48,11 @@ public class PageLayoutFactory {
     /**
      * Returns the home page according the page layout.
      *
-     * @param type of page layout.
      * @return a home page.
      */
-    public static HomePage getHomePageManager(final PageLayoutType type) {
+    public static HomePage getHomePageManager() {
         final HomePage homePage;
-        switch (type) {
+        switch (PAGE_LAYOUT_TYPE) {
             case CLASSIC:
                 homePage = new HomeClassicPage();
                 break;
@@ -59,35 +66,33 @@ public class PageLayoutFactory {
     }
 
     /**
-     * Returns the navigation bar according the page layout.
+     * Gets the Base App page according the page layout.
      *
-     * @param type of page layout.
-     * @return a the navigation bar.
+     * @return a base app page.
      */
-    public static NavBar getNavBar(final PageLayoutType type) {
-        final NavBar navBar;
-        switch (type) {
+     public static BaseAppPage getBaseAppPage() {
+        final BaseAppPage baseAppPage;
+        switch (PAGE_LAYOUT_TYPE) {
             case CLASSIC:
-                navBar = new NavBarClassic();
+                baseAppPage = new BaseAppClassicPage();
                 break;
             case LIGHTNING:
-                navBar = new NavBarLightning();
+                baseAppPage = new BaseAppLightningPage();
                 break;
             default:
                 throw new RuntimeException(MESSAGE_FOR_UNKNOWN_LAYOUT);
         }
-        return navBar;
+        return baseAppPage;
     }
 
     /**
-     * Returns the accounts page bar according the page layout.
+     * Returns the Accounts page according the page layout.
      *
-     * @param type of page layout.
      * @return a the accounts page.
      */
-    public static AccountsPage getAccountsPage(final PageLayoutType type) {
+    public static AccountsPage getAccountsPage() {
         final AccountsPage accountsPage;
-        switch (type) {
+        switch (PAGE_LAYOUT_TYPE) {
             case CLASSIC:
                 accountsPage = new AccountsClassicPage();
                 break;
