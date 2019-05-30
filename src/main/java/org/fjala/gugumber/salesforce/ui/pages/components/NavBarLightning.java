@@ -1,42 +1,42 @@
 /*
- * @(#) NavBarClassic.java Copyright (c) 2019 Jala Foundation.
+ * @(#) GeneratorReport.java Copyright (c) 2019 Jala Foundation.
  * 2643 Av. Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
- * All rights reserved.
+ *  All rights reserved.
  *
  * This software is the confidential and proprietary information of Jala
  * Foundation, Inc. ("Confidential Information"). You shall not
  * disclose such Confidential Information and shall use it only in
  * accordance with the terms of the license agreement you entered into
- * with Jala Foundation.
+ *  with Jala Foundation.
  */
 
-package org.fjala.gugumber.salesforce.ui.pages.classic;
+package org.fjala.gugumber.salesforce.ui.pages.components;
 
-import org.fjala.gugumber.salesforce.ui.pages.abstracts.common.NavBar;
-import org.fjala.gugumber.salesforce.ui.pages.classic.accounts.AccountsClassicPage;
+import org.fjala.gugumber.salesforce.ui.pages.account.AccountsLightningPage;
+import org.fjala.gugumber.salesforce.ui.pages.account.AccountsPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
- * NavBarClassic class.
+ * NavBarLightning class.
  *
  * @author Areliez Vargas
  * @version 0.0.1
  */
-public class NavBarClassic extends NavBar {
+public class NavBarLightning extends NavBar {
 
     /**
      * Web element of tab-bar.
      */
-    @FindBy(id = "tabBar")
+    @FindBy(xpath = "//div[@class='slds-context-bar']")
     private WebElement tabBar;
 
     /**
      * Web element for the account option.
      */
-    @FindBy(id = "Account_Tab")
-    private WebElement accountOption;
+    @FindBy(xpath = "//one-app-nav-bar-item-root[@data-id='Account']")
+    private WebElement accountsOption;
 
     /**
      * Waits until page object is loaded.
@@ -46,13 +46,14 @@ public class NavBarClassic extends NavBar {
         wait.until(ExpectedConditions.visibilityOf(tabBar));
     }
 
-   /**
-     * Returns contact classic page after clicking in contact option.
+    /**
+     * Returns the account lightning page after clicking on account option.
      *
-     * @return contact classic page.
+     * @return a account lightning page.
      */
     @Override
-    public ContactPageAbstract goToContactPage() {
-        return null;
+    public AccountsPage clickAccountsOption() {
+        accountsOption.click();
+        return new AccountsLightningPage();
     }
 }

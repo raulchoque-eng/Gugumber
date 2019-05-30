@@ -1,19 +1,19 @@
 /*
- * @(#) NavBar.java Copyright (c) 2019 Jala Foundation.
+ * @(#) GeneratorReport.java Copyright (c) 2019 Jala Foundation.
  * 2643 Av. Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
- * All rights reserved.
+ *  All rights reserved.
  *
  * This software is the confidential and proprietary information of Jala
  * Foundation, Inc. ("Confidential Information"). You shall not
  * disclose such Confidential Information and shall use it only in
  * accordance with the terms of the license agreement you entered into
- * with Jala Foundation.
+ *  with Jala Foundation.
  */
 
-package org.fjala.gugumber.salesforce.ui.pages.abstracts.common;
+package org.fjala.gugumber.salesforce.ui.pages.components;
 
-import org.fjala.gugumber.salesforce.ui.BasePage;
-import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ContactPageAbstract;
+import org.fjala.gugumber.salesforce.ui.pages.BasePage;
+import org.fjala.gugumber.salesforce.ui.pages.account.AccountsPage;
 
 /**
  * NavBar class.
@@ -24,10 +24,9 @@ import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ContactPageAbst
 public abstract class NavBar extends BasePage {
 
     /**
-     * Returns Account page after clicking on contact option.
+     * Returns Account page after clicking on account option.
      *
      * @return an Account page.
      */
-    public abstract ContactPageAbstract goToContactPage();
-
+    public abstract AccountsPage clickAccountsOption();
 }

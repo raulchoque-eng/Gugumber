@@ -1,5 +1,5 @@
 /*
- * @(#) HomePage.java Copyright (c) 2019 Jala Foundation.
+ * @(#) EventDetail.java Copyright (c) 2019 Jala Foundation.
  * 2643 Av. Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
  * All rights reserved.
  *
@@ -10,27 +10,20 @@
  * with Jala Foundation.
  */
 
-package org.fjala.gugumber.salesforce.ui.pages;
+package org.fjala.gugumber.salesforce.ui.pages.events;
 
-import org.fjala.gugumber.salesforce.ui.BasePage;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
- * HomePage class.
+ * EventDetail class.
  *
  * @author Raul Choque
  * @version 0.0.1
  */
-public abstract class HomePage extends BasePage {
-
-    public void openForm() {
+public class EventDetail {
+    public Map<String, String> getData() {
         System.out.println("TODO");
-    }
-
-    public String getNameEvent() {
-        return "TODO";
-    }
-
-    public void openDetail() {
-        System.out.println("TODO");
+        return new HashMap<String, String>();
     }
 }
