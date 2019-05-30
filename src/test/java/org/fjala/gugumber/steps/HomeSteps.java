@@ -14,7 +14,7 @@ package org.fjala.gugumber.steps;
 
 import cucumber.api.java.en.When;
 import org.fjala.gugumber.salesforce.ui.PageTransporter;
-import org.fjala.gugumber.salesforce.ui.pages.HomePage;
+import org.fjala.gugumber.salesforce.ui.pages.Home.HomePage;
 
 /**
  * HomeSteps class for steps definitions.
@@ -23,9 +23,20 @@ import org.fjala.gugumber.salesforce.ui.pages.HomePage;
  * @version 0.0.1
  */
 public class HomeSteps {
+
+    /**
+     * Variable for the page transporter.
+     */
     private PageTransporter pageTransporter = PageTransporter.getInstance();
+
+    /**
+     * Variable for the home page.
+     */
     private HomePage homePage;
 
+    /**
+     * Navigates to the home page.
+     */
     @When("^I navigate to the Home page$")
     public void navigateToThePage() {
         homePage = pageTransporter.navigateToHomePage();

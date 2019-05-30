@@ -26,17 +26,33 @@ public class Context {
     private Contact contact;
 
     /**
+     * Account to manage in the context.
+     */
+    private Account account;
+
+    /**
      * Context for creation of the constructor.
      */
     public Context() {
         this.contact = new Contact();
+        this.account = new Account();
     }
 
     /**
-     * Get contact.
+     * Returns the contact of context.
+     *
      * @return contact.
      */
     public Contact getContact() {
         return contact;
+    }
+
+    /**
+     * Returns the account of context.
+     *
+     * @return an account.
+     */
+    public Account getAccount() {
+        return account;
     }
 }

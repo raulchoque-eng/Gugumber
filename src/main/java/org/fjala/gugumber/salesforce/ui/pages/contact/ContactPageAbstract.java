@@ -1,5 +1,5 @@
 /*
- * @(#) StrategySetter.java Copyright (c) 2019 Jala Foundation.
+ * @(#) ContactPageAbstract.java Copyright (c) 2019 Jala Foundation.
  * 2643 Av Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
  * All rights reserved.
  *
@@ -10,19 +10,19 @@
  * with Jala Foundation.
  */
 
-package org.fjala.gugumber.core;
+package org.fjala.gugumber.salesforce.ui.pages.contact;
+
+
+import org.fjala.gugumber.salesforce.ui.pages.BasePage;
 
 /**
- * StrategySetter class.
+ * ContactPageAbstract class
  *
- * @author Cristian Lujan.
+ * @author Cristian Lujan
  * @version 0.0.1
  */
-@FunctionalInterface
-public interface StrategySetter {
+public abstract class ContactPageAbstract extends BasePage {
 
-    /**
-     * Executes method for a Page or an entity.
-     */
-    void executeMethod();
+    public abstract ContactForm clickNewContact();
+
 }

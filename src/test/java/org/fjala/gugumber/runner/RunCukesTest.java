@@ -15,6 +15,7 @@ package org.fjala.gugumber.runner;
 import cucumber.api.CucumberOptions;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 import org.fjala.gugumber.core.report.GeneratorReport;
+import org.fjala.gugumber.core.selenium.WebDriverManager;
 import org.testng.annotations.AfterTest;
 
 /**

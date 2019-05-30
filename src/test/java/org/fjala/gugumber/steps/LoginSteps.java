@@ -13,9 +13,8 @@
 package org.fjala.gugumber.steps;
 
 import cucumber.api.java.en.Given;
-import org.fjala.gugumber.salesforce.ui.LoginPage;
+import org.fjala.gugumber.salesforce.ui.pages.LoginPage;
 import org.fjala.gugumber.salesforce.ui.PageTransporter;
-import org.fjala.gugumber.salesforce.ui.pages.HomePage;
 
 /**
  * LoginSteps class for steps definitions.

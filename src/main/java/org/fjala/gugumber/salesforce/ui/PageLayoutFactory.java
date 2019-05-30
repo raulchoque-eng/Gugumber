@@ -12,15 +12,17 @@
 
 package org.fjala.gugumber.salesforce.ui;
 
-import org.fjala.gugumber.salesforce.ui.pages.HomePage;
-import org.fjala.gugumber.salesforce.ui.pages.abstracts.common.BaseAppPage;
-import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ContactPageAbstract;
-import org.fjala.gugumber.salesforce.ui.pages.classic.HomeClassicPage;
-import org.fjala.gugumber.salesforce.ui.pages.classic.common.BaseAppClassicPage;
-import org.fjala.gugumber.salesforce.ui.pages.classic.contact.ContactClassicPageAbstract;
+
+import org.fjala.gugumber.salesforce.ui.pages.Home.HomeClassicPage;
+import org.fjala.gugumber.salesforce.ui.pages.Home.HomePage;
+import org.fjala.gugumber.salesforce.ui.pages.app.BaseAppClassicPage;
+import org.fjala.gugumber.salesforce.ui.pages.app.BaseAppLightningPage;
+import org.fjala.gugumber.salesforce.ui.pages.app.BaseAppPage;
+import org.fjala.gugumber.salesforce.ui.pages.contact.ContactClassicPageAbstract;
+import org.fjala.gugumber.salesforce.ui.pages.contact.ContactLightningPageAbstract;
+import org.fjala.gugumber.salesforce.ui.pages.contact.ContactPageAbstract;
 import org.fjala.gugumber.salesforce.ui.pages.lightning.HomeLightningPage;
-import org.fjala.gugumber.salesforce.ui.pages.lightning.common.BaseAppLightningPage;
-import org.fjala.gugumber.salesforce.ui.pages.lightning.contact.ContactLightningPageAbstract;
+
 
 /**
  * PageLayoutFactory class.
@@ -41,7 +43,12 @@ public class PageLayoutFactory {
     private static final String MESSAGE_FOR_UNKNOWN_LAYOUT = "Unknown layout type";
 
     /**
-     * Gets the home page according the page layout.
+     * Constructor of PageLayoutFactory.
+     */
+    protected PageLayoutFactory() {}
+
+    /**
+     * Returns the home page according the page layout.
      *
      * @return a home page.
      */
@@ -85,7 +92,7 @@ public class PageLayoutFactory {
      *
      * @return a contact page.
      */
-    public static ContactPageAbstract getContactsPage() {
+    public static ContactPageAbstract getContactPage() {
         final ContactPageAbstract contactPageAbstract;
         switch (PAGE_LAYOUT_TYPE) {
             case CLASSIC:
