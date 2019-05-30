@@ -95,7 +95,7 @@ public class ContactClassicForm extends ContactForm {
     /**
      * Locator for text box of home phone.
      */
-    @FindBy(id = "")
+    @FindBy(id = "con13")
     private WebElement hPhoneTxtb;
 
     /**
@@ -521,10 +521,18 @@ public class ContactClassicForm extends ContactForm {
         descriptionTxtb.sendKeys(description);
     }
 
+    /**
+     * Contact save button.
+     */
     public void clickSaveBtn() {
         saveBtn.click();
     }
 
+    /**
+     * Gets New Contact.
+     *
+     * @return new profile contact classic page.
+     */
     @Override
     public ContactProfilePage clickSaveNewContact() {
         clickSaveBtn();

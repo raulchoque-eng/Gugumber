@@ -82,23 +82,23 @@ public class ContactClassicPageAbstract extends ContactPageAbstract {
         wait.until(ExpectedConditions.visibilityOf(lastNameTxtb));
     }
 
-    public void setFirstName(String firstName) {
+    public void setFirstName(final String firstName) {
         firstNameTxtb.sendKeys(firstName);
     }
 
-    public void setLastName(String lastName) {
+    public void setLastName(final String lastName) {
         lastNameTxtb.sendKeys(lastName);
     }
 
-    public void setAccount(String account) {
+    public void setAccount(final String account) {
         accountTxtb.sendKeys(account);
     }
 
-    public void setPhone1(String phone1) {
+    public void setPhone1(final String phone1) {
         phone1Txtb.sendKeys(phone1);
     }
 
-    public void setEmail(String email) {
+    public void setEmail(final String email) {
         emailTxtb.sendKeys(email);
     }
 

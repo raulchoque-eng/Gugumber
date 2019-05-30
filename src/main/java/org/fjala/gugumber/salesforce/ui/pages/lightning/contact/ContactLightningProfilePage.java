@@ -26,6 +26,12 @@ public class ContactLightningProfilePage extends ContactProfilePage {
     private WebElement contactTitle;
 
     /**
+     * Web Element of profile contact form.
+     */
+    @FindBy(css = "[class='photoContainer forceSocialPhoto'] [alt='Contact']")
+    private WebElement contactIcon;
+
+    /**
      * Web Element of profile contact with title.
      */
     @FindBy(css = "[class='toastMessage slds-text-heading--small forceActionsText']")
@@ -36,6 +42,11 @@ public class ContactLightningProfilePage extends ContactProfilePage {
         wait.until(ExpectedConditions.visibilityOf(profileContactHeader));
     }
 
+    /**
+     * Gets message of saved
+     *
+     * @return
+     */
     public String getMessageSave() {
         return contactMessageSaveTxt.getText();
     }
@@ -47,6 +58,6 @@ public class ContactLightningProfilePage extends ContactProfilePage {
 
     @Override
     public boolean isTheNewContact() {
-        return contactTitle.isDisplayed();
+        return contactIcon.isDisplayed();
     }
 }

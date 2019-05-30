@@ -10,12 +10,12 @@
  * with Jala Foundation.
  */
 
-package org.fjala.gugumber.core.selenium.utils;
+package org.fjala.gugumber.core.selenium;
 
 /**
  * StrategySetter class.
  *
- * @author Cxrisstian
+ * @author Cristian Lujan.
  * @version 0.0.1
  */
 @FunctionalInterface

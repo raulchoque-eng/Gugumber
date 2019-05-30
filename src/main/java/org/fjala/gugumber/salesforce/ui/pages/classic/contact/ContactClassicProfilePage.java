@@ -25,7 +25,7 @@ public class ContactClassicProfilePage extends ContactProfilePage {
     @FindBy(css = ".topName")
     private WebElement contactTitle;
 
-     /**
+    /**
      * Web Element of profile contact form.
      */
     @FindBy(css = "[class='content'] [alt='Contact']")
@@ -38,11 +38,11 @@ public class ContactClassicProfilePage extends ContactProfilePage {
 
     @Override
     public String getLastNameContact() {
-        return null;
+        return contactTitle.getText();
     }
 
     @Override
     public boolean isTheNewContact() {
-        return false;
+        return contactIcon.isDisplayed();
     }
 }

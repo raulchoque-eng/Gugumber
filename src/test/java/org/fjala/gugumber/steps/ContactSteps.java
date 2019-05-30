@@ -10,6 +10,7 @@ import org.fjala.gugumber.salesforce.ui.PageTransporter;
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ContactForm;
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ContactPageAbstract;
 import org.fjala.gugumber.salesforce.ui.pages.abstracts.contacts.ContactProfilePage;
+import org.fjala.gugumber.salesforce.ui.pages.lightning.contact.ContactLightningProfilePage;
 
 import java.util.Map;
 
@@ -51,15 +52,23 @@ public class ContactSteps {
         contactProfilePage = contactForm.clickSaveNewContact();
     }
 
-//    @Then("^a message that indicates the Contact was created should be displayed$")
-//    public void MessageThatIndicatesTheContactWasCreated() {
-//        ContactLightningProfilePage profileContactLightningPage = new ContactLightningProfilePage();
-//        assertEquals(message, profileContactLightningPage, "not successfully deleted");
-//    }
+    @Then("^a message that indicates the Contact was created should be displayed$")
+    public void MessageThatIndicatesTheContactWasCreated() {
+        try {
+            ContactLightningProfilePage profileContactLightningPage = new ContactLightningProfilePage();
+            final String message = (profileContactLightningPage.getMessageSave());
+            assertEquals(message, "Contact was created.", "not successfully created");
+        } catch(ClassCastException e) {
+            System.out.println("In classic theme is not message of confirmation");
+        }
+
+    }
 
     @Then("^the contact last name should be displayed in the Contact Profile page$")
     public void theContactLastNameShouldBeDisplayedInTheContactProfilePage() {
+        assertEquals(contactProfilePage.getLastNameContact(),contact.getLastName(),"the Contact Last name not displayed");
         assertTrue(contactProfilePage.isTheNewContact());
+
     }
 
 

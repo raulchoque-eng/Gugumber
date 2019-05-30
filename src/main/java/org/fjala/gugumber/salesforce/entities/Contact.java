@@ -12,10 +12,10 @@
 
 package org.fjala.gugumber.salesforce.entities;
 
-import org.fjala.gugumber.core.selenium.utils.StrategySetter;
-
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import org.fjala.gugumber.core.selenium.StrategySetter;
 
 /**
  * Contact class.
@@ -25,7 +25,7 @@ import java.util.Map;
  */
 public class Contact {
 
-    private final static String SALUTATION = "Salutation";
+    private final static String SALUTATION = "salutation";
     private final static String FIRST_NAME = "First Name";
     private final static String LAST_NAME = "Last Name";
     private final static String ACCOUNT = "Account";
@@ -56,7 +56,7 @@ public class Contact {
     private final static String LEVEL = "Level";
     private final static String DESCRIPTION = "Description";
 
-    private String Salutation;
+    private String salutation;
     private String firstName;
     private String lastName;
     private int phone;
@@ -65,7 +65,7 @@ public class Contact {
     private String account;
     private String title;
     private String department;
-    private String birthdate;
+    private Date birthdate;
     private String reportsTo;
     private String leadSource;
     private int mobile;
@@ -88,18 +88,18 @@ public class Contact {
     private String description;
 
     public String getSalutation() {
-        return Salutation;
+        return salutation;
     }
 
-    public void setSalutation(String salutation) {
-        Salutation = salutation;
+    public void setSalutation(final String salutation) {
+        this.salutation = salutation;
     }
 
     public String getFirstName() {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
+    public void setFirstName(final String firstName) {
         this.firstName = firstName;
     }
 
@@ -107,7 +107,7 @@ public class Contact {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
+    public void setLastName(final String lastName) {
         this.lastName = lastName;
     }
 
@@ -115,7 +115,7 @@ public class Contact {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(final int phone) {
         this.phone = phone;
     }
 
@@ -123,7 +123,7 @@ public class Contact {
         return homePhone;
     }
 
-    public void setHomePhone(int homePhone) {
+    public void setHomePhone(final int homePhone) {
         this.homePhone = homePhone;
     }
 
@@ -131,7 +131,7 @@ public class Contact {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(final String email) {
         this.email = email;
     }
 
@@ -139,7 +139,7 @@ public class Contact {
         return account;
     }
 
-    public void setAccount(String account) {
+    public void setAccount(final String account) {
         this.account = account;
     }
 
@@ -147,7 +147,7 @@ public class Contact {
         return title;
     }
 
-    public void setTitle(String title) {
+    public void setTitle(final String title) {
         this.title = title;
     }
 
@@ -155,15 +155,15 @@ public class Contact {
         return department;
     }
 
-    public void setDepartment(String department) {
+    public void setDepartment(final String department) {
         this.department = department;
     }
 
-    public String getBirthdate() {
+    public Date getBirthdate() {
         return birthdate;
     }
 
-    public void setBirthdate(String birthdate) {
+    public void setBirthdate(final Date birthdate) {
         this.birthdate = birthdate;
     }
 
@@ -171,7 +171,7 @@ public class Contact {
         return reportsTo;
     }
 
-    public void setReportsTo(String reportsTo) {
+    public void setReportsTo(final String reportsTo) {
         this.reportsTo = reportsTo;
     }
 
@@ -179,7 +179,7 @@ public class Contact {
         return leadSource;
     }
 
-    public void setLeadSource(String leadSource) {
+    public void setLeadSource(final String leadSource) {
         this.leadSource = leadSource;
     }
 
@@ -187,7 +187,7 @@ public class Contact {
         return mobile;
     }
 
-    public void setMobile(int mobile) {
+    public void setMobile(final int mobile) {
         this.mobile = mobile;
     }
 
@@ -195,7 +195,7 @@ public class Contact {
         return otherPhone;
     }
 
-    public void setOtherPhone(int otherPhone) {
+    public void setOtherPhone(final int otherPhone) {
         this.otherPhone = otherPhone;
     }
 
@@ -203,7 +203,7 @@ public class Contact {
         return fax;
     }
 
-    public void setFax(int fax) {
+    public void setFax(final int fax) {
         this.fax = fax;
     }
 
@@ -211,7 +211,7 @@ public class Contact {
         return assistant;
     }
 
-    public void setAssistant(String assistant) {
+    public void setAssistant(final String assistant) {
         this.assistant = assistant;
     }
 
@@ -219,7 +219,7 @@ public class Contact {
         return asstPhone;
     }
 
-    public void setAsstPhone(int asstPhone) {
+    public void setAsstPhone(final int asstPhone) {
         this.asstPhone = asstPhone;
     }
 
@@ -227,7 +227,7 @@ public class Contact {
         return mailingStreet;
     }
 
-    public void setMailingStreet(String mailingStreet) {
+    public void setMailingStreet(final String mailingStreet) {
         this.mailingStreet = mailingStreet;
     }
 
@@ -235,7 +235,7 @@ public class Contact {
         return mailingCity;
     }
 
-    public void setMailingCity(String mailingCity) {
+    public void setMailingCity(final String mailingCity) {
         this.mailingCity = mailingCity;
     }
 
@@ -243,7 +243,7 @@ public class Contact {
         return mailingState;
     }
 
-    public void setMailingState(String mailingState) {
+    public void setMailingState(final String mailingState) {
         this.mailingState = mailingState;
     }
 
@@ -251,7 +251,7 @@ public class Contact {
         return mailingPostalCode;
     }
 
-    public void setMailingPostalCode(String mailingPostalCode) {
+    public void setMailingPostalCode(final String mailingPostalCode) {
         this.mailingPostalCode = mailingPostalCode;
     }
 
@@ -259,7 +259,7 @@ public class Contact {
         return mailingCountry;
     }
 
-    public void setMailingCountry(String mailingCountry) {
+    public void setMailingCountry(final String mailingCountry) {
         this.mailingCountry = mailingCountry;
     }
 
@@ -267,7 +267,7 @@ public class Contact {
         return otherStreet;
     }
 
-    public void setOtherStreet(String otherStreet) {
+    public void setOtherStreet(final String otherStreet) {
         this.otherStreet = otherStreet;
     }
 
@@ -275,7 +275,7 @@ public class Contact {
         return otherCity;
     }
 
-    public void setOtherCity(String otherCity) {
+    public void setOtherCity(final String otherCity) {
         this.otherCity = otherCity;
     }
 
@@ -283,7 +283,7 @@ public class Contact {
         return otherState;
     }
 
-    public void setOtherState(String otherState) {
+    public void setOtherState(final String otherState) {
         this.otherState = otherState;
     }
 
@@ -291,7 +291,7 @@ public class Contact {
         return otherZipPostalCode;
     }
 
-    public void setOtherZipPostalCode(String otherZipPostalCode) {
+    public void setOtherZipPostalCode(final String otherZipPostalCode) {
         this.otherZipPostalCode = otherZipPostalCode;
     }
 
@@ -299,7 +299,7 @@ public class Contact {
         return otherCountry;
     }
 
-    public void setOtherCountry(String otherCountry) {
+    public void setOtherCountry(final String otherCountry) {
         this.otherCountry = otherCountry;
     }
 
@@ -307,7 +307,7 @@ public class Contact {
         return languages;
     }
 
-    public void setLanguages(String languages) {
+    public void setLanguages(final String languages) {
         this.languages = languages;
     }
 
@@ -315,7 +315,7 @@ public class Contact {
         return level;
     }
 
-    public void setLevel(String level) {
+    public void setLevel(final String level) {
         this.level = level;
     }
 
@@ -323,59 +323,60 @@ public class Contact {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(final String description) {
         this.description = description;
     }
 
 
     /**
      * Process information for composing the strategy map.
+     *
      * @param newContact of type string
      */
-    public void processInformation (final Map<String,String> newContact){
-        HashMap<String, StrategySetter>strategyMap = composeStrategyMap(newContact);
+    public void processInformation (final Map<String,String> newContact) {
+        final HashMap<String, StrategySetter> strategyMap = composeStrategyMap(newContact);
         newContact.keySet().forEach(key -> {
-            strategyMap.get(key).executeMethod();});
+            strategyMap.get(key).executeMethod(); });
     }
-
 
     /**
      * Build the contact values.
+     *
      * @param newContact of type String.
      * @return The HashMap
      */
     public HashMap<String,StrategySetter> composeStrategyMap(final Map<String,String> newContact) {
-        HashMap<String, StrategySetter>strategyMap = new HashMap<>();
-        strategyMap.put(SALUTATION,()-> setSalutation(newContact.get(SALUTATION)));
-        strategyMap.put(FIRST_NAME,()-> setFirstName(newContact.get(FIRST_NAME)));
-        strategyMap.put(LAST_NAME,()-> setLastName(newContact.get(LAST_NAME)));
-        strategyMap.put(ACCOUNT,()-> setAccount(newContact.get(ACCOUNT)));
-        strategyMap.put(PHONE,()-> setPhone(Integer.parseInt(newContact.get(PHONE))));
-        strategyMap.put(EMAIL,()-> setEmail(newContact.get(EMAIL)));
-        strategyMap.put(HOME_PHONE,()-> setHomePhone(Integer.parseInt(newContact.get(HOME_PHONE))));
-        strategyMap.put(TITLE,()-> setTitle(newContact.get(TITLE)));
-        strategyMap.put(DEPARTMENT,()-> setDepartment(newContact.get(DEPARTMENT)));
-        strategyMap.put(BIRTHDATE,()-> setBirthdate(newContact.get(BIRTHDATE)));
-        strategyMap.put(REPORTS_TO,()-> setReportsTo(newContact.get(REPORTS_TO)));
-        strategyMap.put(LEAD_SOURCE,()-> setLeadSource(newContact.get(LEAD_SOURCE)));
-        strategyMap.put(MOBILE,()-> setMobile(Integer.parseInt(newContact.get(MOBILE))));
-        strategyMap.put(OTHER_PHONE,()-> setOtherPhone(Integer.parseInt(newContact.get(OTHER_PHONE))));
-        strategyMap.put(FAX,()-> setFax(Integer.parseInt(newContact.get(FAX))));
-        strategyMap.put(ASSISTANT,()-> setAssistant(newContact.get(ASSISTANT)));
-        strategyMap.put(ASST_PHONE,()-> setAsstPhone(Integer.parseInt(newContact.get(ASST_PHONE))));
-        strategyMap.put(MAILING_STREET,()-> setMailingStreet(newContact.get(MAILING_STREET)));
-        strategyMap.put(MAILING_CITY,()-> setMailingCity(newContact.get(MAILING_CITY)));
-        strategyMap.put(MAILING_STATE,()-> setMailingState(newContact.get(MAILING_STATE)));
-        strategyMap.put(MAILING_POSTAL_CODE,()-> setMailingPostalCode(newContact.get(MAILING_POSTAL_CODE)));
-        strategyMap.put(MAILING_COUNTRY,()-> setMailingCountry(newContact.get(MAILING_COUNTRY)));
-        strategyMap.put(OTHER_STREET,()-> setOtherStreet(newContact.get(OTHER_STREET)));
-        strategyMap.put(OTHER_CITY,()-> setOtherCity(newContact.get(OTHER_CITY)));
-        strategyMap.put(OTHER_STATE,()-> setOtherState(newContact.get(OTHER_STATE)));
-        strategyMap.put(OTHER_POSTAL_CODE,()-> setOtherZipPostalCode(newContact.get(OTHER_POSTAL_CODE)));
-        strategyMap.put(OTHER_COUNTRY,()-> setOtherCountry(newContact.get(OTHER_COUNTRY)));
-        strategyMap.put(LANGUAGES,()-> setLanguages(newContact.get(LANGUAGES)));
-        strategyMap.put(LEVEL,()-> setLevel(newContact.get(LEVEL)));
-        strategyMap.put(DESCRIPTION,()-> setDescription(newContact.get(DESCRIPTION)));
+        final HashMap<String, StrategySetter> strategyMap = new HashMap<>();
+        strategyMap.put(SALUTATION,() -> setSalutation(newContact.get(SALUTATION)));
+        strategyMap.put(FIRST_NAME,() -> setFirstName(newContact.get(FIRST_NAME)));
+        strategyMap.put(LAST_NAME,() -> setLastName(newContact.get(LAST_NAME)));
+        strategyMap.put(ACCOUNT,() -> setAccount(newContact.get(ACCOUNT)));
+        strategyMap.put(PHONE,() -> setPhone(Integer.parseInt(newContact.get(PHONE))));
+        strategyMap.put(EMAIL,() -> setEmail(newContact.get(EMAIL)));
+        strategyMap.put(HOME_PHONE,() -> setHomePhone(Integer.parseInt(newContact.get(HOME_PHONE))));
+        strategyMap.put(TITLE,() -> setTitle(newContact.get(TITLE)));
+        strategyMap.put(DEPARTMENT,() -> setDepartment(newContact.get(DEPARTMENT)));
+//        strategyMap.put(BIRTHDATE,() -> setBirthdate(newContact.get(BIRTHDATE)));
+        strategyMap.put(REPORTS_TO,() -> setReportsTo(newContact.get(REPORTS_TO)));
+        strategyMap.put(LEAD_SOURCE,() -> setLeadSource(newContact.get(LEAD_SOURCE)));
+        strategyMap.put(MOBILE,() -> setMobile(Integer.parseInt(newContact.get(MOBILE))));
+        strategyMap.put(OTHER_PHONE,() -> setOtherPhone(Integer.parseInt(newContact.get(OTHER_PHONE))));
+        strategyMap.put(FAX,() -> setFax(Integer.parseInt(newContact.get(FAX))));
+        strategyMap.put(ASSISTANT,() -> setAssistant(newContact.get(ASSISTANT)));
+        strategyMap.put(ASST_PHONE,() -> setAsstPhone(Integer.parseInt(newContact.get(ASST_PHONE))));
+        strategyMap.put(MAILING_STREET,() -> setMailingStreet(newContact.get(MAILING_STREET)));
+        strategyMap.put(MAILING_CITY,() -> setMailingCity(newContact.get(MAILING_CITY)));
+        strategyMap.put(MAILING_STATE,() -> setMailingState(newContact.get(MAILING_STATE)));
+        strategyMap.put(MAILING_POSTAL_CODE,() -> setMailingPostalCode(newContact.get(MAILING_POSTAL_CODE)));
+        strategyMap.put(MAILING_COUNTRY,() -> setMailingCountry(newContact.get(MAILING_COUNTRY)));
+        strategyMap.put(OTHER_STREET,() -> setOtherStreet(newContact.get(OTHER_STREET)));
+        strategyMap.put(OTHER_CITY,() -> setOtherCity(newContact.get(OTHER_CITY)));
+        strategyMap.put(OTHER_STATE,() -> setOtherState(newContact.get(OTHER_STATE)));
+        strategyMap.put(OTHER_POSTAL_CODE,() -> setOtherZipPostalCode(newContact.get(OTHER_POSTAL_CODE)));
+        strategyMap.put(OTHER_COUNTRY,() -> setOtherCountry(newContact.get(OTHER_COUNTRY)));
+        strategyMap.put(LANGUAGES,() -> setLanguages(newContact.get(LANGUAGES)));
+        strategyMap.put(LEVEL,() -> setLevel(newContact.get(LEVEL)));
+        strategyMap.put(DESCRIPTION,() -> setDescription(newContact.get(DESCRIPTION)));
         return strategyMap;
     }
 }
