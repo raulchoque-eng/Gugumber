@@ -12,6 +12,8 @@
 
 package org.fjala.gugumber.core.selenium.utils;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 /**
@@ -31,6 +33,19 @@ public class DriverMethod {
     public static void setTxt(final WebElement webElement, final String text) {
         webElement.clear();
         webElement.sendKeys(text);
+    }
+
+    /**
+     * Sets the comboBox into the webElement.
+     *
+     * @param webElement that sets its comboBox.
+     * @param driver that connection for web elements.
+     * @param replaceCmb value for replace.
+     * @param text new value of webElement.
+     */
+    public static  void selectCmb(final WebElement webElement, final WebDriver driver, final String replaceCmb, final String text) {
+        webElement.click();
+        driver.findElement(By.cssSelector(replaceCmb.replace("nameTitle", text))).click();
     }
 
     //TODO method to select a checkbox
