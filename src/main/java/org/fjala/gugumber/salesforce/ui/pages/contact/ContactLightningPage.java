@@ -1,5 +1,5 @@
 /*
- * @(#) ContactLightningPageAbstract.java Copyright (c) 2019 Jala Foundation.
+ * @(#) ContactLightningPage.java Copyright (c) 2019 Jala Foundation.
  * 2643 Av Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
  * All rights reserved.
  *
@@ -20,12 +20,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * ContactLightningPageAbstract class.
+ * ContactLightningPage class.
  *
  * @author Cristian Lujan
  * @version 0.0.1
  */
-public class ContactLightningPageAbstract extends ContactPageAbstract {
+public class ContactLightningPage extends ContactPageAbstract {
 
     /**
      * Web Element form Contact
@@ -64,6 +64,11 @@ public class ContactLightningPageAbstract extends ContactPageAbstract {
         return new ContactLightningForm();
     }
 
+    /**
+     * Gets a list of last names contact from the contact page.
+     *
+     * @return a list with the name contact.
+     */
     @Override
     public List<String> getListOfContactsName() {
         final List<String> contactName = new ArrayList<>();
@@ -79,6 +84,5 @@ public class ContactLightningPageAbstract extends ContactPageAbstract {
     private void clickNewContactBtn() {
         newContactBtn.click();
     }
-
 }
 

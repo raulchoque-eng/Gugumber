@@ -27,7 +27,7 @@ public abstract class ContactProfilePage extends BasePage {
      *
      * @return the last name of contact as string.
      */
-    public abstract String getLastNameContact();
+    public abstract String getFullNameTitleContact();
 
     /**
      * Returns the icon of contact from a header profile.

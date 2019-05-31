@@ -57,7 +57,7 @@ public class ContactClassicProfilePage extends ContactProfilePage {
      * @return new contact title.
      */
     @Override
-    public String getLastNameContact() {
+    public String getFullNameTitleContact() {
         return contactTitle.getText();
     }
 

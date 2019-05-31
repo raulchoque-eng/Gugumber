@@ -22,8 +22,8 @@ import org.fjala.gugumber.salesforce.ui.pages.account.AccountsPage;
 import org.fjala.gugumber.salesforce.ui.pages.app.BaseAppClassicPage;
 import org.fjala.gugumber.salesforce.ui.pages.app.BaseAppLightningPage;
 import org.fjala.gugumber.salesforce.ui.pages.app.BaseAppPage;
-import org.fjala.gugumber.salesforce.ui.pages.contact.ContactClassicPageAbstract;
-import org.fjala.gugumber.salesforce.ui.pages.contact.ContactLightningPageAbstract;
+import org.fjala.gugumber.salesforce.ui.pages.contact.ContactClassicPage;
+import org.fjala.gugumber.salesforce.ui.pages.contact.ContactLightningPage;
 import org.fjala.gugumber.salesforce.ui.pages.contact.ContactPageAbstract;
 
 
@@ -99,10 +99,10 @@ public class PageLayoutFactory {
         final ContactPageAbstract contactPageAbstract;
         switch (PAGE_LAYOUT_TYPE) {
             case CLASSIC:
-                contactPageAbstract = new ContactClassicPageAbstract();
+                contactPageAbstract = new ContactClassicPage();
                 break;
             case LIGHTNING:
-                contactPageAbstract = new ContactLightningPageAbstract();
+                contactPageAbstract = new ContactLightningPage();
                 break;
             default:
                 throw new RuntimeException(MESSAGE_FOR_UNKNOWN_LAYOUT);

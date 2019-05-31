@@ -1,5 +1,5 @@
 /*
- * @(#) ContactClassicPageAbstract.java Copyright (c) 2019 Jala Foundation.
+ * @(#) ContactClassicPage.java Copyright (c) 2019 Jala Foundation.
  * 2643 Av Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
  * All rights reserved.
  *
@@ -21,12 +21,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * ContactClassicPageAbstract class.
+ * ContactClassicPage class.
  *
  * @author Cristian Lujan
  * @version 0.0.1
  */
-public class ContactClassicPageAbstract extends ContactPageAbstract {
+public class ContactClassicPage extends ContactPageAbstract {
 
     /**
      * Web element for the contact option.
@@ -157,6 +157,11 @@ public class ContactClassicPageAbstract extends ContactPageAbstract {
         return new ContactClassicForm();
     }
 
+    /**
+     * Gets a list of last names contact from the contact page.
+     *
+     * @return a list with the name contact.
+     */
     @Override
     public List<String> getListOfContactsName() {
         final List<String> contactName = new ArrayList<>();

@@ -12,11 +12,43 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.contact;
 
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.ACCOUNT;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.ASSISTANT;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.ASST_PHONE;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.BIRTHDATE;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.DEPARTMENT;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.DESCRIPTION;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.EMAIL;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.FAX;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.FIRST_NAME;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.HOME_PHONE;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.LANGUAGES;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.LAST_NAME;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.LEAD_SOURCE;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.LEVEL;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.MAILING_CITY;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.MAILING_COUNTRY;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.MAILING_POSTAL_CODE;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.MAILING_STATE;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.MAILING_STREET;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.MOBILE;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.OTHER_CITY;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.OTHER_COUNTRY;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.OTHER_PHONE;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.OTHER_POSTAL_CODE;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.OTHER_STATE;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.OTHER_STREET;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.PHONE;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.REPORTS_TO;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.SALUTATION;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.TITLE;
+
 import java.util.HashMap;
 import java.util.Map;
-
 import org.fjala.gugumber.core.StrategySetter;
 import org.fjala.gugumber.salesforce.ui.pages.BasePage;
+
+
 
 
 /**
@@ -27,155 +59,6 @@ import org.fjala.gugumber.salesforce.ui.pages.BasePage;
  */
 public abstract class ContactForm extends BasePage {
 
-    /**
-     * Constant for key of Salutation.
-     */
-    private final static String SALUTATION = "Salutation";
-
-    /**
-     * Constant for key of First Name.
-     */
-    private final static String FIRST_NAME = "First Name";
-
-    /**
-     * Constant for key of Last Name.
-     */
-    private final static String LAST_NAME = "Last Name";
-
-    /**
-     * Constant for key of Account.
-     */
-    private final static String ACCOUNT = "Account";
-
-    /**
-     * Constant for key of Phone.
-     */
-    private final static String PHONE = "Phone";
-
-    /**
-     * Constant for key of Email.
-     */
-    private final static String EMAIL = "Email";
-
-    /**
-     * Constant for key of Home Phone.
-     */
-    private final static String HOME_PHONE = "Home Phone";
-
-    /**
-     * Constant for key of Title.
-     */
-    private final static String TITLE = "Title";
-
-    /**
-     * Constant for key of Department.
-     */
-    private final static String DEPARTMENT = "Department";
-
-    /**
-     * Constant for key of Birthdate.
-     */
-    private final static String BIRTHDATE = "Birthdate";
-
-    /**
-     * Constant for key of Reports To.
-     */
-    private final static String REPORTS_TO = "Reports To";
-
-    /**
-     * Constant for key of Lead Source.
-     */
-    private final static String LEAD_SOURCE = "Lead Source";
-
-    /**
-     * Constant for key of Mobile.
-     */
-    private final static String MOBILE = "Mobile";
-
-    /**
-     * Constant for key of Other Phone.
-     */
-    private final static String OTHER_PHONE = "Other Phone";
-
-    /**
-     * Constant for key of Fax.
-     */
-    private final static String FAX = "Fax";
-
-    /**
-     * Constant for key of Assistant.
-     */
-    private final static String ASSISTANT = "Assistant";
-
-    /**
-     * Constant for key of Asst Phone.
-     */
-    private final static String ASST_PHONE = "Asst Phone";
-
-    /**
-     * Constant for key of Mailing Street.
-     */
-    private final static String MAILING_STREET = "Mailing Street";
-
-    /**
-     * Constant for key of Mailing City.
-     */
-    private final static String MAILING_CITY = "Mailing City";
-
-    /**
-     * Constant for key of Mailing State/Province.
-     */
-    private final static String MAILING_STATE = "Mailing State/Province";
-
-    /**
-     * Constant for key of Mailing Zip/Postal Code.
-     */
-    private final static String MAILING_POSTAL_CODE = "Mailing Zip/Postal Code";
-
-    /**
-     * Constant for key of Mailing Country.
-     */
-    private final static String MAILING_COUNTRY = "Mailing Country";
-
-    /**
-     * Constant for key of Other Street.
-     */
-    private final static String OTHER_STREET = "Other Street";
-
-    /**
-     * Constant for key of Other City.
-     */
-    private final static String OTHER_CITY = "Other City";
-
-    /**
-     * Constant for key of Other State/Province.
-     */
-    private final static String OTHER_STATE = "Other State/Province";
-
-    /**
-     * Constant for key of Other Zip/Postal Code.
-     */
-    private final static String OTHER_POSTAL_CODE = "Other Zip/Postal Code";
-
-    /**
-     * Constant for key of Other Country.
-     */
-    private final static String OTHER_COUNTRY = "Other Country";
-
-    /**
-     * Constant for key of Languages.
-     */
-    private final static String LANGUAGES = "Languages";
-
-    /**
-     * Constant for key of Level.
-     */
-    private final static String LEVEL = "Level";
-
-    /**
-     * Constant for key of Description.
-     */
-    private final static String DESCRIPTION = "Description";
     /**
      * Process information for composing the strategy map.
      *

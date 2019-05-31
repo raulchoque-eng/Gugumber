@@ -12,11 +12,9 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.contact;
 
-
-import org.fjala.gugumber.salesforce.ui.pages.BasePage;
-
 import java.util.Collection;
 import java.util.List;
+import org.fjala.gugumber.salesforce.ui.pages.BasePage;
 
 /**
  * ContactPageAbstract class

@@ -14,7 +14,8 @@ package org.fjala.gugumber.salesforce.ui.pages.components;
 
 import org.fjala.gugumber.salesforce.ui.pages.account.AccountsLightningPage;
 import org.fjala.gugumber.salesforce.ui.pages.account.AccountsPage;
-import org.fjala.gugumber.salesforce.ui.pages.contact.ContactLightningPageAbstract;
+import org.fjala.gugumber.salesforce.ui.pages.contact.ContactLightningPage;
+import org.fjala.gugumber.salesforce.ui.pages.contact.ContactPageAbstract;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -66,9 +67,9 @@ public class NavBarLightning extends NavBar {
      * @return Contact Lightning Page.
      */
     @Override
-    public ContactLightningPageAbstract goToContactPage() {
+    public ContactPageAbstract goToContactPage() {
         openContactOption();
-        return new ContactLightningPageAbstract();
+        return new ContactLightningPage();
     }
 
     /**
