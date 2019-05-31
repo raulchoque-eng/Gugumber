@@ -12,6 +12,10 @@
 
 package org.fjala.gugumber.core.selenium.utils;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -22,7 +26,7 @@ import org.openqa.selenium.WebElement;
  * @author Raul Choque
  * @version 0.0.1
  */
-public class DriverMethod {
+public  class DriverMethod {
 
     /**
      * Sets the text into the webElement.
@@ -48,10 +52,23 @@ public class DriverMethod {
         driver.findElement(By.cssSelector(replaceCmb.replace("nameTitle", text))).click();
     }
 
-    //TODO method to select a checkbox
+    /**
+     * Converts a date to string applying a pattern.
+     *
+     * @param date changes of type to convert in a string, applying "pattern" variable
+     * @param pattern is format that assign to "date" parameter.
+     * @return an string build from a "date" parameter.
+     */
+    public static String convertDateToString(final Date date, final String pattern) {
+        // Create an instance of SimpleDateFormat used for formatting
+        // the string representation of date according to the chosen pattern
+        final DateFormat dateFormat = new SimpleDateFormat(pattern);
+        return dateFormat.format(date);
+    }
 
-    //TODO method to clear a checkbox
-
-    //TODO method que valida que un elemento este en el DOM cambiando el implicit wait
-    //TODO validate method that a webElement is in the DOM change the implicit wait
+    /**
+     * TODO method to clear a checkbox
+     * TODO method que valida que un elemento este en el DOM cambiando el implicit wait (1)
+     * TODO validate method that a webElement is in the DOM change the implicit wait (1)
+     */
 }
