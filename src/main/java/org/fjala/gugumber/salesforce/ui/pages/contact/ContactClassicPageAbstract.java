@@ -76,7 +76,7 @@ public class ContactClassicPageAbstract extends ContactPageAbstract {
     /**
      * Locator for button of new button.
      */
-    @FindBy(css = "[class='pbButton']")
+    @FindBy(css = "[value=' New ']")
     private WebElement newContactBtn;
 
     /**
@@ -160,8 +160,8 @@ public class ContactClassicPageAbstract extends ContactPageAbstract {
     @Override
     public List<String> getListOfContactsName() {
         final List<String> contactName = new ArrayList<>();
-        for (WebElement conttName : contactNameList) {
-            contactName.add(conttName.getText());
+        for (WebElement contName : contactNameList) {
+            contactName.add(contName.getText());
         }
         return contactName;
     }

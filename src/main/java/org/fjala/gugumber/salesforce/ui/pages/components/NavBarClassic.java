@@ -67,9 +67,9 @@ public class NavBarClassic extends NavBar {
      * @return Contact Lightning Page.
      */
     @Override
-    public ContactLightningPageAbstract goToContactPage() {
+    public ContactClassicPageAbstract goToContactPage() {
         clickContactOption();
-        return new ContactLightningPageAbstract();
+        return new ContactClassicPageAbstract();
     }
 
 //    /**

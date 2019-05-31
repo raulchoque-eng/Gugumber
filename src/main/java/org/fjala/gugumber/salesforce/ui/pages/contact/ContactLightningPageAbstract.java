@@ -36,7 +36,7 @@ public class ContactLightningPageAbstract extends ContactPageAbstract {
     /**
      * List of web elements for accounts name.
      */
-    @FindBy(css = "a[data-aura-class='forceOutputLookup']")
+    @FindBy(css = "[class='slds-truncate outputLookupLink slds-truncate forceOutputLookup']")
     private List<WebElement> contactNameList;
 
     /**

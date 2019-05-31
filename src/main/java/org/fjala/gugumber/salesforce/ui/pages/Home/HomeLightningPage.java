@@ -10,10 +10,8 @@
  * with Jala Foundation.
  */
 
-package org.fjala.gugumber.salesforce.ui.pages.lightning;
+package org.fjala.gugumber.salesforce.ui.pages.Home;
 
-
-import org.fjala.gugumber.salesforce.ui.pages.Home.HomePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -26,6 +24,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
  */
 public class HomeLightningPage extends HomePage {
 
+    /**
+     * Web element for the body the the home page in layout classic.
+     */
     @FindBy(id = "brandBand_1")
     private WebElement homeForm;
 

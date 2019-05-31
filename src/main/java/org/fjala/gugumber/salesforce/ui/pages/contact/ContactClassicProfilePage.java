@@ -28,7 +28,7 @@ public class ContactClassicProfilePage extends ContactProfilePage {
     /**
      * Web Element of profile contact form.
      */
-    @FindBy(css = "div[class='slds-grid primaryFieldRow']")
+    @FindBy(id = "bodyCell")
     private WebElement profileContactHeader;
 
     /**

@@ -15,9 +15,12 @@ package org.fjala.gugumber.steps;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import javafx.print.PageLayout;
 import org.fjala.gugumber.salesforce.entities.Contact;
 import org.fjala.gugumber.salesforce.entities.Context;
+import org.fjala.gugumber.salesforce.ui.PageLayoutConfig;
 import org.fjala.gugumber.salesforce.ui.PageLayoutFactory;
+import org.fjala.gugumber.salesforce.ui.PageLayoutType;
 import org.fjala.gugumber.salesforce.ui.PageTransporter;
 import org.fjala.gugumber.salesforce.ui.pages.contact.ContactForm;
 import org.fjala.gugumber.salesforce.ui.pages.contact.ContactPageAbstract;
@@ -26,6 +29,7 @@ import org.fjala.gugumber.salesforce.ui.pages.contact.ContactLightningProfilePag
 
 import java.util.Map;
 
+import static org.fjala.gugumber.salesforce.ui.PageLayoutType.LIGHTNING;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
@@ -66,11 +70,13 @@ public class ContactSteps {
 
     @Then("^a message that indicates the Contact was created should be displayed$")
     public void MessageThatIndicatesTheContactWasCreated() {
-        try {
+
+        PageLayoutType layout = PageLayoutConfig.getPageLayoutName();
+        if (layout == LIGHTNING) {
             ContactLightningProfilePage profileContactLightningPage = new ContactLightningProfilePage();
             final String message = (profileContactLightningPage.getMessageSave());
             assertEquals(message, "Contact was created.", "not successfully created");
-        } catch (ClassCastException e) {
+        } else {
             System.out.println("In classic theme is not message of confirmation");
         }
     }
