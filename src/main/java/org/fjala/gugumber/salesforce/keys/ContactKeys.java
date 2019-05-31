@@ -3,7 +3,7 @@ package org.fjala.gugumber.salesforce.keys;
 /**
  * ContactKeys class.
  *
- * @author Cristian Lujan.
+ * @author Cristian Lujan
  * @version 0.0.1
  */
 public class ContactKeys {
@@ -158,4 +158,8 @@ public class ContactKeys {
      */
     public final static String DESCRIPTION = "Description";
 
+    /**
+     * Constructor of class.
+     */
+    public ContactKeys() {}
 }

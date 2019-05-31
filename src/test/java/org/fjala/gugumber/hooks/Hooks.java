@@ -29,14 +29,31 @@ import org.openqa.selenium.WebDriverException;
  */
 public class Hooks {
 
+    /**
+     * Context of type context.
+     */
     private final Context context;
+
+    /**
+     * Driver of type WebDriver.
+     */
     private WebDriver driver;
 
+    /**
+     * Constructor of class.
+     *
+     * @param context of type context.
+     */
     public Hooks(Context context) {
         this.context = context;
         driver = WebDriverManager.getInstance().getWebDriver();
     }
 
+    /**
+     * Method for attachment a picture.
+     *
+     * @param scenario of type scenario;
+     */
     @After
     public void embedScreenshot(Scenario scenario) {
         if (scenario.isFailed()) {

@@ -46,8 +46,8 @@ import static org.fjala.gugumber.salesforce.keys.ContactKeys.TITLE;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import org.fjala.gugumber.core.StrategySetter;
 
+import org.fjala.gugumber.core.StrategySetter;
 
 /**
  * Contact class.

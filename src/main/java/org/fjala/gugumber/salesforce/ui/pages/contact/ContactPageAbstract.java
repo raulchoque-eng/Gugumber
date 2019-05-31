@@ -12,8 +12,8 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.contact;
 
-import java.util.Collection;
 import java.util.List;
+
 import org.fjala.gugumber.salesforce.ui.pages.BasePage;
 
 /**

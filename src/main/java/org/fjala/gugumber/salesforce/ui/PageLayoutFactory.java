@@ -12,7 +12,6 @@
 
 package org.fjala.gugumber.salesforce.ui;
 
-
 import org.fjala.gugumber.salesforce.ui.pages.Home.HomeClassicPage;
 import org.fjala.gugumber.salesforce.ui.pages.Home.HomeLightningPage;
 import org.fjala.gugumber.salesforce.ui.pages.Home.HomePage;
@@ -25,7 +24,6 @@ import org.fjala.gugumber.salesforce.ui.pages.app.BaseAppPage;
 import org.fjala.gugumber.salesforce.ui.pages.contact.ContactClassicPage;
 import org.fjala.gugumber.salesforce.ui.pages.contact.ContactLightningPage;
 import org.fjala.gugumber.salesforce.ui.pages.contact.ContactPageAbstract;
-
 
 /**
  * PageLayoutFactory class.

@@ -81,5 +81,4 @@ public class NavBarClassic extends NavBar {
         accountOption.click();
         return new AccountsClassicPage();
     }
-
 }

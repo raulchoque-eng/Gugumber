@@ -15,7 +15,7 @@ package org.fjala.gugumber.salesforce.entities;
 /**
  * Context class.
  *
- * @author Cxrisstian
+ * @author Cristian Lujan
  * @version 0.0.1
  */
 public class Context {

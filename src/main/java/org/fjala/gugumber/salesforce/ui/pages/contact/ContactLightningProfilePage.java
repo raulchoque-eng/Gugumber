@@ -12,7 +12,6 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.contact;
 
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -20,7 +19,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 /**
  * ContactLightningProfilePage class.
  *
- * @author Cristian Lujan.
+ * @author Cristian Lujan
  * @version 0.0.1
  */
 public class ContactLightningProfilePage extends ContactProfilePage {
@@ -76,7 +75,11 @@ public class ContactLightningProfilePage extends ContactProfilePage {
         return contactTitle.getText();
     }
 
-
+    /**
+     * Gets of contact icon.
+     *
+     * @return new contact icon.
+     */
     @Override
     public boolean isTheNewContact() {
         return contactIcon.isDisplayed();

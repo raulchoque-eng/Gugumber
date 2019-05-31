@@ -44,16 +44,31 @@ public class ContactSteps {
      * Variable for the context.
      */
     private Context context;
+
     /**
      * Variable for the contact.
      */
     private Contact contact;
 
+    /**
+     * Variable with the page layout;
+     */
     private PageLayoutType layout = PageLayoutConfig.getPageLayoutName();
 
     //pages
+    /**
+     * Variable for the Contact Page.
+     */
     private ContactPageAbstract contactPage;
+
+    /**
+     * Variable for the Contact Form.
+     */
     private ContactForm contactForm;
+
+    /**
+     * Variable for the Contact Profile Page.
+     */
     private ContactProfilePage contactProfilePage;
 
     /**

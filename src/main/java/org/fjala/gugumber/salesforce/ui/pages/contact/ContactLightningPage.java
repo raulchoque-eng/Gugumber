@@ -12,12 +12,12 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.contact;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * ContactLightningPage class.
