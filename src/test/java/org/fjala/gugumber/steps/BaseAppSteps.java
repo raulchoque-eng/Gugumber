@@ -1,5 +1,5 @@
 /*
- * @(#) BaseAppPageSteps.java Copyright (c) 2019 Jala Foundation.
+ * @(#) BaseAppSteps.java Copyright (c) 2019 Jala Foundation.
  * 2643 Av Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
  * All rights reserved.
  *
@@ -14,23 +14,44 @@ package org.fjala.gugumber.steps;
 
 import cucumber.api.java.en.When;
 import org.fjala.gugumber.salesforce.ui.PageLayoutFactory;
+import org.fjala.gugumber.salesforce.ui.pages.account.AccountsPage;
 import org.fjala.gugumber.salesforce.ui.pages.app.BaseAppPage;
 import org.fjala.gugumber.salesforce.ui.pages.contact.ContactPageAbstract;
 
 /**
- * BaseAppPageSteps class for steps definition.
+ * BaseAppSteps class for steps definition.
  *
  * @author Areliez Vargas
  * @version 0.0.1
  */
-public class BaseAppPageSteps {
+public class BaseAppSteps {
 
-    private ContactPageAbstract contactPage;
+
+    /**
+     * Variable for the accounts page.
+     */
+    private AccountsPage accountsPage;
+
+    /**
+     * Variable for the base app page.
+     */
     private BaseAppPage baseAppPage;
 
+    /**
+     * Opens the contact page.
+     */
     @When("^I go to the Contacts page$")
     public void GoToTheContactsPage() {
         baseAppPage = PageLayoutFactory.getBaseAppPage();
         baseAppPage.getNavBar().goToContactPage();
+    }
+
+    /**
+     * Opens the accounts page.
+     */
+    @When("^I open the Accounts page$")
+    public void openTheAccountsPage() {
+        baseAppPage = PageLayoutFactory.getBaseAppPage();
+        AccountsPage accountsPage = baseAppPage.getNavBar().clickAccountsOption();
     }
 }

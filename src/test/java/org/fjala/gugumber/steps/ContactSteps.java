@@ -41,8 +41,13 @@ import static org.testng.Assert.assertTrue;
  */
 public class ContactSteps {
 
-    private PageTransporter pageTransporter = PageTransporter.getInstance();
+    /**
+     * Variable for the context.
+     */
     private Context context;
+    /**
+     * Variable for the contact.
+     */
     private Contact contact;
 
     //pages
@@ -50,6 +55,11 @@ public class ContactSteps {
     private ContactForm contactForm;
     private ContactProfilePage contactProfilePage;
 
+    /**
+     * Constructor of contact steps sending the context.
+     *
+     * @param context init the context.
+     */
     public ContactSteps(Context context) {
         this.context = context;
         contact = context.getContact();
