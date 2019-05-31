@@ -13,6 +13,7 @@
 package org.fjala.gugumber.core.selenium;
 
 import org.fjala.gugumber.core.selenium.common.ReaderDriverProperties;
+import org.fjala.gugumber.core.selenium.webdrivers.BrowserType;
 
 /**
  * WebDriverConfig class.
@@ -38,6 +39,11 @@ public class WebDriverConfig {
     private static final String WAIT_SLEEP_TIME = "waitSleepTime";
 
     /**
+     *
+     */
+    private static final String BROWSER = "browser";
+
+    /**
      * Implicit wait time saves the implicit wait time.
      */
     private int implicitWaitTime;
@@ -51,6 +57,11 @@ public class WebDriverConfig {
      * Sleeps wait time saves the Sleep wait time.
      */
     private int waitSleepTime;
+
+    /**
+     *
+     */
+    private BrowserType browserType;
 
     /**
      * Variable for  initialize Web driver config.
@@ -80,6 +91,8 @@ public class WebDriverConfig {
      * Initializes WebDriverConfig.
      */
     public void initialize() {
+        final String browserName = System.getProperty(BROWSER).toUpperCase();
+        browserType = BrowserType.valueOf(browserName);
         implicitWaitTime = Integer.parseInt(ReaderDriverProperties.getInstance().getDriverProperties().get(IMPLICIT));
         explicitWaitTime = Integer.parseInt(ReaderDriverProperties.getInstance().getDriverProperties().get(EXPLICIT));
         waitSleepTime = Integer.parseInt(ReaderDriverProperties.getInstance().getDriverProperties().get(WAIT_SLEEP_TIME));
@@ -110,5 +123,13 @@ public class WebDriverConfig {
      */
     public int getWaitSleepTime() {
         return waitSleepTime;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public BrowserType getBrowserType() {
+        return browserType;
     }
 }

@@ -21,18 +21,20 @@ import org.openqa.selenium.WebDriver;
 /**
  * WebDriveFactory class.
  *
- * @author Cxrisstian
+ * @author Cristian Lujan
  * @version 0.0.1
  */
 public class WebDriveFactory {
+
+    public static final String MESSAGE_FOR_UNKNOWN_BROWSER = "Unknown browser type";
 
     /**
     * Get Web driver for a Browser.
     * @param type of browser.
     * @return driver manager.
     */
-    public static WebDriver getManager(BrowserType type) {
-        WebDriver driverManager;
+    public static WebDriver getManager(final BrowserType type) {
+        final WebDriver driverManager;
             switch (type) {
             case CHROME:
                 driverManager = new Chrome().initDriver();
@@ -44,8 +46,7 @@ public class WebDriveFactory {
                 driverManager = new IE().initDriver();
                 break;
             default:
-                driverManager = new Chrome().initDriver();
-                break;
+                throw new RuntimeException(MESSAGE_FOR_UNKNOWN_BROWSER);
         }
         return driverManager;
     }

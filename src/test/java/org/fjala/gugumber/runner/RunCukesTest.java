@@ -17,6 +17,7 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 import org.fjala.gugumber.core.report.GeneratorReport;
 import org.fjala.gugumber.core.selenium.WebDriverManager;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 
 /**
  * RunCukesTest class.
@@ -31,6 +32,11 @@ import org.testng.annotations.AfterTest;
         monochrome = true)
 
 public class RunCukesTest extends AbstractTestNGCucumberTests {
+
+    @BeforeTest
+    public void beforeExecution() {
+        // change layout
+    }
 
     /**
      * The method afterExecution executes the project and generate it report.
