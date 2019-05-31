@@ -42,8 +42,9 @@ public class AccountAPI {
     }
 
     /**
-     * Returns a account a
-     * @return
+     * Returns the instance the account API.
+     *
+     * @return a account API.
      */
     public static AccountAPI getInstance() {
         return new AccountAPI();
