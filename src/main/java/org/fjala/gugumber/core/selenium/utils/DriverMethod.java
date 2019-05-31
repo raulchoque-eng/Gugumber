@@ -12,13 +12,13 @@
 
 package org.fjala.gugumber.core.selenium.utils;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * DriverMethod class.
@@ -26,13 +26,13 @@ import org.openqa.selenium.WebElement;
  * @author Raul Choque
  * @version 0.0.1
  */
-public  class DriverMethod {
+public class DriverMethod {
 
     /**
      * Sets the text into the webElement.
      *
      * @param webElement that sets its text.
-     * @param text new value of webElement.
+     * @param text       new value of webElement.
      */
     public static void setTxt(final WebElement webElement, final String text) {
         webElement.clear();
@@ -43,11 +43,11 @@ public  class DriverMethod {
      * Sets the comboBox into the webElement.
      *
      * @param webElement that sets its comboBox.
-     * @param driver that connection for web elements.
+     * @param driver     that connection for web elements.
      * @param replaceCmb value for replace.
-     * @param text new value of webElement.
+     * @param text       new value of webElement.
      */
-    public static  void selectCmb(final WebElement webElement, final WebDriver driver, final String replaceCmb, final String text) {
+    public static void selectCmb(final WebElement webElement, final WebDriver driver, final String replaceCmb, final String text) {
         webElement.click();
         driver.findElement(By.cssSelector(replaceCmb.replace("nameTitle", text))).click();
     }
@@ -55,7 +55,7 @@ public  class DriverMethod {
     /**
      * Converts a date to string applying a pattern.
      *
-     * @param date changes of type to convert in a string, applying "pattern" variable
+     * @param date    changes of type to convert in a string, applying "pattern" variable
      * @param pattern is format that assign to "date" parameter.
      * @return an string build from a "date" parameter.
      */
