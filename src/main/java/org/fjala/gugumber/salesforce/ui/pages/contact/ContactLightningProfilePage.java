@@ -58,9 +58,9 @@ public class ContactLightningProfilePage extends ContactProfilePage {
     }
 
     /**
-     * Gets message of saved
+     * Gets message of saved.
      *
-     * @return
+     * @return the message.
      */
     public String getMessageSave() {
         return contactMessageSaveTxt.getText();
