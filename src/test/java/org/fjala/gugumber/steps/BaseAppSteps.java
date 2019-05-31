@@ -26,6 +26,10 @@ import org.fjala.gugumber.salesforce.ui.pages.contact.ContactPageAbstract;
  */
 public class BaseAppSteps {
 
+    /**
+     * Variable for the contact page.
+     */
+    private ContactPageAbstract contactPage;
 
     /**
      * Variable for the accounts page.
@@ -52,6 +56,6 @@ public class BaseAppSteps {
     @When("^I open the Accounts page$")
     public void openTheAccountsPage() {
         baseAppPage = PageLayoutFactory.getBaseAppPage();
-        AccountsPage accountsPage = baseAppPage.getNavBar().clickAccountsOption();
+        accountsPage = baseAppPage.getNavBar().clickAccountsOption();
     }
 }
