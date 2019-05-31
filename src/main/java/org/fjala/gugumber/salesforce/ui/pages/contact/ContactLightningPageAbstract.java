@@ -16,6 +16,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * ContactLightningPageAbstract class.
  *
@@ -31,12 +34,16 @@ public class ContactLightningPageAbstract extends ContactPageAbstract {
     private WebElement newContactForm;
 
     /**
+     * List of web elements for accounts name.
+     */
+    @FindBy(css = "a[data-aura-class='forceOutputLookup']")
+    private List<WebElement> contactNameList;
+
+    /**
      * Web Element form Contact
      */
     @FindBy(css = "a[Title='New']")
     private WebElement newContactBtn;
-
-
 
     /**
      * Waits until page object is loaded.
@@ -55,6 +62,15 @@ public class ContactLightningPageAbstract extends ContactPageAbstract {
     public ContactForm clickNewContact() {
         clickNewContactBtn();
         return new ContactLightningForm();
+    }
+
+    @Override
+    public List<String> getListOfContactsName() {
+        final List<String> contactName = new ArrayList<>();
+        for (WebElement conttName : contactNameList) {
+            contactName.add(conttName.getText());
+        }
+        return contactName;
     }
 
     /**

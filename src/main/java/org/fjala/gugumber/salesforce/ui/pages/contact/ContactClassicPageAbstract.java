@@ -12,9 +12,13 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.contact;
 
+import org.fjala.gugumber.core.selenium.utils.DriverMethods;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * ContactClassicPageAbstract class.
@@ -60,6 +64,9 @@ public class ContactClassicPageAbstract extends ContactPageAbstract {
     @FindBy(id = "email")
     private WebElement emailTxtb;
 
+    @FindBy(css = "th[class=' dataCell  ']")
+    private List<WebElement> contactNameList;
+
     /**
      * Locator for button of save button.
      */
@@ -80,37 +87,82 @@ public class ContactClassicPageAbstract extends ContactPageAbstract {
         wait.until(ExpectedConditions.visibilityOf(lastNameTxtb));
     }
 
-    public void setFirstName(final String firstName) {
-        firstNameTxtb.sendKeys(firstName);
+    /**
+     * Sets the first name.
+     *
+     * @param firstName of type String
+     */
+    protected void setFirstName(final String firstName) {
+        DriverMethods.setTxt(firstNameTxtb,firstName);
     }
 
-    public void setLastName(final String lastName) {
-        lastNameTxtb.sendKeys(lastName);
+    /**
+     * Sets the last name.
+     *
+     * @param lastName of type String.
+     */
+    protected void setLastName(final String lastName) {
+        DriverMethods.setTxt(lastNameTxtb, lastName);
     }
 
-    public void setAccount(final String account) {
-        accountTxtb.sendKeys(account);
+    /**
+     * Sets the account.
+     *
+     * @param account of type String.
+     */
+    protected void setAccount(final String account) {
+        DriverMethods.setTxt(accountTxtb, account);
     }
 
-    public void setPhone1(final String phone1) {
-        phone1Txtb.sendKeys(phone1);
+    /**
+     * Sets the phone.
+     *
+     * @param phone of type int.
+     */
+    protected void setPhone(final int phone) {
+        DriverMethods.setTxt(phone1Txtb, String.valueOf(phone));
     }
 
-    public void setEmail(final String email) {
-        emailTxtb.sendKeys(email);
+    /**
+     * Sets the email.
+     *
+     * @param email of type String.
+     */
+    protected void setEmail(final String email) {
+        DriverMethods.setTxt(emailTxtb, email);
     }
 
+    /**
+     * Contact save button.
+     */
     public void clickSaveBtn() {
         saveBtn.click();
     }
 
+    /**
+     * Contact new contact button.
+     */
     private void clickNewContactBtn() {
         newContactBtn.click();
     }
 
+    /**
+     * Gets New Contact form.
+     *
+     * @return new profile contact lighting form.
+     */
     @Override
     public ContactForm clickNewContact() {
         clickNewContactBtn();
         return new ContactClassicForm();
+    }
+
+    @Override
+    public List<String> getListOfContactsName() {
+        final List<String> contactName = new ArrayList<>();
+        for (WebElement conttName : contactNameList) {
+            contactName.add(conttName.getText());
+        }
+        return contactName;
     }
 }

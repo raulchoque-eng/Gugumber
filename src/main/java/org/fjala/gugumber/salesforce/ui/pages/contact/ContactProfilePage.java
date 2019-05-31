@@ -22,7 +22,17 @@ import org.fjala.gugumber.salesforce.ui.pages.BasePage;
  */
 public abstract class ContactProfilePage extends BasePage {
 
+    /**
+     * Returns the Last Name of contact from a header profile.
+     *
+     * @return the last name of contact as string.
+     */
     public abstract String getLastNameContact();
 
+    /**
+     * Returns the icon of contact from a header profile.
+     *
+     * @return the icon of contact.
+     */
     public abstract boolean isTheNewContact();
 }

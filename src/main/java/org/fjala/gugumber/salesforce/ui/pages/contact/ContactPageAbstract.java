@@ -15,6 +15,9 @@ package org.fjala.gugumber.salesforce.ui.pages.contact;
 
 import org.fjala.gugumber.salesforce.ui.pages.BasePage;
 
+import java.util.Collection;
+import java.util.List;
+
 /**
  * ContactPageAbstract class
  *
@@ -23,6 +26,17 @@ import org.fjala.gugumber.salesforce.ui.pages.BasePage;
  */
 public abstract class ContactPageAbstract extends BasePage {
 
+    /**
+     * Returns an Contact Form page after clicking on new button.
+     *
+     * @return an Contact form page.
+     */
     public abstract ContactForm clickNewContact();
 
+    /**
+     * Returns a list with last name from the contact page.
+     *
+     * @return a list of last names contact as string.
+     */
+    public abstract List<String> getListOfContactsName();
 }
