@@ -16,6 +16,9 @@ package org.fjala.gugumber.salesforce.ui;
 import org.fjala.gugumber.salesforce.ui.pages.Home.HomeClassicPage;
 import org.fjala.gugumber.salesforce.ui.pages.Home.HomeLightningPage;
 import org.fjala.gugumber.salesforce.ui.pages.Home.HomePage;
+import org.fjala.gugumber.salesforce.ui.pages.account.AccountsClassicPage;
+import org.fjala.gugumber.salesforce.ui.pages.account.AccountsLightningPage;
+import org.fjala.gugumber.salesforce.ui.pages.account.AccountsPage;
 import org.fjala.gugumber.salesforce.ui.pages.app.BaseAppClassicPage;
 import org.fjala.gugumber.salesforce.ui.pages.app.BaseAppLightningPage;
 import org.fjala.gugumber.salesforce.ui.pages.app.BaseAppPage;
@@ -105,5 +108,25 @@ public class PageLayoutFactory {
                 throw new RuntimeException(MESSAGE_FOR_UNKNOWN_LAYOUT);
         }
         return contactPageAbstract;
+    }
+
+    /**
+     * Returns the Accounts page according the page layout.
+     *
+     * @return a the accounts page.
+     */
+    public static AccountsPage getAccountsPage() {
+        final AccountsPage accountsPage;
+        switch (PAGE_LAYOUT_TYPE) {
+            case CLASSIC:
+                accountsPage = new AccountsClassicPage();
+                break;
+            case LIGHTNING:
+                accountsPage = new AccountsLightningPage();
+                break;
+            default:
+                throw new RuntimeException(MESSAGE_FOR_UNKNOWN_LAYOUT);
+        }
+        return accountsPage;
     }
 }

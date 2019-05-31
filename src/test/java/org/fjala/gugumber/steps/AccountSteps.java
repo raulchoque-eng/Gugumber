@@ -67,7 +67,7 @@ public class AccountSteps {
      */
     @When("^I open the Account form from Accounts page$")
     public void iOpenTheAccountFormFromAccountsPage() {
-//        accountsPage = PageLayoutFactory.getAccountsPage();
+        accountsPage = PageLayoutFactory.getAccountsPage();
         accountForm = accountsPage.clickNewBtn();
     }
 

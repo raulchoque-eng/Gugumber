@@ -71,14 +71,14 @@ public class NavBarLightning extends NavBar {
         return new ContactLightningPageAbstract();
     }
 
-//    /**
-//     * Returns the account lightning page after clicking on account option.
-//     *
-//     * @return a account lightning page.
-//     */
-//    @Override
-//    public AccountsPage clickAccountsOption() {
-//        accountsOption.click();
-//        return new AccountsLightningPage();
-//    }
+    /**
+     * Returns the account lightning page after clicking on account option.
+     *
+     * @return a account lightning page.
+     */
+    @Override
+    public AccountsPage clickAccountsOption() {
+        accountsOption.click();
+        return new AccountsLightningPage();
+    }
 }

@@ -72,15 +72,15 @@ public class NavBarClassic extends NavBar {
         return new ContactClassicPageAbstract();
     }
 
-//    /**
-//     * Returns the account classic page after clicking on account option.
-//     *
-//     * @return a account classic page.
-//     */
-//    @Override
-//    public AccountsPage clickAccountsOption() {
-//        accountOption.click();
-//        return new AccountsClassicPage();
-//    }
+    /**
+     * Returns the account classic page after clicking on account option.
+     *
+     * @return a account classic page.
+     */
+    @Override
+    public AccountsPage clickAccountsOption() {
+        accountOption.click();
+        return new AccountsClassicPage();
+    }
 
 }
