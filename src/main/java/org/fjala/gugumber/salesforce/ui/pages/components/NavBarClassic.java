@@ -38,7 +38,7 @@ public class NavBarClassic extends NavBar {
     /**
      * Web element for the account option.
      */
-    @FindBy(id = "Account_Tab")
+    @FindBy(xpath = "//li[@id='Account_Tab']//a")
     private WebElement accountOption;
 
     /**
