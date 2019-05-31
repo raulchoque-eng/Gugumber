@@ -1,5 +1,5 @@
 /*
- * @(#) DriverMethod.java Copyright (c) 2019 Jala Foundation.
+ * @(#) DriverMethods.java Copyright (c) 2019 Jala Foundation.
  * 2643 Av. Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
  * All rights reserved.
  *
@@ -17,12 +17,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 /**
- * DriverMethod class.
+ * DriverMethods class.
  *
  * @author Raul Choque
  * @version 0.0.1
  */
-public class DriverMethod {
+public class DriverMethods {
 
     /**
      * Sets the text into the webElement.
