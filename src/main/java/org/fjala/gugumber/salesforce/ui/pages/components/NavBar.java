@@ -37,5 +37,4 @@ public abstract class NavBar extends BasePage {
      * @return an Account page.
      */
     public abstract AccountsPage clickAccountsOption();
-
 }

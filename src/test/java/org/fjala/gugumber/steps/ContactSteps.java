@@ -81,12 +81,20 @@ public class ContactSteps {
         contact = context.getContact();
     }
 
+    /**
+     * Opens the contact form from contact page.
+     */
     @When("^I open Contact form$")
     public void OpenContactForm() {
         contactPage = PageLayoutFactory.getContactPage();
         contactForm = contactPage.clickNewContact();
     }
 
+    /**
+     * Creates a new contact sending the information.
+     *
+     * @param contactMap contains the contact's values
+     */
     @And("^I create a new Contact with the following information in Contact form$")
     public void CreateANewContactInContactForm(Map<String, String> contactMap) {
         contact.processInformation(contactMap);
@@ -94,6 +102,9 @@ public class ContactSteps {
         contactProfilePage = contactForm.clickSaveNewContact();
     }
 
+    /**
+     * Verifies with a message of confirmation that the contact is saved.
+     */
     @Then("^a message that indicates the Contact was created should be displayed$")
     public void MessageThatIndicatesTheContactWasCreated() {
         if (layout.equals(LIGHTNING)) {
@@ -105,12 +116,18 @@ public class ContactSteps {
         }
     }
 
+    /**
+     * Verifies the information in the profile contact.
+     */
     @Then("^the contact last name should be displayed in the Contact Profile page$")
     public void theContactLastNameShouldBeDisplayedInTheContactProfilePage() {
         assertEquals(contactProfilePage.getFullNameTitleContact(), contact.getFullName(),"the Contact Last name not displayed");
 //        assertTrue(contactProfilePage.isTheNewContact());
     }
 
+    /**
+     * Verifies that contact is displayed in the list of contact page.
+     */
     @Then("^the contact last name should be displayed in the contacts list of Contacts page$")
     public void theContactLastNameShouldBeDisplayedInTheContactsListOfContactsPage() {
         assertTrue(contactPage.getListOfContactsName().contains(contact.getLastName()));

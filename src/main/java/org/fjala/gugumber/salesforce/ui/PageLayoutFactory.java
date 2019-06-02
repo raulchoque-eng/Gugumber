@@ -89,7 +89,7 @@ public class PageLayoutFactory {
     }
 
     /**
-     * Gets the navigate navigate contact according the page layout.
+     * Gets the navigate contact according the page layout.
      *
      * @return a contact page.
      */

@@ -42,7 +42,7 @@ public class BaseAppSteps {
     private BaseAppPage baseAppPage;
 
     /**
-     * Opens the contact page.
+     * Opens the contacts page.
      */
     @When("^I go to the Contacts page$")
     public void GoToTheContactsPage() {
