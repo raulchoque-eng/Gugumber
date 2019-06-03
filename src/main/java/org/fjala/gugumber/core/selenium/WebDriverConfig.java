@@ -13,6 +13,7 @@
 package org.fjala.gugumber.core.selenium;
 
 import org.fjala.gugumber.core.selenium.common.ReaderDriverProperties;
+import org.fjala.gugumber.core.selenium.webdrivers.BrowserType;
 
 /**
  * WebDriverConfig class.
