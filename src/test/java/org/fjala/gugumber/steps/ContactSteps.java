@@ -85,7 +85,7 @@ public class ContactSteps {
      * Opens the contact form from contact page.
      */
     @When("^I open Contact form$")
-    public void OpenContactForm() {
+    public void openContactForm() {
         contactPage = PageLayoutFactory.getContactPage();
     }
 
@@ -95,7 +95,7 @@ public class ContactSteps {
      * @param contactMap contains the contact's values
      */
     @And("^I create a new Contact with the following information in Contact form$")
-    public void CreateANewContactInContactForm(Map<String, String> contactMap) {
+    public void createANewContactInContactForm(Map<String, String> contactMap) {
         contactForm = contactPage.clickNewContact();
         contact.processInformation(contactMap);
         contactForm.setContactInformation(contactMap);
@@ -106,7 +106,7 @@ public class ContactSteps {
      * Verifies with a message of confirmation that the contact is saved.
      */
     @Then("^a message that indicates the Contact was created should be displayed$")
-    public void MessageThatIndicatesTheContactWasCreated() {
+    public void displayMessageThatIndicatesTheContactWasCreated() {
         if (layout.equals(LIGHTNING)) {
             ContactLightningProfilePage profileContactLightningPage = new ContactLightningProfilePage();
             final String message = (profileContactLightningPage.getMessageSave());
@@ -120,7 +120,7 @@ public class ContactSteps {
      * Verifies the information in the profile contact.
      */
     @Then("^the contact last name should be displayed in the Contact Profile page$")
-    public void ContactDisplayedInTheContactProfilePage() {
+    public void displayContactInTheContactProfilePage() {
         assertEquals(contactProfilePage.getFullNameTitleContact(), contact.getFullName(),"the Contact Last name not displayed");
         assertTrue(contactProfilePage.isTheNewContact(), "the Contact icon not displayed");
     }
@@ -129,7 +129,7 @@ public class ContactSteps {
      * Verifies that contact is displayed in the list of contact page.
      */
     @Then("^the contact last name should be displayed in the contacts list of Contacts page$")
-    public void ContactDisplayedInTheContactsListOfContactsPage() {
+    public void displayContactInTheContactsListOfContactsPage() {
         assertTrue(contactPage.getListOfContactsName().contains(contact.getLastName()));
     }
 }

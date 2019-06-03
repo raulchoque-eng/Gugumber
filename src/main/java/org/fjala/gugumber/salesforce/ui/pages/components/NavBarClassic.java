@@ -55,14 +55,14 @@ public class NavBarClassic extends NavBar {
     }
 
     /**
-     * Contact menu button.
+     * Clicks in contact menu button.
      */
     private void clickContactOption() {
         contactMenuBtn.click();
     }
 
     /**
-     * Click in the contact button.
+     * Clicks in the contact button.
      * @return Contact Lightning Page.
      */
     @Override

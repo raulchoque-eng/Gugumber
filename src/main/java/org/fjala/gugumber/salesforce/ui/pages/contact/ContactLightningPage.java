@@ -88,6 +88,11 @@ public class ContactLightningPage extends ContactPageAbstract {
         return contactName;
     }
 
+    /**
+     * Clicks at the last name for open contact profile page.
+     *
+     * @param text as String.
+     */
     public void openContactProfile(final String text) {
         driver.findElement(By.xpath(lastNameList.replace("titleOfList", text))).click();
     }
