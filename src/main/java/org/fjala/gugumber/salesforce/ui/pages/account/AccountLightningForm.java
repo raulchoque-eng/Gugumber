@@ -1,5 +1,5 @@
 /*
- * @(#) GeneratorReport.java Copyright (c) 2019 Jala Foundation.
+ * @(#) AccountLightningForm.java Copyright (c) 2019 Jala Foundation.
  * 2643 Av. Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
  *  All rights reserved.
  *
@@ -22,7 +22,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
  * @author Areliez Vargas
  * @version 0.0.1
  */
-public class AccountLightningForm extends AccountForm {
+public class AccountLightningForm extends AccountFormAbstract {
 
     /**
      * Web element for the body of the form.
@@ -67,7 +67,7 @@ public class AccountLightningForm extends AccountForm {
      * @return a profile account lightning.
      */
     @Override
-    public AccountProfilePage clickOnSaveBtnFoot() {
+    public AccountProfilePageAbstract clickOnSaveBtnFoot() {
         saveBtn.click();
         return new AccountProfileLightningPage();
     }
