@@ -86,8 +86,8 @@ public class AccountSteps {
     /**
      * Verifies the information in the profile account.
      */
-    @Then("^the information account should be displayed in the Account Profile page$")
-    public void displayTheInformationOnTheProfileOfNewAccount() {
+    @Then("^the account name should be displayed in the Account page$")
+    public void displayAccountNameOnTheAccountPage() {
         Assert.assertEquals(accountProfilePage.getNameAccountFromProfileHeader(), context.getAccount().getNameAccount());
     }
 

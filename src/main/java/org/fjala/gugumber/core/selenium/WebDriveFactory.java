@@ -26,10 +26,14 @@ import org.openqa.selenium.WebDriver;
  */
 public class WebDriveFactory {
 
+    /**
+     * Constant for the message of exception.
+     */
     public static final String MESSAGE_FOR_UNKNOWN_BROWSER = "Unknown browser type";
 
     /**
-    * Get Web driver for a Browser.
+    * Gets Web driver for a Browser.
+     *
     * @param type of browser.
     * @return driver manager.
     */
