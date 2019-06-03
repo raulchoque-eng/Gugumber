@@ -87,7 +87,6 @@ public class ContactSteps {
     @When("^I open Contact form$")
     public void OpenContactForm() {
         contactPage = PageLayoutFactory.getContactPage();
-        contactForm = contactPage.clickNewContact();
     }
 
     /**
@@ -97,6 +96,7 @@ public class ContactSteps {
      */
     @And("^I create a new Contact with the following information in Contact form$")
     public void CreateANewContactInContactForm(Map<String, String> contactMap) {
+        contactForm = contactPage.clickNewContact();
         contact.processInformation(contactMap);
         contactForm.setContactInformation(contactMap);
         contactProfilePage = contactForm.clickSaveNewContact();
@@ -120,16 +120,16 @@ public class ContactSteps {
      * Verifies the information in the profile contact.
      */
     @Then("^the contact last name should be displayed in the Contact Profile page$")
-    public void theContactLastNameShouldBeDisplayedInTheContactProfilePage() {
+    public void ContactDisplayedInTheContactProfilePage() {
         assertEquals(contactProfilePage.getFullNameTitleContact(), contact.getFullName(),"the Contact Last name not displayed");
-//        assertTrue(contactProfilePage.isTheNewContact());
+        assertTrue(contactProfilePage.isTheNewContact(), "the Contact icon not displayed");
     }
 
     /**
      * Verifies that contact is displayed in the list of contact page.
      */
     @Then("^the contact last name should be displayed in the contacts list of Contacts page$")
-    public void theContactLastNameShouldBeDisplayedInTheContactsListOfContactsPage() {
+    public void ContactDisplayedInTheContactsListOfContactsPage() {
         assertTrue(contactPage.getListOfContactsName().contains(contact.getLastName()));
     }
 }
