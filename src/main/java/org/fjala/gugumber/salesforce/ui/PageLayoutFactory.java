@@ -73,7 +73,7 @@ public class PageLayoutFactory {
      *
      * @return a base app page.
      */
-     public static BaseAppPage getBaseAppPage() {
+    public static BaseAppPage getBaseAppPage() {
         final BaseAppPage baseAppPage;
         switch (PAGE_LAYOUT_TYPE) {
             case CLASSIC:

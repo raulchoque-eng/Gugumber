@@ -12,8 +12,6 @@
 
 package org.fjala.gugumber.salesforce.ui;
 
-import org.fjala.gugumber.salesforce.common.ReaderApplicationProperties;
-
 /**
  * PageLayoutConfig class.
  *
@@ -25,7 +23,7 @@ public class PageLayoutConfig {
     /**
      * Constant for the key of layout.
      */
-    private static final String LAYOUT = "type-layout";
+    private static final String LAYOUT = "layoutpage";
 
     /**
      * Initializes the page layout config.
@@ -42,7 +40,7 @@ public class PageLayoutConfig {
      * @return page layout.
      */
     public static PageLayoutType getPageLayoutName() {
-        String layoutName = ReaderApplicationProperties.getInstance().getAppProperties().get(LAYOUT).toUpperCase();
+        final String layoutName = System.getProperty(LAYOUT).toUpperCase();
         return PageLayoutType.valueOf(layoutName);
     }
 }
