@@ -69,7 +69,7 @@ public class ContactLightningPage extends ContactPageAbstract {
      * @return new profile contact lighting form.
      */
     @Override
-    public ContactForm clickNewContact() {
+    public ContactFormAbstract clickNewContact() {
         clickNewContactBtn();
         return new ContactLightningForm();
     }

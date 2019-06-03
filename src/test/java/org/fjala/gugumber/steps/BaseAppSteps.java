@@ -14,7 +14,7 @@ package org.fjala.gugumber.steps;
 
 import cucumber.api.java.en.When;
 import org.fjala.gugumber.salesforce.ui.PageLayoutFactory;
-import org.fjala.gugumber.salesforce.ui.pages.account.AccountsPage;
+import org.fjala.gugumber.salesforce.ui.pages.account.AccountsPageAbstract;
 import org.fjala.gugumber.salesforce.ui.pages.app.BaseAppPage;
 import org.fjala.gugumber.salesforce.ui.pages.contact.ContactPageAbstract;
 
@@ -34,7 +34,7 @@ public class BaseAppSteps {
     /**
      * Variable for the accounts page.
      */
-    private AccountsPage accountsPage;
+    private AccountsPageAbstract accountsPage;
 
     /**
      * Variable for the base app page.

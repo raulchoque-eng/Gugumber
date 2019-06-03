@@ -1,5 +1,5 @@
 /*
- * @(#) GeneratorReport.java Copyright (c) 2019 Jala Foundation.
+ * @(#) AccountsPageAbstract.java Copyright (c) 2019 Jala Foundation.
  * 2643 Av. Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
  *  All rights reserved.
  *
@@ -17,19 +17,19 @@ import java.util.List;
 import org.fjala.gugumber.salesforce.ui.pages.BasePage;
 
 /**
- * AccountsPage class.
+ * AccountsPageAbstract class.
  *
  * @author Areliez Vargas
  * @version 0.0.1
  */
-public abstract class AccountsPage extends BasePage {
+public abstract class AccountsPageAbstract extends BasePage {
 
     /**
      * Returns an Account Form page after clicking on new button.
      *
      * @return an account form page.
      */
-    public abstract AccountForm clickNewBtn();
+    public abstract AccountFormAbstract clickNewBtn();
 
     /**
      * Returns a list with name accounts from the accounts page.

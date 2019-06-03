@@ -1,5 +1,5 @@
 /*
- * @(#) GeneratorReport.java Copyright (c) 2019 Jala Foundation.
+ * @(#) AccountProfilePageAbstract.java Copyright (c) 2019 Jala Foundation.
  * 2643 Av. Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
  *  All rights reserved.
  *
@@ -15,24 +15,17 @@ package org.fjala.gugumber.salesforce.ui.pages.account;
 import org.fjala.gugumber.salesforce.ui.pages.BasePage;
 
 /**
- * AccountForm abstract class.
+ * AccountProfilePageAbstract abstract class.
  *
  * @author Areliez Vargas
  * @version 0.0.1
  */
-public abstract class AccountForm extends BasePage {
+public abstract class AccountProfilePageAbstract extends BasePage {
 
     /**
-     * Enters a name of account in the form.
+     * Returns the Name of account from a header profile.
      *
-     * @param accountName to set the account name.
+     * @return the name of account as string.
      */
-    public abstract void setNameAccountOnTxtB(String accountName);
-
-    /**
-     * Returns an Account Profile page after clicking on save button of the footer.
-     *
-     * @return an account profile page.
-     */
-    public abstract AccountProfilePage clickOnSaveBtnFoot();
+    public abstract String getNameAccountFromProfileHeader();
 }

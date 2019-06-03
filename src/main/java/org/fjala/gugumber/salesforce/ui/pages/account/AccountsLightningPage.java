@@ -1,5 +1,5 @@
 /*
- * @(#) GeneratorReport.java Copyright (c) 2019 Jala Foundation.
+ * @(#) AccountsLightningPage.java Copyright (c) 2019 Jala Foundation.
  * 2643 Av. Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
  *  All rights reserved.
  *
@@ -15,8 +15,6 @@ package org.fjala.gugumber.salesforce.ui.pages.account;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.fjala.gugumber.core.selenium.WebDriverManager;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -27,7 +25,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
  * @author Areliez Vargas
  * @version 0.0.1
  */
-public class AccountsLightningPage extends AccountsPage {
+public class AccountsLightningPage extends AccountsPageAbstract {
 
     /**
      * Web element to the header the accounts page.
@@ -61,7 +59,7 @@ public class AccountsLightningPage extends AccountsPage {
      * @return a account lightning form.
      */
     @Override
-    public AccountForm clickNewBtn() {
+    public AccountFormAbstract clickNewBtn() {
         newAccoutnBtn.click();
         return new AccountLightningForm();
     }

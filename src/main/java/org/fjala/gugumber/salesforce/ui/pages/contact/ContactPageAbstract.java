@@ -29,7 +29,7 @@ public abstract class ContactPageAbstract extends BasePage {
      *
      * @return an Contact form page.
      */
-    public abstract ContactForm clickNewContact();
+    public abstract ContactFormAbstract clickNewContact();
 
     /**
      * Returns a list with last name from the contact page.
