@@ -15,6 +15,8 @@ package org.fjala.gugumber.salesforce.ui.pages.account;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.fjala.gugumber.core.selenium.WebDriverManager;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -42,7 +44,7 @@ public class AccountsLightningPage extends AccountsPage {
     /**
      * List of web elements for accounts name.
      */
-    @FindBy(css = "a[data-aura-class='forceOutputLookup']")
+    @FindBy(css = "a[class='slds-truncate outputLookupLink slds-truncate forceOutputLookup']")
     private List<WebElement> AccountsNameList;
 
     /**
