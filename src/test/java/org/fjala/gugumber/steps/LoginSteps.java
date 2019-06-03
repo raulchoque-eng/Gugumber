@@ -33,6 +33,3 @@ public class LoginSteps {
         loginPage.login(username, password);
     }
 }
-
-
-

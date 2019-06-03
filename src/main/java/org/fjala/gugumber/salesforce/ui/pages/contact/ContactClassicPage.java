@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.fjala.gugumber.core.selenium.utils.DriverMethods;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -82,6 +83,8 @@ public class ContactClassicPage extends ContactPageAbstract {
     @FindBy(css = "[value=' New ']")
     private WebElement newContactBtn;
 
+    final String lastNameList = "//a[text()='titleOfList']";
+
     /**
      * Waits until page object is loaded.
      */
@@ -136,14 +139,14 @@ public class ContactClassicPage extends ContactPageAbstract {
     }
 
     /**
-     * Contact save button.
+     * Clicks save button.
      */
     public void clickSaveBtn() {
         saveBtn.click();
     }
 
     /**
-     * Contact new contact button.
+     * Clicks new contact button.
      */
     private void clickNewContactBtn() {
         newContactBtn.click();
@@ -172,5 +175,15 @@ public class ContactClassicPage extends ContactPageAbstract {
             contactName.add(contName.getText());
         }
         return contactName;
+    }
+
+
+    /**
+     * Contact open contact profile page.
+     *
+     * @param text of the type String.
+     */
+    public void openContactProfile(final String text) {
+        driver.findElement(By.cssSelector(lastNameList.replace("titleOfList", text))).click();
     }
 }

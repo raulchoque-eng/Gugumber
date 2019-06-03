@@ -15,6 +15,7 @@ package org.fjala.gugumber.salesforce.ui.pages.contact;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -45,12 +46,21 @@ public class ContactLightningPage extends ContactPageAbstract {
     @FindBy(css = "a[Title='New']")
     private WebElement newContactBtn;
 
+    final String lastNameList = "a[title='titleOfList']";
+
     /**
      * Waits until page object is loaded.
      */
     @Override
     protected void waitUntilPageObjectIsLoaded() {
         wait.until(ExpectedConditions.visibilityOf(newContactForm));
+    }
+
+    /**
+     * Clicks new contact button.
+     */
+    private void clickNewContactBtn() {
+        newContactBtn.click();
     }
 
     /**
@@ -78,11 +88,8 @@ public class ContactLightningPage extends ContactPageAbstract {
         return contactName;
     }
 
-    /**
-     * Contact new contact button.
-     */
-    private void clickNewContactBtn() {
-        newContactBtn.click();
+    public void openContactProfile(final String text) {
+        driver.findElement(By.xpath(lastNameList.replace("titleOfList", text))).click();
     }
 }
 
