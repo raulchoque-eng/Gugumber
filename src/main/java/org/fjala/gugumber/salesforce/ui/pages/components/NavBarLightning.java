@@ -55,7 +55,7 @@ public class NavBarLightning extends NavBar {
     }
 
     /**
-     * Contact menu button.
+     * Click in contact menu button.
      */
     public void openContactOption() {
         contactTab.click();

@@ -55,7 +55,7 @@ public class NavBarClassic extends NavBar {
     }
 
     /**
-     * Contact menu button.
+     * Click in contact menu button.
      */
     private void clickContactOption() {
         contactMenuBtn.click();

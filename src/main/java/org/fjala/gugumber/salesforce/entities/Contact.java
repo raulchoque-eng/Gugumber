@@ -234,7 +234,7 @@ public class Contact {
         return firstName;
     }
 
-    /**
+/**
      * Sets the first name sending a string.
      *
      * @param firstName for the contact.

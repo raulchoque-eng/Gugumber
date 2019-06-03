@@ -69,7 +69,7 @@ public abstract class ContactForm extends BasePage {
     }
 
     /**
-     * Build the contact values.
+     * Gets a map with the information the account.
      *
      * @param contact of type String.
      * @return The HashMap
