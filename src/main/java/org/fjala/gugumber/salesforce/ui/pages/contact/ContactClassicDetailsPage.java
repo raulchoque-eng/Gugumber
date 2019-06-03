@@ -6,12 +6,12 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 
 /**
- * ContactLightningDetailsPage class.
+ * ContactClassicDetailsPage class.
  *
  * @author Cxrisstian
  * @version 0.0.1
  */
-public class ContactLightningDetailsPage extends ContactDetailsPageAbstract {
+public class ContactClassicDetailsPage extends ContactDetailsPageAbstract {
 
     /**
      *
@@ -24,7 +24,6 @@ public class ContactLightningDetailsPage extends ContactDetailsPageAbstract {
      */
     @FindBy(css = "span[class='test-id__field-value slds-form-element__static slds-grow ']")
     private List<WebElement> contactElementsList;
-
 
     @Override
     public ContactProfilePageAbstract clickSaveContact() {
