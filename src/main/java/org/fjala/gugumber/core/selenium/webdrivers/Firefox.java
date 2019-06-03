@@ -15,6 +15,8 @@ package org.fjala.gugumber.core.selenium.webdrivers;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.firefox.FirefoxProfile;
 
 /**
  * Firefox class.
@@ -30,6 +32,9 @@ public class Firefox {
      */
     public WebDriver initDriver() {
         FirefoxDriverManager.getInstance().setup();
-        return new FirefoxDriver();
+        FirefoxOptions profile = new FirefoxOptions();
+        profile.setProfile(new FirefoxProfile());
+        profile.addPreference("dom.webnotifications.enabled", false);
+        return new FirefoxDriver(profile);
     }
 }

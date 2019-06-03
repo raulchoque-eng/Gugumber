@@ -1,5 +1,5 @@
 /*
- * @(#) WebDriveFactory.java Copyright (c) 2019 Jala Foundation.
+ * @(#) Context.java Copyright (c) 2019 Jala Foundation.
  * 2643 Av Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
  * All rights reserved.
  *
@@ -15,13 +15,13 @@ package org.fjala.gugumber.salesforce.entities;
 /**
  * Context class.
  *
- * @author Cxrisstian
+ * @author Cristian Lujan
  * @version 0.0.1
  */
 public class Context {
 
     /**
-     * Contact of type contact.
+     * contact of type contact.
      */
     private Contact contact;
 

@@ -21,6 +21,9 @@ import org.fjala.gugumber.salesforce.ui.pages.account.AccountsPage;
 import org.fjala.gugumber.salesforce.ui.pages.app.BaseAppClassicPage;
 import org.fjala.gugumber.salesforce.ui.pages.app.BaseAppLightningPage;
 import org.fjala.gugumber.salesforce.ui.pages.app.BaseAppPage;
+import org.fjala.gugumber.salesforce.ui.pages.contact.ContactClassicPage;
+import org.fjala.gugumber.salesforce.ui.pages.contact.ContactLightningPage;
+import org.fjala.gugumber.salesforce.ui.pages.contact.ContactPageAbstract;
 
 /**
  * PageLayoutFactory class.
@@ -83,6 +86,26 @@ public class PageLayoutFactory {
                 throw new RuntimeException(MESSAGE_FOR_UNKNOWN_LAYOUT);
         }
         return baseAppPage;
+    }
+
+    /**
+     * Gets the navigate contact according the page layout.
+     *
+     * @return a contact page.
+     */
+    public static ContactPageAbstract getContactPage() {
+        final ContactPageAbstract contactPageAbstract;
+        switch (PAGE_LAYOUT_TYPE) {
+            case CLASSIC:
+                contactPageAbstract = new ContactClassicPage();
+                break;
+            case LIGHTNING:
+                contactPageAbstract = new ContactLightningPage();
+                break;
+            default:
+                throw new RuntimeException(MESSAGE_FOR_UNKNOWN_LAYOUT);
+        }
+        return contactPageAbstract;
     }
 
     /**

@@ -53,7 +53,7 @@ public class WebDriverManager {
      * Initializes the settings for the driver.
      */
     private void initialize() {
-        this.webDriver = WebDriveFactory.getManager(webDriverConfig.getBrowserType());
+        this.webDriver = WebDriveFactory.getWebDriver(webDriverConfig.getBrowserType());
         this.webDriver.manage().window().maximize();
         this.webDriver.manage()
                 .timeouts()

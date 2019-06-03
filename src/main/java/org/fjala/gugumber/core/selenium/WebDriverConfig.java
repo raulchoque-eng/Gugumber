@@ -1,10 +1,10 @@
 /*
- * @(#) WebDriverConfig.java Copyright (c) 2019 Jala Foundation.
+ * @(#) WebDriveFactory.java Copyright (c) 2019 Jala Foundation.
  * 2643 Av Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
  * All rights reserved.
  *
  * This software is the confidential and proprietary information of Jala
- * Foundation, Inc. ("Confidential Information"). You shall not
+ * Foundation, Inc. ("Confidential Information").  You shall not
  * disclose such Confidential Information and shall use it only in
  * accordance with the terms of the license agreement you entered into
  * with Jala Foundation.
@@ -13,7 +13,6 @@
 package org.fjala.gugumber.core.selenium;
 
 import org.fjala.gugumber.core.selenium.common.ReaderDriverProperties;
-import org.fjala.gugumber.core.selenium.webdrivers.BrowserType;
 
 /**
  * WebDriverConfig class.
@@ -24,42 +23,42 @@ import org.fjala.gugumber.core.selenium.webdrivers.BrowserType;
 public class WebDriverConfig {
 
     /**
-     * Constant for the implicit wait  time.
+     * Constant for the implicit wait time.
      */
     private static final String IMPLICIT = "implicitWaitTime";
 
     /**
-     * Constant for the explicit wait  time.
+     * Constant for the explicit wait time.
      */
     private static final String EXPLICIT = "explicitWaitTime";
 
     /**
-     * Constant for the sleep wait  time.
+     * Constant for the sleep wait time.
      */
     private static final String WAIT_SLEEP_TIME = "waitSleepTime";
 
     /**
-     *
+     * Constant for browaer.
      */
     private static final String BROWSER = "browser";
 
     /**
-     * Implicit wait time saves the implicit wait time.
+     * Variable for implicit wait time.
      */
     private int implicitWaitTime;
 
     /**
-     * Explicit wait time saves the explicit wait time.
+     * Variable for explicit wait time.
      */
     private int explicitWaitTime;
 
     /**
-     * Sleeps wait time saves the Sleep wait time.
+     * Variable foe sleep wait time.
      */
     private int waitSleepTime;
 
     /**
-     *
+     * Variale for the browser type.
      */
     private BrowserType browserType;
 
@@ -76,7 +75,7 @@ public class WebDriverConfig {
     }
 
     /**
-     * Gets WebDriverConfig as Singleton.
+     * Gets the instance of WebDriverConfig.
      *
      * @return a instance.
      */

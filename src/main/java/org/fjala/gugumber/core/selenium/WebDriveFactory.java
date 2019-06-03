@@ -33,25 +33,25 @@ public class WebDriveFactory {
 
     /**
     * Gets Web driver for a Browser.
-     *
+    *
     * @param type of browser.
     * @return driver manager.
     */
-    public static WebDriver getManager(final BrowserType type) {
-        final WebDriver driverManager;
+    public static WebDriver getWebDriver(BrowserType type) {
+        WebDriver webDriver;
             switch (type) {
             case CHROME:
-                driverManager = new Chrome().initDriver();
+                webDriver = new Chrome().initDriver();
                 break;
             case FIREFOX:
-                driverManager = new Firefox().initDriver();
+                webDriver = new Firefox().initDriver();
                 break;
             case IE:
-                driverManager = new IE().initDriver();
+                webDriver = new IE().initDriver();
                 break;
             default:
                 throw new RuntimeException(MESSAGE_FOR_UNKNOWN_BROWSER);
         }
-        return driverManager;
+        return webDriver;
     }
 }
