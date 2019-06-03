@@ -27,6 +27,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class BaseAppClassicPage extends BaseAppPage {
 
     /**
+     * Locator for switchPage link.
+     */
+    @FindBy(id = "a[class='switch-to-lightning']")
+    private WebElement switchPage;
+
+    /**
      * Locator for header of base page.
      */
     @FindBy(id = "AppBodyHeader")
@@ -47,5 +53,13 @@ public class BaseAppClassicPage extends BaseAppPage {
     @Override
     public NavBar getNavBar() {
         return new NavBarClassic();
+    }
+
+    /**
+     * Clicks on the link to change of layout.
+     */
+    @Override
+    public void clickSwitchLayout() {
+        switchPage.click();
     }
 }

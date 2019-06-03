@@ -27,6 +27,18 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class BaseAppLightningPage extends BaseAppPage {
 
     /**
+     * Locator for switchPage link.
+     */
+    @FindBy(id = "[data-aura-class='oneUserProfileCardTrigger'] [data-aura-class='uiTooltip']")
+    private WebElement viewProfileBtn;
+
+    /**
+     * Locator for switchPage link.
+     */
+    @FindBy(id = "a[class='profile-link-label switch-to-aloha uiOutputURL']")
+    private WebElement switchPage;
+
+    /**
      * Locator for header of base page.
      */
     @FindBy(css = "[class='slds-global-header slds-grid slds-grid--align-spread']")
@@ -48,5 +60,21 @@ public class BaseAppLightningPage extends BaseAppPage {
     @Override
     public NavBar getNavBar() {
         return new NavBarLightning();
+    }
+
+    /**
+     * Clicks on the link to change of layout.
+     */
+    public void clickOnViewProfileBtn() {
+        viewProfileBtn.click();
+    }
+
+    /**
+     * Clicks on the link to change of layout.
+     */
+    @Override
+    public void clickSwitchLayout() {
+        clickOnViewProfileBtn();
+        switchPage.click();
     }
 }

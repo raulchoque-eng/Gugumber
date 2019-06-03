@@ -12,6 +12,12 @@
 
 package org.fjala.gugumber.steps;
 
+import static org.fjala.gugumber.salesforce.ui.PageLayoutType.LIGHTNING;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+
+import java.util.Map;
+
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -21,16 +27,10 @@ import org.fjala.gugumber.salesforce.entities.Context;
 import org.fjala.gugumber.salesforce.ui.PageLayoutConfig;
 import org.fjala.gugumber.salesforce.ui.PageLayoutFactory;
 import org.fjala.gugumber.salesforce.ui.PageLayoutType;
-import org.fjala.gugumber.salesforce.ui.pages.contact.ContactForm;
-import org.fjala.gugumber.salesforce.ui.pages.contact.ContactPageAbstract;
-import org.fjala.gugumber.salesforce.ui.pages.contact.ContactProfilePage;
+import org.fjala.gugumber.salesforce.ui.pages.contact.ContactFormAbstract;
 import org.fjala.gugumber.salesforce.ui.pages.contact.ContactLightningProfilePage;
-
-import java.util.Map;
-
-import static org.fjala.gugumber.salesforce.ui.PageLayoutType.LIGHTNING;
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
+import org.fjala.gugumber.salesforce.ui.pages.contact.ContactPageAbstract;
+import org.fjala.gugumber.salesforce.ui.pages.contact.ContactProfilePageAbstract;
 
 /**
  * ContactSteps class.
@@ -64,19 +64,19 @@ public class ContactSteps {
     /**
      * Variable for the Contact Form.
      */
-    private ContactForm contactForm;
+    private ContactFormAbstract contactForm;
 
     /**
      * Variable for the Contact Profile Page.
      */
-    private ContactProfilePage contactProfilePage;
+    private ContactProfilePageAbstract contactProfilePage;
 
     /**
      * Constructor of contact steps sending the context.
      *
      * @param context init the context.
      */
-    public ContactSteps(Context context) {
+    public ContactSteps(final Context context) {
         this.context = context;
         contact = context.getContact();
     }
@@ -108,7 +108,7 @@ public class ContactSteps {
     @Then("^a message that indicates the Contact was created should be displayed$")
     public void displayMessageThatIndicatesTheContactWasCreated() {
         if (layout.equals(LIGHTNING)) {
-            ContactLightningProfilePage profileContactLightningPage = new ContactLightningProfilePage();
+            final ContactLightningProfilePage profileContactLightningPage = new ContactLightningProfilePage();
             final String message = (profileContactLightningPage.getMessageSave());
             assertEquals(message, "Contact was created.", "not successfully created");
         } else {
@@ -122,7 +122,6 @@ public class ContactSteps {
     @Then("^the contact last name should be displayed in the Contact Profile page$")
     public void displayContactInTheContactProfilePage() {
         assertEquals(contactProfilePage.getFullNameTitleContact(), contact.getFullName(),"the Contact Last name not displayed");
-        assertTrue(contactProfilePage.isTheNewContact(), "the Contact icon not displayed");
     }
 
     /**

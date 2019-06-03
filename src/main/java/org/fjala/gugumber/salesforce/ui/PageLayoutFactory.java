@@ -17,7 +17,7 @@ import org.fjala.gugumber.salesforce.ui.pages.Home.HomeLightningPage;
 import org.fjala.gugumber.salesforce.ui.pages.Home.HomePage;
 import org.fjala.gugumber.salesforce.ui.pages.account.AccountsClassicPage;
 import org.fjala.gugumber.salesforce.ui.pages.account.AccountsLightningPage;
-import org.fjala.gugumber.salesforce.ui.pages.account.AccountsPage;
+import org.fjala.gugumber.salesforce.ui.pages.account.AccountsPageAbstract;
 import org.fjala.gugumber.salesforce.ui.pages.app.BaseAppClassicPage;
 import org.fjala.gugumber.salesforce.ui.pages.app.BaseAppLightningPage;
 import org.fjala.gugumber.salesforce.ui.pages.app.BaseAppPage;
@@ -73,7 +73,7 @@ public class PageLayoutFactory {
      *
      * @return a base app page.
      */
-     public static BaseAppPage getBaseAppPage() {
+    public static BaseAppPage getBaseAppPage() {
         final BaseAppPage baseAppPage;
         switch (PAGE_LAYOUT_TYPE) {
             case CLASSIC:
@@ -113,8 +113,8 @@ public class PageLayoutFactory {
      *
      * @return a the accounts page.
      */
-    public static AccountsPage getAccountsPage() {
-        final AccountsPage accountsPage;
+    public static AccountsPageAbstract getAccountsPage() {
+        final AccountsPageAbstract accountsPage;
         switch (PAGE_LAYOUT_TYPE) {
             case CLASSIC:
                 accountsPage = new AccountsClassicPage();
