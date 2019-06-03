@@ -217,6 +217,7 @@ public class Event {
 
     /**
      * Sets the description in a Event sending a string.
+     *
      * @param description as a string.
      */
     public void setDescription(final String description) {
