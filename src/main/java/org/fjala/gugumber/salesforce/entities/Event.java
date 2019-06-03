@@ -77,96 +77,108 @@ public class Event {
     private String description;
 
     /**
-     * Gets the value assigned to "assignedTo" variable.
+     * Returns the assignedToUser of a Event.
      *
-     * @return a string, this is "assignedTo" variable.
+     * @return assignedToUser as a string
      */
     public String getAssignedToUser() {
         return assignedToUser;
     }
 
     /**
-     * Sets the value "assignedTo" variable.
+     * Sets the assignedToUser in a Event sending a string.
+     *
+     * @param assignedToUser as a string.
      */
     public void setAssignedToUser(final String assignedToUser) {
         this.assignedToUser = assignedToUser;
     }
 
     /**
-     * Gets the value assigned to "subject" variable.
+     * Returns the subject of a Event.
      *
-     * @return a string, this is "Subject" variable.
+     * @return subject as a string
      */
     public String getSubject() {
         return subject;
     }
 
     /**
-     * Sets the value "subject" variable.
+     * Sets the subject in a Event sending a string.
+     *
+     * @param subject as a String.
      */
     public void setSubject(final String subject) {
         this.subject = subject;
     }
 
     /**
-     * Gets the value assigned to "nameContact" variable.
+     * Returns the name of a Event.
      *
-     * @return a string, this is "nameContact" variable.
+     * @return name as a string.
      */
     public String getNameContact() {
         return nameContact;
     }
 
     /**
-     * Sets the value "nameContact" variable.
+     * Sets the nameContact in a Event sending a string.
+     *
+     * @param nameContact as a String.
      */
     public void setNameContact(final String nameContact) {
         this.nameContact = nameContact;
     }
 
     /**
-     * Gets the value assigned to "relatedToAccount" variable.
+     * Returns the relatedToAccount of a Event.
      *
-     * @return a string, this is "relatedToAccount" variable.
+     * @return relatedToAccount as a string
      */
     public String getRelatedToAccount() {
         return relatedToAccount;
     }
 
     /**
-     * Sets the value "relatedToAccount" variable.
+     * Sets the relatedToAccount in a Event sending a string.
+     *
+     * @param relatedToAccount as a string.
      */
     public void setRelatedToAccount(final String relatedToAccount) {
         this.relatedToAccount = relatedToAccount;
     }
 
     /**
-     * Gets the value assigned to "location" variable.
+     * Returns the location of a Event.
      *
-     * @return a string, this is "location" variable.
+     * @return location as a string.
      */
     public String getLocation() {
         return location;
     }
 
     /**
-     * Sets the value "location" variable.
+     * Sets the location in a Event sending a string.
+     *
+     * @param location as a string.
      */
     public void setLocation(final String location) {
         this.location = location;
     }
 
     /**
-     * Gets the value assigned to "startDate" variable.
+     * Returns the startDate of a Event.
      *
-     * @return a string, this is "startDate" variable.
+     * @return startDate as a Date.
      */
     public Date getStartDate() {
         return startDate;
     }
 
     /**
-     * Sets the value "startDate" variable.
+     * Sets the startDate in a Event sending a string by validate the date.
+     *
+     * @param startDate as a string.
      */
     public void setStartDate(final String startDate) {
         if (startDate.equals("One hour from now")) {
@@ -175,53 +187,23 @@ public class Event {
     }
 
     /**
-     * Gets the value assigned to "startTime" variable.
+     * Returns the endDate of a Event.
      *
-     * @return a string, this is "startTime" variable.
-     */
-    public String getStartTime() {
-        return startTime;
-    }
-
-    /**
-     * Sets the value "startTime" variable.
-     */
-    public void setStartTime(final String startTime) {
-        this.startTime = startTime;
-    }
-
-    /**
-     * Gets the value assigned to "EndDate" variable.
-     *
-     * @return a string, this is "EndDate" variable.
+     * @return endDate as a Date
      */
     public Date getEndDate() {
         return endDate;
     }
 
     /**
-     * Sets the value "endDate" variable.
+     * Sets the endDate in a Event sending a string by validate the date.
+     *
+     * @param endDate as a string.
      */
     public void setEndDate(final String endDate) {
         if (endDate.equals("Two hours from now")) {
             this.endDate = new Date();
         }
-    }
-
-    /**
-     * Gets the value assigned to "EndTime" variable.
-     *
-     * @return a string, this is "EndTime" variable.
-     */
-    public String getEndTime() {
-        return endTime;
-    }
-
-    /**
-     * Sets the value "endTime" variable.
-     */
-    public void setEndTime(final String endTime) {
-        this.endTime = endTime;
     }
 
     /**
@@ -234,7 +216,8 @@ public class Event {
     }
 
     /**
-     * Sets the value "description" variable.
+     * Sets the description in a Event sending a string.
+     * @param description as a string.
      */
     public void setDescription(final String description) {
         this.description = description;
