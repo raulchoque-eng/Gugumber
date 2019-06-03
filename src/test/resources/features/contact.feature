@@ -11,6 +11,8 @@ Feature: Contact manage
         | Last Name  | Valdez |
     Then a message that indicates the Contact was created should be displayed
       And the contact last name should be displayed in the Contact Profile page
+    When I open the Contact Details page
+    Then the contact information should be displayed in the Contact Details page
     When I go to the Contacts page
     Then the contact last name should be displayed in the contacts list of Contacts page
 
