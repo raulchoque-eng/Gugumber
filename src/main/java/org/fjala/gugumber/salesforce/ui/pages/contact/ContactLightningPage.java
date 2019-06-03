@@ -89,7 +89,7 @@ public class ContactLightningPage extends ContactPageAbstract {
     }
 
     /**
-     * Click at the last name for open contact profile page.
+     * Clicks at the last name for open contact profile page.
      *
      * @param text as String.
      */
