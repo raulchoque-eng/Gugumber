@@ -75,20 +75,15 @@ public class ContactLightningProfilePage extends ContactProfilePageAbstract {
         return contactTitle.getText();
     }
 
+    @Override
+    public boolean isTheNewContact() {
+        return false;
+    }
+
     /**
      * Contact details.
      */
     public void clickContactDetailsTab() {
         contactDetailsTab.click();
-    }
-
-    /**
-     * Gets of contact icon.
-     *
-     * @return new contact icon.
-     */
-    @Override
-    public ContactProfilePage openContactDetailsTab() {
-        return new ContactLightningDetailsPage();
     }
 }
