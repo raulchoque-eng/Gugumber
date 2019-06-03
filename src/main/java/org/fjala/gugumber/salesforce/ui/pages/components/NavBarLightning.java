@@ -14,6 +14,8 @@ package org.fjala.gugumber.salesforce.ui.pages.components;
 
 import org.fjala.gugumber.salesforce.ui.pages.account.AccountsLightningPage;
 import org.fjala.gugumber.salesforce.ui.pages.account.AccountsPage;
+import org.fjala.gugumber.salesforce.ui.pages.contact.ContactLightningPage;
+import org.fjala.gugumber.salesforce.ui.pages.contact.ContactPageAbstract;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -39,11 +41,35 @@ public class NavBarLightning extends NavBar {
     private WebElement accountsOption;
 
     /**
+     * Web element for the contact option.
+     */
+    @FindBy(css = "[data-id='Contact']")
+    private WebElement contactTab;
+
+    /**
      * Waits until page object is loaded.
      */
     @Override
     protected void waitUntilPageObjectIsLoaded() {
         wait.until(ExpectedConditions.visibilityOf(tabBar));
+    }
+
+    /**
+     * Contact menu button.
+     */
+    public void openContactOption() {
+        contactTab.click();
+    }
+
+    /**
+     * Click in the contact button.
+     *
+     * @return Contact Lightning Page.
+     */
+    @Override
+    public ContactPageAbstract goToContactPage() {
+        openContactOption();
+        return new ContactLightningPage();
     }
 
     /**

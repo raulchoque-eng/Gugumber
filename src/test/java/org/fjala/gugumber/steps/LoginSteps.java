@@ -26,10 +26,10 @@ public class LoginSteps {
     private PageTransporter pageTransporter = PageTransporter.getInstance();
     private LoginPage loginPage;
 
+
     @Given("^I am logged in SalesForce with \"([^\"]*)\" and \"([^\"]*)\"$")
     public void logInWithUsernameAdminAndPasswordAdmin(String username, String password) {
         loginPage = pageTransporter.navigateToLoginPage();
         loginPage.login(username, password);
     }
 }
-

@@ -27,7 +27,7 @@ import org.testng.annotations.AfterTest;
 @CucumberOptions(
         plugin = {"pretty", "html:target/cucumber", "json:target/cucumber.json"},
         glue = {"org/fjala/gugumber/steps"},
-        features = {"src/test/resources/features/account.feature"},
+        features = {"src/test/resources/features"},
         monochrome = true)
 
 public class RunCukesTest extends AbstractTestNGCucumberTests {

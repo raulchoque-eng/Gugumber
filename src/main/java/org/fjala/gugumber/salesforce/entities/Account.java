@@ -67,7 +67,7 @@ public class Account {
      * Returns a map with the information the account.
      *
      * @param accountMap to set the information.
-     * @return strateg ma with the information of account.
+     * @return strategyMap with the information of account.
      */
     private HashMap<String, StrategySetter> composeStrategyMap(final Map<String, String> accountMap) {
         HashMap<String, StrategySetter> strategyMap = new HashMap<>();
