@@ -17,14 +17,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-
 /**
  * ContactLightningForm class.
  *
  * @author Cristian Lujan
  * @version 0.0.1
  */
-public class ContactLightningForm extends ContactForm {
+public class ContactLightningForm extends ContactFormAbstract {
 
     /**
      * Locator for text box of Contact Modal.
@@ -542,7 +541,7 @@ public class ContactLightningForm extends ContactForm {
      * @return new profile contact lighting page.
      */
     @Override
-    public ContactProfilePage clickSaveNewContact() {
+    public ContactProfilePageAbstract clickSaveNewContact() {
         clickSaveBtn();
         return new ContactLightningProfilePage();
     }

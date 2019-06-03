@@ -13,8 +13,6 @@
 package org.fjala.gugumber.salesforce.ui.pages.contact;
 
 import org.fjala.gugumber.core.selenium.utils.DriverMethods;
-import org.fjala.gugumber.salesforce.ui.pages.contact.ContactForm;
-import org.fjala.gugumber.salesforce.ui.pages.contact.ContactProfilePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -27,7 +25,7 @@ import org.openqa.selenium.support.ui.Select;
  * @author Cristian Lujan
  * @version 0.0.1
  */
-public class ContactClassicForm extends ContactForm {
+public class ContactClassicForm extends ContactFormAbstract {
 
     /**
      * Locator for text box of salutation.
@@ -540,7 +538,7 @@ public class ContactClassicForm extends ContactForm {
      * @return new profile contact classic page.
      */
     @Override
-    public ContactProfilePage clickSaveNewContact() {
+    public ContactProfilePageAbstract clickSaveNewContact() {
         clickSaveBtn();
         return new ContactClassicProfilePage();
     }

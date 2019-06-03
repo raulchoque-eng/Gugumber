@@ -29,4 +29,6 @@ public abstract class BaseAppPage extends BasePage {
      * @return NavBar.
      */
     public abstract NavBar getNavBar();
+
+    public abstract void clickSwitchLayout();
 }

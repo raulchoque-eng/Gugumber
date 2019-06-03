@@ -22,7 +22,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
  * @author Cristian Lujan
  * @version 0.0.1
  */
-public class ContactClassicProfilePage extends ContactProfilePage {
+public class ContactClassicProfilePage extends ContactProfilePageAbstract {
 
     /**
      * Web Element of profile contact form.
@@ -39,7 +39,7 @@ public class ContactClassicProfilePage extends ContactProfilePage {
     /**
      * Web Element of profile contact form.
      */
-    @FindBy(css = "[class='content'] [alt='Contact']")
+    @FindBy(css = "img[alt='Contact']")
     private WebElement contactIcon;
 
     /**

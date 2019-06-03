@@ -22,7 +22,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
  * @author Cristian Lujan
  * @version 0.0.1
  */
-public class ContactLightningProfilePage extends ContactProfilePage {
+public class ContactLightningProfilePage extends ContactProfilePageAbstract {
 
     /**
      * Web Element of profile contact form.
