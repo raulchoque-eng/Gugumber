@@ -14,8 +14,6 @@ package org.fjala.gugumber.steps;
 
 import java.util.Map;
 
-import cucumber.api.PendingException;
-import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.fjala.gugumber.salesforce.entities.Context;
