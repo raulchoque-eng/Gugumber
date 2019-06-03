@@ -30,5 +30,8 @@ public abstract class BaseAppPage extends BasePage {
      */
     public abstract NavBar getNavBar();
 
+    /**
+     * Clicks on the link to change of layout.
+     */
     public abstract void clickSwitchLayout();
 }
