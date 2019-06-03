@@ -12,7 +12,11 @@
 
 package org.fjala.gugumber.salesforce.entities;
 
+import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
+
+import org.fjala.gugumber.core.StrategySetter;
 
 /**
  * Event class
@@ -21,84 +25,250 @@ import java.util.Map;
  * @version 0.0.1
  */
 public class Event {
-    private User assignedToUser;
-    private String subject;
-    private Contact name;
-    private Account relatedToAccount;
-    private String location;
-    private String startDate;
-    private String endDate;
-    private String Description;
 
-    public User getAssignedToUser() {
+    /**
+     * Saves value of variable "Assigned To", to create an Event.
+     */
+    private String assignedToUser;
+
+    /**
+     * Saves value of variable "Subject", to create an Event.
+     */
+    private String subject;
+
+    /**
+     * Saves value of variable "Name", to create an Event.
+     */
+    private String nameContact;
+
+    /**
+     * Saves value of variable "Related To", to create an Event.
+     */
+    private String relatedToAccount;
+
+    /**
+     * Saves value of variable "Location", to create an Event.
+     */
+    private String location;
+
+    /**
+     * Saves value of variable "Start Date", to create an Event.
+     */
+    private Date startDate;
+
+    /**
+     * Saves value of variable "Start Time", to create an Event.
+     */
+    private String startTime;
+
+    /**
+     * Saves value of variable "End Date", to create an Event.
+     */
+    private Date endDate;
+
+    /**
+     * Saves value of variable "End Time", to create an Event.
+     */
+    private String endTime;
+
+    /**
+     * Saves value of variable "Description", to create an Event.
+     */
+    private String description;
+
+    /**
+     * Gets the value assigned to "assignedTo" variable.
+     *
+     * @return a string, this is "assignedTo" variable.
+     */
+    public String getAssignedToUser() {
         return assignedToUser;
     }
 
-    public void setAssignedToUser(User assignedToUser) {
+    /**
+     * Sets the value "assignedTo" variable.
+     */
+    public void setAssignedToUser(final String assignedToUser) {
         this.assignedToUser = assignedToUser;
     }
 
+    /**
+     * Gets the value assigned to "subject" variable.
+     *
+     * @return a string, this is "Subject" variable.
+     */
     public String getSubject() {
         return subject;
     }
 
-    public void setSubject(String subject) {
+    /**
+     * Sets the value "subject" variable.
+     */
+    public void setSubject(final String subject) {
         this.subject = subject;
     }
 
-    public Contact getName() {
-        return name;
+    /**
+     * Gets the value assigned to "nameContact" variable.
+     *
+     * @return a string, this is "nameContact" variable.
+     */
+    public String getNameContact() {
+        return nameContact;
     }
 
-    public void setName(Contact name) {
-        this.name = name;
+    /**
+     * Sets the value "nameContact" variable.
+     */
+    public void setNameContact(final String nameContact) {
+        this.nameContact = nameContact;
     }
 
-    public Account getRelatedToAccount() {
+    /**
+     * Gets the value assigned to "relatedToAccount" variable.
+     *
+     * @return a string, this is "relatedToAccount" variable.
+     */
+    public String getRelatedToAccount() {
         return relatedToAccount;
     }
 
-    public void setRelatedToAccount(Account relatedToAccount) {
+    /**
+     * Sets the value "relatedToAccount" variable.
+     */
+    public void setRelatedToAccount(final String relatedToAccount) {
         this.relatedToAccount = relatedToAccount;
     }
 
+    /**
+     * Gets the value assigned to "location" variable.
+     *
+     * @return a string, this is "location" variable.
+     */
     public String getLocation() {
         return location;
     }
 
-    public void setLocation(String location) {
+    /**
+     * Sets the value "location" variable.
+     */
+    public void setLocation(final String location) {
         this.location = location;
     }
 
-    public String getStartDate() {
+    /**
+     * Gets the value assigned to "startDate" variable.
+     *
+     * @return a string, this is "startDate" variable.
+     */
+    public Date getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(String startDate) {
-        this.startDate = startDate;
+    /**
+     * Sets the value "startDate" variable.
+     */
+    public void setStartDate(final String startDate) {
+        if (startDate.equals("One hour from now")) {
+            this.startDate = new Date();
+        }
     }
 
-    public String getEndDate() {
+    /**
+     * Gets the value assigned to "startTime" variable.
+     *
+     * @return a string, this is "startTime" variable.
+     */
+    public String getStartTime() {
+        return startTime;
+    }
+
+    /**
+     * Sets the value "startTime" variable.
+     */
+    public void setStartTime(final String startTime) {
+        this.startTime = startTime;
+    }
+
+    /**
+     * Gets the value assigned to "EndDate" variable.
+     *
+     * @return a string, this is "EndDate" variable.
+     */
+    public Date getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(String endDate) {
-        this.endDate = endDate;
+    /**
+     * Sets the value "endDate" variable.
+     */
+    public void setEndDate(final String endDate) {
+        if (endDate.equals("Two hours from now")) {
+            this.endDate = new Date();
+        }
     }
 
+    /**
+     * Gets the value assigned to "EndTime" variable.
+     *
+     * @return a string, this is "EndTime" variable.
+     */
+    public String getEndTime() {
+        return endTime;
+    }
+
+    /**
+     * Sets the value "endTime" variable.
+     */
+    public void setEndTime(final String endTime) {
+        this.endTime = endTime;
+    }
+
+    /**
+     * Gets the value assigned to "description" variable.
+     *
+     * @return a string, this is "description" variable.
+     */
     public String getDescription() {
-        return Description;
+        return description;
     }
 
-    public void setDescription(String description) {
-        Description = description;
+    /**
+     * Sets the value "description" variable.
+     */
+    public void setDescription(final String description) {
+        this.description = description;
     }
 
-    public void setRequiredData(Map<String, String> newEvent) {
+    /**
+     * Sets all values send into the "newEvent" parameter.
+     *
+     * @param newEvent is an Event into Map.
+     */
+    public void setDataToEvent(final Map<String, String> newEvent) {
+        final HashMap<String, StrategySetter> strategyMap = composeStrategyMap(newEvent);
+        newEvent.keySet().forEach(key -> {
+            strategyMap.get(key).executeMethod();
+            System.out.println("Event object: " + key);
+        });
     }
 
-    public boolean isEqualEvent(Map<String, String> eventFormData) {
-        System.out.println("TODO");
-        return true;
+    /**
+     * Composes an Strategy Map with the "newEvent" parameter.
+     *
+     * @param newEvent is an Event into Map.
+     * @return an instance HashMap with keys and methods to run.
+     */
+    private HashMap<String, StrategySetter> composeStrategyMap(final Map<String, String> newEvent) {
+        final HashMap<String, StrategySetter> strategyHashMap = new HashMap<>();
+        strategyHashMap.put("Assigned To", () -> setAssignedToUser(newEvent.get("Assigned To")));
+        strategyHashMap.put("Subject", () -> setSubject(newEvent.get("Subject")));
+        strategyHashMap.put("Name", () -> setNameContact(newEvent.get("Name")));
+        strategyHashMap.put("Related To", () -> setRelatedToAccount(newEvent.get("Related To")));
+        strategyHashMap.put("Location", () -> setLocation(newEvent.get("Location")));
+        strategyHashMap.put("Start Date", () -> setStartDate(newEvent.get("Start Date")));
+        strategyHashMap.put("End Date", () -> setEndDate(newEvent.get("End Date")));
+        strategyHashMap.put("Description", () -> setDescription(newEvent.get("Description")));
+        return strategyHashMap;
     }
 }
