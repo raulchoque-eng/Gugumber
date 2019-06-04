@@ -1,5 +1,5 @@
 /*
- * @(#) ContactProfilePage.java Copyright (c) 2019 Jala Foundation.
+ * @(#) ContactProfilePageAbstract.java Copyright (c) 2019 Jala Foundation.
  * 2643 Av Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
  * All rights reserved.
  *
@@ -15,12 +15,12 @@ package org.fjala.gugumber.salesforce.ui.pages.contact;
 import org.fjala.gugumber.salesforce.ui.pages.BasePage;
 
 /**
- * ContactProfilePage class
+ * ContactProfilePageAbstract class
  *
  * @author Cristian Lujan
  * @version 0.0.1
  */
-public abstract class ContactProfilePage extends BasePage {
+public abstract class ContactProfilePageAbstract extends BasePage {
 
     /**
      * Returns the Last Name of contact from a header profile.
@@ -30,16 +30,9 @@ public abstract class ContactProfilePage extends BasePage {
     public abstract String getFullNameTitleContact();
 
     /**
-     * Returns the icon of contact from a header profile.
+     * Returns an Contact Details page after clicking on tab.
      *
-     * @return the icon of contact.
+     * @return an Contact details page.
      */
-    public abstract boolean isTheNewContact();
-
-    /**
-     * Returns an Contact Form page after clicking on delete button.
-     *
-     * @return an Contact form page.
-     */
-    public abstract ContactForm clickDeleteContact();
+    public abstract ContactDetailsPageAbstract openContactDetailsTab();
 }

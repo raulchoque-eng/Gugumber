@@ -22,12 +22,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
  * @author Cristian Lujan
  * @version 0.0.1
  */
-public class ContactLightningProfilePage extends ContactProfilePage {
+public class ContactLightningProfilePage extends ContactProfilePageAbstract {
 
     /**
      * Web Element of profile contact form.
      */
-    @FindBy(css = "div[class='slds-grid primaryFieldRow']")
+    @FindBy(css = "div[class='slds-page-header--object-home slds-page-header_joined slds-page-header_bleed slds-page-header slds-shrink-none test-headerRegion forceListViewManagerHeader']")
     private WebElement profileContactHeader;
 
     /**
@@ -39,8 +39,8 @@ public class ContactLightningProfilePage extends ContactProfilePage {
     /**
      * Web Element of profile contact form.
      */
-    @FindBy(css = "[class='photoContainer forceSocialPhoto'] [alt='Contact']")
-    private WebElement contactIcon;
+    @FindBy(css = "a[title='Details']")
+    private WebElement contactDetailsTab;
 
     /**
      * Web Element of profile contact with title.
@@ -76,13 +76,21 @@ public class ContactLightningProfilePage extends ContactProfilePage {
     }
 
     /**
+     * clicks Contact details.
+     */
+    public void clickContactDetailsTab() {
+        contactDetailsTab.click();
+    }
+
+    /**
      * Gets of contact icon.
      *
      * @return new contact icon.
      */
     @Override
-    public boolean isTheNewContact() {
-        return contactIcon.isDisplayed();
+    public ContactDetailsPageAbstract openContactDetailsTab() {
+        clickContactDetailsTab();
+        return new ContactLightningDetailsPage();
     }
 
 //    /**
@@ -92,13 +100,13 @@ public class ContactLightningProfilePage extends ContactProfilePage {
 //        deleteContactBtn.click();
 //    }
 
-    /**
-     * Gets Delete Contact form.
-     *
-     * @return new profile contact lighting form.
-     */
-    @Override
-    public ContactForm clickDeleteContact() {
-        return null;
-    }
+//    /**
+//     * Gets Delete Contact form.
+//     *
+//     * @return new profile contact lighting form.
+//     */
+//    @Override
+//    public ContactForm clickDeleteContact() {
+//        return null;
+//    }
 }

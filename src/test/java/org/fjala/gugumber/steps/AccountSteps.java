@@ -14,15 +14,13 @@ package org.fjala.gugumber.steps;
 
 import java.util.Map;
 
-import cucumber.api.PendingException;
-import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.fjala.gugumber.salesforce.entities.Context;
 import org.fjala.gugumber.salesforce.ui.PageLayoutFactory;
-import org.fjala.gugumber.salesforce.ui.pages.account.AccountForm;
-import org.fjala.gugumber.salesforce.ui.pages.account.AccountProfilePage;
-import org.fjala.gugumber.salesforce.ui.pages.account.AccountsPage;
+import org.fjala.gugumber.salesforce.ui.pages.account.AccountFormAbstract;
+import org.fjala.gugumber.salesforce.ui.pages.account.AccountProfilePageAbstract;
+import org.fjala.gugumber.salesforce.ui.pages.account.AccountsPageAbstract;
 import org.testng.Assert;
 
 /**
@@ -36,17 +34,17 @@ public class AccountSteps {
     /**
      * Variable for the account page.
      */
-    private AccountsPage accountsPage;
+    private AccountsPageAbstract accountsPage;
 
     /**
      * Variable for the account form.
      */
-    private AccountForm accountForm;
+    private AccountFormAbstract accountForm;
 
     /**
      * Variable for the profile account page.
      */
-    private AccountProfilePage accountProfilePage;
+    private AccountProfilePageAbstract accountProfilePage;
 
     /**
      * Variable for the context.
@@ -86,8 +84,8 @@ public class AccountSteps {
     /**
      * Verifies the information in the profile account.
      */
-    @Then("^the information account should be displayed in the Account Profile page$")
-    public void displayTheInformationOnTheProfileOfNewAccount() {
+    @Then("^the account name should be displayed in the Account page$")
+    public void displayAccountNameOnTheAccountPage() {
         Assert.assertEquals(accountProfilePage.getNameAccountFromProfileHeader(), context.getAccount().getNameAccount());
     }
 

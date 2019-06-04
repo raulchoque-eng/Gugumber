@@ -35,7 +35,7 @@ public class ContactLightningPage extends ContactPageAbstract {
     private WebElement newContactForm;
 
     /**
-     * List of web elements for accounts name.
+     * List of web elements for contacts name.
      */
     @FindBy(css = "[class='slds-truncate outputLookupLink slds-truncate forceOutputLookup']")
     private List<WebElement> contactNameList;
@@ -69,7 +69,7 @@ public class ContactLightningPage extends ContactPageAbstract {
      * @return new profile contact lighting form.
      */
     @Override
-    public ContactForm clickNewContact() {
+    public ContactFormAbstract clickNewContact() {
         clickNewContactBtn();
         return new ContactLightningForm();
     }
@@ -88,6 +88,11 @@ public class ContactLightningPage extends ContactPageAbstract {
         return contactName;
     }
 
+    /**
+     * Clicks at the last name for open contact profile page.
+     *
+     * @param text as String.
+     */
     public void openContactProfile(final String text) {
         driver.findElement(By.xpath(lastNameList.replace("titleOfList", text))).click();
     }

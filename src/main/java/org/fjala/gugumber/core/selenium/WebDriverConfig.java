@@ -13,11 +13,12 @@
 package org.fjala.gugumber.core.selenium;
 
 import org.fjala.gugumber.core.selenium.common.ReaderDriverProperties;
+import org.fjala.gugumber.core.selenium.webdrivers.BrowserType;
 
 /**
  * WebDriverConfig class.
  *
- * @author Cxrisstian
+ * @author Cristian Lujan
  * @version 0.0.1
  */
 public class WebDriverConfig {
@@ -38,22 +39,32 @@ public class WebDriverConfig {
     private static final String WAIT_SLEEP_TIME = "waitSleepTime";
 
     /**
-     * Variable to implicit wait time.
+     * Constant for browaer.
+     */
+    private static final String BROWSER = "browser";
+
+    /**
+     * Variable for implicit wait time.
      */
     private int implicitWaitTime;
 
     /**
-     * Variable to explicit wait time.
+     * Variable for explicit wait time.
      */
     private int explicitWaitTime;
 
     /**
-     * Variable to sleep wait time.
+     * Variable foe sleep wait time.
      */
     private int waitSleepTime;
 
     /**
-     * Variable for initialize Web driver config.
+     * Variale for the browser type.
+     */
+    private BrowserType browserType;
+
+    /**
+     * Variable for  initialize Web driver config.
      */
     private static WebDriverConfig instance;
 
@@ -80,6 +91,8 @@ public class WebDriverConfig {
      * Initializes WebDriverConfig.
      */
     public void initialize() {
+        final String browserName = System.getProperty(BROWSER).toUpperCase();
+        browserType = BrowserType.valueOf(browserName);
         implicitWaitTime = Integer.parseInt(ReaderDriverProperties.getInstance().getDriverProperties().get(IMPLICIT));
         explicitWaitTime = Integer.parseInt(ReaderDriverProperties.getInstance().getDriverProperties().get(EXPLICIT));
         waitSleepTime = Integer.parseInt(ReaderDriverProperties.getInstance().getDriverProperties().get(WAIT_SLEEP_TIME));
@@ -110,5 +123,14 @@ public class WebDriverConfig {
      */
     public int getWaitSleepTime() {
         return waitSleepTime;
+    }
+
+    /**
+     * Returns the browser type to start the driver.
+     *
+     * @return a browser type.
+     */
+    public BrowserType getBrowserType() {
+        return browserType;
     }
 }

@@ -1,5 +1,5 @@
 /*
- * @(#) GeneratorReport.java Copyright (c) 2019 Jala Foundation.
+ * @(#) AccountProfileClassicPage.java Copyright (c) 2019 Jala Foundation.
  * 2643 Av. Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
  *  All rights reserved.
  *
@@ -12,7 +12,6 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.account;
 
-import org.fjala.gugumber.salesforce.ui.pages.account.AccountProfilePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -23,7 +22,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
  * @author Areliez Vargas
  * @version 0.0.1
  */
-public class AccountProfileClassicPage extends AccountProfilePage {
+public class AccountProfileClassicPage extends AccountProfilePageAbstract {
 
     /**
      * Web element for the body of the profile account.

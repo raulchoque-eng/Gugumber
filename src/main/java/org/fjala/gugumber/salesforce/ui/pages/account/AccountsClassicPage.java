@@ -1,5 +1,5 @@
 /*
- * @(#) GeneratorReport.java Copyright (c) 2019 Jala Foundation.
+ * @(#) AccountsClassicPage.java Copyright (c) 2019 Jala Foundation.
  * 2643 Av. Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
  *  All rights reserved.
  *
@@ -25,7 +25,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
  * @author Areliez Vargas
  * @version 0.0.1
  */
-public class AccountsClassicPage extends AccountsPage {
+public class AccountsClassicPage extends AccountsPageAbstract {
 
     /**
      * Web element for the body of the account page.
@@ -56,7 +56,7 @@ public class AccountsClassicPage extends AccountsPage {
      * @return a new account classic form.
      */
     @Override
-    public AccountForm clickNewBtn() {
+    public AccountFormAbstract clickNewBtn() {
         newAccountBtn.click();
         return new AccountClassicForm();
     }

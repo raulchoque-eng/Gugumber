@@ -22,7 +22,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
  * @author Cristian Lujan
  * @version 0.0.1
  */
-public class ContactClassicProfilePage extends ContactProfilePage {
+public class ContactClassicProfilePage extends ContactProfilePageAbstract {
 
     /**
      * Web Element of profile contact form.
@@ -37,10 +37,10 @@ public class ContactClassicProfilePage extends ContactProfilePage {
     private WebElement contactTitle;
 
     /**
-     * Web Element of profile contact form.
+     * Web Element of details contact.
      */
-    @FindBy(css = "[alt='contact Profile Picture']")
-    private WebElement contactIcon;
+    @FindBy(id = "ep")
+    private WebElement contactDetailsTab;
 
     /**
      * Waits until page object is loaded.
@@ -61,30 +61,32 @@ public class ContactClassicProfilePage extends ContactProfilePage {
     }
 
     /**
-     * Gets of contact icon.
-     *
-     * @return new contact icon.
+     * clicks Contact details.
      */
+    public void clickContactDetailsTab() {
+        contactDetailsTab.isDisplayed();
+    }
+
     @Override
-    public boolean isTheNewContact() {
-        return contactIcon.isDisplayed();
+    public ContactDetailsPageAbstract openContactDetailsTab() {
+        return null;
     }
 
 
 //    /**
-////     * Contact delete contact button.
-////     */
-////    private void clickDeleteContactBtn() {
-////        deleteContactBtn.click();
-////    }
+//     * Contact delete contact button.
+//     */
+//    private void clickDeleteContactBtn() {
+//        deleteContactBtn.click();
+//    }
 
-    /**
-     * Gets Delete Contact form.
-     *
-     * @return new profile contact lighting form.
-     */
-    @Override
-    public ContactForm clickDeleteContact() {
-        return null;
-    }
+//    /**
+//     * Gets Delete Contact form.
+//     *
+//     * @return new profile contact lighting form.
+//     */
+//    @Override
+//    public ContactForm clickDeleteContact() {
+//        return null;
+//    }
 }

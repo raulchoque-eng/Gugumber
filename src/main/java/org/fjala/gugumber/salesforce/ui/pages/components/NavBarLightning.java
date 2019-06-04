@@ -1,5 +1,5 @@
 /*
- * @(#) GeneratorReport.java Copyright (c) 2019 Jala Foundation.
+ * @(#) NavBarLightning.java Copyright (c) 2019 Jala Foundation.
  * 2643 Av. Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
  *  All rights reserved.
  *
@@ -13,7 +13,7 @@
 package org.fjala.gugumber.salesforce.ui.pages.components;
 
 import org.fjala.gugumber.salesforce.ui.pages.account.AccountsLightningPage;
-import org.fjala.gugumber.salesforce.ui.pages.account.AccountsPage;
+import org.fjala.gugumber.salesforce.ui.pages.account.AccountsPageAbstract;
 import org.fjala.gugumber.salesforce.ui.pages.contact.ContactLightningPage;
 import org.fjala.gugumber.salesforce.ui.pages.contact.ContactPageAbstract;
 import org.openqa.selenium.WebElement;
@@ -55,14 +55,14 @@ public class NavBarLightning extends NavBar {
     }
 
     /**
-     * Contact menu button.
+     * Clicks in contact menu button.
      */
     public void openContactOption() {
         contactTab.click();
     }
 
     /**
-     * Click in the contact button.
+     * Clicks in the contact button.
      *
      * @return Contact Lightning Page.
      */
@@ -78,7 +78,7 @@ public class NavBarLightning extends NavBar {
      * @return a account lightning page.
      */
     @Override
-    public AccountsPage clickAccountsOption() {
+    public AccountsPageAbstract clickAccountsOption() {
         accountsOption.click();
         return new AccountsLightningPage();
     }

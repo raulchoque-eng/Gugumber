@@ -1,5 +1,5 @@
 /*
- * @(#) GeneratorReport.java Copyright (c) 2019 Jala Foundation.
+ * @(#) AccountsLightningPage.java Copyright (c) 2019 Jala Foundation.
  * 2643 Av. Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
  *  All rights reserved.
  *
@@ -25,7 +25,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
  * @author Areliez Vargas
  * @version 0.0.1
  */
-public class AccountsLightningPage extends AccountsPage {
+public class AccountsLightningPage extends AccountsPageAbstract {
 
     /**
      * Web element to the header the accounts page.
@@ -42,7 +42,7 @@ public class AccountsLightningPage extends AccountsPage {
     /**
      * List of web elements for accounts name.
      */
-    @FindBy(css = "a[data-aura-class='forceOutputLookup']")
+    @FindBy(css = "a[class='slds-truncate outputLookupLink slds-truncate forceOutputLookup']")
     private List<WebElement> AccountsNameList;
 
     /**
@@ -59,7 +59,7 @@ public class AccountsLightningPage extends AccountsPage {
      * @return a account lightning form.
      */
     @Override
-    public AccountForm clickNewBtn() {
+    public AccountFormAbstract clickNewBtn() {
         newAccoutnBtn.click();
         return new AccountLightningForm();
     }

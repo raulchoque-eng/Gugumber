@@ -1,5 +1,5 @@
 /*
- * @(#) ContactForm.java Copyright (c) 2019 Jala Foundation.
+ * @(#) ContactFormAbstract.java Copyright (c) 2019 Jala Foundation.
  * 2643 Av Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
  * All rights reserved.
  *
@@ -15,7 +15,6 @@ package org.fjala.gugumber.salesforce.ui.pages.contact;
 import static org.fjala.gugumber.salesforce.keys.ContactKeys.ACCOUNT;
 import static org.fjala.gugumber.salesforce.keys.ContactKeys.ASSISTANT;
 import static org.fjala.gugumber.salesforce.keys.ContactKeys.ASST_PHONE;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.BIRTHDATE;
 import static org.fjala.gugumber.salesforce.keys.ContactKeys.DEPARTMENT;
 import static org.fjala.gugumber.salesforce.keys.ContactKeys.DESCRIPTION;
 import static org.fjala.gugumber.salesforce.keys.ContactKeys.EMAIL;
@@ -50,12 +49,12 @@ import org.fjala.gugumber.core.StrategySetter;
 import org.fjala.gugumber.salesforce.ui.pages.BasePage;
 
 /**
- * ContactForm class
+ * ContactFormAbstract class
  *
  * @author Cristian Lujan
  * @version 0.0.1
  */
-public abstract class ContactForm extends BasePage {
+public abstract class ContactFormAbstract extends BasePage {
 
     /**
      * Process information for composing the strategy map.
@@ -69,7 +68,7 @@ public abstract class ContactForm extends BasePage {
     }
 
     /**
-     * Build the contact values.
+     * Gets a map with the information the account.
      *
      * @param contact of type String.
      * @return The HashMap
@@ -324,5 +323,5 @@ public abstract class ContactForm extends BasePage {
      *
      * @return an Contact profile page.
      */
-    public abstract ContactProfilePage clickSaveNewContact();
+    public abstract ContactProfilePageAbstract clickSaveNewContact();
 }

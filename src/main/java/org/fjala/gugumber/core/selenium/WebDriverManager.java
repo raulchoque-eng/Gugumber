@@ -12,8 +12,6 @@
 
 package org.fjala.gugumber.core.selenium;
 
-import org.fjala.gugumber.core.selenium.webdrivers.BrowserConfig;
-import org.fjala.gugumber.core.selenium.webdrivers.BrowserType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -55,8 +53,7 @@ public class WebDriverManager {
      * Initializes the settings for the driver.
      */
     private void initialize() {
-        String browserName = BrowserConfig.getInstance().getBrowserName().toUpperCase();
-        this.webDriver = WebDriveFactory.getWebDriver(BrowserType.valueOf(browserName));
+        this.webDriver = WebDriveFactory.getWebDriver(webDriverConfig.getBrowserType());
         this.webDriver.manage().window().maximize();
         this.webDriver.manage()
                 .timeouts()

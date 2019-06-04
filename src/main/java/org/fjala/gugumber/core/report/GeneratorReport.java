@@ -19,6 +19,8 @@ import java.util.List;
 import net.masterthought.cucumber.Configuration;
 import net.masterthought.cucumber.ReportBuilder;
 import net.masterthought.cucumber.Reportable;
+import org.fjala.gugumber.core.selenium.WebDriverConfig;
+import org.fjala.gugumber.salesforce.ui.PageLayoutConfig;
 
 /**
  * GeneratorReport class.
@@ -50,9 +52,10 @@ public class GeneratorReport {
 
         final Configuration configuration = new Configuration(reportOutputDirectory, projectName);
         // additional metadata presented on main page
-        configuration.addClassifications("Platform", "Windows");
-        configuration.addClassifications("Browser", "Chrome");
-        configuration.addClassifications("Branch", "release/1.0");
+        configuration.addClassifications("Platform", "WINDOWS");
+        configuration.addClassifications("Browser", WebDriverConfig.getInstance().getBrowserType().toString());
+        configuration.addClassifications("Branch", "RELEASE/1.0");
+        configuration.addClassifications("Layout", PageLayoutConfig.getPageLayoutName().toString());
         final ReportBuilder reportBuilder = new ReportBuilder(jsonFiles, configuration);
         final Reportable result = reportBuilder.generateReports();
         // and here validate 'result' to decide what to do if report has failed
