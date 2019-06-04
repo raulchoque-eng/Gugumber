@@ -14,7 +14,6 @@
 package org.fjala.gugumber.salesforce.ui.pages;
 
 import org.fjala.gugumber.salesforce.common.ReaderApplicationProperties;
-import org.fjala.gugumber.salesforce.ui.pages.BasePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -46,20 +45,22 @@ public class LoginPage extends BasePage {
 
     /**
      * Log in in the application.
+     *
      * @param userName of the user.
      * @param password of the user.
      */
-    public void login(String userName, String password){
+    public void login(final String userName, final String password) {
         setUserName(ReaderApplicationProperties.getInstance().getAppProperties().get(userName));
         setPassword(ReaderApplicationProperties.getInstance().getAppProperties().get(password));
         clickNextSignInBtn();
+        wait.until(ExpectedConditions.titleIs("Home Page ~ Salesforce - Developer Edition"));
     }
 
-    public void setUserName(String userName) {
+    public void setUserName(final String userName) {
         userNameTxtB.sendKeys(userName);
     }
 
-    public void setPassword(String password) {
+    public void setPassword(final String password) {
         passwordTxtB.sendKeys(password);
     }
 

@@ -20,6 +20,7 @@ import org.fjala.gugumber.salesforce.ui.PageLayoutConfig;
 import org.fjala.gugumber.salesforce.ui.PageLayoutFactory;
 import org.fjala.gugumber.salesforce.ui.PageLayoutType;
 import org.fjala.gugumber.salesforce.ui.pages.app.BaseAppPage;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
@@ -46,5 +47,10 @@ public class RunCukesTest extends AbstractTestNGCucumberTests {
     public void afterExecution() {
         WebDriverManager.getInstance().getWebDriver().close();
         GeneratorReport.getInstance().generateReport();
+    }
+
+    @AfterMethod
+    public void refresh() {
+        WebDriverManager.getInstance().getWebDriver().manage().deleteAllCookies();
     }
 }
