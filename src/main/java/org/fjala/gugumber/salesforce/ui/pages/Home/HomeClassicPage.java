@@ -35,7 +35,7 @@ public class HomeClassicPage extends HomePage {
     /**
      * Web element to open the event form.
      */
-    @FindBy(css = "div#homeCalendarSection input.btn")
+    @FindBy(name = "newEvent")
     private WebElement newEventBtn;
 
     /**
