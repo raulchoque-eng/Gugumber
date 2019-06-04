@@ -76,7 +76,7 @@ public class ContactLightningProfilePage extends ContactProfilePageAbstract {
     }
 
     /**
-     * Contact details.
+     * clicks Contact details.
      */
     public void clickContactDetailsTab() {
         contactDetailsTab.click();
@@ -92,4 +92,21 @@ public class ContactLightningProfilePage extends ContactProfilePageAbstract {
         clickContactDetailsTab();
         return new ContactLightningDetailsPage();
     }
+
+//    /**
+//     * Contact delete contact button.
+//     */
+//    private void clickDeleteContactBtn() {
+//        deleteContactBtn.click();
+//    }
+
+//    /**
+//     * Gets Delete Contact form.
+//     *
+//     * @return new profile contact lighting form.
+//     */
+//    @Override
+//    public ContactForm clickDeleteContact() {
+//        return null;
+//    }
 }

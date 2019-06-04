@@ -37,10 +37,10 @@ public class ContactClassicProfilePage extends ContactProfilePageAbstract {
     private WebElement contactTitle;
 
     /**
-     * Web Element of profile contact form.
+     * Web Element of details contact.
      */
-    @FindBy(css = "img[alt='Contact']")
-    private WebElement contactIcon;
+    @FindBy(id = "ep")
+    private WebElement contactDetailsTab;
 
     /**
      * Waits until page object is loaded.
@@ -61,12 +61,32 @@ public class ContactClassicProfilePage extends ContactProfilePageAbstract {
     }
 
     /**
-     * Gets of contact icon.
-     *
-     * @return new contact icon.
+     * clicks Contact details.
      */
-    @Override
-    public boolean isTheNewContact() {
-        return contactIcon.isDisplayed();
+    public void clickContactDetailsTab() {
+        contactDetailsTab.isDisplayed();
     }
+
+    @Override
+    public ContactDetailsPageAbstract openContactDetailsTab() {
+        return null;
+    }
+
+
+//    /**
+//     * Contact delete contact button.
+//     */
+//    private void clickDeleteContactBtn() {
+//        deleteContactBtn.click();
+//    }
+
+//    /**
+//     * Gets Delete Contact form.
+//     *
+//     * @return new profile contact lighting form.
+//     */
+//    @Override
+//    public ContactForm clickDeleteContact() {
+//        return null;
+//    }
 }

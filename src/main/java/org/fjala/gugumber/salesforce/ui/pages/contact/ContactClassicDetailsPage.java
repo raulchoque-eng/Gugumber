@@ -14,10 +14,11 @@ import java.util.List;
 public class ContactClassicDetailsPage extends ContactDetailsPageAbstract {
 
     /**
-     *
+     * Web Element of details contact.
      */
-    @FindBy(css = "div[class='test-id__record-layout-container riseTransitionEnabled']")
-    private WebElement contactDetailsForm;
+    @FindBy(id = "ep")
+    private WebElement contactDetailsTab;
+
 
     /**
      * List of web elements for contact dates.
