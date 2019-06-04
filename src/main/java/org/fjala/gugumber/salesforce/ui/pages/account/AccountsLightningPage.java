@@ -15,6 +15,7 @@ package org.fjala.gugumber.salesforce.ui.pages.account;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -43,7 +44,7 @@ public class AccountsLightningPage extends AccountsPageAbstract {
      * List of web elements for accounts name.
      */
     @FindBy(css = "a[class='slds-truncate outputLookupLink slds-truncate forceOutputLookup']")
-    private List<WebElement> AccountsNameList;
+    private List<WebElement> accountsNameList;
 
     /**
      * Waits until page object is loaded.
@@ -70,8 +71,11 @@ public class AccountsLightningPage extends AccountsPageAbstract {
      */
     @Override
     public List<String> getListOfAccountsName() {
+        wait.until(ExpectedConditions.stalenessOf(accountsNameList.get(0)));
+        List<WebElement> a = driver.findElements(
+                By.cssSelector("a[class='slds-truncate outputLookupLink slds-truncate forceOutputLookup']"));
         final List<String> accountsName = new ArrayList<>();
-        for (WebElement accountName : AccountsNameList) {
+        for (WebElement accountName : a) {
             accountsName.add(accountName.getText());
         }
         return accountsName;

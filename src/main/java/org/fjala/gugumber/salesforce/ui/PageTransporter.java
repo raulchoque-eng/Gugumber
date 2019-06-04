@@ -16,6 +16,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import org.fjala.gugumber.core.selenium.WebDriverManager;
+import org.fjala.gugumber.core.selenium.utils.Logs;
 import org.fjala.gugumber.salesforce.common.ReaderApplicationProperties;
 import org.fjala.gugumber.salesforce.ui.pages.Home.HomePage;
 import org.fjala.gugumber.salesforce.ui.pages.LoginPage;
@@ -84,7 +85,7 @@ public class PageTransporter {
         try {
             webDriver.navigate().to(new URL(url));
         } catch (MalformedURLException e) {
-            e.printStackTrace();
+            Logs.getInstance().getLog().error("The url isn't valid: ", e);
         }
     }
 
