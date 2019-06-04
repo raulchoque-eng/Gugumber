@@ -64,7 +64,7 @@ public class AccountSteps {
      * Opens the account form from accounts page.
      */
     @When("^I open the Account form from Accounts page$")
-    public void iOpenTheAccountFormFromAccountsPage() {
+    public void openTheAccountFormFromAccountsPage() {
         accountsPage = PageLayoutFactory.getAccountsPage();
         accountForm = accountsPage.clickNewBtn();
     }
@@ -94,6 +94,7 @@ public class AccountSteps {
      */
     @Then("^the account should be displayed on Accounts page$")
     public void displayAccountOnAccountsPage() {
+        accountsPage = PageLayoutFactory.getAccountsPage();
         Assert.assertTrue(accountsPage.getListOfAccountsName().contains(context.getAccount().getNameAccount()));
     }
 }

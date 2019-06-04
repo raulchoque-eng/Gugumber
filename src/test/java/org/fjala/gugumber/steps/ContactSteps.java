@@ -27,6 +27,7 @@ import org.fjala.gugumber.salesforce.entities.Context;
 import org.fjala.gugumber.salesforce.ui.PageLayoutConfig;
 import org.fjala.gugumber.salesforce.ui.PageLayoutFactory;
 import org.fjala.gugumber.salesforce.ui.PageLayoutType;
+import org.fjala.gugumber.salesforce.ui.PageTransporter;
 import org.fjala.gugumber.salesforce.ui.pages.contact.ContactFormAbstract;
 import org.fjala.gugumber.salesforce.ui.pages.contact.ContactLightningProfilePage;
 import org.fjala.gugumber.salesforce.ui.pages.contact.ContactPageAbstract;
@@ -129,6 +130,7 @@ public class ContactSteps {
      */
     @Then("^the contact last name should be displayed in the contacts list of Contacts page$")
     public void displayContactInTheContactsListOfContactsPage() {
+        contactPage = PageLayoutFactory.getContactPage();
         assertTrue(contactPage.getListOfContactsName().contains(contact.getLastName()));
     }
 }
