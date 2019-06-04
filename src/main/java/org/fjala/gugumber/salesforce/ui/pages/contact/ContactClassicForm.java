@@ -213,6 +213,8 @@ public class ContactClassicForm extends ContactFormAbstract {
     @FindBy(css = "td[id='topButtonRow'] [value=' Save ']")
     private WebElement saveBtn;
 
+    final String cmbReplace = "[id='name_salutationcon2'] [value='nameTitle']";
+
     /**
      * Waits until page object is loaded.
      */
@@ -228,10 +230,7 @@ public class ContactClassicForm extends ContactFormAbstract {
      */
     @Override
     protected void setSalutation(final String salutation) {
-        salutationCmbb.click();
-        final Select salutationSelect = new Select(driver.findElement(By.cssSelector("[id^='161']")));
-//        salutationSelect.selectByVisibleText("ANTARCTICA");
-        salutationSelect.selectByIndex(5);
+        DriverMethods.selectCmb(salutationCmbb, driver, cmbReplace, salutation);
     }
 
     /**

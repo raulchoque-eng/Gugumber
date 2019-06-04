@@ -61,17 +61,14 @@ public class ContactClassicProfilePage extends ContactProfilePageAbstract {
     }
 
     /**
-     * clicks Contact details.
+     * Check the section Details.
+     *
+     * @return ContactLightningDetails.
      */
-    public void clickContactDetailsTab() {
-        contactDetailsTab.isDisplayed();
-    }
-
     @Override
-    public ContactDetailsPageAbstract openContactDetailsTab() {
-        return null;
+    public ContactDetailsAbstract checkDetailsSection() {
+        return new ContactClassicDetails();
     }
-
 
 //    /**
 //     * Contact delete contact button.

@@ -76,21 +76,21 @@ public class ContactLightningProfilePage extends ContactProfilePageAbstract {
     }
 
     /**
-     * clicks Contact details.
+     * Clicks Contact details.
      */
     public void clickContactDetailsTab() {
         contactDetailsTab.click();
     }
 
     /**
-     * Gets of contact icon.
+     * Check the section Details.
      *
-     * @return new contact icon.
+     * @return ContactLightningDetails.
      */
     @Override
-    public ContactDetailsPageAbstract openContactDetailsTab() {
+    public ContactDetailsAbstract checkDetailsSection() {
         clickContactDetailsTab();
-        return new ContactLightningDetailsPage();
+        return new ContactLightningDetails();
     }
 
 //    /**

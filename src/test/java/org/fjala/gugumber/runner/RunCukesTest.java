@@ -35,7 +35,7 @@ import static org.fjala.gugumber.salesforce.ui.PageLayoutType.LIGHTNING;
 @CucumberOptions(
         plugin = {"pretty", "html:target/cucumber", "json:target/cucumber.json"},
         glue = {"org/fjala/gugumber/steps"},
-        features = {"src/test/resources/features"},
+        features = {"src/test/resources/features/contact.feature"},
         monochrome = true)
 
 public class RunCukesTest extends AbstractTestNGCucumberTests {

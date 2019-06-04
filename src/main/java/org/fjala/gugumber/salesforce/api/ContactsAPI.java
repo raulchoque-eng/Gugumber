@@ -34,14 +34,14 @@ public class ContactsAPI {
     private String finalEndpoint;
 
     /**
-     * Constructor of AccountAPI.
+     * Constructor of ContactAPI.
      */
     protected ContactsAPI() {
         restClient = RestClientAPI.getInstance();
     }
 
     /**
-     * Returns the instance the account API.
+     * Returns the instance the contact API.
      *
      * @return a account API.
      */
@@ -50,12 +50,12 @@ public class ContactsAPI {
     }
 
     /**
-     * Deletes an account by id.
+     * Deletes an contact by id.
      *
-     * @param accountId to concat with the base endpoint.
+     * @param contactId to concat with the base endpoint.
      */
-    public void deleteAccount(final int accountId) {
-        finalEndpoint = CONTACT_ENDPOINT.concat("/".concat(String.valueOf(accountId)));
+    public void deleteContact(final int contactId) {
+        finalEndpoint = CONTACT_ENDPOINT.concat("/".concat(String.valueOf(contactId)));
         final Response response = restClient.delete(finalEndpoint);
     }
 }

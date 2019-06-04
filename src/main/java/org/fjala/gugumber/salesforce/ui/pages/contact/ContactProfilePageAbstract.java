@@ -34,5 +34,5 @@ public abstract class ContactProfilePageAbstract extends BasePage {
      *
      * @return an Contact details page.
      */
-    public abstract ContactDetailsPageAbstract openContactDetailsTab();
+    public abstract ContactDetailsAbstract checkDetailsSection();
 }

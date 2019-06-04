@@ -27,6 +27,7 @@ import org.fjala.gugumber.salesforce.entities.Context;
 import org.fjala.gugumber.salesforce.ui.PageLayoutConfig;
 import org.fjala.gugumber.salesforce.ui.PageLayoutFactory;
 import org.fjala.gugumber.salesforce.ui.PageLayoutType;
+import org.fjala.gugumber.salesforce.ui.pages.contact.ContactDetailsAbstract;
 import org.fjala.gugumber.salesforce.ui.pages.contact.ContactFormAbstract;
 import org.fjala.gugumber.salesforce.ui.pages.contact.ContactLightningProfilePage;
 import org.fjala.gugumber.salesforce.ui.pages.contact.ContactPageAbstract;
@@ -72,6 +73,11 @@ public class ContactSteps {
     private ContactProfilePageAbstract contactProfilePage;
 
     /**
+     * Variable for the Contact Details.
+     */
+    private ContactDetailsAbstract contactDetails;
+
+    /**
      * Constructor of contact steps sending the context.
      *
      * @param context init the context.
@@ -94,8 +100,8 @@ public class ContactSteps {
      *
      * @param contactMap contains the contact's values
      */
-    @And("^I create a new Contact with the following information in Contact form$")
-    public void createANewContactInContactForm(Map<String, String> contactMap) {
+    @When("^I create a new Contact with the following information in Contact form$")
+    public void createANewContactInContactForm(final Map<String, String> contactMap) {
         contactForm = contactPage.clickNewContact();
         contact.processInformation(contactMap);
         contactForm.setContactInformation(contactMap);
@@ -121,7 +127,7 @@ public class ContactSteps {
      */
     @Then("^the contact last name should be displayed in the Contact Profile page$")
     public void displayContactInTheContactProfilePage() {
-        assertEquals(contactProfilePage.getFullNameTitleContact(), contact.getFullName(),"the Contact Last name not displayed");
+        assertEquals(contactProfilePage.getFullNameTitleContact(), contact.getFullName(),"the Contact Name not displayed");
     }
 
     /**
@@ -130,6 +136,16 @@ public class ContactSteps {
     @Then("^the contact last name should be displayed in the contacts list of Contacts page$")
     public void displayContactInTheContactsListOfContactsPage() {
         assertTrue(contactPage.getListOfContactsName().contains(contact.getLastName()));
+    }
+
+    @When("^I open the Contact Details page$")
+    public void openTheContactDetailsPage() {
+        contactDetails = contactProfilePage.checkDetailsSection();
+    }
+
+    @Then("^the contact information should be displayed in the Contact Details page$")
+    public void theContactInformationShouldBeDisplayedInTheContactDetailsPage() {
+        assertEquals(contactDetails.getFullNameContact(), contact.getFullName(),"the Contact Name not displayed");
     }
 
 //    /**
