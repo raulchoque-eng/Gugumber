@@ -129,6 +129,7 @@ public class ContactSteps {
      */
     @Then("^the contact last name should be displayed in the contacts list of Contacts page$")
     public void displayContactInTheContactsListOfContactsPage() {
+        contactPage = PageLayoutFactory.getContactPage();
         assertTrue(contactPage.getListOfContactsName().contains(contact.getLastName()));
     }
 }

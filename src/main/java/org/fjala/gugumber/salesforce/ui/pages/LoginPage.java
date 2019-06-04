@@ -26,18 +26,38 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
  */
 public class LoginPage extends BasePage {
 
+    /**
+     * Constant for the title of home page.
+     */
+    public static final String HOME_PAGE_TITLE = "Home Page ~ Salesforce - Developer Edition";
+
+    /**
+     * Web element for the user name text-box.
+     */
     @FindBy(id = "username")
     private WebElement userNameTxtB;
 
+    /**
+     * Web element for the password text-box.
+     */
     @FindBy(id = "password")
     private WebElement passwordTxtB;
 
+    /**
+     * Web element for the login button.
+     */
     @FindBy(id = "Login")
     private WebElement loginBtn;
 
+    /**
+     * Web element for login form to use in the wait.
+     */
     @FindBy(id = "theloginform")
     private WebElement loginForm;
 
+    /**
+     * Waits until page object is loaded.
+     */
     @Override
     public void waitUntilPageObjectIsLoaded() {
         wait.until(ExpectedConditions.visibilityOf(loginForm));
@@ -52,19 +72,32 @@ public class LoginPage extends BasePage {
     public void login(final String userName, final String password) {
         setUserName(ReaderApplicationProperties.getInstance().getAppProperties().get(userName));
         setPassword(ReaderApplicationProperties.getInstance().getAppProperties().get(password));
-        clickNextSignInBtn();
-        wait.until(ExpectedConditions.titleIs("Home Page ~ Salesforce - Developer Edition"));
+        clickSignInBtn();
+        wait.until(ExpectedConditions.titleIs(HOME_PAGE_TITLE));
     }
 
+    /**
+     * Sets the user name in the text-box of the login form.
+     *
+     * @param userName for the log in.
+     */
     public void setUserName(final String userName) {
         userNameTxtB.sendKeys(userName);
     }
 
+    /**
+     * Sets the password in the text-box of the log in form.
+     *
+     * @param password for the log in.
+     */
     public void setPassword(final String password) {
         passwordTxtB.sendKeys(password);
     }
 
-    public void clickNextSignInBtn() {
+    /**
+     * Clicks on sing in button.
+     */
+    public void clickSignInBtn() {
         loginBtn.click();
     }
 }
