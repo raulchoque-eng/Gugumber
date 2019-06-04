@@ -16,14 +16,8 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 import org.fjala.gugumber.core.report.GeneratorReport;
 import org.fjala.gugumber.core.selenium.WebDriverManager;
-import org.fjala.gugumber.salesforce.ui.PageLayoutConfig;
-import org.fjala.gugumber.salesforce.ui.PageLayoutFactory;
-import org.fjala.gugumber.salesforce.ui.PageLayoutType;
-import org.fjala.gugumber.salesforce.ui.pages.app.BaseAppPage;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-
-import static org.fjala.gugumber.salesforce.ui.PageLayoutType.LIGHTNING;
 
 /**
  * RunCukesTest class.
@@ -46,5 +40,10 @@ public class RunCukesTest extends AbstractTestNGCucumberTests {
     public void afterExecution() {
         WebDriverManager.getInstance().getWebDriver().close();
         GeneratorReport.getInstance().generateReport();
+    }
+
+    @AfterMethod
+    public void refresh() {
+        WebDriverManager.getInstance().getWebDriver().manage().deleteAllCookies();
     }
 }

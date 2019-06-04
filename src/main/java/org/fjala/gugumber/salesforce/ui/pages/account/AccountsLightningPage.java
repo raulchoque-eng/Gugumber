@@ -43,7 +43,7 @@ public class AccountsLightningPage extends AccountsPageAbstract {
      * List of web elements for accounts name.
      */
     @FindBy(css = "a[class='slds-truncate outputLookupLink slds-truncate forceOutputLookup']")
-    private List<WebElement> AccountsNameList;
+    private List<WebElement> accountsNameList;
 
     /**
      * Waits until page object is loaded.
@@ -66,12 +66,13 @@ public class AccountsLightningPage extends AccountsPageAbstract {
 
     /**
      * Returns a list with the account name from accounts page.
+     *
      * @return a list with accounts names as string.
      */
     @Override
     public List<String> getListOfAccountsName() {
-        final List<String> accountsName = new ArrayList<>();
-        for (WebElement accountName : AccountsNameList) {
+       final List<String> accountsName = new ArrayList<>();
+        for (WebElement accountName : accountsNameList) {
             accountsName.add(accountName.getText());
         }
         return accountsName;
