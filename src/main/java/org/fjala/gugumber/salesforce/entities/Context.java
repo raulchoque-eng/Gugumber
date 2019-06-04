@@ -31,11 +31,23 @@ public class Context {
     private Account account;
 
     /**
+     * Event to manage in the context.
+     */
+    private Event event;
+
+    /**
+     * User to manage in the context.
+     */
+    private User user;
+
+    /**
      * Context for creation of the constructor.
      */
     public Context() {
         this.contact = new Contact();
         this.account = new Account();
+        this.event = new Event();
+        this.user = new User();
     }
 
     /**
@@ -54,5 +66,23 @@ public class Context {
      */
     public Account getAccount() {
         return account;
+    }
+
+    /**
+     * Returns the Event of context.
+     *
+     * @return an instance Event, this is "event" variable.
+     */
+    public Event getEvent() {
+        return event;
+    }
+
+    /**
+     * Returns the User of context.
+     *
+     * @return an instance Event.
+     */
+    public User getUser() {
+        return user;
     }
 }

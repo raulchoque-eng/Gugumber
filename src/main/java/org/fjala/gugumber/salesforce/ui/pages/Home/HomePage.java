@@ -13,6 +13,7 @@
 package org.fjala.gugumber.salesforce.ui.pages.Home;
 
 import org.fjala.gugumber.salesforce.ui.pages.BasePage;
+import org.fjala.gugumber.salesforce.ui.pages.event.EventFormAbstract;
 
 /**
  * HomePage class.
@@ -22,9 +23,7 @@ import org.fjala.gugumber.salesforce.ui.pages.BasePage;
  */
 public abstract class HomePage extends BasePage {
 
-    public void openForm() {
-        System.out.println("TODO");
-    }
+    public abstract EventFormAbstract openEventForm();
 
     public String getNameEvent() {
         return "TODO";

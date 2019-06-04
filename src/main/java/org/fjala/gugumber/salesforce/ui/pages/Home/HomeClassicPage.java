@@ -12,6 +12,8 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.Home;
 
+import org.fjala.gugumber.salesforce.ui.pages.event.EventClassicForm;
+import org.fjala.gugumber.salesforce.ui.pages.event.EventFormAbstract;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -31,10 +33,27 @@ public class HomeClassicPage extends HomePage {
     private WebElement bodyHomePage;
 
     /**
+     * Web element to open the event form.
+     */
+    @FindBy(css = "div#homeCalendarSection input.btn")
+    private WebElement newEventBtn;
+
+    /**
      * Waits until page object is loaded.
      */
     @Override
     protected void waitUntilPageObjectIsLoaded() {
         wait.until(ExpectedConditions.visibilityOf(bodyHomePage));
+    }
+
+    /**
+     * Opens the event form.
+     *
+     * @return an EventFormAbstract class.
+     */
+    @Override
+    public EventFormAbstract openEventForm() {
+        newEventBtn.click();
+        return new EventClassicForm();
     }
 }
