@@ -132,4 +132,15 @@ public class ContactSteps {
     public void ContactDisplayedInTheContactsListOfContactsPage() {
         assertTrue(contactPage.getListOfContactsName().contains(contact.getLastName()));
     }
+
+//    /**
+//     * Delete a new contact sending the information.
+//     */
+//    @And("^I delete a Contact exist with the following information in Contact form$")
+//    public void DeleteAContactExistInContactForm(Map<String, String> contactMap) {
+//        contactForm = contactPage.clickDeleteContact();
+//        contact.processInformation(contactMap);
+//        contactForm.setContactInformation(contactMap);
+//        contactProfilePage = contactForm.clickSaveNewContact();
+//    }
 }

@@ -84,4 +84,21 @@ public class ContactLightningProfilePage extends ContactProfilePage {
     public boolean isTheNewContact() {
         return contactIcon.isDisplayed();
     }
+
+//    /**
+//     * Contact delete contact button.
+//     */
+//    private void clickDeleteContactBtn() {
+//        deleteContactBtn.click();
+//    }
+
+    /**
+     * Gets Delete Contact form.
+     *
+     * @return new profile contact lighting form.
+     */
+    @Override
+    public ContactForm clickDeleteContact() {
+        return null;
+    }
 }

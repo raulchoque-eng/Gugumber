@@ -39,7 +39,7 @@ public class ContactClassicProfilePage extends ContactProfilePage {
     /**
      * Web Element of profile contact form.
      */
-    @FindBy(css = "[class='content'] [alt='Contact']")
+    @FindBy(css = "[alt='contact Profile Picture']")
     private WebElement contactIcon;
 
     /**
@@ -68,5 +68,23 @@ public class ContactClassicProfilePage extends ContactProfilePage {
     @Override
     public boolean isTheNewContact() {
         return contactIcon.isDisplayed();
+    }
+
+
+//    /**
+////     * Contact delete contact button.
+////     */
+////    private void clickDeleteContactBtn() {
+////        deleteContactBtn.click();
+////    }
+
+    /**
+     * Gets Delete Contact form.
+     *
+     * @return new profile contact lighting form.
+     */
+    @Override
+    public ContactForm clickDeleteContact() {
+        return null;
     }
 }

@@ -35,4 +35,11 @@ public abstract class ContactProfilePage extends BasePage {
      * @return the icon of contact.
      */
     public abstract boolean isTheNewContact();
+
+    /**
+     * Returns an Contact Form page after clicking on delete button.
+     *
+     * @return an Contact form page.
+     */
+    public abstract ContactForm clickDeleteContact();
 }
