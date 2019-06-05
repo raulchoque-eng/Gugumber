@@ -52,7 +52,6 @@ public class DriverMethods {
       } else {
           driver.findElement(By.cssSelector(replaceCmb.replace("nameTitle", text))).click();
       }
-
     }
 
     /**
