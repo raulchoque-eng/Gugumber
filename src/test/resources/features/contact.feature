@@ -4,12 +4,12 @@ Feature: Contact manage
     Given I am logged in SalesForce with "username.admin" and "password.admin"
       And I navigate to the Home page
 
-  @deleteContact
+  @delete-contact
   Scenario: Create a new contact for an user with only required data
     When I go to the Contacts page
       And I open Contact form
       And I create a new Contact with the following information in Contact form
-        | Last Name  | Valdez |
+        | Last Name  | Verduguez |
     Then a message that indicates the Contact was created should be displayed
       And the contact last name should be displayed in the Contact Profile page
     When I open the Contact Details page

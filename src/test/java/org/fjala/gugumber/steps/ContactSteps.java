@@ -106,6 +106,7 @@ public class ContactSteps {
         contact.processInformation(contactMap);
         contactForm.setContactInformation(contactMap);
         contactProfilePage = contactForm.clickSaveNewContact();
+        contact.setId(contactProfilePage.getIdFromUrl());
     }
 
     /**
