@@ -90,9 +90,4 @@ public class Hooks {
     public void deleteContactAfterScenario() {
         ContactAPI.getInstance().deleteContact(contact.getId());
     }
-
-    @Before("@create_account")
-    public void createAccountAfterScenario() {
-        AccountAPI.getInstance().createAccount();
-    }
 }

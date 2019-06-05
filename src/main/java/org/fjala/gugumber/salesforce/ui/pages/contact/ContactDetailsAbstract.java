@@ -5,7 +5,7 @@ import org.fjala.gugumber.salesforce.ui.pages.BasePage;
 /**
  * ContactDetailsAbstract class.
  *
- * @author Cxrisstian
+ * @author Cristian Lujan
  * @version 0.0.1
  */
 public abstract class ContactDetailsAbstract extends BasePage {
