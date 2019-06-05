@@ -12,12 +12,6 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.contact;
 
-import org.fjala.gugumber.core.StrategySetter;
-import org.fjala.gugumber.salesforce.ui.pages.BasePage;
-
-import java.util.HashMap;
-import java.util.Map;
-
 import static org.fjala.gugumber.salesforce.keys.ContactKeys.ACCOUNT;
 import static org.fjala.gugumber.salesforce.keys.ContactKeys.ASSISTANT;
 import static org.fjala.gugumber.salesforce.keys.ContactKeys.ASST_PHONE;
@@ -47,6 +41,12 @@ import static org.fjala.gugumber.salesforce.keys.ContactKeys.PHONE;
 import static org.fjala.gugumber.salesforce.keys.ContactKeys.REPORTS_TO;
 import static org.fjala.gugumber.salesforce.keys.ContactKeys.SALUTATION;
 import static org.fjala.gugumber.salesforce.keys.ContactKeys.TITLE;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.fjala.gugumber.core.StrategySetter;
+import org.fjala.gugumber.salesforce.ui.pages.BasePage;
 
 /**
  * ContactFormAbstract class

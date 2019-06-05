@@ -23,6 +23,7 @@ import io.restassured.response.Response;
  * @version 0.0.1
  */
 public class ContactAPI {
+
     /**
      * Variable for the rest client.
      */
