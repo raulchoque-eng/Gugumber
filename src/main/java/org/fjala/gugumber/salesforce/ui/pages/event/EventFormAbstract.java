@@ -12,9 +12,14 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.event;
 
+import org.fjala.gugumber.core.StrategySetter;
 import org.fjala.gugumber.salesforce.entities.Event;
 import org.fjala.gugumber.salesforce.ui.pages.BasePage;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
+import java.util.Date;
+import java.util.HashMap;
 import java.util.Set;
 
 /**
@@ -26,10 +31,98 @@ import java.util.Set;
 public abstract class EventFormAbstract extends BasePage {
 
     /**
-     * Creates a new Event with the information of event.
-     *
-     * @param event    is a event to get the information.
-     * @param keyEvent is a set of key of references.
+     * Web element by the event save.
      */
-    public abstract void createEvent(Event event, Set<String> keyEvent);
+    @FindBy(css = "td#topButtonRow [name = \"save\"]")
+    private WebElement saveEventBtn;
+
+    /**
+     * Creates a new Event with the event information.
+     *
+     * @param event     by create a new event.
+     * @param keysEvent by references the values.
+     */
+    public void createEvent(final Event event, final Set<String> keysEvent) {
+        final HashMap<String, StrategySetter> strategyMap = composesStrategyMap(event);
+        keysEvent.forEach(key -> {
+            strategyMap.get(key).executeMethod();
+            System.out.println("Event UI: " + key);
+        });
+        saveEventBtn.click();
+    }
+
+    /**
+     * Return an Strategy Map with the "newEvent" parameter.
+     *
+     * @param event is an instance Event.
+     * @return an instance HashMap with keys and methods to run.
+     */
+    private HashMap<String, StrategySetter> composesStrategyMap(final Event event) {
+        final HashMap<String, StrategySetter> strategyMap = new HashMap<>();
+        strategyMap.put("Assigned To", () -> setAssignedToUser(event.getAssignedToUser()));
+        strategyMap.put("Subject", () -> setSubject(event.getSubject()));
+        strategyMap.put("Name", () -> setNameContact(event.getNameContact()));
+        strategyMap.put("Related To", () -> setRelatedToAccount(event.getRelatedToAccount()));
+        strategyMap.put("Location", () -> setLocation(event.getLocation()));
+        strategyMap.put("Start Date", () -> setStartDate(event.getStartDate()));
+        strategyMap.put("End Date", () -> setEndDate(event.getEndDate()));
+        strategyMap.put("Description", () -> setDescription(event.getDescription()));
+        return strategyMap;
+    }
+
+    /**
+     * Sets the assignedToUser in a Event classic form sending a string.
+     *
+     * @param assignedToUser as a string.
+     */
+    public abstract void setAssignedToUser(final String assignedToUser);
+
+    /**
+     * Sets the subject in a Event classic form sending a string.
+     *
+     * @param subject as a string.
+     */
+    public abstract void setSubject(final String subject);
+
+    /**
+     * Sets the nameContact in a Event classic form sending a string.
+     *
+     * @param nameContact as a string.
+     */
+    public abstract void setNameContact(final String nameContact);
+
+    /**
+     * Sets the relatedToAccount in a Event classic form sending a string.
+     *
+     * @param relatedToAccount as a string.
+     */
+    public abstract void setRelatedToAccount(final String relatedToAccount);
+
+    /**
+     * Sets the location in a Event classic form sending a string.
+     *
+     * @param location as a string.
+     */
+    public abstract void setLocation(final String location);
+
+    /**
+     * Sets the startDate in a Event classic form sending a string by validate the date.
+     *
+     * @param startDate as a Date.
+     */
+    public abstract void setStartDate(final Date startDate);
+
+    /**
+     * Sets the endDate in a Event classic form sending a string by validate the date.
+     *
+     * @param endDate as a Date.
+     */
+    public abstract void setEndDate(final Date endDate);
+
+    /**
+     * Sets the description in a Event classic form sending a string.
+     *
+     * @param description as a string.
+     */
+    public abstract void setDescription(final String description);
 }

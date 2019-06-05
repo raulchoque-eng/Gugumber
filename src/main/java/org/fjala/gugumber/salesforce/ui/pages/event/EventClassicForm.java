@@ -13,15 +13,15 @@
 package org.fjala.gugumber.salesforce.ui.pages.event;
 
 import org.fjala.gugumber.core.selenium.utils.DriverMethods;
-import org.fjala.gugumber.salesforce.entities.Event;
+import org.fjala.gugumber.salesforce.utils.DateMethods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.Set;
-import java.util.concurrent.TimeUnit;
 
 /**
  * EventClassicForm class.
@@ -92,31 +92,29 @@ public class EventClassicForm extends EventFormAbstract {
     private WebElement endTimeTxt;
 
     /**
+     * Web element by search an related to user.
+     */
+    @FindBy(css = "div#ep > div.pbBody > div:nth-child(4) > table tr:nth-child(6) td:nth-child(2) select")
+    private WebElement relatedToAccountCmbbx;
+
+    /**
+     * Web element by select the related to user.
+     */
+    @FindBy(css = "div#ep > div.pbBody > div:nth-child(4) > table tr:nth-child(6) td:nth-child(2) span.lookupInput [title=\"Related To\"]")
+    private WebElement relatedToAccountTxt;
+
+    /**
      * Web element by the Description.
      */
     @FindBy(css = "td.last.data2Col > textarea")
     private WebElement descriptionTxtar;
 
     /**
-     * Web element by the event save.
-     */
-    @FindBy(css = "td#topButtonRow [value = \" Save \"]")
-    private WebElement saveEventBtn;
-
-    /**
      * Creates a new Event with the event information.
      *
-     * @param event    is a event to get the information.
-     * @param keyEvent is a set of key of references.
+     * @param event     is a event to get the information.
+     * @param keysEvent is a set of key of references.
      */
-    @Override
-    public void createEvent(final Event event, final Set<String> keyEvent) {
-        setAssignedToUser(event.getAssignedToUser());
-        setLocation(event.getLocation());
-        setSubject(event.getSubject());
-        setNameContact(event.getNameContact());
-        setDescription(event.getDescription());
-    }
 
     /**
      * Waits until the Event classical form is loaded.
@@ -131,6 +129,7 @@ public class EventClassicForm extends EventFormAbstract {
      *
      * @param assignedToUser as a string.
      */
+    @Override
     public void setAssignedToUser(final String assignedToUser) {
         searchUserImg.click();
         final String parentWindowHandle = driver.getWindowHandle();
@@ -138,7 +137,6 @@ public class EventClassicForm extends EventFormAbstract {
         driver.switchTo().window(new LinkedList<>(windows).getLast());
         driver.switchTo().frame("resultsFrame");
         driver.findElement(By.cssSelector("table.list tr:nth-child(2) th:nth-child(1) a")).click();
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.switchTo().window(parentWindowHandle);
     }
 
@@ -147,6 +145,7 @@ public class EventClassicForm extends EventFormAbstract {
      *
      * @param location as a string.
      */
+    @Override
     public void setLocation(final String location) {
         DriverMethods.setTxt(locationTxt, location);
     }
@@ -156,8 +155,21 @@ public class EventClassicForm extends EventFormAbstract {
      *
      * @param subject as a string.
      */
+    @Override
     public void setSubject(final String subject) {
         DriverMethods.setTxt(subjectTxt, subject);
+    }
+
+    /**
+     * Sets the startDate in a Event classic form sending a string by validate the date.
+     *
+     * @param startDate as a Date.
+     */
+    @Override
+    public void setStartDate(final Date startDate) {
+        final String pattern = "dd-MM-yyyy";
+        DriverMethods.setTxt(startDateTxt, DriverMethods.convertDateToString(startDate, pattern));
+        DriverMethods.setTxt(startTimeTxt, DateMethods.getHourBefore(startDate, 2));
     }
 
     /**
@@ -165,8 +177,33 @@ public class EventClassicForm extends EventFormAbstract {
      *
      * @param nameContact as a string.
      */
+    @Override
     public void setNameContact(final String nameContact) {
         DriverMethods.setTxt(nameTxt, nameContact);
+    }
+
+    /**
+     * Sets the endDate in a Event classic form sending a string by validate the date.
+     *
+     * @param endDate as a Date.
+     */
+    @Override
+    public void setEndDate(final Date endDate) {
+        final String pattern = "dd-MM-yyyy";
+        DriverMethods.setTxt(endDateTxt, DriverMethods.convertDateToString(endDate, pattern));
+        DriverMethods.setTxt(endTimeTxt, DateMethods.getHourBefore(endDate, 3));
+    }
+
+    /**
+     * Sets the relatedToAccount in a Event classic form sending a string.
+     *
+     * @param relatedToAccount as a string.
+     */
+    @Override
+    public void setRelatedToAccount(final String relatedToAccount) {
+        final String locatorBySelect = "//option[contains(text(), 'nameTitle')]";
+        DriverMethods.selectCmb(relatedToAccountCmbbx, driver, locatorBySelect, "Account");
+        DriverMethods.setTxt(relatedToAccountTxt, relatedToAccount);
     }
 
     /**
@@ -174,6 +211,7 @@ public class EventClassicForm extends EventFormAbstract {
      *
      * @param description as a string.
      */
+    @Override
     public void setDescription(final String description) {
         DriverMethods.setTxt(descriptionTxtar, description);
     }

@@ -1,8 +1,6 @@
 package org.fjala.gugumber.salesforce.ui.pages.event;
 
-import org.fjala.gugumber.core.StrategySetter;
 import org.fjala.gugumber.core.selenium.utils.DriverMethods;
-import org.fjala.gugumber.salesforce.entities.Event;
 import org.fjala.gugumber.salesforce.utils.DateMethods;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -10,8 +8,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Set;
 
 /**
  * EventLightningForm class.
@@ -100,12 +96,6 @@ public class EventLightningForm extends EventFormAbstract {
     private WebElement descriptionTxtar;
 
     /**
-     * Web element by the save the new event.
-     */
-    @FindBy(css = "div.modal-footer button[title=\"Save\"]")
-    private WebElement saveBtn;
-
-    /**
      * Waits until the event form is loaded.
      */
     @Override
@@ -118,6 +108,7 @@ public class EventLightningForm extends EventFormAbstract {
      *
      * @param username as a string.
      */
+    @Override
     public void setAssignedToUser(final String username) {
         final String locatorBySelect = "[title = \"nameTitle\"]";
         DriverMethods.selectCmb(closeLnk, driver, locatorBySelect, username);
@@ -128,6 +119,7 @@ public class EventLightningForm extends EventFormAbstract {
      *
      * @param subject sets the "Subject" value.
      */
+    @Override
     public void setSubject(final String subject) {
         DriverMethods.setTxt(subjectTxt, subject);
     }
@@ -137,6 +129,7 @@ public class EventLightningForm extends EventFormAbstract {
      *
      * @param nameContact as a string.
      */
+    @Override
     public void setNameContact(final String nameContact) {
         final String locatorBySelect = "[title = \"nameTitle\"]";
         DriverMethods.selectCmb(contactCmbbx, driver, locatorBySelect, nameContact);
@@ -147,6 +140,7 @@ public class EventLightningForm extends EventFormAbstract {
      *
      * @param relatedToAccount as a string.
      */
+    @Override
     public void setRelatedToAccount(final String relatedToAccount) {
         final String locatorBySelect = "[title = \"nameTitle\"]";
         DriverMethods.selectCmb(accountCmbbx, driver, locatorBySelect, relatedToAccount);
@@ -157,6 +151,7 @@ public class EventLightningForm extends EventFormAbstract {
      *
      * @param location as a string.
      */
+    @Override
     public void setLocation(final String location) {
         DriverMethods.setTxt(locationTxt, location);
     }
@@ -166,42 +161,9 @@ public class EventLightningForm extends EventFormAbstract {
      *
      * @param description as a string.
      */
+    @Override
     public void setDescription(final String description) {
         DriverMethods.setTxt(descriptionTxtar, description);
-    }
-
-    /**
-     * Creates a new Event with the event information.
-     *
-     * @param event     by create a new event.
-     * @param keysEvent by references the values.
-     */
-    @Override
-    public void createEvent(final Event event, final Set<String> keysEvent) {
-        final HashMap<String, StrategySetter> strategyMap = composesStrategyMap(event);
-        keysEvent.forEach(key -> {
-            strategyMap.get(key).executeMethod();
-            System.out.println("Event UI: " + key);
-        });
-    }
-
-    /**
-     * Return an Strategy Map with the "newEvent" parameter.
-     *
-     * @param event is an instance Event.
-     * @return an instance HashMap with keys and methods to run.
-     */
-    private HashMap<String, StrategySetter> composesStrategyMap(final Event event) {
-        final HashMap<String, StrategySetter> strategyMap = new HashMap<>();
-        strategyMap.put("Assigned To", () -> setAssignedToUser(event.getAssignedToUser()));
-        strategyMap.put("Subject", () -> setSubject(event.getSubject()));
-        strategyMap.put("Name", () -> setNameContact(event.getNameContact()));
-        strategyMap.put("Related To", () -> setRelatedToAccount(event.getRelatedToAccount()));
-        strategyMap.put("Location", () -> setLocation(event.getLocation()));
-        strategyMap.put("Start Date", () -> setStartDate(event.getStartDate()));
-        strategyMap.put("End Date", () -> setEndDate(event.getEndDate()));
-        strategyMap.put("Description", () -> setDescription(event.getDescription()));
-        return strategyMap;
     }
 
     /**
@@ -209,7 +171,8 @@ public class EventLightningForm extends EventFormAbstract {
      *
      * @param startDate as a Date.
      */
-    private void setStartDate(final Date startDate) {
+    @Override
+    public void setStartDate(final Date startDate) {
         final String pattern = "dd-MM-yyyy";
         DriverMethods.setTxt(startDateTxt, DriverMethods.convertDateToString(startDate, pattern));
         setInputFieldJavaScript(startTimeTxt, DateMethods.getHourBefore(startDate, 2));
@@ -220,7 +183,8 @@ public class EventLightningForm extends EventFormAbstract {
      *
      * @param eventEndDate as a Date.
      */
-    private void setEndDate(final Date eventEndDate) {
+    @Override
+    public void setEndDate(final Date eventEndDate) {
         final String pattern = "dd-MM-yyyy";
         DriverMethods.setTxt(endDateTxt, DriverMethods.convertDateToString(eventEndDate, pattern));
         setInputFieldJavaScript(endTimeTxt, DateMethods.getHourBefore(eventEndDate, 3));

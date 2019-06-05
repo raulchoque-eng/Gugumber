@@ -49,7 +49,11 @@ public class DriverMethods {
      */
     public static  void selectCmb(final WebElement webElement, final WebDriver driver, final String replaceCmb, final String text) {
         webElement.click();
-        driver.findElement(By.cssSelector(replaceCmb.replace("nameTitle", text))).click();
+        if (replaceCmb.contains("//")) {
+            driver.findElement(By.xpath(replaceCmb.replace("nameTitle", text))).click();
+        } else {
+            driver.findElement(By.cssSelector(replaceCmb.replace("nameTitle", text))).click();
+        }
     }
 
     /**

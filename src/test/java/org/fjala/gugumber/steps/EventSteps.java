@@ -39,7 +39,7 @@ public class EventSteps {
     /**
      * Variable for the even form.
      */
-    private EventFormAbstract eventFormAbstract;
+    private EventFormAbstract eventForm;
 
     /**
      * Variable for the even.
@@ -73,10 +73,10 @@ public class EventSteps {
         PageLayoutType layout = PageLayoutConfig.getPageLayoutName();
         if (layout == CLASSIC) {
             homePage = new HomeClassicPage();
-            eventFormAbstract = homePage.openEventForm();
+            eventForm = homePage.openEventForm();
         } else {
             calendarPage = PageTransporter.getInstance().navigateToCalendarPage();
-            eventFormAbstract = calendarPage.openEventForm();
+            eventForm = calendarPage.openEventForm();
         }
     }
 
@@ -89,6 +89,6 @@ public class EventSteps {
     public void addNewEventWithFollowingInformation(Map<String, String> newEvent) {
         event.setDataToEvent(newEvent);
         Set<String> keysEvent = newEvent.keySet();
-        eventFormAbstract.createEvent(event, keysEvent);
+        eventForm.createEvent(event, keysEvent);
     }
 }
