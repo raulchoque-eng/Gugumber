@@ -64,18 +64,8 @@ public class AccountAPI {
      *
      * @param accountId to concat with the base endpoint.
      */
-    public void deleteAccount(final int accountId) {
-        finalEndpoint = ACCOUNT_ENDPOINT.concat("/".concat(String.valueOf(accountId)));
+    public void deleteAccount(final String accountId) {
+        finalEndpoint = ACCOUNT_ENDPOINT.concat("/".concat(accountId));
         final Response response = restClient.delete(finalEndpoint);
-    }
-
-    /**
-     * Create an account.
-     */
-    public void createAccount() {
-        Map<String,String> newAccount = new HashMap<>();
-        newAccount.put("name", account.getNameAccount());
-        finalEndpoint = ACCOUNT_ENDPOINT;
-        final Response response = restClient.post(finalEndpoint, newAccount);
     }
 }

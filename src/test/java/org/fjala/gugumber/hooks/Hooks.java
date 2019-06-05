@@ -86,7 +86,7 @@ public class Hooks {
     }
 
 
-    @After("@delete_contact")
+    @After("@delete-contact")
     public void deleteContactAfterScenario() {
         ContactAPI.getInstance().deleteContact(contact.getId());
     }
@@ -95,5 +95,4 @@ public class Hooks {
     public void createAccountAfterScenario() {
         AccountAPI.getInstance().createAccount();
     }
-
 }

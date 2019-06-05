@@ -69,21 +69,4 @@ public class ContactClassicProfilePage extends ContactProfilePageAbstract {
     public ContactDetailsAbstract checkDetailsSection() {
         return new ContactClassicDetails();
     }
-
-//    /**
-//     * Contact delete contact button.
-//     */
-//    private void clickDeleteContactBtn() {
-//        deleteContactBtn.click();
-//    }
-
-//    /**
-//     * Gets Delete Contact form.
-//     *
-//     * @return new profile contact lighting form.
-//     */
-//    @Override
-//    public ContactForm clickDeleteContact() {
-//        return null;
-//    }
 }

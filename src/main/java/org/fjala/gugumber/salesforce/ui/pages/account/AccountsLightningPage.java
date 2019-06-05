@@ -71,7 +71,8 @@ public class AccountsLightningPage extends AccountsPageAbstract {
      */
     @Override
     public List<String> getListOfAccountsName() {
-       final List<String> accountsName = new ArrayList<>();
+        wait.until(ExpectedConditions.stalenessOf(accountsNameList.get(0)));
+        final List<String> accountsName = new ArrayList<>();
         for (WebElement accountName : accountsNameList) {
             accountsName.add(accountName.getText());
         }

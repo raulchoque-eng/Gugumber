@@ -41,12 +41,12 @@ public class PageLayoutFactory {
     /**
      * Constant for the message of exception.
      */
-    private static final String MESSAGE_FOR_UNKNOWN_LAYOUT = "Unknown layout type";
+    public static final String MESSAGE_FOR_UNKNOWN_LAYOUT = "Unknown layout type";
 
     /**
      * Constructor of PageLayoutFactory.
      */
-    protected PageLayoutFactory() {}
+    protected PageLayoutFactory() { }
 
     /**
      * Returns the home page according the page layout.

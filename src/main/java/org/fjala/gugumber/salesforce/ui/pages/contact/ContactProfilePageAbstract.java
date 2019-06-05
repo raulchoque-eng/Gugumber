@@ -13,6 +13,7 @@
 package org.fjala.gugumber.salesforce.ui.pages.contact;
 
 import org.fjala.gugumber.salesforce.ui.pages.BasePage;
+import org.fjala.gugumber.salesforce.ui.pages.utils.UrlComponents;
 
 /**
  * ContactProfilePageAbstract class
@@ -35,4 +36,13 @@ public abstract class ContactProfilePageAbstract extends BasePage {
      * @return an Contact details page.
      */
     public abstract ContactDetailsAbstract checkDetailsSection();
+
+    /**
+     * Return the id from url.
+     *
+     * @return id as string.
+     */
+    public String getIdFromUrl() {
+        return UrlComponents.splitUrlToId(driver.getCurrentUrl());
+    }
 }
