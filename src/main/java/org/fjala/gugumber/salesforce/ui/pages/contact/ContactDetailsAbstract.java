@@ -17,7 +17,7 @@ public abstract class ContactDetailsAbstract extends BasePage {
      */
     public abstract String getFullNameContact();
 
-   /**
+    /**
      * Returns an Contact profile page after clicking on save button.
      *
      * @return an Contact profile page.

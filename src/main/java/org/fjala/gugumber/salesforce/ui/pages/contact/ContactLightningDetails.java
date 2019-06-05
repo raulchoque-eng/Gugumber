@@ -22,7 +22,7 @@ public class ContactLightningDetails extends ContactDetailsAbstract {
      * Locator for text box of Name.
      */
     @FindBy(css = "[data-aura-rendered-by^='10229'] [class='uiOutputText']")
-    private WebElement NameTxtb;
+    private WebElement nameTxtb;
 
     /**
      * Waits until page object is loaded.
@@ -39,7 +39,7 @@ public class ContactLightningDetails extends ContactDetailsAbstract {
      */
     @Override
     public String getFullNameContact() {
-        return NameTxtb.getText();
+        return nameTxtb.getText();
     }
 
     @Override

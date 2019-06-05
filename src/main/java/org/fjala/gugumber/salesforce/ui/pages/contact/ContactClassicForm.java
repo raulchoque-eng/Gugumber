@@ -12,15 +12,14 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.contact;
 
-import org.fjala.gugumber.core.selenium.utils.DriverMethods;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import java.util.LinkedList;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
+
+import org.fjala.gugumber.core.selenium.utils.DriverMethods;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
  * ContactClassicForm class
@@ -66,13 +65,13 @@ public class ContactClassicForm extends ContactFormAbstract {
     @FindBy(id = "con15")
     private WebElement emailTxtb;
 
-/**
+    /**
      * Locator for text box of title.
      */
     @FindBy(id = "con5")
     private WebElement titleTxtb;
 
-/**
+    /**
      * Locator for text box of department.
      */
     @FindBy(id = "con6")
@@ -260,7 +259,7 @@ public class ContactClassicForm extends ContactFormAbstract {
      */
     @Override
     protected void setFirstName(final String firstName) {
-        DriverMethods.setTxt(firstNameTxtb,firstName);
+        DriverMethods.setTxt(firstNameTxtb, firstName);
     }
 
     /**
@@ -337,7 +336,7 @@ public class ContactClassicForm extends ContactFormAbstract {
      */
     @Override
     protected void setBirthdate(final String birthdate) {
-       DriverMethods.setTxt(birthdateTxtb, birthdate);
+        DriverMethods.setTxt(birthdateTxtb, birthdate);
     }
 
     /**
@@ -545,7 +544,7 @@ public class ContactClassicForm extends ContactFormAbstract {
      */
     @Override
     protected void setLevel(final String level) {
-       levelCmbb.click();
+        levelCmbb.click();
         DriverMethods.selectCmb(driver, cmbLevelReplace, level);
     }
 
@@ -576,5 +575,4 @@ public class ContactClassicForm extends ContactFormAbstract {
         clickSaveBtn();
         return new ContactClassicProfilePage();
     }
-
 }

@@ -12,9 +12,9 @@
 
 package org.fjala.gugumber.salesforce.api;
 
-import io.restassured.response.Response;
-
 import static org.fjala.gugumber.salesforce.api.Endpoints.CONTACT_ENDPOINT;
+
+import io.restassured.response.Response;
 
 /**
  * ContactAPI class

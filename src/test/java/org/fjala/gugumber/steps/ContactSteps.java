@@ -18,7 +18,6 @@ import static org.testng.Assert.assertTrue;
 
 import java.util.Map;
 
-import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.fjala.gugumber.core.selenium.utils.Logs;
@@ -140,13 +139,19 @@ public class ContactSteps {
         assertTrue(contactPage.getListOfContactsName().contains(contact.getLastName()));
     }
 
-    @When("^I open the Contact Details page$")
+    /**
+     * Opens the contact details from contact page.
+     */
+    @When("^I go to the Contact Details$")
     public void openTheContactDetailsPage() {
         contactDetails = contactProfilePage.checkDetailsSection();
     }
 
-    @Then("^the contact information should be displayed in the Contact Details page$")
-    public void theContactInformationShouldBeDisplayedInTheContactDetailsPage() {
+    /**
+     * Verifies the information in the details contact.
+     */
+    @Then("^the contact last name should be displayed in the Contact Details page$")
+    public void displayedContactInformationInTheContactDetailsPage() {
         assertEquals(contactDetails.getFullNameContact(), contact.getFullName(),"the Contact Name not displayed");
     }
 }

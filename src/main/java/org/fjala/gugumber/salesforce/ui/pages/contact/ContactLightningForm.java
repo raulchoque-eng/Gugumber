@@ -231,7 +231,7 @@ public class ContactLightningForm extends ContactFormAbstract {
         wait.until(ExpectedConditions.visibilityOf(newContactForm));
     }
 
-     /**
+    /**
      * Sets the salutation name.
      *
      * @param salutation of type String
@@ -249,7 +249,7 @@ public class ContactLightningForm extends ContactFormAbstract {
      */
     @Override
     protected void setFirstName(final String firstName) {
-        DriverMethods.setTxt(firstNameTxtb,firstName);
+        DriverMethods.setTxt(firstNameTxtb, firstName);
     }
 
     /**
@@ -320,7 +320,7 @@ public class ContactLightningForm extends ContactFormAbstract {
      */
     @Override
     protected void setBirthdate(final String birthdate) {
-       DriverMethods.setTxt(birthdateTxtb, birthdate);
+        DriverMethods.setTxt(birthdateTxtb, birthdate);
     }
 
     /**

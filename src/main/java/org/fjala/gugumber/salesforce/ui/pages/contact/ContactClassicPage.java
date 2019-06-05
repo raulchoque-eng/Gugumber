@@ -12,14 +12,14 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.contact;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.fjala.gugumber.core.selenium.utils.DriverMethods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * ContactClassicPage class.
@@ -99,7 +99,7 @@ public class ContactClassicPage extends ContactPageAbstract {
      * @param firstName of type String
      */
     protected void setFirstName(final String firstName) {
-        DriverMethods.setTxt(firstNameTxtb,firstName);
+        DriverMethods.setTxt(firstNameTxtb, firstName);
     }
 
     /**
@@ -176,7 +176,6 @@ public class ContactClassicPage extends ContactPageAbstract {
         }
         return contactName;
     }
-
 
     /**
      * Contact open contact profile page.

@@ -24,7 +24,7 @@ public class ContactClassicDetails extends ContactDetailsAbstract {
      * Web Element of details contact.
      */
     @FindBy(id = "con2_ileinner")
-    private WebElement NameTxtb;
+    private WebElement nameTxtb;
 
     /**
      * List of web elements for contact dates.
@@ -47,7 +47,7 @@ public class ContactClassicDetails extends ContactDetailsAbstract {
      */
     @Override
     public String getFullNameContact() {
-        return NameTxtb.getText();
+        return nameTxtb.getText();
     }
 
     @Override
