@@ -56,7 +56,7 @@ public class AccountAPI {
      * @param accountId to concat with the base endpoint.
      */
     public void deleteAccount(final String accountId) {
-        finalEndpoint = ACCOUNT_ENDPOINT.concat("/".concat(String.valueOf(accountId)));
+        finalEndpoint = ACCOUNT_ENDPOINT.concat("/".concat(accountId));
         final Response response = restClient.delete(finalEndpoint);
     }
 }

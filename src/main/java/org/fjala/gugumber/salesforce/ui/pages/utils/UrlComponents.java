@@ -27,7 +27,7 @@ public class UrlComponents {
     protected UrlComponents() { }
 
     /**
-     * Returns an new instance of url components.
+     * Returns a new instance of url components.
      *
      * @return an urlComponents.
      */

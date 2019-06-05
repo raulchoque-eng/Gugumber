@@ -46,7 +46,7 @@ public class AccountHooks {
     }
 
     /**
-     * Deletes a account by id after scenario.
+     * Deletes an account by id after scenario.
      */
     @After("@delete-account")
     public void afterScenario() {
