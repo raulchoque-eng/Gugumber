@@ -13,6 +13,7 @@
 package org.fjala.gugumber.salesforce.ui.pages.contact;
 
 import org.fjala.gugumber.salesforce.ui.pages.BasePage;
+import org.fjala.gugumber.salesforce.ui.pages.utils.UrlComponents;
 
 /**
  * ContactProfilePageAbstract class
@@ -30,9 +31,18 @@ public abstract class ContactProfilePageAbstract extends BasePage {
     public abstract String getFullNameTitleContact();
 
     /**
-     * Returns the icon of contact from a header profile.
+     * Returns an Contact Details page after clicking on tab.
      *
-     * @return the icon of contact.
+     * @return an Contact details page.
      */
-    public abstract boolean isTheNewContact();
+    public abstract ContactDetailsAbstract checkDetailsSection();
+
+    /**
+     * Return the id from url.
+     *
+     * @return id as string.
+     */
+    public String getIdFromUrl() {
+        return UrlComponents.splitUrlToId(driver.getCurrentUrl());
+    }
 }

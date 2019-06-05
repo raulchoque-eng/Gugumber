@@ -18,7 +18,6 @@ import static org.testng.Assert.assertTrue;
 
 import java.util.Map;
 
-import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.fjala.gugumber.core.selenium.utils.Logs;
@@ -27,6 +26,7 @@ import org.fjala.gugumber.salesforce.entities.Context;
 import org.fjala.gugumber.salesforce.ui.PageLayoutConfig;
 import org.fjala.gugumber.salesforce.ui.PageLayoutFactory;
 import org.fjala.gugumber.salesforce.ui.PageLayoutType;
+import org.fjala.gugumber.salesforce.ui.pages.contact.ContactDetailsAbstract;
 import org.fjala.gugumber.salesforce.ui.pages.contact.ContactFormAbstract;
 import org.fjala.gugumber.salesforce.ui.pages.contact.ContactLightningProfilePage;
 import org.fjala.gugumber.salesforce.ui.pages.contact.ContactPageAbstract;
@@ -72,6 +72,11 @@ public class ContactSteps {
     private ContactProfilePageAbstract contactProfilePage;
 
     /**
+     * Variable for the Contact Details.
+     */
+    private ContactDetailsAbstract contactDetails;
+
+    /**
      * Constructor of contact steps sending the context.
      *
      * @param context init the context.
@@ -94,12 +99,13 @@ public class ContactSteps {
      *
      * @param contactMap contains the contact's values
      */
-    @And("^I create a new Contact with the following information in Contact form$")
-    public void createANewContactInContactForm(Map<String, String> contactMap) {
+    @When("^I create a new Contact with the following information in Contact form$")
+    public void createANewContactInContactForm(final Map<String, String> contactMap) {
         contactForm = contactPage.clickNewContact();
         contact.processInformation(contactMap);
         contactForm.setContactInformation(contactMap);
         contactProfilePage = contactForm.clickSaveNewContact();
+        contact.setId(contactProfilePage.getIdFromUrl());
     }
 
     /**
@@ -121,7 +127,7 @@ public class ContactSteps {
      */
     @Then("^the contact last name should be displayed in the Contact Profile page$")
     public void displayContactInTheContactProfilePage() {
-        assertEquals(contactProfilePage.getFullNameTitleContact(), contact.getFullName(),"the Contact Last name not displayed");
+        assertEquals(contactProfilePage.getFullNameTitleContact(), contact.getFullName(),"the Contact Name not displayed");
     }
 
     /**
@@ -131,5 +137,21 @@ public class ContactSteps {
     public void displayContactInTheContactsListOfContactsPage() {
         contactPage = PageLayoutFactory.getContactPage();
         assertTrue(contactPage.getListOfContactsName().contains(contact.getLastName()));
+    }
+
+    /**
+     * Opens the contact details from contact page.
+     */
+    @When("^I go to the Contact Details$")
+    public void openTheContactDetailsPage() {
+        contactDetails = contactProfilePage.checkDetailsSection();
+    }
+
+    /**
+     * Verifies the information in the details contact.
+     */
+    @Then("^the contact last name should be displayed in the Contact Details page$")
+    public void displayedContactInformationInTheContactDetailsPage() {
+        assertEquals(contactDetails.getFullNameContact(), contact.getFullName(),"the Contact Name not displayed");
     }
 }

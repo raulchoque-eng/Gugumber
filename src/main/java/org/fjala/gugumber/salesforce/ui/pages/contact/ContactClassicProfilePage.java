@@ -37,10 +37,10 @@ public class ContactClassicProfilePage extends ContactProfilePageAbstract {
     private WebElement contactTitle;
 
     /**
-     * Web Element of profile contact form.
+     * Web Element of details contact.
      */
-    @FindBy(css = "img[alt='Contact']")
-    private WebElement contactIcon;
+    @FindBy(id = "ep")
+    private WebElement contactDetailsTab;
 
     /**
      * Waits until page object is loaded.
@@ -61,12 +61,12 @@ public class ContactClassicProfilePage extends ContactProfilePageAbstract {
     }
 
     /**
-     * Gets of contact icon.
+     * Check the section Details.
      *
-     * @return new contact icon.
+     * @return ContactLightningDetails.
      */
     @Override
-    public boolean isTheNewContact() {
-        return contactIcon.isDisplayed();
+    public ContactDetailsAbstract checkDetailsSection() {
+        return new ContactClassicDetails();
     }
 }

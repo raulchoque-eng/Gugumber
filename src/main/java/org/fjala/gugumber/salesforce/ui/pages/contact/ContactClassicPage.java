@@ -99,7 +99,7 @@ public class ContactClassicPage extends ContactPageAbstract {
      * @param firstName of type String
      */
     protected void setFirstName(final String firstName) {
-        DriverMethods.setTxt(firstNameTxtb,firstName);
+        DriverMethods.setTxt(firstNameTxtb, firstName);
     }
 
     /**
@@ -176,7 +176,6 @@ public class ContactClassicPage extends ContactPageAbstract {
         }
         return contactName;
     }
-
 
     /**
      * Contact open contact profile page.

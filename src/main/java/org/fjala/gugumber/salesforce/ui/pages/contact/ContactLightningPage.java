@@ -35,7 +35,7 @@ public class ContactLightningPage extends ContactPageAbstract {
     private WebElement newContactForm;
 
     /**
-     * List of web elements for accounts name.
+     * List of web elements for contacts name.
      */
     @FindBy(css = "[class='slds-truncate outputLookupLink slds-truncate forceOutputLookup']")
     private List<WebElement> contactNameList;

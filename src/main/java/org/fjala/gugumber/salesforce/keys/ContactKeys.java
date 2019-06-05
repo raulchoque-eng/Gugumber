@@ -161,5 +161,5 @@ public class ContactKeys {
     /**
      * Constructor of class.
      */
-    public ContactKeys() {}
+    private ContactKeys() {}
 }
