@@ -13,6 +13,7 @@
 package org.fjala.gugumber.salesforce.ui.pages.account;
 
 import org.fjala.gugumber.salesforce.ui.pages.BasePage;
+import org.fjala.gugumber.salesforce.ui.pages.utils.UrlComponents;
 
 /**
  * AccountProfilePageAbstract abstract class.
@@ -28,4 +29,13 @@ public abstract class AccountProfilePageAbstract extends BasePage {
      * @return the name of account as string.
      */
     public abstract String getNameAccountFromProfileHeader();
+
+    /**
+     * Return the id from url.
+     *
+     * @return id as string.
+     */
+    public String getIdFromUrl() {
+        return UrlComponents.splitUrlToId(driver.getCurrentUrl());
+    }
 }
