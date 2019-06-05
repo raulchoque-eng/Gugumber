@@ -85,9 +85,12 @@ public class Hooks {
         }
     }
 
-
+    /**
+     * Deletes an contact by id after scenario.
+     */
     @After("@delete-contact")
-    public void deleteContactAfterScenario() {
+    public void afterScenario() {
         ContactAPI.getInstance().deleteContact(contact.getId());
     }
+
 }

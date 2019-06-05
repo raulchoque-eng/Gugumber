@@ -13,6 +13,7 @@
 package org.fjala.gugumber.hooks;
 
 import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import org.fjala.gugumber.salesforce.api.AccountAPI;
 import org.fjala.gugumber.salesforce.entities.Account;
 import org.fjala.gugumber.salesforce.entities.Context;
@@ -53,4 +54,11 @@ public class AccountHooks {
         AccountAPI.getInstance().deleteAccount(account.getId());
     }
 
+    /**
+     * Creates an account by id before scenario.
+     */
+    @Before("@create-account")
+    public void beforeScenario() {
+        AccountAPI.getInstance().createAccount();
+    }
 }
