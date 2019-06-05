@@ -227,12 +227,6 @@ public class ContactClassicForm extends ContactFormAbstract {
     @FindBy(css = "td[id='topButtonRow'] [value=' Save ']")
     private WebElement saveBtn;
 
-    final String cmbSalutationReplace = "[id='name_salutationcon2'] [value='nameTitle']";
-    final String cmbAccountReplace = "//th[@scope='row'] //a[contains(text(), 'nameTitle')]";
-    final String cmbReportToReplace = "//th[@scope='row'] //a[contains(text(), 'nameTitle')]";
-    final String cmbLeadSourceReplace = "[id='con9'] [value='nameTitle']";
-    final String cmbLevelReplace = "[id='00N4P000007vcCL'] [value='nameTitle']";
-
     /**
      * Waits until page object is loaded.
      */
@@ -248,6 +242,7 @@ public class ContactClassicForm extends ContactFormAbstract {
      */
     @Override
     protected void setSalutation(final String salutation) {
+        final String cmbSalutationReplace = "[id='name_salutationcon2'] [value='nameTitle']";
         salutationCmbb.click();
         DriverMethods.selectCmb(driver, cmbSalutationReplace, salutation);
     }
@@ -309,6 +304,7 @@ public class ContactClassicForm extends ContactFormAbstract {
      */
     @Override
     protected void setAccount(final String account) {
+        final String cmbAccountReplace = "//th[@scope='row'] //a[contains(text(), 'nameTitle')]";
         searchAccountImg.click();
         final String parentWindowHandle = driver.getWindowHandle();
         final Set<String> windows = driver.getWindowHandles();
@@ -346,6 +342,7 @@ public class ContactClassicForm extends ContactFormAbstract {
      */
     @Override
     protected void setReportsTo(final String reportsTo) {
+        final String cmbReportToReplace = "//th[@scope='row'] //a[contains(text(), 'nameTitle')]";
         searchReportsToImg.click();
         final String parentWindowHandle = driver.getWindowHandle();
         final Set<String> windows = driver.getWindowHandles();
@@ -363,6 +360,7 @@ public class ContactClassicForm extends ContactFormAbstract {
      */
     @Override
     protected void setLeadSource(final String leadSource) {
+        final String cmbLeadSourceReplace = "[id='con9'] [value='nameTitle']";
         leadSourceCmbb.click();
         DriverMethods.selectCmb(driver, cmbLeadSourceReplace, leadSource);
     }
@@ -544,6 +542,7 @@ public class ContactClassicForm extends ContactFormAbstract {
      */
     @Override
     protected void setLevel(final String level) {
+        final String cmbLevelReplace = "[id='00N4P000007vcCL'] [value='nameTitle']";
         levelCmbb.click();
         DriverMethods.selectCmb(driver, cmbLevelReplace, level);
     }
