@@ -37,7 +37,6 @@ public class CalendarLightningPage extends BasePage {
     @FindBy(css = "button.new-event-button")
     private WebElement newEventBtn;
 
-
     /**
      * Waits until the calendar page is loaded.
      */

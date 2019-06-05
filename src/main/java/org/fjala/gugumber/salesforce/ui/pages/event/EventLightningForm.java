@@ -226,7 +226,6 @@ public class EventLightningForm extends EventFormAbstract {
         setInputFieldJavaScript(endTimeTxt, DateMethods.getHourBefore(eventEndDate, 3));
     }
 
-
     /**
      * Cleans the text box and set new value using javascript.
      *

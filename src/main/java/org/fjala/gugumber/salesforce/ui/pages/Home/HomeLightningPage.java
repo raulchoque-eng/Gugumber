@@ -38,7 +38,6 @@ public class HomeLightningPage extends HomePage {
     @FindBy(css = "button.slds-button div.slds-icon-waffle")
     WebElement appLauncherBtn;
 
-
     /**
      * Saves value of WebElement "eventLnk", to open CalendarLightningPage.
      */
