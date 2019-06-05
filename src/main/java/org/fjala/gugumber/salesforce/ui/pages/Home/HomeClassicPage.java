@@ -49,7 +49,7 @@ public class HomeClassicPage extends HomePage {
     /**
      * Opens the event form.
      *
-     * @return an EventFormAbstract class.
+     * @return an instance eventClassicForm.
      */
     @Override
     public EventFormAbstract openEventForm() {

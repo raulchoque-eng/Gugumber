@@ -80,7 +80,7 @@ public class Context {
     /**
      * Returns the User of context.
      *
-     * @return an instance Event.
+     * @return an instance User.
      */
     public User getUser() {
         return user;

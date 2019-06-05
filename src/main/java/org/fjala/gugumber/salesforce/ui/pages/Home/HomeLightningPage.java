@@ -33,16 +33,16 @@ public class HomeLightningPage extends HomePage {
     private WebElement homeForm;
 
     /**
-     * Saves value of WebElement "appLauncherBtn", to validate HomeLightningPage.
+     * Web element "appLauncherBtn",by validate HomeLightningPage.
      */
     @FindBy(css = "button.slds-button div.slds-icon-waffle")
-    WebElement appLauncherBtn;
+    private WebElement appLauncherBtn;
 
     /**
-     * Saves value of WebElement "eventLnk", to open CalendarLightningPage.
+     * Web element "eventLnk",by open CalendarLightningPage.
      */
     @FindBy(css = "[class='narrow homeHomeCard homeEventContainer'] [class='viewAllLink']")
-    WebElement eventLnk;
+    private WebElement eventLnk;
 
     /**
      * Waits until page object is loaded.
@@ -55,7 +55,7 @@ public class HomeLightningPage extends HomePage {
     /**
      * Opens the Calendar from lightning page.
      *
-     * @return an instance to "CalendarLightningPage".
+     * @return an instance of "CalendarLightningPage".
      */
     private CalendarLightningPage openCalendarLightningPage() {
         eventLnk.click();
@@ -63,7 +63,7 @@ public class HomeLightningPage extends HomePage {
     }
 
     /**
-     * Open the Event form to create an Event.
+     * Opens the Event form to create an Event.
      *
      * @return a EventForm class.
      */
