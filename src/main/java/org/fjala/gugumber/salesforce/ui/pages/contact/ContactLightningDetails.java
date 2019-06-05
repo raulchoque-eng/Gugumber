@@ -42,6 +42,11 @@ public class ContactLightningDetails extends ContactDetailsAbstract {
         return nameTxtb.getText();
     }
 
+    /**
+     * Gets of contact form.
+     *
+     * @return contact lightning form.
+     */
     @Override
     public ContactProfilePageAbstract openEditContactDetails() {
         return null;

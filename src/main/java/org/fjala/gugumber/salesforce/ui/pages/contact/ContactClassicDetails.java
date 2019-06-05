@@ -1,10 +1,10 @@
 package org.fjala.gugumber.salesforce.ui.pages.contact;
 
+import java.util.List;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
-import java.util.List;
 
 /**
  * ContactClassicDetails class.
@@ -50,6 +50,11 @@ public class ContactClassicDetails extends ContactDetailsAbstract {
         return nameTxtb.getText();
     }
 
+    /**
+     * Gets of contact form.
+     *
+     * @return contact classic form.
+     */
     @Override
     public ContactProfilePageAbstract openEditContactDetails() {
         return null;
