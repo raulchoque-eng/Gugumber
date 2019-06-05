@@ -42,7 +42,6 @@ public class ContactLightningDetails extends ContactDetailsAbstract {
         return NameTxtb.getText();
     }
 
-
     @Override
     public ContactProfilePageAbstract openEditContactDetails() {
         return null;
