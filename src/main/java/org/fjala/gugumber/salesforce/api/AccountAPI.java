@@ -15,9 +15,6 @@ package org.fjala.gugumber.salesforce.api;
 import io.restassured.response.Response;
 import org.fjala.gugumber.salesforce.entities.Account;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import static org.fjala.gugumber.salesforce.api.Endpoints.ACCOUNT_ENDPOINT;
 
 /**
