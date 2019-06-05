@@ -518,7 +518,8 @@ public class ContactLightningForm extends ContactFormAbstract {
      */
     @Override
     protected void setLevel(final String level) {
-        DriverMethods.selectCmb(levelCmbb, driver, cmbLevelReplace, level);
+        levelCmbb.click();
+        DriverMethods.selectCmb(driver, cmbLevelReplace, level);
     }
 
     /**

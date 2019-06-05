@@ -13,9 +13,14 @@
 package org.fjala.gugumber.salesforce.ui.pages.contact;
 
 import org.fjala.gugumber.core.selenium.utils.DriverMethods;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import java.util.LinkedList;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 /**
  * ContactClassicForm class
@@ -206,13 +211,19 @@ public class ContactClassicForm extends ContactFormAbstract {
     private WebElement descriptionTxtb;
 
     /**
+     * Locator for search a new user to assign event.
+     */
+    @FindBy(id = "con4_lkwgt")
+    private WebElement searchAccountImg;
+
+    /**
      * Locator for text box of save button.
      */
     @FindBy(css = "td[id='topButtonRow'] [value=' Save ']")
     private WebElement saveBtn;
 
     final String cmbSalutationReplace = "[id='name_salutationcon2'] [value='nameTitle']";
-    final String cmbAccountReplace = "div[class='slds-m-left--smalllabels slds-truncate slds-media__body'] [title='nameTitle']";
+    final String cmbAccountReplace = "//th[@scope='row'] //a[contains(text(), '123')]";
     final String cmbReportToReplace = "div[class='slds-m-left--smalllabels slds-truncate slds-media__body'] [title='nameTitle']";
     final String cmbLeadSourceReplace = "ul[class='scrollable'] [title='nameTitle']";
     final String cmbLevelReplace = "ul[class='scrollable'] [title='nameTitle']";
@@ -292,8 +303,15 @@ public class ContactClassicForm extends ContactFormAbstract {
      */
     @Override
     protected void setAccount(final String account) {
-        DriverMethods.selectCmb(accountCmbb, driver, cmbSalutationReplace, account);
-        DriverMethods.setTxt(accountCmbb, account);
+        searchAccountImg.click();
+        final String parentWindowHandle = driver.getWindowHandle();
+        final Set<String> windows = driver.getWindowHandles();
+        driver.switchTo().window(new LinkedList<>(windows).getLast());
+        driver.switchTo().frame("resultsFrame");
+//        DriverMethods.selectCmb(salutationCmbb, driver, cmbSalutationReplace, salutation);
+        driver.findElement(By.cssSelector("table.list tr:nth-child(2) th:nth-child(1) a")).click();
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.switchTo().window(parentWindowHandle);
     }
 
     /**

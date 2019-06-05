@@ -42,14 +42,17 @@ public class DriverMethods {
     /**
      * Sets the comboBox into the webElement.
      *
-     * @param webElement that sets its comboBox.
      * @param driver that connection for web elements.
      * @param replaceCmb value for replace.
      * @param text new value of webElement.
      */
-    public static  void selectCmb(final WebElement webElement, final WebDriver driver, final String replaceCmb, final String text) {
-        webElement.click();
-        driver.findElement(By.cssSelector(replaceCmb.replace("nameTitle", text))).click();
+    public static void selectCmb(final WebDriver driver, final String replaceCmb, final String text) {
+      if(replaceCmb.contains("//")) {
+          driver.findElement(By.xpath(replaceCmb.replace("nameTitle", text))).click();
+      } else {
+          driver.findElement(By.cssSelector(replaceCmb.replace("nameTitle", text))).click();
+      }
+
     }
 
     /**
