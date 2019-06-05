@@ -1,5 +1,5 @@
 /*
- * @(#) ContactsAPI.java Copyright (c) 2019 Jala Foundation .
+ * @(#) ContactAPI.java Copyright (c) 2019 Jala Foundation .
  * 2643 Av Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
  * All rights reserved.
  *
@@ -17,12 +17,12 @@ import io.restassured.response.Response;
 import static org.fjala.gugumber.salesforce.api.Endpoints.CONTACT_ENDPOINT;
 
 /**
- * ContactsAPI class
+ * ContactAPI class
  *
  * @author Cristian Lujan
  * @version 0.0.1
  */
-public class ContactsAPI {
+public class ContactAPI {
     /**
      * Variable for the rest client.
      */
@@ -36,17 +36,17 @@ public class ContactsAPI {
     /**
      * Constructor of ContactAPI.
      */
-    protected ContactsAPI() {
+    protected ContactAPI() {
         restClient = RestClientAPI.getInstance();
     }
 
     /**
      * Returns the instance the contact API.
      *
-     * @return a account API.
+     * @return a Contact API.
      */
-    public static ContactsAPI getInstance() {
-        return new ContactsAPI();
+    public static ContactAPI getInstance() {
+        return new ContactAPI();
     }
 
     /**
@@ -54,8 +54,8 @@ public class ContactsAPI {
      *
      * @param contactId to concat with the base endpoint.
      */
-    public void deleteContact(final int contactId) {
-        finalEndpoint = CONTACT_ENDPOINT.concat("/".concat(String.valueOf(contactId)));
+    public void deleteContact(final String contactId) {
+        finalEndpoint = CONTACT_ENDPOINT.concat("/".concat(contactId));
         final Response response = restClient.delete(finalEndpoint);
     }
 }

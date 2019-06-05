@@ -211,10 +211,16 @@ public class ContactClassicForm extends ContactFormAbstract {
     private WebElement descriptionTxtb;
 
     /**
-     * Locator for search a new user to assign event.
+     * Locator for search a account to assign contact.
      */
     @FindBy(id = "con4_lkwgt")
     private WebElement searchAccountImg;
+
+    /**
+     * Locator for search a reports to assign contact.
+     */
+    @FindBy(id = "con8_lkwgt")
+    private WebElement searchReportsToImg;
 
     /**
      * Locator for text box of save button.
@@ -223,10 +229,10 @@ public class ContactClassicForm extends ContactFormAbstract {
     private WebElement saveBtn;
 
     final String cmbSalutationReplace = "[id='name_salutationcon2'] [value='nameTitle']";
-    final String cmbAccountReplace = "//th[@scope='row'] //a[contains(text(), '123')]";
-    final String cmbReportToReplace = "div[class='slds-m-left--smalllabels slds-truncate slds-media__body'] [title='nameTitle']";
-    final String cmbLeadSourceReplace = "ul[class='scrollable'] [title='nameTitle']";
-    final String cmbLevelReplace = "ul[class='scrollable'] [title='nameTitle']";
+    final String cmbAccountReplace = "//th[@scope='row'] //a[contains(text(), 'nameTitle')]";
+    final String cmbReportToReplace = "//th[@scope='row'] //a[contains(text(), 'nameTitle')]";
+    final String cmbLeadSourceReplace = "[id='con9'] [value='nameTitle']";
+    final String cmbLevelReplace = "[id='00N4P000007vcCL'] [value='nameTitle']";
 
     /**
      * Waits until page object is loaded.
@@ -243,7 +249,8 @@ public class ContactClassicForm extends ContactFormAbstract {
      */
     @Override
     protected void setSalutation(final String salutation) {
-        DriverMethods.selectCmb(salutationCmbb, driver, cmbSalutationReplace, salutation);
+        salutationCmbb.click();
+        DriverMethods.selectCmb(driver, cmbSalutationReplace, salutation);
     }
 
     /**
@@ -308,8 +315,7 @@ public class ContactClassicForm extends ContactFormAbstract {
         final Set<String> windows = driver.getWindowHandles();
         driver.switchTo().window(new LinkedList<>(windows).getLast());
         driver.switchTo().frame("resultsFrame");
-//        DriverMethods.selectCmb(salutationCmbb, driver, cmbSalutationReplace, salutation);
-        driver.findElement(By.cssSelector("table.list tr:nth-child(2) th:nth-child(1) a")).click();
+        DriverMethods.selectCmb(driver, cmbAccountReplace, account);
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.switchTo().window(parentWindowHandle);
     }
@@ -341,7 +347,14 @@ public class ContactClassicForm extends ContactFormAbstract {
      */
     @Override
     protected void setReportsTo(final String reportsTo) {
-       DriverMethods.setTxt(reportToTxtb, reportsTo);
+        searchReportsToImg.click();
+        final String parentWindowHandle = driver.getWindowHandle();
+        final Set<String> windows = driver.getWindowHandles();
+        driver.switchTo().window(new LinkedList<>(windows).getLast());
+        driver.switchTo().frame("resultsFrame");
+        DriverMethods.selectCmb(driver, cmbReportToReplace, reportsTo);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.switchTo().window(parentWindowHandle);
     }
 
     /**
@@ -352,7 +365,7 @@ public class ContactClassicForm extends ContactFormAbstract {
     @Override
     protected void setLeadSource(final String leadSource) {
         leadSourceCmbb.click();
-//        driver.findElement(By.cssSelector(statusElements.replace("element", status))).click();
+        DriverMethods.selectCmb(driver, cmbLeadSourceReplace, leadSource);
     }
 
     /**
@@ -532,7 +545,8 @@ public class ContactClassicForm extends ContactFormAbstract {
      */
     @Override
     protected void setLevel(final String level) {
-       DriverMethods.setTxt(levelCmbb, level);
+       levelCmbb.click();
+        DriverMethods.selectCmb(driver, cmbLevelReplace, level);
     }
 
     /**

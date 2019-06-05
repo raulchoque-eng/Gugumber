@@ -238,7 +238,8 @@ public class ContactLightningForm extends ContactFormAbstract {
      */
     @Override
     protected void setSalutation(final String salutation) {
-        DriverMethods.selectCmb(salutationCmbb, driver, cmbSalutationReplace, salutation);
+        salutationCmbb.click();
+        DriverMethods.selectCmb(driver, cmbSalutationReplace, salutation);
     }
 
     /**
@@ -298,7 +299,8 @@ public class ContactLightningForm extends ContactFormAbstract {
      */
     @Override
     protected void setAccount(final String account) {
-        DriverMethods.selectCmb(accountCmbb, driver, cmbAccountReplace, account);
+        accountCmbb.click();
+        DriverMethods.selectCmb(driver, cmbAccountReplace, account);
     }
 
     /**
@@ -328,7 +330,8 @@ public class ContactLightningForm extends ContactFormAbstract {
      */
     @Override
     protected void setReportsTo(final String reportsTo) {
-        DriverMethods.selectCmb(reportToCmbb, driver, cmbReportToReplace, reportsTo);
+        reportToCmbb.click();
+        DriverMethods.selectCmb(driver, cmbReportToReplace, reportsTo);
     }
 
     /**
@@ -338,7 +341,8 @@ public class ContactLightningForm extends ContactFormAbstract {
      */
     @Override
     protected void setLeadSource(final String leadSource) {
-        DriverMethods.selectCmb(leadSourceCmbb, driver, cmbLeadSourceReplace, leadSource);
+        leadSourceCmbb.click();
+        DriverMethods.selectCmb(driver, cmbLeadSourceReplace, leadSource);
     }
 
     /**
