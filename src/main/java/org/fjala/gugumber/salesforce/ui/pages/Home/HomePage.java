@@ -23,13 +23,10 @@ import org.fjala.gugumber.salesforce.ui.pages.event.EventFormAbstract;
  */
 public abstract class HomePage extends BasePage {
 
+    /**
+     * Returns a an Event form.
+     *
+     * @return a EventFormAbstract class.
+     */
     public abstract EventFormAbstract openEventForm();
-
-    public String getNameEvent() {
-        return "TODO";
-    }
-
-    public void openDetail() {
-        System.out.println("TODO");
-    }
 }
