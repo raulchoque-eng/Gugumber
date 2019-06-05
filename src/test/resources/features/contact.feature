@@ -45,7 +45,7 @@ Feature: Contact manage
       | Salutation              | Dr.              |
       | First Name              | Cxristian        |
       | Last Name               | Lujan            |
-#      | Account                 | Cxriss           |
+#      | Account                 | Account Test     |
 #      | Phone                   | 12345678         |
 #      | Home Page               | 555555           |
 #      | Email                   | Cxriss@email.com |

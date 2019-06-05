@@ -71,7 +71,7 @@ public class ContactLightningForm extends ContactFormAbstract {
      * Locator for text box of account.
      */
     @FindBy(css = "div[class='contentWrapper slds-box--border'] input[id^='219']")
-    private WebElement accountTxtb;
+    private WebElement accountCmbb;
 
     /**
      * Locator for text box of department.
@@ -88,8 +88,8 @@ public class ContactLightningForm extends ContactFormAbstract {
     /**
      * Locator for text box of report to.
      */
-    @FindBy(css = "div[id^='533']")
-    private WebElement reportToTxtb;
+    @FindBy(css = "[class='autocompleteWrapper slds-grow'] input[id^='430']")
+    private WebElement reportToCmbb;
 
     /**
      * Locator for text box of lead Source.
@@ -217,7 +217,11 @@ public class ContactLightningForm extends ContactFormAbstract {
     @FindBy(css = "[class='slds-button slds-button--neutral uiButton--default uiButton--brand uiButton forceActionButton']")
     private WebElement saveBtn;
 
-    final String cmbReplace = "li[class='uiMenuItem uiRadioMenuItem'] a[title='nameTitle']";
+    final String cmbSalutationReplace = "li[class='uiMenuItem uiRadioMenuItem'] a[title='nameTitle']";
+    final String cmbAccountReplace = "div[class='slds-m-left--smalllabels slds-truncate slds-media__body'] [title='nameTitle']";
+    final String cmbReportToReplace = "div[class='slds-m-left--smalllabels slds-truncate slds-media__body'] [title='nameTitle']";
+    final String cmbLeadSourceReplace = "ul[class='scrollable'] [title='nameTitle']";
+    final String cmbLevelReplace = "ul[class='scrollable'] [title='nameTitle']";
 
     /**
      * Waits until page object is loaded.
@@ -234,7 +238,7 @@ public class ContactLightningForm extends ContactFormAbstract {
      */
     @Override
     protected void setSalutation(final String salutation) {
-        DriverMethods.selectCmb(salutationCmbb, driver, cmbReplace, salutation);
+        DriverMethods.selectCmb(salutationCmbb, driver, cmbSalutationReplace, salutation);
     }
 
     /**
@@ -294,7 +298,7 @@ public class ContactLightningForm extends ContactFormAbstract {
      */
     @Override
     protected void setAccount(final String account) {
-        DriverMethods.setTxt(accountTxtb, account);
+        DriverMethods.selectCmb(accountCmbb, driver, cmbAccountReplace, account);
     }
 
     /**
@@ -324,7 +328,7 @@ public class ContactLightningForm extends ContactFormAbstract {
      */
     @Override
     protected void setReportsTo(final String reportsTo) {
-       DriverMethods.setTxt(reportToTxtb, reportsTo);
+        DriverMethods.selectCmb(reportToCmbb, driver, cmbReportToReplace, reportsTo);
     }
 
     /**
@@ -334,8 +338,7 @@ public class ContactLightningForm extends ContactFormAbstract {
      */
     @Override
     protected void setLeadSource(final String leadSource) {
-        leadSourceCmbb.click();
-//        driver.findElement(By.cssSelector(statusElements.replace("element", status))).click();
+        DriverMethods.selectCmb(leadSourceCmbb, driver, cmbLeadSourceReplace, leadSource);
     }
 
     /**
@@ -515,7 +518,7 @@ public class ContactLightningForm extends ContactFormAbstract {
      */
     @Override
     protected void setLevel(final String level) {
-       DriverMethods.setTxt(levelCmbb, level);
+        DriverMethods.selectCmb(levelCmbb, driver, cmbLevelReplace, level);
     }
 
     /**
