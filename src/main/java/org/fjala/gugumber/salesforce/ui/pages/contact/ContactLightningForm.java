@@ -13,6 +13,7 @@
 package org.fjala.gugumber.salesforce.ui.pages.contact;
 
 import org.fjala.gugumber.core.selenium.utils.DriverMethods;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -217,6 +218,10 @@ public class ContactLightningForm extends ContactFormAbstract {
     @FindBy(css = "[class='slds-button slds-button--neutral uiButton--default uiButton--brand uiButton forceActionButton']")
     private WebElement saveBtn;
 
+    final String cmbSalutationReplace = "li[class='uiMenuItem uiRadioMenuItem'] a[title='nameTitle']";
+    final String cmbAccountReplace = "div[class='slds-m-left--smalllabels slds-truncate slds-media__body'] [title='nameTitle']";
+    final String cmbLeadSourceReplace = "ul[class='scrollable'] [title='nameTitle']";
+
     /**
      * Waits until page object is loaded.
      */
@@ -232,9 +237,8 @@ public class ContactLightningForm extends ContactFormAbstract {
      */
     @Override
     protected void setSalutation(final String salutation) {
-        final String cmbSalutationReplace = "li[class='uiMenuItem uiRadioMenuItem'] a[title='nameTitle']";
         salutationCmbb.click();
-        DriverMethods.selectCmb(driver, cmbSalutationReplace, salutation);
+        driver.findElement(By.cssSelector(cmbSalutationReplace.replace("nameTitle", salutation))).click();
     }
 
     /**
@@ -274,7 +278,7 @@ public class ContactLightningForm extends ContactFormAbstract {
      */
     @Override
     protected void setHomePhone(final int phone) {
-        DriverMethods.setTxt(phoneTxtb, String.valueOf(phone));
+        DriverMethods.setTxt(homePhoneTxtb, String.valueOf(phone));
     }
 
     /**
@@ -294,9 +298,8 @@ public class ContactLightningForm extends ContactFormAbstract {
      */
     @Override
     protected void setAccount(final String account) {
-        final String cmbAccountReplace = "div[class='slds-m-left--smalllabels slds-truncate slds-media__body'] [title='nameTitle']";
         accountCmbb.click();
-        DriverMethods.selectCmb(driver, cmbAccountReplace, account);
+        driver.findElement(By.cssSelector(cmbAccountReplace.replace("nameTitle", account))).click();
     }
 
     /**
@@ -326,9 +329,8 @@ public class ContactLightningForm extends ContactFormAbstract {
      */
     @Override
     protected void setReportsTo(final String reportsTo) {
-        final String cmbReportToReplace = "div[class='slds-m-left--smalllabels slds-truncate slds-media__body'] [title='nameTitle']";
         reportToCmbb.click();
-        DriverMethods.selectCmb(driver, cmbReportToReplace, reportsTo);
+        driver.findElement(By.cssSelector(cmbAccountReplace.replace("nameTitle", reportsTo))).click();
     }
 
     /**
@@ -338,9 +340,8 @@ public class ContactLightningForm extends ContactFormAbstract {
      */
     @Override
     protected void setLeadSource(final String leadSource) {
-        final String cmbLeadSourceReplace = "ul[class='scrollable'] [title='nameTitle']";
         leadSourceCmbb.click();
-        DriverMethods.selectCmb(driver, cmbLeadSourceReplace, leadSource);
+        driver.findElement(By.cssSelector(cmbLeadSourceReplace.replace("nameTitle", leadSource))).click();
     }
 
     /**
@@ -360,7 +361,7 @@ public class ContactLightningForm extends ContactFormAbstract {
      */
     @Override
     protected void setOtherPhone(final int phone) {
-        DriverMethods.setTxt(phoneTxtb, String.valueOf(phone));
+        DriverMethods.setTxt(otherPhoneTxtb, String.valueOf(phone));
     }
 
     /**
@@ -520,9 +521,8 @@ public class ContactLightningForm extends ContactFormAbstract {
      */
     @Override
     protected void setLevel(final String level) {
-        final String cmbLevelReplace = "ul[class='scrollable'] [title='nameTitle']";
         levelCmbb.click();
-        DriverMethods.selectCmb(driver, cmbLevelReplace, level);
+        driver.findElement(By.cssSelector(cmbLeadSourceReplace.replace("nameTitle", level))).click();
     }
 
     /**

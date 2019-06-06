@@ -19,6 +19,7 @@ import java.util.Map;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.fjala.gugumber.salesforce.common.ReaderApplicationProperties;
+import org.fjala.gugumber.salesforce.entities.Account;
 
 /**
  * RestClientAPI class.

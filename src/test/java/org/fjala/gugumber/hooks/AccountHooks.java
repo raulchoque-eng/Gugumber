@@ -59,6 +59,6 @@ public class AccountHooks {
      */
     @Before("@create-account")
     public void beforeScenario() {
-        AccountAPI.getInstance().createAccount();
+        account.setId(AccountAPI.getInstance().createAccount());
     }
 }

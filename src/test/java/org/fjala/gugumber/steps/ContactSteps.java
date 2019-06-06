@@ -152,6 +152,6 @@ public class ContactSteps {
      */
     @Then("^the contact last name should be displayed in the Contact Details page$")
     public void displayedContactInformationInTheContactDetailsPage() {
-        assertEquals(contactDetails.getFullNameContact(), contact.getFullName(),"the Contact Name not displayed");
+        assertEquals(contactDetails.getFullNameContact(), contact.getFullName(), "the Contact Name not displayed");
     }
 }
