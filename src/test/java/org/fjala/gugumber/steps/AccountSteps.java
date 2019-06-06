@@ -116,6 +116,6 @@ public class AccountSteps {
      */
     @Then("^the account name should be displayed in the Account Details$")
     public void displayAccountNameInTheAccountDetails() {
-        Assert.assertEquals(accountDetails.getValueOfAccountNameField(), context.getAccount().getNameAccount());
+        Assert.assertTrue(accountDetails.getValueOfAccountNameField().startsWith(context.getAccount().getNameAccount()));
     }
 }
