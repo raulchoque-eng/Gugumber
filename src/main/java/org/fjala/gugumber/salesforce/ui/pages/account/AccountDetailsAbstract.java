@@ -1,7 +1,7 @@
 /*
- * @(#) HomePage.java Copyright (c) 2019 Jala Foundation.
+ * @(#) AccountDetailsAbstract.java Copyright (c) 2019 Jala Foundation.
  * 2643 Av. Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
- * All rights reserved.
+ *  All rights reserved.
  *
  * This software is the confidential and proprietary information of Jala
  * Foundation, Inc. ("Confidential Information"). You shall not
@@ -10,23 +10,22 @@
  * with Jala Foundation.
  */
 
-package org.fjala.gugumber.salesforce.ui.pages.Home;
+package org.fjala.gugumber.salesforce.ui.pages.account;
 
 import org.fjala.gugumber.salesforce.ui.pages.BasePage;
-import org.fjala.gugumber.salesforce.ui.pages.event.CalendarSectionAbstract;
 
 /**
- * HomePage class.
+ * AccountDetailsAbstract class.
  *
- * @author Raul Choque
+ * @author Areliez Vargas
  * @version 0.0.1
  */
-public abstract class HomePage extends BasePage {
+public abstract class AccountDetailsAbstract extends BasePage {
 
     /**
-     * Returns the calendarSection of a HomePage.
+     * Returns the account name from account name field.
      *
-     * @return a instance of CalendarSectionAbstract.
+     * @return the text of account namme field.
      */
-    public abstract CalendarSectionAbstract getCalendarSection();
+    public abstract String getValueOfAccountNameField();
 }
