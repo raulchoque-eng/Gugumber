@@ -31,6 +31,13 @@ public abstract class AccountProfilePageAbstract extends BasePage {
     public abstract String getNameAccountFromProfileHeader();
 
     /**
+     * Returns an account details according the page layout.
+     *
+     * @return an account details.
+     */
+    public abstract AccountDetailsAbstract getAccountDetails();
+
+    /**
      * Return the id from url.
      *
      * @return id as string.
