@@ -14,6 +14,7 @@ package org.fjala.gugumber.salesforce.ui.pages.account;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
  * AccountDetailsLightning class.
@@ -22,17 +23,32 @@ import org.openqa.selenium.support.FindBy;
  * @version 0.0.1
  */
 public class AccountDetailsLightning extends AccountDetailsAbstract {
+
+    /**
+     * Web element to usse in el wait until page object.
+     */
+    @FindBy(css = "div[class='test-id__record-layout-container riseTransitionEnabled']")
+    private WebElement detailSection;
+
     /**
      * Web element for the account name text-box.
      */
     @FindBy(xpath = "//div[starts-with(.,'Account Name')]/child::*/child::span/span")
     private WebElement accountNameTxtb;
 
+    /**
+     * Waits until page object is loaded.
+     */
     @Override
     protected void waitUntilPageObjectIsLoaded() {
-
+        wait.until(ExpectedConditions.visibilityOf(detailSection));
     }
 
+    /**
+     * Returns the text of account name field.
+     *
+     * @return the account name from field.
+     */
     @Override
     public String getValueOfAccountNameField() {
         return accountNameTxtb.getText();
