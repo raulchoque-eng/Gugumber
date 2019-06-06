@@ -14,5 +14,7 @@ Feature: Create a new account
       And I create a new Account with the following information
         | Account Name | Account Test |
     Then the account name should be displayed in the Account page
+    When I go to the Account Details from Account page
+    Then the account name should be displayed in the Account Details
     When I open the Accounts page
     Then the account should be displayed on Accounts page
