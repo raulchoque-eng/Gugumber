@@ -12,9 +12,13 @@
 
 package org.fjala.gugumber.salesforce.api;
 
-import io.restassured.response.Response;
-
 import static org.fjala.gugumber.salesforce.api.Endpoints.ACCOUNT_ENDPOINT;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import io.restassured.response.Response;
+import org.fjala.gugumber.salesforce.entities.Account;
 
 /**
  * AccountAPI class.
@@ -23,6 +27,11 @@ import static org.fjala.gugumber.salesforce.api.Endpoints.ACCOUNT_ENDPOINT;
  * @version 0.0.1
  */
 public class AccountAPI {
+
+    /**
+     * Variable for account.
+     */
+    private Account account;
 
     /**
      * Variable for the rest client.
@@ -58,5 +67,17 @@ public class AccountAPI {
     public void deleteAccount(final String accountId) {
         finalEndpoint = ACCOUNT_ENDPOINT.concat("/".concat(accountId));
         final Response response = restClient.delete(finalEndpoint);
+    }
+
+    /**
+     * Create an account.
+     */
+    public void createAccount() {
+        final Map<String,String> newAccount = new HashMap<>();
+        newAccount.put("name", "Account_Test");
+        finalEndpoint = ACCOUNT_ENDPOINT.concat("/");
+        final Response response = restClient.post(finalEndpoint, newAccount);
+        account.setId(response.body().jsonPath().getString("id"));
+        System.out.println("ID : " + account.getId() + "name : " + account.getNameAccount());
     }
 }

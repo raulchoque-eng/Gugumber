@@ -27,7 +27,7 @@ public class ContactLightningProfilePage extends ContactProfilePageAbstract {
     /**
      * Web Element of profile contact form.
      */
-    @FindBy(css = "div[class='slds-grid primaryFieldRow']")
+    @FindBy(css = "div[class='slds-page-header--object-home slds-page-header_joined slds-page-header_bleed slds-page-header slds-shrink-none test-headerRegion forceListViewManagerHeader']")
     private WebElement profileContactHeader;
 
     /**
@@ -39,8 +39,8 @@ public class ContactLightningProfilePage extends ContactProfilePageAbstract {
     /**
      * Web Element of profile contact form.
      */
-    @FindBy(css = "[class='photoContainer forceSocialPhoto'] [alt='Contact']")
-    private WebElement contactIcon;
+    @FindBy(css = "a[title='Details']")
+    private WebElement contactDetailsTab;
 
     /**
      * Web Element of profile contact with title.
@@ -76,12 +76,20 @@ public class ContactLightningProfilePage extends ContactProfilePageAbstract {
     }
 
     /**
-     * Gets of contact icon.
+     * Clicks Contact details.
+     */
+    public void clickContactDetailsTab() {
+        contactDetailsTab.click();
+    }
+
+    /**
+     * Check the section Details.
      *
-     * @return new contact icon.
+     * @return ContactLightningDetails.
      */
     @Override
-    public boolean isTheNewContact() {
-        return contactIcon.isDisplayed();
+    public ContactDetailsAbstract checkDetailsSection() {
+        clickContactDetailsTab();
+        return new ContactLightningDetails();
     }
 }
