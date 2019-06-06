@@ -170,11 +170,11 @@ public class ContactClassicPage extends ContactPageAbstract {
      */
     @Override
     public List<String> getListOfContactsName() {
-        final List<String> contactName = new ArrayList<>();
+        final List<String> contactsName = new ArrayList<>();
         for (WebElement contName : contactNameList) {
-            contactName.add(contName.getText());
+            contactsName.add(contName.getText());
         }
-        return contactName;
+        return contactsName;
     }
 
     /**

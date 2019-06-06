@@ -787,6 +787,23 @@ public class Contact {
     }
 
     /**
+     * Gets full name for classic for details.
+     *
+     * @return full Name as String
+     */
+    public String getFullNameClassic() {
+        String fullName = null;
+        if (getFirstName().equals(" ") || getSalutation().equals(" ")) {
+            fullName = getLastName();
+        }
+        else {
+            fullName = getLastName().concat(", ").concat(getFirstName());
+        }
+        return fullName.trim();
+    }
+
+
+    /**
      * Process information for composing the strategy map.
      *
      * @param newContact of type string

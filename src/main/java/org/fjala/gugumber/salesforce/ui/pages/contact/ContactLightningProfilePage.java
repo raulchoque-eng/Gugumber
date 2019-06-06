@@ -54,6 +54,7 @@ public class ContactLightningProfilePage extends ContactProfilePageAbstract {
     @Override
     protected void waitUntilPageObjectIsLoaded() {
         wait.until(ExpectedConditions.visibilityOf(profileContactHeader));
+        wait.until(ExpectedConditions.visibilityOf(contactMessageSaveTxt));
     }
 
     /**

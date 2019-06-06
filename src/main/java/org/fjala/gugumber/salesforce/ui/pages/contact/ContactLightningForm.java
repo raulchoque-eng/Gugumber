@@ -218,9 +218,20 @@ public class ContactLightningForm extends ContactFormAbstract {
     @FindBy(css = "[class='slds-button slds-button--neutral uiButton--default uiButton--brand uiButton forceActionButton']")
     private WebElement saveBtn;
 
-    final String cmbSalutationReplace = "li[class='uiMenuItem uiRadioMenuItem'] a[title='nameTitle']";
-    final String cmbAccountReplace = "div[class='slds-m-left--smalllabels slds-truncate slds-media__body'] [title='nameTitle']";
-    final String cmbLeadSourceReplace = "ul[class='scrollable'] [title='nameTitle']";
+    /**
+     * Variable for locator of salutation comboBox.
+     */
+    final String SALUTATION_CMBB = "li[class='uiMenuItem uiRadioMenuItem'] a[title='nameTitle']";
+
+    /**
+     * Variable for locator of account and report to comboBox.
+     */
+    final String ACCOUNT_CMBB = "div[class='slds-m-left--smalllabels slds-truncate slds-media__body'] [title='nameTitle']";
+
+    /**
+     * Variable for locator of lead source and level comboBox.
+     */
+    final String LEVEL_CMBB = "ul[class='scrollable'] [title='nameTitle']";
 
     /**
      * Waits until page object is loaded.
@@ -238,7 +249,7 @@ public class ContactLightningForm extends ContactFormAbstract {
     @Override
     protected void setSalutation(final String salutation) {
         salutationCmbb.click();
-        driver.findElement(By.cssSelector(cmbSalutationReplace.replace("nameTitle", salutation))).click();
+        driver.findElement(By.cssSelector(SALUTATION_CMBB.replace("nameTitle", salutation))).click();
     }
 
     /**
@@ -299,7 +310,7 @@ public class ContactLightningForm extends ContactFormAbstract {
     @Override
     protected void setAccount(final String account) {
         accountCmbb.click();
-        driver.findElement(By.cssSelector(cmbAccountReplace.replace("nameTitle", account))).click();
+        driver.findElement(By.cssSelector(ACCOUNT_CMBB.replace("nameTitle", account))).click();
     }
 
     /**
@@ -330,7 +341,7 @@ public class ContactLightningForm extends ContactFormAbstract {
     @Override
     protected void setReportsTo(final String reportsTo) {
         reportToCmbb.click();
-        driver.findElement(By.cssSelector(cmbAccountReplace.replace("nameTitle", reportsTo))).click();
+        driver.findElement(By.cssSelector(ACCOUNT_CMBB.replace("nameTitle", reportsTo))).click();
     }
 
     /**
@@ -341,7 +352,7 @@ public class ContactLightningForm extends ContactFormAbstract {
     @Override
     protected void setLeadSource(final String leadSource) {
         leadSourceCmbb.click();
-        driver.findElement(By.cssSelector(cmbLeadSourceReplace.replace("nameTitle", leadSource))).click();
+        driver.findElement(By.cssSelector(LEVEL_CMBB.replace("nameTitle", leadSource))).click();
     }
 
     /**
@@ -522,7 +533,7 @@ public class ContactLightningForm extends ContactFormAbstract {
     @Override
     protected void setLevel(final String level) {
         levelCmbb.click();
-        driver.findElement(By.cssSelector(cmbLeadSourceReplace.replace("nameTitle", level))).click();
+        driver.findElement(By.cssSelector(LEVEL_CMBB.replace("nameTitle", level))).click();
     }
 
     /**

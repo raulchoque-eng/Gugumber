@@ -18,6 +18,9 @@ import org.fjala.gugumber.salesforce.api.AccountAPI;
 import org.fjala.gugumber.salesforce.entities.Account;
 import org.fjala.gugumber.salesforce.entities.Context;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * AccountHooks class.
  *
@@ -58,7 +61,9 @@ public class AccountHooks {
      * Creates an account by id before scenario.
      */
     @Before("@create-account")
-    public void beforeScenario() {
-        account.setId(AccountAPI.getInstance().createAccount());
+    public void beforeFeature() {
+        Map<String,String> createNewAccount = new HashMap<>();
+        createNewAccount.put("Name", "Account_Test");
+        account.setId(AccountAPI.getInstance().createAccount(createNewAccount));
     }
 }

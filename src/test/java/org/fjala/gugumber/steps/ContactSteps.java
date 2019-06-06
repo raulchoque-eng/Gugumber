@@ -136,7 +136,12 @@ public class ContactSteps {
     @Then("^the contact last name should be displayed in the contacts list of Contacts page$")
     public void displayContactInTheContactsListOfContactsPage() {
         contactPage = PageLayoutFactory.getContactPage();
-        assertTrue(contactPage.getListOfContactsName().contains(contact.getLastName()));
+        if (layout.equals(LIGHTNING)) {
+            assertTrue(contactPage.getListOfContactsName().contains(contact.getLastName()), "the Contact Name not displayed");
+        }
+        else {
+            assertTrue(contactPage.getListOfContactsName().contains(contact.getFullNameClassic()), "the Contact Name not displayed");
+        }
     }
 
     /**

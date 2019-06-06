@@ -1,10 +1,10 @@
-@contact @create-account
+@contact
 Feature: Contact manage
   Background:
     Given I am logged in SalesForce with "username.admin" and "password.admin"
       And I navigate to the Home page
 
-  @delete-contact
+  @delete-contact @create-account @delete-account
   Scenario: Create a new contact for an user with only required data
     When I go to the Contacts page
       And I open Contact form

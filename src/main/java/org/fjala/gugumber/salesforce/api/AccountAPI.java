@@ -66,9 +66,7 @@ public class AccountAPI {
     /**
      * Create an account.
      */
-    public String createAccount() {
-        final Map<String,String> newAccount = new HashMap<>();
-        newAccount.put("Name", "Account_Test001");
+    public String createAccount(final Map<String, String> newAccount) {
         finalEndpoint = ACCOUNT_ENDPOINT;
         final Response response = restClient.post(finalEndpoint, newAccount);
         return response.body().jsonPath().getString("id");
