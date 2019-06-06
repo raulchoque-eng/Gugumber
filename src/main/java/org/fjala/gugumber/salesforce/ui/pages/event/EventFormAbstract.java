@@ -12,15 +12,14 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.event;
 
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Set;
+
 import org.fjala.gugumber.core.StrategySetter;
 import org.fjala.gugumber.salesforce.entities.Event;
 import org.fjala.gugumber.salesforce.ui.pages.BasePage;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Set;
 
 /**
  * EventFormAbstract class
@@ -31,10 +30,11 @@ import java.util.Set;
 public abstract class EventFormAbstract extends BasePage {
 
     /**
-     * Web element by the event save.
+     * Returns a WebElement by create new Event.
+     *
+     * @return a saveEventBtn web element
      */
-    @FindBy(css = "td#topButtonRow [name = \"save\"]")
-    private WebElement saveEventBtn;
+    public abstract WebElement getSaveEventBtn();
 
     /**
      * Creates a new Event with the event information.
@@ -48,7 +48,7 @@ public abstract class EventFormAbstract extends BasePage {
             strategyMap.get(key).executeMethod();
             System.out.println("Event UI: " + key);
         });
-        saveEventBtn.click();
+        getSaveEventBtn().click();
     }
 
     /**

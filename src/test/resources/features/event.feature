@@ -1,3 +1,4 @@
+@event
 Feature: Event manage
 
   Background:
@@ -9,7 +10,7 @@ Feature: Event manage
     When I open the New Event form
     And I add a new Event with the following information
 #      | Assigned To | User To Event      |
-#      | Assigned To | user one           |
+      | Assigned To | user one           |
       | Subject     | Call               |
       | Name        | Contact Event      |
       | Related To  | Account Event      |
@@ -17,8 +18,8 @@ Feature: Event manage
       | Start Date  | One hour from now  |
       | End Date    | Two hours from now |
       | Description | Description Text   |
-      | Assigned To | user one           |
-#    Then the Subject of new Event should be displayed on Calendar Section
+#      | Assigned To | user one           |
+    Then the Subject of new Event should be displayed on Calendar Section
 #    When I open the Event Details page from Calendar Section
 #    Then the information of new Event should be displayed in Event Detail page
 #

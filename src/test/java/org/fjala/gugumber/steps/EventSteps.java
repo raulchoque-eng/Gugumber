@@ -12,10 +12,15 @@
 
 package org.fjala.gugumber.steps;
 
+import java.util.Map;
+import java.util.Set;
+
+import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.fjala.gugumber.salesforce.entities.Context;
 import org.fjala.gugumber.salesforce.entities.Event;
 import org.fjala.gugumber.salesforce.ui.PageLayoutConfig;
+import org.fjala.gugumber.salesforce.ui.PageLayoutFactory;
 import org.fjala.gugumber.salesforce.ui.PageLayoutType;
 import org.fjala.gugumber.salesforce.ui.PageTransporter;
 import org.fjala.gugumber.salesforce.ui.pages.Home.HomeClassicPage;
@@ -23,10 +28,9 @@ import org.fjala.gugumber.salesforce.ui.pages.Home.HomePage;
 import org.fjala.gugumber.salesforce.ui.pages.event.CalendarLightningPage;
 import org.fjala.gugumber.salesforce.ui.pages.event.EventFormAbstract;
 
-import java.util.Map;
-import java.util.Set;
-
 import static org.fjala.gugumber.salesforce.ui.PageLayoutType.CLASSIC;
+import static org.fjala.gugumber.salesforce.ui.PageLayoutType.LIGHTNING;
+import static org.testng.Assert.assertEquals;
 
 /**
  * EventSteps class
@@ -57,12 +61,18 @@ public class EventSteps {
     private CalendarLightningPage calendarPage;
 
     /**
+     * Variable by the page layout type.
+     */
+    private PageLayoutType layout;
+
+    /**
      * Builds an instance from EventSteps class.
      *
      * @param context to init context.
      */
     public EventSteps(Context context) {
         this.event = context.getEvent();
+        layout = PageLayoutConfig.getPageLayoutName();
     }
 
     /**
@@ -70,10 +80,9 @@ public class EventSteps {
      */
     @When("^I open the New Event form$")
     public void openNewEventForm() {
-        PageLayoutType layout = PageLayoutConfig.getPageLayoutName();
         if (layout == CLASSIC) {
-            homePage = new HomeClassicPage();
-            eventForm = homePage.openEventForm();
+            homePage = PageLayoutFactory.getHomePageManager();
+            eventForm = ((HomeClassicPage) homePage).openEventForm();
         } else {
             calendarPage = PageTransporter.getInstance().navigateToCalendarPage();
             eventForm = calendarPage.openEventForm();
@@ -90,5 +99,17 @@ public class EventSteps {
         event.setDataToEvent(newEvent);
         Set<String> keysEvent = newEvent.keySet();
         eventForm.createEvent(event, keysEvent);
+    }
+
+    /**
+     * Verifies the Subject of the new Event on calendar section.
+     */
+    @Then("^the Subject of new Event should be displayed on Calendar Section$")
+    public void validateSubjectNameOfNewEvent() {
+        if (layout == LIGHTNING) {
+            homePage = PageTransporter.getInstance().navigateToHomePage();
+        }
+        final String nameSubject = homePage.getCalendarSection().getSubjectNewEvent();
+        assertEquals(nameSubject, event.getSubject());
     }
 }

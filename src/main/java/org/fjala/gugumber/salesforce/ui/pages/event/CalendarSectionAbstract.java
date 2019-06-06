@@ -1,5 +1,5 @@
 /*
- * @(#) HomePage.java Copyright (c) 2019 Jala Foundation.
+ * @(#) CalendarSectionAbstract.java Copyright (c) 2019 Jala Foundation.
  * 2643 Av. Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
  * All rights reserved.
  *
@@ -10,23 +10,22 @@
  * with Jala Foundation.
  */
 
-package org.fjala.gugumber.salesforce.ui.pages.Home;
+package org.fjala.gugumber.salesforce.ui.pages.event;
 
 import org.fjala.gugumber.salesforce.ui.pages.BasePage;
-import org.fjala.gugumber.salesforce.ui.pages.event.CalendarSectionAbstract;
 
 /**
- * HomePage class.
+ * CalendarSectionAbstract abstract class.
  *
  * @author Raul Choque
  * @version 0.0.1
  */
-public abstract class HomePage extends BasePage {
+public abstract class CalendarSectionAbstract extends BasePage {
 
     /**
-     * Returns the calendarSection of a HomePage.
+     * Returns the subject of the new Event.
      *
-     * @return a instance of CalendarSectionAbstract.
+     * @return subject as a string
      */
-    public abstract CalendarSectionAbstract getCalendarSection();
+    public abstract String getSubjectNewEvent();
 }

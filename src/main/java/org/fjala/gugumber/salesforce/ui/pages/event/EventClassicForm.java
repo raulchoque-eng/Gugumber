@@ -12,16 +12,17 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.event;
 
+import java.util.Date;
+import java.util.LinkedList;
+import java.util.Set;
+
 import org.fjala.gugumber.core.selenium.utils.DriverMethods;
 import org.fjala.gugumber.salesforce.utils.DateMethods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.Set;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * EventClassicForm class.
@@ -110,6 +111,12 @@ public class EventClassicForm extends EventFormAbstract {
     private WebElement descriptionTxtar;
 
     /**
+     * Web element by the event save.
+     */
+    @FindBy(css = "td#bottomButtonRow [name = \"save\"]")
+    private WebElement saveEventBtn;
+
+    /**
      * Creates a new Event with the event information.
      *
      * @param event     is a event to get the information.
@@ -138,6 +145,9 @@ public class EventClassicForm extends EventFormAbstract {
         driver.switchTo().frame("resultsFrame");
         driver.findElement(By.cssSelector("table.list tr:nth-child(2) th:nth-child(1) a")).click();
         driver.switchTo().window(parentWindowHandle);
+        final WebElement myDynamicElement = (new WebDriverWait(driver, 10))
+                .until(ExpectedConditions.presenceOfElementLocated(By
+                        .cssSelector("div#ep div.pbBody > div:nth-child(4) > table tr:nth-child(1) td:nth-child(4) > input")));
     }
 
     /**
@@ -214,5 +224,15 @@ public class EventClassicForm extends EventFormAbstract {
     @Override
     public void setDescription(final String description) {
         DriverMethods.setTxt(descriptionTxtar, description);
+    }
+
+    /**
+     * Returns a WebElement by create new Event.
+     *
+     * @return a saveEventBtn web element
+     */
+    @Override
+    public WebElement getSaveEventBtn() {
+        return saveEventBtn;
     }
 }

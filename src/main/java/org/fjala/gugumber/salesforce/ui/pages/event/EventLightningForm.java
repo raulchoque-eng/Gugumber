@@ -1,4 +1,18 @@
+/*
+ * @(#) EventLightningForm.java Copyright (c) 2019 Jala Foundation.
+ * 2643 Av. Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
+ * All rights reserved.
+ *
+ * This software is the confidential and proprietary information of Jala
+ * Foundation, Inc. ("Confidential Information"). You shall not
+ * disclose such Confidential Information and shall use it only in
+ * accordance with the terms of the license agreement you entered into
+ * with Jala Foundation.
+ */
+
 package org.fjala.gugumber.salesforce.ui.pages.event;
+
+import java.util.Date;
 
 import org.fjala.gugumber.core.selenium.utils.DriverMethods;
 import org.fjala.gugumber.salesforce.utils.DateMethods;
@@ -6,8 +20,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
-import java.util.Date;
 
 /**
  * EventLightningForm class.
@@ -94,6 +106,12 @@ public class EventLightningForm extends EventFormAbstract {
      */
     @FindBy(css = "span#quickTextKeyboardTip ~ textarea")
     private WebElement descriptionTxtar;
+
+    /**
+     * Web element by the event save.
+     */
+    @FindBy(css = "[title=\"Save\"]")
+    private WebElement saveEventBtn;
 
     /**
      * Waits until the event form is loaded.
@@ -199,5 +217,15 @@ public class EventLightningForm extends EventFormAbstract {
     public void setInputFieldJavaScript(final WebElement element, final String text) {
         ((JavascriptExecutor) driver).executeScript("arguments[0].value = ''", element);
         ((JavascriptExecutor) driver).executeScript("arguments[0].value = arguments[1]", element, text);
+    }
+
+    /**
+     * Returns a WebElement by create new Event.
+     *
+     * @return a saveEventBtn web element
+     */
+    @Override
+    public WebElement getSaveEventBtn() {
+        return saveEventBtn;
     }
 }

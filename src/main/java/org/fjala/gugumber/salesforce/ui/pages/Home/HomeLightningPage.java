@@ -1,10 +1,10 @@
 /*
  * @(#) HomeLightningPage.java Copyright (c) 2019 Jala Foundation.
- * 2643 Av Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
+ * 2643 Av. Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
  * All rights reserved.
  *
  * This software is the confidential and proprietary information of Jala
- * Foundation, Inc. ("Confidential Information").  You shall not
+ * Foundation, Inc. ("Confidential Information"). You shall not
  * disclose such Confidential Information and shall use it only in
  * accordance with the terms of the license agreement you entered into
  * with Jala Foundation.
@@ -12,8 +12,8 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.Home;
 
-import org.fjala.gugumber.salesforce.ui.pages.event.CalendarLightningPage;
-import org.fjala.gugumber.salesforce.ui.pages.event.EventFormAbstract;
+import org.fjala.gugumber.salesforce.ui.pages.event.CalendarLightningSection;
+import org.fjala.gugumber.salesforce.ui.pages.event.CalendarSectionAbstract;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -53,23 +53,11 @@ public class HomeLightningPage extends HomePage {
     }
 
     /**
-     * Opens the Calendar from lightning page.
+     * Returns the CalendarSectionAbstract of a HomeLightningPage.
      *
-     * @return an instance of "CalendarLightningPage".
+     * @return a instance of CalendarLightningPage class.
      */
-    private CalendarLightningPage openCalendarLightningPage() {
-        eventLnk.click();
-        return new CalendarLightningPage();
-    }
-
-    /**
-     * Opens the Event form to create an Event.
-     *
-     * @return a EventForm class.
-     */
-    @Override
-    public EventFormAbstract openEventForm() {
-        final CalendarLightningPage calendarPage = openCalendarLightningPage();
-        return calendarPage.openEventForm();
+    public CalendarSectionAbstract getCalendarSection() {
+        return new CalendarLightningSection();
     }
 }
