@@ -37,6 +37,12 @@ public class AccountProfileLightningPage extends AccountProfilePageAbstract {
     private WebElement accountTitle;
 
     /**
+     * Web element for details tab of an account.
+     */
+    @FindBy(css = "a[data-tab-name='detailTab']")
+    private WebElement detaildTab;
+
+    /**
      * Waits until page object is loaded.
      */
     @Override
@@ -52,5 +58,16 @@ public class AccountProfileLightningPage extends AccountProfilePageAbstract {
     @Override
     public String getNameAccountFromProfileHeader() {
         return accountTitle.getText();
+    }
+
+    /**
+     * Returns an account details for the lightning layout.
+     *
+     * @return an account details.
+     */
+    @Override
+    public AccountDetailsAbstract getAccountDetails() {
+        detaildTab.click();
+        return new AccountDetailsLightning();
     }
 }

@@ -14,10 +14,12 @@ package org.fjala.gugumber.steps;
 
 import java.util.Map;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.fjala.gugumber.salesforce.entities.Context;
 import org.fjala.gugumber.salesforce.ui.PageLayoutFactory;
+import org.fjala.gugumber.salesforce.ui.pages.account.AccountDetailsAbstract;
 import org.fjala.gugumber.salesforce.ui.pages.account.AccountFormAbstract;
 import org.fjala.gugumber.salesforce.ui.pages.account.AccountProfilePageAbstract;
 import org.fjala.gugumber.salesforce.ui.pages.account.AccountsPageAbstract;
@@ -45,6 +47,8 @@ public class AccountSteps {
      * Variable for the profile account page.
      */
     private AccountProfilePageAbstract accountProfilePage;
+
+    private AccountDetailsAbstract accountDetails;
 
     /**
      * Variable for the context.
@@ -97,5 +101,21 @@ public class AccountSteps {
     public void displayAccountOnAccountsPage() {
         accountsPage = PageLayoutFactory.getAccountsPage();
         Assert.assertTrue(accountsPage.getListOfAccountsName().contains(context.getAccount().getNameAccount()));
+    }
+
+    /**
+     * Goes to the account details from account page.
+     */
+    @When("^I go to the Account Details from Account page$")
+    public void goToTheAccountDetailsFromAccountPage() {
+        accountDetails = accountProfilePage.getAccountDetails();
+    }
+
+    /**
+     * Verifies the name account on account details.
+     */
+    @Then("^the account name should be displayed in the Account Details$")
+    public void displayAccountNameInTheAccountDetails() {
+        Assert.assertEquals(accountDetails.getValueOfAccountNameField(), context.getAccount().getNameAccount());
     }
 }
