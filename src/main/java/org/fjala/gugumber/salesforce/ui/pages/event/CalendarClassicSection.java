@@ -53,4 +53,15 @@ public class CalendarClassicSection extends CalendarSectionAbstract {
     public String getSubjectNewEvent() {
         return subjectNewEventLnk.getText();
     }
+
+    /**
+     * Returns the even page details from the Event classic page.
+     *
+     * @return an instance event classic page.
+     */
+    @Override
+    public EventPageAbstract getEventDetails() {
+        subjectNewEventLnk.click();
+        return new EventClassicPage();
+    }
 }

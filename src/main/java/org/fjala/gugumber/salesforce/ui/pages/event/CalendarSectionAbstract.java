@@ -28,4 +28,11 @@ public abstract class CalendarSectionAbstract extends BasePage {
      * @return subject as a string
      */
     public abstract String getSubjectNewEvent();
+
+    /**
+     * Returns the even page details.
+     *
+     * @return an instance event page.
+     */
+    public abstract EventPageAbstract getEventDetails();
 }

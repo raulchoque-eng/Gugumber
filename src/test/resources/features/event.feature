@@ -18,7 +18,7 @@ Feature: Event manage
       | End Date    | Two hours from now |
       | Description | Description Text   |
     Then the Subject of new Event should be displayed on Calendar Section
-#    When I open the Event Details page from Calendar Section
+    When I open the Event Details page from Calendar Section
 #    Then the information of new Event should be displayed in Event Detail page
 #
 #  @deleteEvent

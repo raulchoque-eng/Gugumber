@@ -12,14 +12,14 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.event;
 
-import java.util.Date;
-
 import org.fjala.gugumber.core.selenium.utils.DriverMethods;
 import org.fjala.gugumber.salesforce.utils.DateMethods;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import java.util.Date;
 
 /**
  * EventLightningForm class.
@@ -30,7 +30,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class EventLightningForm extends EventFormAbstract {
 
     /**
-     * Web element by validate the Event form is open..
+     * Web element by validate the Event form is open.
      */
     @FindBy(css = "div.modal-header h2.title")
     private WebElement titleFormLbl;

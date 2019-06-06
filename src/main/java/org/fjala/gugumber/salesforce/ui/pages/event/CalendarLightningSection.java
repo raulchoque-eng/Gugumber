@@ -53,4 +53,15 @@ public class CalendarLightningSection extends CalendarSectionAbstract {
     public String getSubjectNewEvent() {
         return subjectNewEventLnk.getText();
     }
+
+    /**
+     * Returns the even page details from Event lightning page.
+     *
+     * @return an instance event lightning page.
+     */
+    @Override
+    public EventPageAbstract getEventDetails() {
+        subjectNewEventLnk.click();
+        return new EventLightningPage();
+    }
 }

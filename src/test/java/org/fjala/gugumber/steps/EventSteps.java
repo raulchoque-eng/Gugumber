@@ -12,9 +12,6 @@
 
 package org.fjala.gugumber.steps;
 
-import java.util.Map;
-import java.util.Set;
-
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.fjala.gugumber.salesforce.entities.Context;
@@ -27,6 +24,10 @@ import org.fjala.gugumber.salesforce.ui.pages.Home.HomeClassicPage;
 import org.fjala.gugumber.salesforce.ui.pages.Home.HomePage;
 import org.fjala.gugumber.salesforce.ui.pages.event.CalendarLightningPage;
 import org.fjala.gugumber.salesforce.ui.pages.event.EventFormAbstract;
+import org.fjala.gugumber.salesforce.ui.pages.event.EventPageAbstract;
+
+import java.util.Map;
+import java.util.Set;
 
 import static org.fjala.gugumber.salesforce.ui.PageLayoutType.CLASSIC;
 import static org.fjala.gugumber.salesforce.ui.PageLayoutType.LIGHTNING;
@@ -64,6 +65,8 @@ public class EventSteps {
      * Variable by the page layout type.
      */
     private PageLayoutType layout;
+
+    private EventPageAbstract eventPage;
 
     /**
      * Builds an instance from EventSteps class.
@@ -111,5 +114,13 @@ public class EventSteps {
         }
         final String nameSubject = homePage.getCalendarSection().getSubjectNewEvent();
         assertEquals(nameSubject, event.getSubject());
+    }
+
+    /**
+     * Opens the event detail from calendar section.
+     */
+    @When("^I open the Event Details page from Calendar Section$")
+    public void openEventDetailFromCalendarSection() {
+        eventPage = homePage.getCalendarSection().getEventDetails();
     }
 }
