@@ -26,8 +26,14 @@ public class EventLightningPage extends EventPageAbstract {
     /**
      * Web element by verify the event lightning page is open.
      */
-    @FindBy(id = "bodyCell")
+    @FindBy(css = "div.full.forcePageBlock.forceRecordLayout")
     private WebElement detailEvent;
+
+    /**
+     * Web element by verify the assigned to user.
+     */
+    @FindBy(css = "div.ownerName a")
+    private WebElement assignedToUserLnk;
 
     /**
      * Returns a web element for verify the detail event is open.
