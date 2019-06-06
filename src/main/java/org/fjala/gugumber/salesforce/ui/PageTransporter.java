@@ -1,16 +1,19 @@
 /*
  * @(#) PageTransporter.java Copyright (c) 2019 Jala Foundation.
- * 2643 Av Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
+ * 2643 Av. Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
  * All rights reserved.
  *
  * This software is the confidential and proprietary information of Jala
- * Foundation, Inc. ("Confidential Information").  You shall not
+ * Foundation, Inc. ("Confidential Information"). You shall not
  * disclose such Confidential Information and shall use it only in
  * accordance with the terms of the license agreement you entered into
  * with Jala Foundation.
  */
 
 package org.fjala.gugumber.salesforce.ui;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 import org.fjala.gugumber.core.selenium.WebDriverManager;
 import org.fjala.gugumber.core.selenium.utils.Logs;
@@ -19,9 +22,6 @@ import org.fjala.gugumber.salesforce.ui.pages.Home.HomePage;
 import org.fjala.gugumber.salesforce.ui.pages.LoginPage;
 import org.fjala.gugumber.salesforce.ui.pages.event.CalendarLightningPage;
 import org.openqa.selenium.WebDriver;
-
-import java.net.MalformedURLException;
-import java.net.URL;
 
 /**
  * PageTransporter class.
