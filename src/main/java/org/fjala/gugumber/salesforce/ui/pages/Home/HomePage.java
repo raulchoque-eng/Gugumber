@@ -1,18 +1,19 @@
 /*
- * @(#) GeneratorReport.java Copyright (c) 2019 Jala Foundation.
+ * @(#) HomePage.java Copyright (c) 2019 Jala Foundation.
  * 2643 Av. Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
- *  All rights reserved.
+ * All rights reserved.
  *
  * This software is the confidential and proprietary information of Jala
  * Foundation, Inc. ("Confidential Information"). You shall not
  * disclose such Confidential Information and shall use it only in
  * accordance with the terms of the license agreement you entered into
- *  with Jala Foundation.
+ * with Jala Foundation.
  */
 
 package org.fjala.gugumber.salesforce.ui.pages.Home;
 
 import org.fjala.gugumber.salesforce.ui.pages.BasePage;
+import org.fjala.gugumber.salesforce.ui.pages.event.CalendarSectionAbstract;
 
 /**
  * HomePage class.
@@ -22,15 +23,10 @@ import org.fjala.gugumber.salesforce.ui.pages.BasePage;
  */
 public abstract class HomePage extends BasePage {
 
-    public void openForm() {
-        System.out.println("TODO");
-    }
-
-    public String getNameEvent() {
-        return "TODO";
-    }
-
-    public void openDetail() {
-        System.out.println("TODO");
-    }
+    /**
+     * Returns the calendarSection of a HomePage.
+     *
+     * @return a instance of CalendarSectionAbstract.
+     */
+    public abstract CalendarSectionAbstract getCalendarSection();
 }

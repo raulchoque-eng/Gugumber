@@ -1,5 +1,5 @@
 /*
- * @(#) EventDetail.java Copyright (c) 2019 Jala Foundation.
+ * @(#) CalendarSectionAbstract.java Copyright (c) 2019 Jala Foundation.
  * 2643 Av. Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
  * All rights reserved.
  *
@@ -10,20 +10,22 @@
  * with Jala Foundation.
  */
 
-package org.fjala.gugumber.salesforce.ui.pages.events;
+package org.fjala.gugumber.salesforce.ui.pages.event;
 
-import java.util.HashMap;
-import java.util.Map;
+import org.fjala.gugumber.salesforce.ui.pages.BasePage;
 
 /**
- * EventDetail class.
+ * CalendarSectionAbstract abstract class.
  *
  * @author Raul Choque
  * @version 0.0.1
  */
-public class EventDetail {
-    public Map<String, String> getData() {
-        System.out.println("TODO");
-        return new HashMap<String, String>();
-    }
+public abstract class CalendarSectionAbstract extends BasePage {
+
+    /**
+     * Returns the subject of the new Event.
+     *
+     * @return subject as a string
+     */
+    public abstract String getSubjectNewEvent();
 }
