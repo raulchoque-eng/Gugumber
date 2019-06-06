@@ -1,5 +1,5 @@
 /*
- * @(#) ContactProfilePageAbstract.java Copyright (c) 2019 Jala Foundation.
+ * @(#) ContactDetailsAbstract.java Copyright (c) 2019 Jala Foundation.
  * 2643 Av. Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
  * All rights reserved.
  *
@@ -13,36 +13,26 @@
 package org.fjala.gugumber.salesforce.ui.pages.contact;
 
 import org.fjala.gugumber.salesforce.ui.pages.BasePage;
-import org.fjala.gugumber.salesforce.ui.pages.utils.UrlComponents;
 
 /**
- * ContactProfilePageAbstract class
+ * ContactDetailsAbstract class.
  *
  * @author Cristian Lujan
  * @version 0.0.1
  */
-public abstract class ContactProfilePageAbstract extends BasePage {
+public abstract class ContactDetailsAbstract extends BasePage {
 
     /**
      * Returns the Last Name of contact from a header profile.
      *
      * @return the last name of contact as string.
      */
-    public abstract String getFullNameTitleContact();
+    public abstract String getFullNameContact();
 
     /**
-     * Returns an Contact Details page after clicking on tab.
+     * Returns an Contact profile page after clicking on save button.
      *
-     * @return an Contact details page.
+     * @return an Contact profile page.
      */
-    public abstract ContactDetailsAbstract checkDetailsSection();
-
-    /**
-     * Return the id from url.
-     *
-     * @return id as string.
-     */
-    public String getIdFromUrl() {
-        return UrlComponents.splitUrlToId(driver.getCurrentUrl());
-    }
+    public abstract ContactProfilePageAbstract openEditContactDetails();
 }

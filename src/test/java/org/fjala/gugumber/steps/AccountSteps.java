@@ -79,6 +79,7 @@ public class AccountSteps {
         context.getAccount().setAccountInformation(accountMap);
         accountForm.setNameAccountOnTxtB(context.getAccount().getNameAccount());
         accountProfilePage = accountForm.clickOnSaveBtnFoot();
+        context.getAccount().setId(accountProfilePage.getIdFromUrl());
     }
 
     /**

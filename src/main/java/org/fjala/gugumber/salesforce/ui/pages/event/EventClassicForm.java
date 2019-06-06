@@ -212,7 +212,8 @@ public class EventClassicForm extends EventFormAbstract {
     @Override
     public void setRelatedToAccount(final String relatedToAccount) {
         final String locatorBySelect = "//option[contains(text(), 'nameTitle')]";
-        DriverMethods.selectCmb(relatedToAccountCmbbx, driver, locatorBySelect, "Account");
+        relatedToAccountCmbbx.click();
+        DriverMethods.selectCmb(driver, locatorBySelect, "Account");
         DriverMethods.setTxt(relatedToAccountTxt, relatedToAccount);
     }
 

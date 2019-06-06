@@ -1,10 +1,10 @@
 /*
  * @(#) ContactLightningPage.java Copyright (c) 2019 Jala Foundation.
- * 2643 Av Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
+ * 2643 Av. Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
  * All rights reserved.
  *
  * This software is the confidential and proprietary information of Jala
- * Foundation, Inc. ("Confidential Information").  You shall not
+ * Foundation, Inc. ("Confidential Information"). You shall not
  * disclose such Confidential Information and shall use it only in
  * accordance with the terms of the license agreement you entered into
  * with Jala Foundation.
@@ -35,7 +35,7 @@ public class ContactLightningPage extends ContactPageAbstract {
     private WebElement newContactForm;
 
     /**
-     * List of web elements for accounts name.
+     * List of web elements for contacts name.
      */
     @FindBy(css = "[class='slds-truncate outputLookupLink slds-truncate forceOutputLookup']")
     private List<WebElement> contactNameList;

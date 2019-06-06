@@ -58,6 +58,11 @@ import org.fjala.gugumber.core.StrategySetter;
 public class Contact {
 
     /**
+     * Variable for the id of Contact.
+     */
+    private String id;
+
+    /**
      * Variable for the salutation of an Contact.
      */
     private String salutation;
@@ -206,6 +211,24 @@ public class Contact {
      * Variable for the description of an Contact.
      */
     private String description;
+
+    /**
+     * Gets the id of the Contact.
+     *
+     * @return the id as string.
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * Sets the id of Contact.
+     *
+     * @param id for the account.
+     */
+    public void setId(final String id) {
+        this.id = id;
+    }
 
     /**
      * Gets the salutation.

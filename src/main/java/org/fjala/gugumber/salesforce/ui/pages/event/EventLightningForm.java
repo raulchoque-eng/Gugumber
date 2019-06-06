@@ -129,7 +129,8 @@ public class EventLightningForm extends EventFormAbstract {
     @Override
     public void setAssignedToUser(final String username) {
         final String locatorBySelect = "[title = \"nameTitle\"]";
-        DriverMethods.selectCmb(closeLnk, driver, locatorBySelect, username);
+        closeLnk.click();
+        DriverMethods.selectCmb(driver, locatorBySelect, username);
     }
 
     /**
@@ -150,7 +151,8 @@ public class EventLightningForm extends EventFormAbstract {
     @Override
     public void setNameContact(final String nameContact) {
         final String locatorBySelect = "[title = \"nameTitle\"]";
-        DriverMethods.selectCmb(contactCmbbx, driver, locatorBySelect, nameContact);
+        contactCmbbx.click();
+        DriverMethods.selectCmb(driver, locatorBySelect, nameContact);
     }
 
     /**
@@ -161,7 +163,8 @@ public class EventLightningForm extends EventFormAbstract {
     @Override
     public void setRelatedToAccount(final String relatedToAccount) {
         final String locatorBySelect = "[title = \"nameTitle\"]";
-        DriverMethods.selectCmb(accountCmbbx, driver, locatorBySelect, relatedToAccount);
+        accountCmbbx.click();
+        DriverMethods.selectCmb(driver, locatorBySelect, relatedToAccount);
     }
 
     /**
@@ -214,7 +217,7 @@ public class EventLightningForm extends EventFormAbstract {
      * @param element - element to set text.
      * @param text    - Value to fill in input.
      */
-    public void setInputFieldJavaScript(final WebElement element, final String text) {
+    private void setInputFieldJavaScript(final WebElement element, final String text) {
         ((JavascriptExecutor) driver).executeScript("arguments[0].value = ''", element);
         ((JavascriptExecutor) driver).executeScript("arguments[0].value = arguments[1]", element, text);
     }

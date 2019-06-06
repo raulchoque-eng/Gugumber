@@ -1,10 +1,10 @@
 /*
  * @(#) ContactFormAbstract.java Copyright (c) 2019 Jala Foundation.
- * 2643 Av Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
+ * 2643 Av. Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
  * All rights reserved.
  *
  * This software is the confidential and proprietary information of Jala
- * Foundation, Inc. ("Confidential Information").  You shall not
+ * Foundation, Inc. ("Confidential Information"). You shall not
  * disclose such Confidential Information and shall use it only in
  * accordance with the terms of the license agreement you entered into
  * with Jala Foundation.
@@ -61,10 +61,11 @@ public abstract class ContactFormAbstract extends BasePage {
      *
      * @param contact of type string
      */
-    public void setContactInformation (final Map<String,String> contact) {
+    public void setContactInformation(final Map<String, String> contact) {
         final HashMap<String, StrategySetter> strategyMap = composeStrategyMap(contact);
         contact.keySet().forEach(key -> {
-            strategyMap.get(key).executeMethod(); });
+            strategyMap.get(key).executeMethod();
+        });
     }
 
     /**
@@ -73,38 +74,38 @@ public abstract class ContactFormAbstract extends BasePage {
      * @param contact of type String.
      * @return The HashMap
      */
-    public HashMap<String,StrategySetter> composeStrategyMap(final Map<String,String> contact) {
+    public HashMap<String, StrategySetter> composeStrategyMap(final Map<String, String> contact) {
         final HashMap<String, StrategySetter> strategyMap = new HashMap<>();
-        strategyMap.put(SALUTATION,() -> setSalutation(contact.get(SALUTATION)));
-        strategyMap.put(FIRST_NAME,() -> setFirstName(contact.get(FIRST_NAME)));
-        strategyMap.put(LAST_NAME,() -> setLastName(contact.get(LAST_NAME)));
-        strategyMap.put(ACCOUNT,() -> setAccount(contact.get(ACCOUNT)));
-        strategyMap.put(PHONE,() -> setPhone(Integer.parseInt(contact.get(PHONE))));
-        strategyMap.put(EMAIL,() -> setEmail(contact.get(EMAIL)));
-        strategyMap.put(HOME_PHONE,() -> setHomePhone(Integer.parseInt(contact.get(HOME_PHONE))));
-        strategyMap.put(TITLE,() -> setTitle(contact.get(TITLE)));
-        strategyMap.put(DEPARTMENT,() -> setDepartment(contact.get(DEPARTMENT)));
+        strategyMap.put(SALUTATION, () -> setSalutation(contact.get(SALUTATION)));
+        strategyMap.put(FIRST_NAME, () -> setFirstName(contact.get(FIRST_NAME)));
+        strategyMap.put(LAST_NAME, () -> setLastName(contact.get(LAST_NAME)));
+        strategyMap.put(ACCOUNT, () -> setAccount(contact.get(ACCOUNT)));
+        strategyMap.put(PHONE, () -> setPhone(Integer.parseInt(contact.get(PHONE))));
+        strategyMap.put(EMAIL, () -> setEmail(contact.get(EMAIL)));
+        strategyMap.put(HOME_PHONE, () -> setHomePhone(Integer.parseInt(contact.get(HOME_PHONE))));
+        strategyMap.put(TITLE, () -> setTitle(contact.get(TITLE)));
+        strategyMap.put(DEPARTMENT, () -> setDepartment(contact.get(DEPARTMENT)));
 //        strategyMap.put(BIRTHDATE,() -> setBirthdate(newContact.get(BIRTHDATE)));
-        strategyMap.put(REPORTS_TO,() -> setReportsTo(contact.get(REPORTS_TO)));
-        strategyMap.put(LEAD_SOURCE,() -> setLeadSource(contact.get(LEAD_SOURCE)));
-        strategyMap.put(MOBILE,() -> setMobile(Integer.parseInt(contact.get(MOBILE))));
-        strategyMap.put(OTHER_PHONE,() -> setOtherPhone(Integer.parseInt(contact.get(OTHER_PHONE))));
-        strategyMap.put(FAX,() -> setFax(Integer.parseInt(contact.get(FAX))));
-        strategyMap.put(ASSISTANT,() -> setAssistant(contact.get(ASSISTANT)));
-        strategyMap.put(ASST_PHONE,() -> setAsstPhone(Integer.parseInt(contact.get(ASST_PHONE))));
-        strategyMap.put(MAILING_STREET,() -> setMailingStreet(contact.get(MAILING_STREET)));
-        strategyMap.put(MAILING_CITY,() -> setMailingCity(contact.get(MAILING_CITY)));
-        strategyMap.put(MAILING_STATE,() -> setMailingState(contact.get(MAILING_STATE)));
-        strategyMap.put(MAILING_POSTAL_CODE,() -> setMailingPostalCode(contact.get(MAILING_POSTAL_CODE)));
-        strategyMap.put(MAILING_COUNTRY,() -> setMailingCountry(contact.get(MAILING_COUNTRY)));
-        strategyMap.put(OTHER_STREET,() -> setOtherStreet(contact.get(OTHER_STREET)));
-        strategyMap.put(OTHER_CITY,() -> setOtherCity(contact.get(OTHER_CITY)));
-        strategyMap.put(OTHER_STATE,() -> setOtherState(contact.get(OTHER_STATE)));
-        strategyMap.put(OTHER_POSTAL_CODE,() -> setOtherPostalCode(contact.get(OTHER_POSTAL_CODE)));
-        strategyMap.put(OTHER_COUNTRY,() -> setOtherCountry(contact.get(OTHER_COUNTRY)));
-        strategyMap.put(LANGUAGES,() -> setLanguages(contact.get(LANGUAGES)));
-        strategyMap.put(LEVEL,() -> setLevel(contact.get(LEVEL)));
-        strategyMap.put(DESCRIPTION,() -> setDescription(contact.get(DESCRIPTION)));
+        strategyMap.put(REPORTS_TO, () -> setReportsTo(contact.get(REPORTS_TO)));
+        strategyMap.put(LEAD_SOURCE, () -> setLeadSource(contact.get(LEAD_SOURCE)));
+        strategyMap.put(MOBILE, () -> setMobile(Integer.parseInt(contact.get(MOBILE))));
+        strategyMap.put(OTHER_PHONE, () -> setOtherPhone(Integer.parseInt(contact.get(OTHER_PHONE))));
+        strategyMap.put(FAX, () -> setFax(Integer.parseInt(contact.get(FAX))));
+        strategyMap.put(ASSISTANT, () -> setAssistant(contact.get(ASSISTANT)));
+        strategyMap.put(ASST_PHONE, () -> setAsstPhone(Integer.parseInt(contact.get(ASST_PHONE))));
+        strategyMap.put(MAILING_STREET, () -> setMailingStreet(contact.get(MAILING_STREET)));
+        strategyMap.put(MAILING_CITY, () -> setMailingCity(contact.get(MAILING_CITY)));
+        strategyMap.put(MAILING_STATE, () -> setMailingState(contact.get(MAILING_STATE)));
+        strategyMap.put(MAILING_POSTAL_CODE, () -> setMailingPostalCode(contact.get(MAILING_POSTAL_CODE)));
+        strategyMap.put(MAILING_COUNTRY, () -> setMailingCountry(contact.get(MAILING_COUNTRY)));
+        strategyMap.put(OTHER_STREET, () -> setOtherStreet(contact.get(OTHER_STREET)));
+        strategyMap.put(OTHER_CITY, () -> setOtherCity(contact.get(OTHER_CITY)));
+        strategyMap.put(OTHER_STATE, () -> setOtherState(contact.get(OTHER_STATE)));
+        strategyMap.put(OTHER_POSTAL_CODE, () -> setOtherPostalCode(contact.get(OTHER_POSTAL_CODE)));
+        strategyMap.put(OTHER_COUNTRY, () -> setOtherCountry(contact.get(OTHER_COUNTRY)));
+        strategyMap.put(LANGUAGES, () -> setLanguages(contact.get(LANGUAGES)));
+        strategyMap.put(LEVEL, () -> setLevel(contact.get(LEVEL)));
+        strategyMap.put(DESCRIPTION, () -> setDescription(contact.get(DESCRIPTION)));
         return strategyMap;
     }
 

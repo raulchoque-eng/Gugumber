@@ -31,9 +31,32 @@ public class Account {
     private static final String NAME_ACCOUNT = "Account Name";
 
     /**
+     * Variable for the id of account.
+     */
+    private String id;
+
+    /**
      * Variable for the name account of an Account.
      */
     private String nameAccount;
+
+    /**
+     * Returns the id of the account.
+     *
+     * @return the id as string.
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * Sets the id of account sending a string.
+     *
+     * @param id for the account.
+     */
+    public void setId(final String id) {
+        this.id = id;
+    }
 
     /**
      * Returns the name account.
