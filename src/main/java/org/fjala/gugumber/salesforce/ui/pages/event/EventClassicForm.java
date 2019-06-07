@@ -13,16 +13,14 @@
 package org.fjala.gugumber.salesforce.ui.pages.event;
 
 import java.util.Date;
-import java.util.LinkedList;
-import java.util.Set;
 
 import org.fjala.gugumber.core.selenium.utils.DriverMethods;
 import org.fjala.gugumber.salesforce.utils.DateMethods;
-import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * EventClassicForm class.
@@ -39,79 +37,79 @@ public class EventClassicForm extends EventFormAbstract {
     private WebElement eventForm;
 
     /**
-     * Web element by search a new user to assign event.
+     * Web element for a user to assign event.
      */
-    @FindBy(css = "div#ep > div.pbBody > div:nth-child(4) > table tr:nth-child(1) td:nth-child(2) img.lookupIcon")
-    private WebElement searchUserImg;
+    @FindBy(id = "evt1")
+    private WebElement userTxtb;
 
     /**
-     * Web element by the location.
+     * Web element for a location of a new Event.
      */
     @FindBy(css = "div#ep div.pbBody > div:nth-child(4) > table tr:nth-child(1) td:nth-child(4) > input")
-    private WebElement locationTxt;
+    private WebElement locationTxtb;
 
     /**
-     * Web element by the subject.
+     * Web element for a subject.
      */
     @FindBy(css = "div#ep > div.pbBody > div:nth-child(4) > table tr:nth-child(2) td:nth-child(2) input")
-    private WebElement subjectTxt;
+    private WebElement subjectTxtb;
 
     /**
-     * Web element by the start date.
+     * Web element for a start date of a new Event.
      */
     @FindBy(id = "StartDateTime")
-    private WebElement startDateTxt;
+    private WebElement startDateTxtb;
 
     /**
-     * Web element by the start time.
+     * Web element for the start time of a new Event.
      */
     @FindBy(id = "StartDateTime_time")
-    private WebElement startTimeTxt;
+    private WebElement startTimeTxtb;
 
     /**
-     * Web element by search the contact.
+     * Web element for search the contact of a new Event.
      */
     @FindBy(css = "div#ep > div.pbBody > div:nth-child(4) > table tr:nth-child(3) td:nth-child(2) select")
     private WebElement nameCmbbx;
 
     /**
-     * Web element by the contact.
+     * Web element for the contact of a new Event.
      */
     @FindBy(css = "div#ep > div.pbBody > div:nth-child(4) > table tr:nth-child(3) td:nth-child(2) span.lookupInput input")
-    private WebElement nameTxt;
+    private WebElement nameTxtb;
 
     /**
-     * Web element by the end date.
+     * Web element for the end of a new Event.
      */
     @FindBy(id = "EndDateTime")
-    private WebElement endDateTxt;
+    private WebElement endDateTxtb;
 
     /**
-     * Web element by the end time.
+     * Web element for the end time of a new Event.
      */
     @FindBy(id = "EndDateTime_time")
-    private WebElement endTimeTxt;
+    private WebElement endTimeTxtb;
 
     /**
-     * Web element by search an related to user.
+     * Web element for search an related to account of a new Event.
      */
     @FindBy(css = "div#ep > div.pbBody > div:nth-child(4) > table tr:nth-child(6) td:nth-child(2) select")
     private WebElement relatedToAccountCmbbx;
 
     /**
-     * Web element by select the related to user.
+     * Web element for select the related to account of a new Event.
      */
     @FindBy(css = "div#ep > div.pbBody > div:nth-child(4) > table tr:nth-child(6) td:nth-child(2) span.lookupInput [title=\"Related To\"]")
-    private WebElement relatedToAccountTxt;
+    private WebElement relatedToAccountTxtb;
 
     /**
-     * Web element by the Description.
+     * Web element for the Description of a new Event.
      */
     @FindBy(css = "td.last.data2Col > textarea")
     private WebElement descriptionTxtar;
 
     /**
-     * Web element by the event save.
+     * Web element by the event save of a new Event.
      */
     @FindBy(css = "td#bottomButtonRow [name = \"save\"]")
     private WebElement saveEventBtn;
@@ -138,16 +136,7 @@ public class EventClassicForm extends EventFormAbstract {
      */
     @Override
     public void setAssignedToUser(final String assignedToUser) {
-        searchUserImg.click();
-        final String parentWindowHandle = driver.getWindowHandle();
-        final Set<String> windows = driver.getWindowHandles();
-        driver.switchTo().window(new LinkedList<>(windows).getLast());
-        driver.switchTo().frame("resultsFrame");
-        driver.findElement(By.cssSelector("table.list tr:nth-child(2) th:nth-child(1) a")).click();
-        driver.switchTo().window(parentWindowHandle);
-        final WebElement myDynamicElement = (new WebDriverWait(driver, 10))
-                .until(ExpectedConditions.presenceOfElementLocated(By
-                        .cssSelector("div#ep div.pbBody > div:nth-child(4) > table tr:nth-child(1) td:nth-child(4) > input")));
+        userTxtb.sendKeys(Keys.chord(Keys.CONTROL, "a"), assignedToUser);
     }
 
     /**
@@ -157,7 +146,7 @@ public class EventClassicForm extends EventFormAbstract {
      */
     @Override
     public void setLocation(final String location) {
-        DriverMethods.setTxt(locationTxt, location);
+        DriverMethods.setTxt(locationTxtb, location);
     }
 
     /**
@@ -167,7 +156,18 @@ public class EventClassicForm extends EventFormAbstract {
      */
     @Override
     public void setSubject(final String subject) {
-        DriverMethods.setTxt(subjectTxt, subject);
+        DriverMethods.setTxt(subjectTxtb, subject);
+    }
+
+    /**
+     * Cleans the text box and set new value using javascript.
+     *
+     * @param element - element to set text.
+     * @param text    - Value to fill in input.
+     */
+    private void setInputFieldJavaScript(final WebElement element, final String text) {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].value = ''", element);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].value = arguments[1]", element, text);
     }
 
     /**
@@ -178,8 +178,8 @@ public class EventClassicForm extends EventFormAbstract {
     @Override
     public void setStartDate(final Date startDate) {
         final String pattern = "dd-MM-yyyy";
-        DriverMethods.setTxt(startDateTxt, DriverMethods.convertDateToString(startDate, pattern));
-        DriverMethods.setTxt(startTimeTxt, DateMethods.getHourBefore(startDate, 2));
+        DriverMethods.setTxt(startDateTxtb, DriverMethods.convertDateToString(startDate, pattern));
+        DriverMethods.setTxt(startTimeTxtb, DateMethods.getHourBefore(startDate, 2));
     }
 
     /**
@@ -189,7 +189,7 @@ public class EventClassicForm extends EventFormAbstract {
      */
     @Override
     public void setNameContact(final String nameContact) {
-        DriverMethods.setTxt(nameTxt, nameContact);
+        DriverMethods.setTxt(nameTxtb, nameContact);
     }
 
     /**
@@ -200,8 +200,8 @@ public class EventClassicForm extends EventFormAbstract {
     @Override
     public void setEndDate(final Date endDate) {
         final String pattern = "dd-MM-yyyy";
-        DriverMethods.setTxt(endDateTxt, DriverMethods.convertDateToString(endDate, pattern));
-        DriverMethods.setTxt(endTimeTxt, DateMethods.getHourBefore(endDate, 3));
+        DriverMethods.setTxt(endDateTxtb, DriverMethods.convertDateToString(endDate, pattern));
+        DriverMethods.setTxt(endTimeTxtb, DateMethods.getHourBefore(endDate, 3));
     }
 
     /**
@@ -214,7 +214,7 @@ public class EventClassicForm extends EventFormAbstract {
         final String locatorBySelect = "//option[contains(text(), 'nameTitle')]";
         relatedToAccountCmbbx.click();
         DriverMethods.selectCmb(driver, locatorBySelect, "Account");
-        DriverMethods.setTxt(relatedToAccountTxt, relatedToAccount);
+        DriverMethods.setTxt(relatedToAccountTxtb, relatedToAccount);
     }
 
     /**

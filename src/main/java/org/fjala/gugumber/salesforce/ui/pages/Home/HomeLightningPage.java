@@ -27,12 +27,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class HomeLightningPage extends HomePage {
 
     /**
-     * Web element for the body the the home page in layout classic.
-     */
-    @FindBy(id = "brandBand_1")
-    private WebElement homeForm;
-
-    /**
      * Web element "appLauncherBtn",by validate HomeLightningPage.
      */
     @FindBy(css = "button.slds-button div.slds-icon-waffle")

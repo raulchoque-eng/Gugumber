@@ -16,6 +16,8 @@ import org.fjala.gugumber.salesforce.ui.pages.BasePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.Map;
+
 /**
  * EventPageAbstract abstract class.
  *
@@ -44,4 +46,14 @@ public abstract class EventPageAbstract extends BasePage {
     public void waitUntilPageObjectIsLoaded() {
         wait.until(ExpectedConditions.visibilityOf(getDetailEvent()));
     }
+
+    public abstract String getAssignedToUser();
+    public abstract String getSubject();
+    public abstract String getNameContact();
+    public abstract String getRelatedToAccount();
+    public abstract String getDescription();
+    public abstract String getLocation();
+    public abstract String getStartDate();
+    public abstract String getEndDate();
+    public abstract Map<String, String> getEventDetailInMap();
 }

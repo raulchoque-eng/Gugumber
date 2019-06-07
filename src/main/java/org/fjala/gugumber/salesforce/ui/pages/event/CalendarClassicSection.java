@@ -25,13 +25,13 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class CalendarClassicSection extends CalendarSectionAbstract {
 
     /**
-     * Web element by verify the calendar section.
+     * Web element for verify the calendar section.
      */
     @FindBy(id = "homeCalendarSection")
     private WebElement calendarSct;
 
     /**
-     * Web element by subject the new Event.
+     * Web element for subject the new Event.
      */
     @FindBy(css = "ul.homeCalendarEvents li:last-child a")
     private WebElement subjectNewEventLnk;
@@ -62,6 +62,7 @@ public class CalendarClassicSection extends CalendarSectionAbstract {
     @Override
     public EventPageAbstract getEventDetails() {
         subjectNewEventLnk.click();
-        return new EventClassicPage();
+        return new EventLightningPage();
+//        return new EventClassicPage();
     }
 }

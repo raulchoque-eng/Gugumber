@@ -14,12 +14,12 @@ Feature: Event manage
       | Name        | Contact Event      |
       | Related To  | Account Event      |
       | Location    | Virginia           |
-      | Start Date  | One hour from now  |
-      | End Date    | Two hours from now |
+#      | Start Date  | One hour from now  |
+#      | End Date    | Two hours from now |
       | Description | Description Text   |
     Then the Subject of new Event should be displayed on Calendar Section
     When I open the Event Details page from Calendar Section
-#    Then the information of new Event should be displayed in Event Detail page
+    Then the information of new Event should be displayed in Event Detail page
 #
 #  @deleteEvent
 #  Scenario Create a new Event with all data

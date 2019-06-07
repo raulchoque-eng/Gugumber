@@ -18,6 +18,15 @@ import java.util.Map;
 
 import org.fjala.gugumber.core.StrategySetter;
 
+import static org.fjala.gugumber.salesforce.keys.EventKeys.ASSIGNED_TO;
+import static org.fjala.gugumber.salesforce.keys.EventKeys.DESCRIPTION;
+import static org.fjala.gugumber.salesforce.keys.EventKeys.END_DATE;
+import static org.fjala.gugumber.salesforce.keys.EventKeys.LOCATION;
+import static org.fjala.gugumber.salesforce.keys.EventKeys.NAME;
+import static org.fjala.gugumber.salesforce.keys.EventKeys.RELATED_TO;
+import static org.fjala.gugumber.salesforce.keys.EventKeys.START_DATE;
+import static org.fjala.gugumber.salesforce.keys.EventKeys.SUBJECT;
+
 /**
  * Event class
  *
@@ -231,10 +240,7 @@ public class Event {
      */
     public void setDataToEvent(final Map<String, String> newEvent) {
         final HashMap<String, StrategySetter> strategyMap = composeStrategyMap(newEvent);
-        newEvent.keySet().forEach(key -> {
-            strategyMap.get(key).executeMethod();
-            System.out.println("Event object: " + key);
-        });
+        newEvent.keySet().forEach(key -> strategyMap.get(key).executeMethod());
     }
 
     /**
@@ -245,14 +251,14 @@ public class Event {
      */
     private HashMap<String, StrategySetter> composeStrategyMap(final Map<String, String> newEvent) {
         final HashMap<String, StrategySetter> strategyHashMap = new HashMap<>();
-        strategyHashMap.put("Assigned To", () -> setAssignedToUser(newEvent.get("Assigned To")));
-        strategyHashMap.put("Subject", () -> setSubject(newEvent.get("Subject")));
-        strategyHashMap.put("Name", () -> setNameContact(newEvent.get("Name")));
-        strategyHashMap.put("Related To", () -> setRelatedToAccount(newEvent.get("Related To")));
-        strategyHashMap.put("Location", () -> setLocation(newEvent.get("Location")));
-        strategyHashMap.put("Start Date", () -> setStartDate(newEvent.get("Start Date")));
-        strategyHashMap.put("End Date", () -> setEndDate(newEvent.get("End Date")));
-        strategyHashMap.put("Description", () -> setDescription(newEvent.get("Description")));
+        strategyHashMap.put(ASSIGNED_TO, () -> setAssignedToUser(newEvent.get("Assigned To")));
+        strategyHashMap.put(SUBJECT, () -> setSubject(newEvent.get("Subject")));
+        strategyHashMap.put(NAME, () -> setNameContact(newEvent.get("Name")));
+        strategyHashMap.put(RELATED_TO, () -> setRelatedToAccount(newEvent.get("Related To")));
+        strategyHashMap.put(LOCATION, () -> setLocation(newEvent.get("Location")));
+//        strategyHashMap.put(START_DATE, () -> setStartDate(newEvent.get("Start Date")));
+//        strategyHashMap.put(END_DATE, () -> setEndDate(newEvent.get("End Date")));
+        strategyHashMap.put(DESCRIPTION, () -> setDescription(newEvent.get("Description")));
         return strategyHashMap;
     }
 }

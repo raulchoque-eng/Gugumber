@@ -21,6 +21,15 @@ import org.fjala.gugumber.salesforce.entities.Event;
 import org.fjala.gugumber.salesforce.ui.pages.BasePage;
 import org.openqa.selenium.WebElement;
 
+import static org.fjala.gugumber.salesforce.keys.EventKeys.ASSIGNED_TO;
+import static org.fjala.gugumber.salesforce.keys.EventKeys.DESCRIPTION;
+import static org.fjala.gugumber.salesforce.keys.EventKeys.END_DATE;
+import static org.fjala.gugumber.salesforce.keys.EventKeys.LOCATION;
+import static org.fjala.gugumber.salesforce.keys.EventKeys.NAME;
+import static org.fjala.gugumber.salesforce.keys.EventKeys.RELATED_TO;
+import static org.fjala.gugumber.salesforce.keys.EventKeys.START_DATE;
+import static org.fjala.gugumber.salesforce.keys.EventKeys.SUBJECT;
+
 /**
  * EventFormAbstract class
  *
@@ -59,14 +68,14 @@ public abstract class EventFormAbstract extends BasePage {
      */
     private HashMap<String, StrategySetter> composesStrategyMap(final Event event) {
         final HashMap<String, StrategySetter> strategyMap = new HashMap<>();
-        strategyMap.put("Assigned To", () -> setAssignedToUser(event.getAssignedToUser()));
-        strategyMap.put("Subject", () -> setSubject(event.getSubject()));
-        strategyMap.put("Name", () -> setNameContact(event.getNameContact()));
-        strategyMap.put("Related To", () -> setRelatedToAccount(event.getRelatedToAccount()));
-        strategyMap.put("Location", () -> setLocation(event.getLocation()));
-        strategyMap.put("Start Date", () -> setStartDate(event.getStartDate()));
-        strategyMap.put("End Date", () -> setEndDate(event.getEndDate()));
-        strategyMap.put("Description", () -> setDescription(event.getDescription()));
+        strategyMap.put(ASSIGNED_TO, () -> setAssignedToUser(event.getAssignedToUser()));
+        strategyMap.put(SUBJECT, () -> setSubject(event.getSubject()));
+        strategyMap.put(NAME, () -> setNameContact(event.getNameContact()));
+        strategyMap.put(RELATED_TO, () -> setRelatedToAccount(event.getRelatedToAccount()));
+        strategyMap.put(LOCATION, () -> setLocation(event.getLocation()));
+//        strategyMap.put(START_DATE, () -> setStartDate(event.getStartDate()));
+//        strategyMap.put(END_DATE, () -> setEndDate(event.getEndDate()));
+        strategyMap.put(DESCRIPTION, () -> setDescription(event.getDescription()));
         return strategyMap;
     }
 

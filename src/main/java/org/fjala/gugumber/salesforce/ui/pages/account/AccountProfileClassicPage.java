@@ -53,4 +53,14 @@ public class AccountProfileClassicPage extends AccountProfilePageAbstract {
     public String getNameAccountFromProfileHeader() {
         return accountTitle.getText();
     }
+
+    /**
+     * Returns an account details for classic layout.
+     *
+     * @return an account details.
+     */
+    @Override
+    public AccountDetailsAbstract getAccountDetails() {
+        return new AccountDetailsClassic();
+    }
 }

@@ -26,13 +26,13 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class CalendarLightningPage extends BasePage {
 
     /**
-     * Web element by the calendar header.
+     * Web element for the calendar header.
      */
     @FindBy(css = "div.calendarHeader")
     private WebElement calendarHeader;
 
     /**
-     * Web element by open the  event form.
+     * Web element for open the  event form.
      */
     @FindBy(css = "button.new-event-button")
     private WebElement newEventBtn;
