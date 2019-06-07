@@ -26,7 +26,7 @@ Feature: Contact manage
       | Account                 | Account_Test     |
       | Title                   | Task             |
       | Department              | Test             |
-      | Reports To              | 123              |
+      | Reports To              | Contact Event    |
       | Lead Source             | Web              |
       | Phone                   | 12345678         |
       | Other Phone             | 777777           |

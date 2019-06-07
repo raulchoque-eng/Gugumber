@@ -136,7 +136,6 @@ public class ContactSteps {
     @Then("^the contact last name should be displayed in the contacts list of Contacts page$")
     public void displayContactInTheContactsListOfContactsPage() {
         contactPage = PageLayoutFactory.getContactPage();
-        System.out.println(" last name : " + contact.getFullNameContactList() + "  list : " + contactPage.getListOfContactsName());
         assertTrue(contactPage.getListOfContactsName().contains(contact.getFullNameContactList()), "the Contact Name not displayed");
     }
 
@@ -155,9 +154,4 @@ public class ContactSteps {
     public void displayedContactInformationInTheContactDetailsPage() {
         assertEquals(contactDetails.getFullNameContact(), contact.getFullName(), "the Contact Name not displayed");
     }
-
-//    @When("^I request the get of the contact$")
-//    public void requestTheGetOfTheContact() {
-//        ContactAPI.getInstance().readContact(contact.getId());
-//    }
 }
