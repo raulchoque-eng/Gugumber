@@ -51,7 +51,7 @@ public class ContactAPI {
     }
 
     /**
-     * Deletes an contact by id.
+     * Deletes a contact by id.
      *
      * @param contactId to concat with the base endpoint.
      */
@@ -60,7 +60,12 @@ public class ContactAPI {
         final Response response = restClient.delete(finalEndpoint);
     }
 
-    public void readContact(final String contactId) {
+    /**
+     * Gets a contact by Id
+     *
+     * @param contactId to contact with the base endpoint.
+     */
+    public void readContactById(final String contactId) {
         finalEndpoint = CONTACT_ENDPOINT.concat("/".concat(contactId));
         final Response response = restClient.get(finalEndpoint);
     }

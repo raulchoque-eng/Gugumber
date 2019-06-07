@@ -43,15 +43,13 @@ import static org.fjala.gugumber.salesforce.keys.ContactKeys.REPORTS_TO;
 import static org.fjala.gugumber.salesforce.keys.ContactKeys.SALUTATION;
 import static org.fjala.gugumber.salesforce.keys.ContactKeys.TITLE;
 import static org.fjala.gugumber.salesforce.ui.PageLayoutType.CLASSIC;
-import static org.fjala.gugumber.salesforce.ui.PageLayoutType.LIGHTNING;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import io.restassured.path.json.JsonPath;
 import org.fjala.gugumber.core.StrategySetter;
 import org.fjala.gugumber.salesforce.ui.PageLayoutConfig;
-import org.fjala.gugumber.salesforce.ui.PageLayoutFactory;
 import org.fjala.gugumber.salesforce.ui.PageLayoutType;
 
 /**
@@ -62,7 +60,7 @@ import org.fjala.gugumber.salesforce.ui.PageLayoutType;
  */
 public class Contact {
 
-        /**
+    /**
      * Variable with the page layout;
      */
     private PageLayoutType layout = PageLayoutConfig.getPageLayoutName();
@@ -120,7 +118,7 @@ public class Contact {
     /**
      * Variable for the birth date of an Contact.
      */
-    private Date birthdate;
+    private String birthdate;
 
     /**
      * Variable for the reports to of an Contact.
@@ -407,7 +405,7 @@ public class Contact {
      *
      * @return birthdate as string.
      */
-    public Date getBirthdate() {
+    public String getBirthdate() {
         return birthdate;
     }
 
@@ -416,7 +414,7 @@ public class Contact {
      *
      * @param birthdate for the contact.
      */
-    public void setBirthdate(final Date birthdate) {
+    public void setBirthdate(final String birthdate) {
         this.birthdate = birthdate;
     }
 
@@ -781,6 +779,28 @@ public class Contact {
     }
 
     /**
+     * Sets the json values into Contact.
+     *
+     * @param json JsonPath.
+     * @param key  string.
+     */
+    public void setJsonContactValues(final String key, final JsonPath json) {
+        if (key.equals("Id")) {
+            setId(json.getString(key));
+        }
+        if (key.equals("Salutation")) {
+            setSalutation(json.getString(key));
+        }
+        if (key.equals("Name")) {
+            setFirstName(json.getString(key));
+        }
+        if (key.equals("Last Name")) {
+            setLastName(json.getString(key));
+        }
+
+    }
+
+    /**
      * Gets full name for title.
      *
      * @return full name as string.
@@ -809,16 +829,14 @@ public class Contact {
             } else {
                 fullName = getLastName().concat(", ").concat(getFirstName());
             }
-            return fullName.trim();
-        }
-        else {
+        } else {
             if (getFirstName().equals(" ") || getSalutation().equals(" ")) {
                 fullName = getLastName();
             } else {
                 fullName = getFirstName().concat(" ").concat(getLastName());
             }
-            return fullName.trim();
         }
+        return fullName.trim();
     }
 
     /**
@@ -826,10 +844,11 @@ public class Contact {
      *
      * @param newContact of type string
      */
-    public void processInformation (final Map<String,String> newContact) {
+    public void processInformation(final Map<String, String> newContact) {
         final HashMap<String, StrategySetter> strategyMap = composeStrategyMap(newContact);
         newContact.keySet().forEach(key -> {
-            strategyMap.get(key).executeMethod(); });
+            strategyMap.get(key).executeMethod();
+        });
     }
 
     /**
@@ -838,38 +857,38 @@ public class Contact {
      * @param newContact of type String.
      * @return The HashMap
      */
-    public HashMap<String,StrategySetter> composeStrategyMap(final Map<String,String> newContact) {
+    public HashMap<String, StrategySetter> composeStrategyMap(final Map<String, String> newContact) {
         final HashMap<String, StrategySetter> strategyMap = new HashMap<>();
-        strategyMap.put(SALUTATION,() -> setSalutation(newContact.get(SALUTATION)));
-        strategyMap.put(FIRST_NAME,() -> setFirstName(newContact.get(FIRST_NAME)));
-        strategyMap.put(LAST_NAME,() -> setLastName(newContact.get(LAST_NAME)));
-        strategyMap.put(ACCOUNT,() -> setAccount(newContact.get(ACCOUNT)));
-        strategyMap.put(PHONE,() -> setPhone(Integer.parseInt(newContact.get(PHONE))));
-        strategyMap.put(EMAIL,() -> setEmail(newContact.get(EMAIL)));
-        strategyMap.put(HOME_PHONE,() -> setHomePhone(Integer.parseInt(newContact.get(HOME_PHONE))));
-        strategyMap.put(TITLE,() -> setTitle(newContact.get(TITLE)));
-        strategyMap.put(DEPARTMENT,() -> setDepartment(newContact.get(DEPARTMENT)));
-//        strategyMap.put(BIRTHDATE,() -> setBirthdate(newContact.get(BIRTHDATE)));
-        strategyMap.put(REPORTS_TO,() -> setReportsTo(newContact.get(REPORTS_TO)));
-        strategyMap.put(LEAD_SOURCE,() -> setLeadSource(newContact.get(LEAD_SOURCE)));
-        strategyMap.put(MOBILE,() -> setMobile(Integer.parseInt(newContact.get(MOBILE))));
-        strategyMap.put(OTHER_PHONE,() -> setOtherPhone(Integer.parseInt(newContact.get(OTHER_PHONE))));
-        strategyMap.put(FAX,() -> setFax(Integer.parseInt(newContact.get(FAX))));
-        strategyMap.put(ASSISTANT,() -> setAssistant(newContact.get(ASSISTANT)));
-        strategyMap.put(ASST_PHONE,() -> setAsstPhone(Integer.parseInt(newContact.get(ASST_PHONE))));
-        strategyMap.put(MAILING_STREET,() -> setMailingStreet(newContact.get(MAILING_STREET)));
-        strategyMap.put(MAILING_CITY,() -> setMailingCity(newContact.get(MAILING_CITY)));
-        strategyMap.put(MAILING_STATE,() -> setMailingState(newContact.get(MAILING_STATE)));
-        strategyMap.put(MAILING_POSTAL_CODE,() -> setMailingPostalCode(newContact.get(MAILING_POSTAL_CODE)));
-        strategyMap.put(MAILING_COUNTRY,() -> setMailingCountry(newContact.get(MAILING_COUNTRY)));
-        strategyMap.put(OTHER_STREET,() -> setOtherStreet(newContact.get(OTHER_STREET)));
-        strategyMap.put(OTHER_CITY,() -> setOtherCity(newContact.get(OTHER_CITY)));
-        strategyMap.put(OTHER_STATE,() -> setOtherState(newContact.get(OTHER_STATE)));
-        strategyMap.put(OTHER_POSTAL_CODE,() -> setOtherZipPostalCode(newContact.get(OTHER_POSTAL_CODE)));
-        strategyMap.put(OTHER_COUNTRY,() -> setOtherCountry(newContact.get(OTHER_COUNTRY)));
-        strategyMap.put(LANGUAGES,() -> setLanguages(newContact.get(LANGUAGES)));
-        strategyMap.put(LEVEL,() -> setLevel(newContact.get(LEVEL)));
-        strategyMap.put(DESCRIPTION,() -> setDescription(newContact.get(DESCRIPTION)));
+        strategyMap.put(SALUTATION, () -> setSalutation(newContact.get(SALUTATION)));
+        strategyMap.put(FIRST_NAME, () -> setFirstName(newContact.get(FIRST_NAME)));
+        strategyMap.put(LAST_NAME, () -> setLastName(newContact.get(LAST_NAME)));
+        strategyMap.put(ACCOUNT, () -> setAccount(newContact.get(ACCOUNT)));
+        strategyMap.put(PHONE, () -> setPhone(Integer.parseInt(newContact.get(PHONE))));
+        strategyMap.put(EMAIL, () -> setEmail(newContact.get(EMAIL)));
+        strategyMap.put(HOME_PHONE, () -> setHomePhone(Integer.parseInt(newContact.get(HOME_PHONE))));
+        strategyMap.put(TITLE, () -> setTitle(newContact.get(TITLE)));
+        strategyMap.put(DEPARTMENT, () -> setDepartment(newContact.get(DEPARTMENT)));
+        strategyMap.put(BIRTHDATE, () -> setBirthdate(newContact.get(BIRTHDATE)));
+        strategyMap.put(REPORTS_TO, () -> setReportsTo(newContact.get(REPORTS_TO)));
+        strategyMap.put(LEAD_SOURCE, () -> setLeadSource(newContact.get(LEAD_SOURCE)));
+        strategyMap.put(MOBILE, () -> setMobile(Integer.parseInt(newContact.get(MOBILE))));
+        strategyMap.put(OTHER_PHONE, () -> setOtherPhone(Integer.parseInt(newContact.get(OTHER_PHONE))));
+        strategyMap.put(FAX, () -> setFax(Integer.parseInt(newContact.get(FAX))));
+        strategyMap.put(ASSISTANT, () -> setAssistant(newContact.get(ASSISTANT)));
+        strategyMap.put(ASST_PHONE, () -> setAsstPhone(Integer.parseInt(newContact.get(ASST_PHONE))));
+        strategyMap.put(MAILING_STREET, () -> setMailingStreet(newContact.get(MAILING_STREET)));
+        strategyMap.put(MAILING_CITY, () -> setMailingCity(newContact.get(MAILING_CITY)));
+        strategyMap.put(MAILING_STATE, () -> setMailingState(newContact.get(MAILING_STATE)));
+        strategyMap.put(MAILING_POSTAL_CODE, () -> setMailingPostalCode(newContact.get(MAILING_POSTAL_CODE)));
+        strategyMap.put(MAILING_COUNTRY, () -> setMailingCountry(newContact.get(MAILING_COUNTRY)));
+        strategyMap.put(OTHER_STREET, () -> setOtherStreet(newContact.get(OTHER_STREET)));
+        strategyMap.put(OTHER_CITY, () -> setOtherCity(newContact.get(OTHER_CITY)));
+        strategyMap.put(OTHER_STATE, () -> setOtherState(newContact.get(OTHER_STATE)));
+        strategyMap.put(OTHER_POSTAL_CODE, () -> setOtherZipPostalCode(newContact.get(OTHER_POSTAL_CODE)));
+        strategyMap.put(OTHER_COUNTRY, () -> setOtherCountry(newContact.get(OTHER_COUNTRY)));
+        strategyMap.put(LANGUAGES, () -> setLanguages(newContact.get(LANGUAGES)));
+        strategyMap.put(LEVEL, () -> setLevel(newContact.get(LEVEL)));
+        strategyMap.put(DESCRIPTION, () -> setDescription(newContact.get(DESCRIPTION)));
         return strategyMap;
     }
 }
