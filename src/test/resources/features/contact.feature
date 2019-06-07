@@ -15,8 +15,6 @@ Feature: Contact manage
     Then the contact last name should be displayed in the Contact Details page
     When I go to the Contacts page
     Then the contact last name should be displayed in the contacts list of Contacts page
-#    When I request the get of the contact
-#    Then the response should contain the contact information
 
   Scenario: Create a new contact for an user with only required data
     When I go to the Contacts page
@@ -57,5 +55,3 @@ Feature: Contact manage
     Then the contact last name should be displayed in the Contact Details page
     When I go to the Contacts page
     Then the contact last name should be displayed in the contacts list of Contacts page
-#    When I request the get of the contact
-#    Then the response should contain the contact information
