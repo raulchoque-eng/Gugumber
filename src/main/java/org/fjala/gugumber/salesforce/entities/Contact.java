@@ -796,7 +796,7 @@ public class Contact {
         if (key.equals("Salutation")) {
             setSalutation(json.getString(key));
         }
-        if (key.equals("Name")) {
+        if (key.equals("First Name")) {
             setFirstName(json.getString(key));
         }
         if (key.equals("Last Name")) {
@@ -840,7 +840,7 @@ public class Contact {
      *
      * @return full Name as String
      */
-    public String getFullContactClassic() {
+    private String getFullContactClassic() {
         if (getFirstName().equals(" ") || getSalutation().equals(" ")) {
             fullName = getLastName();
         } else {
@@ -854,7 +854,7 @@ public class Contact {
      *
      * @return full Name as String
      */
-    public String getFullContactLightning() {
+    private String getFullContactLightning() {
         if (getFirstName().equals(" ") || getSalutation().equals(" ")) {
             fullName = getLastName();
         } else {
