@@ -27,8 +27,6 @@ import static org.fjala.gugumber.salesforce.keys.AccountKeys.*;
  */
 public class Account {
 
-
-
     /**
      * Variable for the id of account.
      */
