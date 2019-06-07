@@ -160,23 +160,12 @@ public class ContactSteps {
         assertTrue(contactPage.getListOfContactsName().contains(contact.getFullNameContactList()), "the Contact Name not displayed");
     }
 
+    /**
+     * Gets contact by Id.
+     */
     @When("^I request the get of the contact$")
     public void requestTheGetOfTheContact() {
         ContactAPI.getInstance().readContactById(contact.getId());
     }
 
-
-    @Then("^the response should contain the contact information$")
-    public void theResponseShouldContainTheContactInformation(final Map<String, String> contactMap) {
-
-        contactMap.forEach((key, value) -> {
-            contact.setJsonContactValues(key, jsonPath);
-        });
-
-    }
-
-    @Then("^the contact information should be displayed in the contacts list of Contacts page$")
-    public void displayContactInformationInTheContactsListOfContactsPage() {
-
-    }
 }

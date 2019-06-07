@@ -265,8 +265,7 @@ public class ContactClassicForm extends ContactFormAbstract {
     @Override
     protected void setSalutation(final String salutation) {
         salutationCmbb.click();
-        driver.findElement(By.cssSelector(SALUTATION_CMBB.replace(
-            "nameTitle", salutation))).click();
+        driver.findElement(By.cssSelector(replaceValueInLocator(SALUTATION_CMBB, salutation))).click();
     }
 
     /**
@@ -331,7 +330,7 @@ public class ContactClassicForm extends ContactFormAbstract {
         final Set<String> windows = driver.getWindowHandles();
         driver.switchTo().window(new LinkedList<>(windows).getLast());
         driver.switchTo().frame("resultsFrame");
-        driver.findElement(By.xpath(ACCOUNT_CMBB.replace("nameTitle", account))).click();
+        driver.findElement(By.xpath(replaceValueInLocator(ACCOUNT_CMBB, account))).click();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.switchTo().window(parentWindowHandle);
     }
@@ -369,7 +368,7 @@ public class ContactClassicForm extends ContactFormAbstract {
         final Set<String> windows = driver.getWindowHandles();
         driver.switchTo().window(new LinkedList<>(windows).getLast());
         driver.switchTo().frame("resultsFrame");
-        driver.findElement(By.xpath(ACCOUNT_CMBB.replace("nameTitle", reportsTo))).click();
+        driver.findElement(By.xpath(replaceValueInLocator(ACCOUNT_CMBB, reportsTo))).click();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.switchTo().window(parentWindowHandle);
     }
@@ -382,8 +381,7 @@ public class ContactClassicForm extends ContactFormAbstract {
     @Override
     protected void setLeadSource(final String leadSource) {
         leadSourceCmbb.click();
-        driver.findElement(By.cssSelector(LEADSOURCE_CMBB.replace(
-            "nameTitle", leadSource))).click();
+        driver.findElement(By.cssSelector(replaceValueInLocator(LEADSOURCE_CMBB, leadSource))).click();
     }
 
     /**
@@ -564,7 +562,7 @@ public class ContactClassicForm extends ContactFormAbstract {
     @Override
     protected void setLevel(final String level) {
         levelCmbb.click();
-        driver.findElement(By.cssSelector(LEVEL_CMBB.replace("nameTitle", level))).click();
+        driver.findElement(By.cssSelector(replaceValueInLocator(LEVEL_CMBB, level))).click();
     }
 
     /**
@@ -593,5 +591,16 @@ public class ContactClassicForm extends ContactFormAbstract {
     public ContactProfilePageAbstract clickSaveNewContact() {
         clickSaveBtn();
         return new ContactClassicProfilePage();
+    }
+
+    /**
+     * Replaces the a value in the locator xpath to select an option in comboBox.
+     *
+     * @param locator to replace value.
+     * @param valueToReplace to replace in locator.
+     * @return a xpath as string with el value replaced for the comboBox.
+     */
+    private String replaceValueInLocator(final String locator, final String valueToReplace) {
+        return locator.replace("nameTitle", valueToReplace);
     }
 }

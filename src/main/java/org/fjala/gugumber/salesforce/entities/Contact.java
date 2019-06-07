@@ -221,6 +221,11 @@ public class Contact {
     private String description;
 
     /**
+     * Variable for concat the full name.
+     */
+    private String fullName = null;
+
+    /**
      * Gets the id of the Contact.
      *
      * @return the id as string.
@@ -817,26 +822,45 @@ public class Contact {
     }
 
     /**
-     * Gets full name for classic for details.
+     * Gets full name for list contact for details.
      *
      * @return full Name as String
      */
     public String getFullNameContactList() {
-        String fullName = null;
         if (layout.equals(CLASSIC)) {
-            if (getFirstName().equals(" ") || getSalutation().equals(" ")) {
-                fullName = getLastName();
-            } else {
-                fullName = getLastName().concat(", ").concat(getFirstName());
-            }
+            System.out.println("classic :  " +getFullContactClassic());
         } else {
-            if (getFirstName().equals(" ") || getSalutation().equals(" ")) {
-                fullName = getLastName();
-            } else {
-                fullName = getFirstName().concat(" ").concat(getLastName());
-            }
+            System.out.println("light :  " +getFullContactLightning());
         }
         return fullName.trim();
+    }
+
+    /**
+     * Gets full name for classic for details.
+     *
+     * @return full Name as String
+     */
+    public String getFullContactClassic() {
+        if (getFirstName().equals(" ") || getSalutation().equals(" ")) {
+            fullName = getLastName();
+        } else {
+            fullName = getLastName().concat(", ").concat(getFirstName());
+        }
+        return fullName;
+    }
+
+    /**
+     * Gets full name for classic for details.
+     *
+     * @return full Name as String
+     */
+    public String getFullContactLightning() {
+        if (getFirstName().equals(" ") || getSalutation().equals(" ")) {
+            fullName = getLastName();
+        } else {
+            fullName = getFirstName().concat(" ").concat(getLastName());
+        }
+        return fullName;
     }
 
     /**
