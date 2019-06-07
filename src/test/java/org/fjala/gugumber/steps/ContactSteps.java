@@ -168,18 +168,4 @@ public class ContactSteps {
         ContactAPI.getInstance().readContactById(contact.getId());
     }
 
-
-    @Then("^the response should contain the contact information$")
-    public void theResponseShouldContainTheContactInformation(final Map<String, String> contactMap) {
-
-        contactMap.forEach((key, value) -> {
-            contact.setJsonContactValues(key, jsonPath);
-        });
-
-    }
-
-    @Then("^the contact information should be displayed in the contacts list of Contacts page$")
-    public void displayContactInformationInTheContactsListOfContactsPage() {
-
-    }
 }
