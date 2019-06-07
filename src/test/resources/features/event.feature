@@ -7,7 +7,7 @@ Feature: Event manage
   Scenario: Create a new Event with required information
     When I open the New Event form
       And I add a new Event with the following information
-        | Assigned To | user one           |
+        | Assigned To | Automation Testing |
         | Subject     | Call               |
         | Name        | Contact Event      |
         | Related To  | Account Event      |

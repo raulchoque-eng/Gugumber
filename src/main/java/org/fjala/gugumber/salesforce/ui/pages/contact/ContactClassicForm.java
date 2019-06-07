@@ -18,6 +18,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.fjala.gugumber.core.selenium.utils.DriverMethods;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -353,6 +354,7 @@ public class ContactClassicForm extends ContactFormAbstract {
     @Override
     protected void setBirthdate(final String birthdate) {
         DriverMethods.setTxt(birthdateTxtb, birthdate);
+        birthdateTxtb.sendKeys(Keys.TAB);
     }
 
     /**
@@ -379,7 +381,6 @@ public class ContactClassicForm extends ContactFormAbstract {
      */
     @Override
     protected void setLeadSource(final String leadSource) {
-
         leadSourceCmbb.click();
         driver.findElement(By.cssSelector(LEADSOURCE_CMBB.replace(
             "nameTitle", leadSource))).click();

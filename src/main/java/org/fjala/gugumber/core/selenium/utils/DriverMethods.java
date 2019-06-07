@@ -51,6 +51,7 @@ public class DriverMethods {
         // the string representation of date according to the chosen pattern
         final DateFormat dateFormat = new SimpleDateFormat(pattern);
         return dateFormat.format(date);
+
     }
 
     /**

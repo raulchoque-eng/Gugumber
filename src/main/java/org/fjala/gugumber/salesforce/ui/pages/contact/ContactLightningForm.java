@@ -14,6 +14,7 @@ package org.fjala.gugumber.salesforce.ui.pages.contact;
 
 import org.fjala.gugumber.core.selenium.utils.DriverMethods;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -83,7 +84,7 @@ public class ContactLightningForm extends ContactFormAbstract {
     /**
      * Locator for text box of birth date.
      */
-    @FindBy(css = "a[class='datePicker-openIcon display']")
+    @FindBy(css = "input[id^='387']")
     private WebElement birthdateTxtb;
 
     /**
@@ -331,6 +332,7 @@ public class ContactLightningForm extends ContactFormAbstract {
     @Override
     protected void setBirthdate(final String birthdate) {
         DriverMethods.setTxt(birthdateTxtb, birthdate);
+        birthdateTxtb.sendKeys(Keys.TAB);
     }
 
     /**

@@ -130,7 +130,7 @@ public class EventLightningForm extends EventFormAbstract {
     public void setAssignedToUser(final String username) {
         final String locatorBySelect = "[title = \"nameTitle\"]";
         closeLnk.click();
-        DriverMethods.selectCmb(driver, locatorBySelect, username);
+//        DriverMethods.selectCmb(driver, locatorBySelect, username);
     }
 
     /**
@@ -152,7 +152,7 @@ public class EventLightningForm extends EventFormAbstract {
     public void setNameContact(final String nameContact) {
         final String locatorBySelect = "[title = \"nameTitle\"]";
         contactCmbbx.click();
-        DriverMethods.selectCmb(driver, locatorBySelect, nameContact);
+//        DriverMethods.selectCmb(driver, locatorBySelect, nameContact);
     }
 
     /**
@@ -164,7 +164,7 @@ public class EventLightningForm extends EventFormAbstract {
     public void setRelatedToAccount(final String relatedToAccount) {
         final String locatorBySelect = "[title = \"nameTitle\"]";
         accountCmbbx.click();
-        DriverMethods.selectCmb(driver, locatorBySelect, relatedToAccount);
+//        DriverMethods.selectCmb(driver, locatorBySelect, relatedToAccount);
     }
 
     /**

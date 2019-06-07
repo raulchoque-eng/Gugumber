@@ -89,12 +89,12 @@ public class ContactLightningPage extends ContactPageAbstract {
             }
         } catch (StaleElementReferenceException sere) {
              contactNameList = driver.findElements(
-                    By.cssSelector("[class='slds-truncate outputLookupLink slds-truncate forceOutputLookup']"));
+                    By.cssSelector(
+                        "[class='slds-truncate outputLookupLink slds-truncate forceOutputLookup']"));
             for (WebElement contName : contactNameList) {
                 contactName.add(contName.getText());
             }
         }
-
         return contactName;
     }
 
