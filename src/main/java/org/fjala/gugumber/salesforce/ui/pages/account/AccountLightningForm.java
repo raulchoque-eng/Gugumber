@@ -189,7 +189,7 @@ public class AccountLightningForm extends AccountFormAbstract {
      */
     @Override
     public void setTypeOnCmbb(final String type) {
-        ownershipCmbB.click();
+        typeCmbB.click();
         driver.findElement(By.xpath(replaceValueInLocator(LOCATOR_TO_REPLACE_IN_CMB_BOX, type))).click();
     }
 
