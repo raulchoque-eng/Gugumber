@@ -16,7 +16,10 @@ import org.fjala.gugumber.salesforce.ui.pages.BasePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.HashMap;
 import java.util.Map;
+
+import static org.fjala.gugumber.salesforce.keys.EventKeys.*;
 
 /**
  * EventPageAbstract abstract class.
@@ -47,13 +50,78 @@ public abstract class EventPageAbstract extends BasePage {
         wait.until(ExpectedConditions.visibilityOf(getDetailEvent()));
     }
 
+    /**
+     * Returns the event detail in a map.
+     *
+     * @return as a map the event detail.
+     */
+    public Map<String, String> getEventDetailInMap() {
+        Map<String, String> eventDetail = new HashMap<>();
+        eventDetail.put(ASSIGNED_TO, getAssignedToUser());
+        eventDetail.put(SUBJECT, getSubject());
+        eventDetail.put(NAME, getNameContact());
+        eventDetail.put(RELATED_TO, getRelatedToAccount());
+        eventDetail.put(LOCATION, getLocation());
+//        eventDetail.put(START_DATE, getStartDate());
+//        eventDetail.put(END_DATE, getEndDate());
+        eventDetail.put(DESCRIPTION, getDescription());
+
+        return eventDetail;
+    }
+
+    /**
+     * Returns the assigned to user of a event detail.
+     *
+     * @return as a string the assigned to user of a event detail.
+     */
     public abstract String getAssignedToUser();
+
+    /**
+     * Returns the subject of a event detail.
+     *
+     * @return as a string the subject of a event detail.
+     */
     public abstract String getSubject();
+
+    /**
+     * Returns the name contact of a event detail.
+     *
+     * @return as a string the name contact of a event detail.
+     */
     public abstract String getNameContact();
+
+    /**
+     * Returns the related to account of a event detail.
+     *
+     * @return as a string the related to account of a event detail.
+     */
     public abstract String getRelatedToAccount();
-    public abstract String getDescription();
+
+    /**
+     * Returns the location of a event detail.
+     *
+     * @return as a string the location of a event detail.
+     */
     public abstract String getLocation();
+
+    /**
+     * Returns the start date of a event detail.
+     *
+     * @return as a string the start date of a event detail.
+     */
     public abstract String getStartDate();
+
+    /**
+     * Returns the end date of a event detail.
+     *
+     * @return as a string the end date of a event detail.
+     */
     public abstract String getEndDate();
-    public abstract Map<String, String> getEventDetailInMap();
+
+    /**
+     * Returns the description of a event detail.
+     *
+     * @return as a string the description of a event detail.
+     */
+    public abstract String getDescription();
 }

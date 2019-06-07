@@ -62,7 +62,6 @@ public class CalendarClassicSection extends CalendarSectionAbstract {
     @Override
     public EventPageAbstract getEventDetails() {
         subjectNewEventLnk.click();
-        return new EventLightningPage();
-//        return new EventClassicPage();
+        return new EventClassicPage();
     }
 }

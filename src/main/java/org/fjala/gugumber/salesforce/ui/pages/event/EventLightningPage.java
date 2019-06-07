@@ -15,18 +15,6 @@ package org.fjala.gugumber.salesforce.ui.pages.event;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import static org.fjala.gugumber.salesforce.keys.EventKeys.ASSIGNED_TO;
-import static org.fjala.gugumber.salesforce.keys.EventKeys.DESCRIPTION;
-import static org.fjala.gugumber.salesforce.keys.EventKeys.END_DATE;
-import static org.fjala.gugumber.salesforce.keys.EventKeys.LOCATION;
-import static org.fjala.gugumber.salesforce.keys.EventKeys.NAME;
-import static org.fjala.gugumber.salesforce.keys.EventKeys.RELATED_TO;
-import static org.fjala.gugumber.salesforce.keys.EventKeys.START_DATE;
-import static org.fjala.gugumber.salesforce.keys.EventKeys.SUBJECT;
-
 /**
  * EventLightningPage class.
  *
@@ -114,6 +102,7 @@ public class EventLightningPage extends EventPageAbstract {
      *
      * @return as a string the assigned to user of a Event.
      */
+    @Override
     public String getAssignedToUser() {
         return assignedToUserLnk.getText();
     }
@@ -123,6 +112,7 @@ public class EventLightningPage extends EventPageAbstract {
      *
      * @return as a string the subject of a Event.
      */
+    @Override
     public String getSubject() {
         return subjectTxtb.getText();
     }
@@ -132,6 +122,7 @@ public class EventLightningPage extends EventPageAbstract {
      *
      * @return as a string the name contact of a Event.
      */
+    @Override
     public String getNameContact() {
         return nameContactLnk.getText();
     }
@@ -141,17 +132,9 @@ public class EventLightningPage extends EventPageAbstract {
      *
      * @return as a string the related to account of a Event.
      */
+    @Override
     public String getRelatedToAccount() {
         return relatedToAccountLnk.getText();
-    }
-
-    /**
-     * Returns the description of a Event.
-     *
-     * @return as a string the description of a Event.
-     */
-    public String getDescription() {
-        return descriptionTxtb.getText();
     }
 
     /**
@@ -159,6 +142,7 @@ public class EventLightningPage extends EventPageAbstract {
      *
      * @return as a string the location of a Event.
      */
+    @Override
     public String getLocation() {
         return locationTxtb.getText();
     }
@@ -168,6 +152,7 @@ public class EventLightningPage extends EventPageAbstract {
      *
      * @return as a string start date of a Event.
      */
+    @Override
     public String getStartDate() {
         return startDateTxtb.getText();
     }
@@ -177,21 +162,18 @@ public class EventLightningPage extends EventPageAbstract {
      *
      * @return as a string end date of a Event.
      */
+    @Override
     public String getEndDate() {
         return endDateTxtb.getText();
     }
 
-    public Map<String, String> getEventDetailInMap() {
-        Map<String, String> eventDetail = new HashMap<>();
-        eventDetail.put(ASSIGNED_TO, getAssignedToUser());
-        eventDetail.put(SUBJECT, getSubject());
-        eventDetail.put(NAME, getNameContact());
-        eventDetail.put(RELATED_TO, getRelatedToAccount());
-        eventDetail.put(LOCATION, getLocation());
-//        eventDetail.put(START_DATE, getStartDate());
-//        eventDetail.put(END_DATE, getEndDate());
-        eventDetail.put(DESCRIPTION, getDescription());
-
-        return eventDetail;
+    /**
+     * Returns the description of a Event.
+     *
+     * @return as a string the description of a Event.
+     */
+    @Override
+    public String getDescription() {
+        return descriptionTxtb.getText();
     }
 }
