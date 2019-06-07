@@ -61,7 +61,7 @@ public class AccountHooks {
      * Creates an account by id before scenario.
      */
     @Before("@create-account")
-    public void beforeFeature() {
+    public void beforeScenario() {
         Map<String,String> createNewAccount = new HashMap<>();
         createNewAccount.put("Name", "Account_Test");
         account.setId(AccountAPI.getInstance().createAccount(createNewAccount));

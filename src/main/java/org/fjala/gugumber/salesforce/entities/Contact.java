@@ -802,7 +802,6 @@ public class Contact {
         return fullName.trim();
     }
 
-
     /**
      * Process information for composing the strategy map.
      *

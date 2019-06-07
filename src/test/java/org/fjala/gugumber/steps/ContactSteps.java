@@ -21,6 +21,7 @@ import java.util.Map;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.fjala.gugumber.core.selenium.utils.Logs;
+import org.fjala.gugumber.salesforce.api.ContactAPI;
 import org.fjala.gugumber.salesforce.entities.Contact;
 import org.fjala.gugumber.salesforce.entities.Context;
 import org.fjala.gugumber.salesforce.ui.PageLayoutConfig;
@@ -159,4 +160,9 @@ public class ContactSteps {
     public void displayedContactInformationInTheContactDetailsPage() {
         assertEquals(contactDetails.getFullNameContact(), contact.getFullName(), "the Contact Name not displayed");
     }
+
+//    @When("^I request the get of the contact$")
+//    public void requestTheGetOfTheContact() {
+//        ContactAPI.getInstance().readContact(contact.getId());
+//    }
 }

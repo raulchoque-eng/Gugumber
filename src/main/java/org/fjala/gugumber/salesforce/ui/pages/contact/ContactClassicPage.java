@@ -83,6 +83,9 @@ public class ContactClassicPage extends ContactPageAbstract {
     @FindBy(css = "[value=' New ']")
     private WebElement newContactBtn;
 
+    /**
+     * Locator for open a contact profile.
+     */
     final String lastNameList = "//a[text()='titleOfList']";
 
     /**
@@ -183,6 +186,6 @@ public class ContactClassicPage extends ContactPageAbstract {
      * @param text of the type String.
      */
     public void openContactProfile(final String text) {
-        driver.findElement(By.cssSelector(lastNameList.replace("titleOfList", text))).click();
+        driver.findElement(By.xpath(lastNameList.replace("titleOfList", text))).click();
     }
 }

@@ -59,4 +59,9 @@ public class ContactAPI {
         finalEndpoint = CONTACT_ENDPOINT.concat("/".concat(contactId));
         final Response response = restClient.delete(finalEndpoint);
     }
+
+    public void readContact(final String contactId) {
+        finalEndpoint = CONTACT_ENDPOINT.concat("/".concat(contactId));
+        final Response response = restClient.get(finalEndpoint);
+    }
 }

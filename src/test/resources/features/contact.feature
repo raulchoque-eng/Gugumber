@@ -1,10 +1,9 @@
-@contact
+@contact @delete-contact @create-account @delete-account
 Feature: Contact manage
   Background:
     Given I am logged in SalesForce with "username.admin" and "password.admin"
       And I navigate to the Home page
 
-  @delete-contact @create-account @delete-account
   Scenario: Create a new contact for an user with only required data
     When I go to the Contacts page
       And I open Contact form
@@ -16,10 +15,9 @@ Feature: Contact manage
     Then the contact last name should be displayed in the Contact Details page
     When I go to the Contacts page
     Then the contact last name should be displayed in the contacts list of Contacts page
-#    When I request the get of the contact
+    When I request the get of the contact
 #    Then the response should contain the contact information
 
-  @delete-contact
   Scenario: Create a new contact for an user with only required data
     When I go to the Contacts page
       And I open Contact form
