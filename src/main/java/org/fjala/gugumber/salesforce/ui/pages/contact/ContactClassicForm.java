@@ -17,6 +17,8 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.fjala.gugumber.core.selenium.utils.DriverMethods;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -32,19 +34,19 @@ public class ContactClassicForm extends ContactFormAbstract {
     /**
      * Locator for text box of salutation.
      */
-    @FindBy(css = "select[id^='name_salutationcon']")
+    @FindBy(id = "name_salutationcon2")
     private WebElement salutationCmbb;
 
     /**
      * Locator for text box of first name.
      */
-    @FindBy(css = "input[id^='name_firstcon']")
+    @FindBy(id = "name_firstcon2")
     private WebElement firstNameTxtb;
 
     /**
      * Locator for text box of Last name.
      */
-    @FindBy(css = "input[id^='name_lastcon']")
+    @FindBy(id = "name_lastcon2")
     private WebElement lastNameTxtb;
 
     /**
@@ -236,15 +238,34 @@ public class ContactClassicForm extends ContactFormAbstract {
     }
 
     /**
+     * Variable for locator of salutation comboBox.
+     */
+    final String SALUTATION_CMBB = "[id='name_salutationcon2'] [value='nameTitle']";
+
+    /**
+     * Variable for locator of account and report to comboBox.
+     */
+    final String ACCOUNT_CMBB = "//th[@scope='row'] //a[contains(text(), 'nameTitle')]";
+
+    /**
+     * Variable for locator of lead source comboBox.
+     */
+    final String LEADSOURCE_CMBB = "[id='con9'] [value='nameTitle']";
+
+    /**
+     * Variable for locator of level comboBox.
+     */
+    final String LEVEL_CMBB = "[id='00N4P000007vcCL'] [value='nameTitle']";
+
+    /**
      * Sets the salutation name.
      *
      * @param salutation of type String
      */
     @Override
     protected void setSalutation(final String salutation) {
-        final String cmbSalutationReplace = "[id='name_salutationcon2'] [value='nameTitle']";
         salutationCmbb.click();
-        DriverMethods.selectCmb(driver, cmbSalutationReplace, salutation);
+        driver.findElement(By.cssSelector(replaceValueInLocator(SALUTATION_CMBB, salutation))).click();
     }
 
     /**
@@ -284,7 +305,7 @@ public class ContactClassicForm extends ContactFormAbstract {
      */
     @Override
     protected void setHomePhone(final int phone) {
-        DriverMethods.setTxt(phoneTxtb, String.valueOf(phone));
+        DriverMethods.setTxt(homePhoneTxtb, String.valueOf(phone));
     }
 
     /**
@@ -304,13 +325,12 @@ public class ContactClassicForm extends ContactFormAbstract {
      */
     @Override
     protected void setAccount(final String account) {
-        final String cmbAccountReplace = "//th[@scope='row'] //a[contains(text(), 'nameTitle')]";
         searchAccountImg.click();
         final String parentWindowHandle = driver.getWindowHandle();
         final Set<String> windows = driver.getWindowHandles();
         driver.switchTo().window(new LinkedList<>(windows).getLast());
         driver.switchTo().frame("resultsFrame");
-        DriverMethods.selectCmb(driver, cmbAccountReplace, account);
+        driver.findElement(By.xpath(replaceValueInLocator(ACCOUNT_CMBB, account))).click();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.switchTo().window(parentWindowHandle);
     }
@@ -333,6 +353,7 @@ public class ContactClassicForm extends ContactFormAbstract {
     @Override
     protected void setBirthdate(final String birthdate) {
         DriverMethods.setTxt(birthdateTxtb, birthdate);
+        birthdateTxtb.sendKeys(Keys.TAB);
     }
 
     /**
@@ -342,13 +363,12 @@ public class ContactClassicForm extends ContactFormAbstract {
      */
     @Override
     protected void setReportsTo(final String reportsTo) {
-        final String cmbReportToReplace = "//th[@scope='row'] //a[contains(text(), 'nameTitle')]";
         searchReportsToImg.click();
         final String parentWindowHandle = driver.getWindowHandle();
         final Set<String> windows = driver.getWindowHandles();
         driver.switchTo().window(new LinkedList<>(windows).getLast());
         driver.switchTo().frame("resultsFrame");
-        DriverMethods.selectCmb(driver, cmbReportToReplace, reportsTo);
+        driver.findElement(By.xpath(replaceValueInLocator(ACCOUNT_CMBB, reportsTo))).click();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.switchTo().window(parentWindowHandle);
     }
@@ -360,9 +380,8 @@ public class ContactClassicForm extends ContactFormAbstract {
      */
     @Override
     protected void setLeadSource(final String leadSource) {
-        final String cmbLeadSourceReplace = "[id='con9'] [value='nameTitle']";
         leadSourceCmbb.click();
-        DriverMethods.selectCmb(driver, cmbLeadSourceReplace, leadSource);
+        driver.findElement(By.cssSelector(replaceValueInLocator(LEADSOURCE_CMBB, leadSource))).click();
     }
 
     /**
@@ -382,7 +401,7 @@ public class ContactClassicForm extends ContactFormAbstract {
      */
     @Override
     protected void setOtherPhone(final int phone) {
-        DriverMethods.setTxt(phoneTxtb, String.valueOf(phone));
+        DriverMethods.setTxt(otherPhoneTxtb, String.valueOf(phone));
     }
 
     /**
@@ -542,9 +561,8 @@ public class ContactClassicForm extends ContactFormAbstract {
      */
     @Override
     protected void setLevel(final String level) {
-        final String cmbLevelReplace = "[id='00N4P000007vcCL'] [value='nameTitle']";
         levelCmbb.click();
-        DriverMethods.selectCmb(driver, cmbLevelReplace, level);
+        driver.findElement(By.cssSelector(replaceValueInLocator(LEVEL_CMBB, level))).click();
     }
 
     /**
@@ -573,5 +591,16 @@ public class ContactClassicForm extends ContactFormAbstract {
     public ContactProfilePageAbstract clickSaveNewContact() {
         clickSaveBtn();
         return new ContactClassicProfilePage();
+    }
+
+    /**
+     * Replaces the a value in the locator xpath to select an option in comboBox.
+     *
+     * @param locator to replace value.
+     * @param valueToReplace to replace in locator.
+     * @return a xpath as string with el value replaced for the comboBox.
+     */
+    private String replaceValueInLocator(final String locator, final String valueToReplace) {
+        return locator.replace("nameTitle", valueToReplace);
     }
 }

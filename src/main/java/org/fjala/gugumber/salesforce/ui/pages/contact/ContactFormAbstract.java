@@ -15,6 +15,7 @@ package org.fjala.gugumber.salesforce.ui.pages.contact;
 import static org.fjala.gugumber.salesforce.keys.ContactKeys.ACCOUNT;
 import static org.fjala.gugumber.salesforce.keys.ContactKeys.ASSISTANT;
 import static org.fjala.gugumber.salesforce.keys.ContactKeys.ASST_PHONE;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.BIRTHDATE;
 import static org.fjala.gugumber.salesforce.keys.ContactKeys.DEPARTMENT;
 import static org.fjala.gugumber.salesforce.keys.ContactKeys.DESCRIPTION;
 import static org.fjala.gugumber.salesforce.keys.ContactKeys.EMAIL;
@@ -85,7 +86,7 @@ public abstract class ContactFormAbstract extends BasePage {
         strategyMap.put(HOME_PHONE, () -> setHomePhone(Integer.parseInt(contact.get(HOME_PHONE))));
         strategyMap.put(TITLE, () -> setTitle(contact.get(TITLE)));
         strategyMap.put(DEPARTMENT, () -> setDepartment(contact.get(DEPARTMENT)));
-//        strategyMap.put(BIRTHDATE,() -> setBirthdate(newContact.get(BIRTHDATE)));
+        strategyMap.put(BIRTHDATE,() -> setBirthdate(contact.get(BIRTHDATE)));
         strategyMap.put(REPORTS_TO, () -> setReportsTo(contact.get(REPORTS_TO)));
         strategyMap.put(LEAD_SOURCE, () -> setLeadSource(contact.get(LEAD_SOURCE)));
         strategyMap.put(MOBILE, () -> setMobile(Integer.parseInt(contact.get(MOBILE))));

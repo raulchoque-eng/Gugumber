@@ -12,6 +12,9 @@
 
 package org.fjala.gugumber.hooks;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import org.fjala.gugumber.salesforce.api.AccountAPI;
@@ -59,6 +62,8 @@ public class AccountHooks {
      */
     @Before("@create-account")
     public void beforeScenario() {
-        AccountAPI.getInstance().createAccount();
+        Map<String,String> createNewAccount = new HashMap<>();
+        createNewAccount.put("Name", "Account_Test");
+        account.setId(AccountAPI.getInstance().createAccount(createNewAccount));
     }
 }

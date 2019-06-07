@@ -13,6 +13,8 @@
 package org.fjala.gugumber.salesforce.ui.pages.contact;
 
 import org.fjala.gugumber.core.selenium.utils.DriverMethods;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -82,7 +84,7 @@ public class ContactLightningForm extends ContactFormAbstract {
     /**
      * Locator for text box of birth date.
      */
-    @FindBy(css = "a[class='datePicker-openIcon display']")
+    @FindBy(css = "input[id^='387']")
     private WebElement birthdateTxtb;
 
     /**
@@ -218,6 +220,21 @@ public class ContactLightningForm extends ContactFormAbstract {
     private WebElement saveBtn;
 
     /**
+     * Variable for locator of salutation comboBox.
+     */
+    final String SALUTATION_CMBB = "li[class='uiMenuItem uiRadioMenuItem'] a[title='nameTitle']";
+
+    /**
+     * Variable for locator of account and report to comboBox.
+     */
+    final String ACCOUNT_CMBB = "div[class='slds-m-left--smalllabels slds-truncate slds-media__body'] [title='nameTitle']";
+
+    /**
+     * Variable for locator of lead source and level comboBox.
+     */
+    final String LEVEL_CMBB = "ul[class='scrollable'] [title='nameTitle']";
+
+    /**
      * Waits until page object is loaded.
      */
     @Override
@@ -232,9 +249,8 @@ public class ContactLightningForm extends ContactFormAbstract {
      */
     @Override
     protected void setSalutation(final String salutation) {
-        final String cmbSalutationReplace = "li[class='uiMenuItem uiRadioMenuItem'] a[title='nameTitle']";
         salutationCmbb.click();
-        DriverMethods.selectCmb(driver, cmbSalutationReplace, salutation);
+        driver.findElement(By.cssSelector(replaceValueInLocator(SALUTATION_CMBB, salutation))).click();
     }
 
     /**
@@ -274,7 +290,7 @@ public class ContactLightningForm extends ContactFormAbstract {
      */
     @Override
     protected void setHomePhone(final int phone) {
-        DriverMethods.setTxt(phoneTxtb, String.valueOf(phone));
+        DriverMethods.setTxt(homePhoneTxtb, String.valueOf(phone));
     }
 
     /**
@@ -294,9 +310,8 @@ public class ContactLightningForm extends ContactFormAbstract {
      */
     @Override
     protected void setAccount(final String account) {
-        final String cmbAccountReplace = "div[class='slds-m-left--smalllabels slds-truncate slds-media__body'] [title='nameTitle']";
         accountCmbb.click();
-        DriverMethods.selectCmb(driver, cmbAccountReplace, account);
+        driver.findElement(By.cssSelector(replaceValueInLocator(ACCOUNT_CMBB, account))).click();
     }
 
     /**
@@ -317,6 +332,7 @@ public class ContactLightningForm extends ContactFormAbstract {
     @Override
     protected void setBirthdate(final String birthdate) {
         DriverMethods.setTxt(birthdateTxtb, birthdate);
+        birthdateTxtb.sendKeys(Keys.TAB);
     }
 
     /**
@@ -326,9 +342,8 @@ public class ContactLightningForm extends ContactFormAbstract {
      */
     @Override
     protected void setReportsTo(final String reportsTo) {
-        final String cmbReportToReplace = "div[class='slds-m-left--smalllabels slds-truncate slds-media__body'] [title='nameTitle']";
         reportToCmbb.click();
-        DriverMethods.selectCmb(driver, cmbReportToReplace, reportsTo);
+        driver.findElement(By.cssSelector(replaceValueInLocator(ACCOUNT_CMBB, reportsTo))).click();
     }
 
     /**
@@ -338,9 +353,8 @@ public class ContactLightningForm extends ContactFormAbstract {
      */
     @Override
     protected void setLeadSource(final String leadSource) {
-        final String cmbLeadSourceReplace = "ul[class='scrollable'] [title='nameTitle']";
         leadSourceCmbb.click();
-        DriverMethods.selectCmb(driver, cmbLeadSourceReplace, leadSource);
+        driver.findElement(By.cssSelector(replaceValueInLocator(LEVEL_CMBB, leadSource))).click();
     }
 
     /**
@@ -360,7 +374,7 @@ public class ContactLightningForm extends ContactFormAbstract {
      */
     @Override
     protected void setOtherPhone(final int phone) {
-        DriverMethods.setTxt(phoneTxtb, String.valueOf(phone));
+        DriverMethods.setTxt(otherPhoneTxtb, String.valueOf(phone));
     }
 
     /**
@@ -520,9 +534,8 @@ public class ContactLightningForm extends ContactFormAbstract {
      */
     @Override
     protected void setLevel(final String level) {
-        final String cmbLevelReplace = "ul[class='scrollable'] [title='nameTitle']";
         levelCmbb.click();
-        DriverMethods.selectCmb(driver, cmbLevelReplace, level);
+        driver.findElement(By.cssSelector(replaceValueInLocator(LEVEL_CMBB, level))).click();
     }
 
     /**
@@ -551,5 +564,16 @@ public class ContactLightningForm extends ContactFormAbstract {
     public ContactProfilePageAbstract clickSaveNewContact() {
         clickSaveBtn();
         return new ContactLightningProfilePage();
+    }
+
+    /**
+     * Replaces the a value in the locator xpath to select an option in comboBox.
+     *
+     * @param locator to replace value.
+     * @param valueToReplace to replace in locator.
+     * @return a xpath as string with el value replaced for the comboBox.
+     */
+    private String replaceValueInLocator(final String locator, final String valueToReplace) {
+        return locator.replace("nameTitle", valueToReplace);
     }
 }

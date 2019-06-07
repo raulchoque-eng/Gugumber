@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -82,8 +83,17 @@ public class ContactLightningPage extends ContactPageAbstract {
     @Override
     public List<String> getListOfContactsName() {
         final List<String> contactName = new ArrayList<>();
-        for (WebElement contName : contactNameList) {
-            contactName.add(contName.getText());
+        try {
+            for (WebElement contName : contactNameList) {
+                contactName.add(contName.getText());
+            }
+        } catch (StaleElementReferenceException sere) {
+             contactNameList = driver.findElements(
+                    By.cssSelector(
+                        "[class='slds-truncate outputLookupLink slds-truncate forceOutputLookup']"));
+            for (WebElement contName : contactNameList) {
+                contactName.add(contName.getText());
+            }
         }
         return contactName;
     }

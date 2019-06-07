@@ -20,7 +20,9 @@ import java.util.Map;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import io.restassured.path.json.JsonPath;
 import org.fjala.gugumber.core.selenium.utils.Logs;
+import org.fjala.gugumber.salesforce.api.ContactAPI;
 import org.fjala.gugumber.salesforce.entities.Contact;
 import org.fjala.gugumber.salesforce.entities.Context;
 import org.fjala.gugumber.salesforce.ui.PageLayoutConfig;
@@ -75,6 +77,9 @@ public class ContactSteps {
      * Variable for the Contact Details.
      */
     private ContactDetailsAbstract contactDetails;
+
+    private Map<String, String> mapAuxiliar;
+    private JsonPath jsonPath;
 
     /**
      * Constructor of contact steps sending the context.
@@ -131,15 +136,6 @@ public class ContactSteps {
     }
 
     /**
-     * Verifies that contact is displayed in the list of contact page.
-     */
-    @Then("^the contact last name should be displayed in the contacts list of Contacts page$")
-    public void displayContactInTheContactsListOfContactsPage() {
-        contactPage = PageLayoutFactory.getContactPage();
-        assertTrue(contactPage.getListOfContactsName().contains(contact.getLastName()));
-    }
-
-    /**
      * Opens the contact details from contact page.
      */
     @When("^I go to the Contact Details$")
@@ -152,6 +148,24 @@ public class ContactSteps {
      */
     @Then("^the contact last name should be displayed in the Contact Details page$")
     public void displayedContactInformationInTheContactDetailsPage() {
-        assertEquals(contactDetails.getFullNameContact(), contact.getFullName(),"the Contact Name not displayed");
+        assertEquals(contactDetails.getFullNameContact(), contact.getFullName(), "the Contact Name not displayed");
     }
+
+    /**
+     * Verifies that contact is displayed in the list of contact page.
+     */
+    @Then("^the contact last name should be displayed in the contacts list of Contacts page$")
+    public void displayContactInTheContactsListOfContactsPage() {
+        contactPage = PageLayoutFactory.getContactPage();
+        assertTrue(contactPage.getListOfContactsName().contains(contact.getFullNameContactList()), "the Contact Name not displayed");
+    }
+
+    /**
+     * Gets contact by Id.
+     */
+    @When("^I request the get of the contact$")
+    public void requestTheGetOfTheContact() {
+        ContactAPI.getInstance().readContactById(contact.getId());
+    }
+
 }

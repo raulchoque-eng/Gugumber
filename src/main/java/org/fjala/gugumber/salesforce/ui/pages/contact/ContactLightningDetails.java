@@ -33,7 +33,7 @@ public class ContactLightningDetails extends ContactDetailsAbstract {
     /**
      * Locator for text box of Name.
      */
-    @FindBy(css = "[data-aura-rendered-by^='10229'] [class='uiOutputText']")
+    @FindBy(css = "[data-aura-rendered-by^='103'] [class='uiOutputText']")
     private WebElement nameTxtb;
 
     /**
