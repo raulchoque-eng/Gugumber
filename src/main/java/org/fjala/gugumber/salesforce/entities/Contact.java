@@ -42,12 +42,17 @@ import static org.fjala.gugumber.salesforce.keys.ContactKeys.PHONE;
 import static org.fjala.gugumber.salesforce.keys.ContactKeys.REPORTS_TO;
 import static org.fjala.gugumber.salesforce.keys.ContactKeys.SALUTATION;
 import static org.fjala.gugumber.salesforce.keys.ContactKeys.TITLE;
+import static org.fjala.gugumber.salesforce.ui.PageLayoutType.CLASSIC;
+import static org.fjala.gugumber.salesforce.ui.PageLayoutType.LIGHTNING;
 
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.fjala.gugumber.core.StrategySetter;
+import org.fjala.gugumber.salesforce.ui.PageLayoutConfig;
+import org.fjala.gugumber.salesforce.ui.PageLayoutFactory;
+import org.fjala.gugumber.salesforce.ui.PageLayoutType;
 
 /**
  * Contact class.
@@ -56,6 +61,11 @@ import org.fjala.gugumber.core.StrategySetter;
  * @version 0.0.1
  */
 public class Contact {
+
+        /**
+     * Variable with the page layout;
+     */
+    private PageLayoutType layout = PageLayoutConfig.getPageLayoutName();
 
     /**
      * Variable for the id of Contact.
@@ -791,15 +801,24 @@ public class Contact {
      *
      * @return full Name as String
      */
-    public String getFullNameClassic() {
+    public String getFullNameContactList() {
         String fullName = null;
-        if (getFirstName().equals(" ") || getSalutation().equals(" ")) {
-            fullName = getLastName();
+        if (layout.equals(CLASSIC)) {
+            if (getFirstName().equals(" ") || getSalutation().equals(" ")) {
+                fullName = getLastName();
+            } else {
+                fullName = getLastName().concat(", ").concat(getFirstName());
+            }
+            return fullName.trim();
         }
         else {
-            fullName = getLastName().concat(", ").concat(getFirstName());
+            if (getFirstName().equals(" ") || getSalutation().equals(" ")) {
+                fullName = getLastName();
+            } else {
+                fullName = getFirstName().concat(" ").concat(getLastName());
+            }
+            return fullName.trim();
         }
-        return fullName.trim();
     }
 
     /**

@@ -21,7 +21,6 @@ import java.util.Map;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.fjala.gugumber.core.selenium.utils.Logs;
-import org.fjala.gugumber.salesforce.api.ContactAPI;
 import org.fjala.gugumber.salesforce.entities.Contact;
 import org.fjala.gugumber.salesforce.entities.Context;
 import org.fjala.gugumber.salesforce.ui.PageLayoutConfig;
@@ -137,12 +136,8 @@ public class ContactSteps {
     @Then("^the contact last name should be displayed in the contacts list of Contacts page$")
     public void displayContactInTheContactsListOfContactsPage() {
         contactPage = PageLayoutFactory.getContactPage();
-        if (layout.equals(LIGHTNING)) {
-            assertTrue(contactPage.getListOfContactsName().contains(contact.getLastName()), "the Contact Name not displayed");
-        }
-        else {
-            assertTrue(contactPage.getListOfContactsName().contains(contact.getFullNameClassic()), "the Contact Name not displayed");
-        }
+        System.out.println(" last name : " + contact.getFullNameContactList() + "  list : " + contactPage.getListOfContactsName());
+        assertTrue(contactPage.getListOfContactsName().contains(contact.getFullNameContactList()), "the Contact Name not displayed");
     }
 
     /**
