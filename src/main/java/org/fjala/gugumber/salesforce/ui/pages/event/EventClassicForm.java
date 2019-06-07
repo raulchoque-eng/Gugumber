@@ -176,7 +176,7 @@ public class EventClassicForm extends EventFormAbstract {
     public void setStartDate(final String startDate) {
         final String[] dateTime = startDate.split(" ");
         final String date = dateTime[0];
-        final String time = dateTime[1];
+        final String time = dateTime[1].concat(" " + dateTime[2]);;
         DriverMethods.setTxt(startDateTxtb, date);
         DriverMethods.setTxt(startTimeTxtb, time);
     }
@@ -200,7 +200,7 @@ public class EventClassicForm extends EventFormAbstract {
     public void setEndDate(final String endDate) {
         final String[] dateTime = endDate.split(" ");
         final String date = dateTime[0];
-        final String time = dateTime[1];
+        final String time = dateTime[1].concat(" " + dateTime[2]);
         DriverMethods.setTxt(endDateTxtb, date);
         DriverMethods.setTxt(endTimeTxtb, time);
     }

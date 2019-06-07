@@ -37,6 +37,11 @@ import org.fjala.gugumber.salesforce.utils.DateMethods;
 public class Event {
 
     /**
+     * Variable for the id of event.
+     */
+    private String id;
+
+    /**
      * Saves value of variable "Assigned To", to create an Event.
      */
     private String assignedToUser;
@@ -85,6 +90,24 @@ public class Event {
      * Saves value of variable "Description", to create an Event.
      */
     private String description;
+
+    /**
+     * Returns the id from an event.
+     *
+     * @return as a string the id of a event.
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * Sets the id of event sending a string.
+     *
+     * @param id for the event.
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
 
     /**
      * Returns the assignedToUser of a Event.

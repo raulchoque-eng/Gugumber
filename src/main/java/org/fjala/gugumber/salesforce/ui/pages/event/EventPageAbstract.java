@@ -12,12 +12,13 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.event;
 
-import org.fjala.gugumber.salesforce.ui.pages.BasePage;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import java.util.HashMap;
 import java.util.Map;
+
+import org.fjala.gugumber.salesforce.ui.pages.BasePage;
+import org.fjala.gugumber.salesforce.ui.pages.utils.UrlComponents;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import static org.fjala.gugumber.salesforce.keys.EventKeys.*;
 
@@ -62,8 +63,8 @@ public abstract class EventPageAbstract extends BasePage {
         eventDetail.put(NAME, getNameContact());
         eventDetail.put(RELATED_TO, getRelatedToAccount());
         eventDetail.put(LOCATION, getLocation());
-//        eventDetail.put(START_DATE, getStartDate());
-//        eventDetail.put(END_DATE, getEndDate());
+        eventDetail.put(START_DATE, getStartDate());
+        eventDetail.put(END_DATE, getEndDate());
         eventDetail.put(DESCRIPTION, getDescription());
 
         return eventDetail;
@@ -124,4 +125,13 @@ public abstract class EventPageAbstract extends BasePage {
      * @return as a string the description of a event detail.
      */
     public abstract String getDescription();
+
+    /**
+     * Returns the id Event from url.
+     *
+     * @return id as string.
+     */
+    public String getIdEventFromUrl() {
+        return UrlComponents.splitUrlToId(driver.getCurrentUrl());
+    }
 }
