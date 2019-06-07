@@ -13,13 +13,10 @@
 package org.fjala.gugumber.salesforce.ui.pages.event;
 
 import org.fjala.gugumber.core.selenium.utils.DriverMethods;
-import org.fjala.gugumber.salesforce.utils.DateMethods;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
-import java.util.Date;
 
 /**
  * EventLightningForm class.
@@ -193,22 +190,26 @@ public class EventLightningForm extends EventFormAbstract {
      * @param startDate as a Date.
      */
     @Override
-    public void setStartDate(final Date startDate) {
-        final String pattern = "dd-MM-yyyy";
-        DriverMethods.setTxt(startDateTxt, DriverMethods.convertDateToString(startDate, pattern));
-        setInputFieldJavaScript(startTimeTxt, DateMethods.getHourBefore(startDate, 2));
+    public void setStartDate(final String startDate) {
+        final String[] dateTime = startDate.split(" ");
+        final String date = dateTime[0];
+        final String time = dateTime[1];
+        DriverMethods.setTxt(startDateTxt, date);
+        setInputFieldJavaScript(startTimeTxt, time);
     }
 
     /**
      * Sets the endDate in a Event lightning form sending a string by validate the date.
      *
-     * @param eventEndDate as a Date.
+     * @param endDate as a Date.
      */
     @Override
-    public void setEndDate(final Date eventEndDate) {
-        final String pattern = "dd-MM-yyyy";
-        DriverMethods.setTxt(endDateTxt, DriverMethods.convertDateToString(eventEndDate, pattern));
-        setInputFieldJavaScript(endTimeTxt, DateMethods.getHourBefore(eventEndDate, 3));
+    public void setEndDate(final String endDate) {
+        final String[] dateTime = endDate.split(" ");
+        final String date = dateTime[0];
+        final String time = dateTime[1];
+        DriverMethods.setTxt(endDateTxt, date);
+        setInputFieldJavaScript(endTimeTxt, time);
     }
 
     /**

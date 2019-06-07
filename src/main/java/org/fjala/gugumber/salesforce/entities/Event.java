@@ -12,12 +12,6 @@
 
 package org.fjala.gugumber.salesforce.entities;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-
-import org.fjala.gugumber.core.StrategySetter;
-
 import static org.fjala.gugumber.salesforce.keys.EventKeys.ASSIGNED_TO;
 import static org.fjala.gugumber.salesforce.keys.EventKeys.DESCRIPTION;
 import static org.fjala.gugumber.salesforce.keys.EventKeys.END_DATE;
@@ -26,6 +20,13 @@ import static org.fjala.gugumber.salesforce.keys.EventKeys.NAME;
 import static org.fjala.gugumber.salesforce.keys.EventKeys.RELATED_TO;
 import static org.fjala.gugumber.salesforce.keys.EventKeys.START_DATE;
 import static org.fjala.gugumber.salesforce.keys.EventKeys.SUBJECT;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.fjala.gugumber.core.StrategySetter;
+import org.fjala.gugumber.salesforce.utils.DateMethods;
 
 /**
  * Event class
@@ -256,9 +257,27 @@ public class Event {
         strategyHashMap.put(NAME, () -> setNameContact(newEvent.get("Name")));
         strategyHashMap.put(RELATED_TO, () -> setRelatedToAccount(newEvent.get("Related To")));
         strategyHashMap.put(LOCATION, () -> setLocation(newEvent.get("Location")));
-//        strategyHashMap.put(START_DATE, () -> setStartDate(newEvent.get("Start Date")));
-//        strategyHashMap.put(END_DATE, () -> setEndDate(newEvent.get("End Date")));
+        strategyHashMap.put(START_DATE, () -> setStartDate(newEvent.get("Start Date")));
+        strategyHashMap.put(END_DATE, () -> setEndDate(newEvent.get("End Date")));
         strategyHashMap.put(DESCRIPTION, () -> setDescription(newEvent.get("Description")));
         return strategyHashMap;
+    }
+
+    /**
+     * Returns the start date as a string of an event.
+     *
+     * @return as a string the start date.
+     */
+    public String getStartDateToString() {
+        return DateMethods.getHourBefore(getStartDate(), 2);
+    }
+
+    /**
+     * Returns the end date as a string of an event.
+     *
+     * @return as a string the and date.
+     */
+    public String getEndDateToString() {
+        return DateMethods.getHourBefore(getEndDate(), 3);
     }
 }

@@ -12,9 +12,9 @@
 
 package org.fjala.gugumber.salesforce.utils;
 
-import org.fjala.gugumber.core.selenium.utils.DriverMethods;
-
 import java.util.Date;
+
+import org.fjala.gugumber.core.selenium.utils.DriverMethods;
 
 /**
  * DateMethods class.
@@ -25,25 +25,40 @@ import java.util.Date;
 public class DateMethods {
 
     /**
+     * Constant for the patter of hour of a Date.
+     */
+    final static String PATTERN_TIME = "h:mm a";
+
+    /**
+     * Constant for the patter of fe of a Date.
+     */
+    final static String PATTERN_DATE = "dd-MM-yyyy";
+
+    /**
+     * Constructor method class.
+     */
+    private DateMethods() { }
+
+    /**
      * Returns the hour with a format as a string.
      *
      * @param date    is the information by get a time.
      * @param addHour is information by add hours.
      * @return a hour with a format as a string..
      */
-    public static String getHourBefore(final Date date, int addHour) {
+    public static String getHourBefore(final Date date, final int addHour) {
         String resTime = "";
-        final String HOUR = "h:mm a";
-        String time = DriverMethods.convertDateToString(date, HOUR);
-        String[] dateHour = (time).split(":");
-        String[] minAndBeforeAfterMidday = dateHour[1].split(" ");
-        int hour = Integer.parseInt(dateHour[0]);
-        int maxHour = 12 - addHour;
+        final String timeAsString = DriverMethods.convertDateToString(date, PATTERN_TIME);
+        final String dateAsString = DriverMethods.convertDateToString(date, PATTERN_DATE);
+        final String[] dateHour = (timeAsString).split(":");
+        final String[] minAndBeforeAfterMidday = dateHour[1].split(" ");
+        final int hour = Integer.parseInt(dateHour[0]);
+        final int maxHour = 12 - addHour;
         if ((1 <= hour) && (hour <= maxHour)) {
-            int nextHour = hour + addHour;
+            final int nextHour = hour + addHour;
             resTime = Integer.toString(nextHour).concat(":00 " + minAndBeforeAfterMidday[1]);
         } else {
-            int restHour = hour - maxHour;
+            final int restHour = hour - maxHour;
             if ((minAndBeforeAfterMidday[1].compareTo("AM")) == 0) {
 
                 resTime = Integer.toString(restHour) + ":00 PM";
@@ -51,6 +66,6 @@ public class DateMethods {
                 resTime = Integer.toString(restHour) + ":00 AM";
             }
         }
-        return resTime;
+        return dateAsString.concat(" " + resTime);
     }
 }

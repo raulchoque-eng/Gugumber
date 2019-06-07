@@ -12,6 +12,22 @@
 
 package org.fjala.gugumber.steps;
 
+import static org.fjala.gugumber.salesforce.keys.EventKeys.ASSIGNED_TO;
+import static org.fjala.gugumber.salesforce.keys.EventKeys.DESCRIPTION;
+import static org.fjala.gugumber.salesforce.keys.EventKeys.END_DATE;
+import static org.fjala.gugumber.salesforce.keys.EventKeys.LOCATION;
+import static org.fjala.gugumber.salesforce.keys.EventKeys.NAME;
+import static org.fjala.gugumber.salesforce.keys.EventKeys.RELATED_TO;
+import static org.fjala.gugumber.salesforce.keys.EventKeys.START_DATE;
+import static org.fjala.gugumber.salesforce.keys.EventKeys.SUBJECT;
+import static org.fjala.gugumber.salesforce.ui.PageLayoutType.CLASSIC;
+import static org.fjala.gugumber.salesforce.ui.PageLayoutType.LIGHTNING;
+import static org.testng.Assert.assertEquals;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.fjala.gugumber.core.StrategySetter;
@@ -26,22 +42,6 @@ import org.fjala.gugumber.salesforce.ui.pages.Home.HomePage;
 import org.fjala.gugumber.salesforce.ui.pages.event.CalendarLightningPage;
 import org.fjala.gugumber.salesforce.ui.pages.event.EventFormAbstract;
 import org.fjala.gugumber.salesforce.ui.pages.event.EventPageAbstract;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-
-import static org.fjala.gugumber.salesforce.keys.EventKeys.ASSIGNED_TO;
-import static org.fjala.gugumber.salesforce.keys.EventKeys.DESCRIPTION;
-import static org.fjala.gugumber.salesforce.keys.EventKeys.END_DATE;
-import static org.fjala.gugumber.salesforce.keys.EventKeys.LOCATION;
-import static org.fjala.gugumber.salesforce.keys.EventKeys.NAME;
-import static org.fjala.gugumber.salesforce.keys.EventKeys.RELATED_TO;
-import static org.fjala.gugumber.salesforce.keys.EventKeys.START_DATE;
-import static org.fjala.gugumber.salesforce.keys.EventKeys.SUBJECT;
-import static org.fjala.gugumber.salesforce.ui.PageLayoutType.CLASSIC;
-import static org.fjala.gugumber.salesforce.ui.PageLayoutType.LIGHTNING;
-import static org.testng.Assert.assertEquals;
 
 /**
  * EventSteps class
@@ -139,12 +139,19 @@ public class EventSteps {
      */
     @Then("^the information of new Event should be displayed in Event Detail page$")
     public void validateEventDetail() {
-        Map<String, String> evenDetailMap= eventPage.getEventDetailInMap();
+        Map<String, String> evenDetailMap = eventPage.getEventDetailInMap();
         Set<String> keysEventDetail = evenDetailMap.keySet();
         final HashMap<String, StrategySetter> strategyMap = composeStrategyMap(evenDetailMap, event);
         keysEventDetail.forEach(key -> strategyMap.get(key).executeMethod());
     }
 
+    /**
+     * Returns the strategy map with all methods for verification between UI and Event Object.
+     *
+     * @param evenDetailMap is the map with all information from UI Event.
+     * @param event         is the Event with all information for verifies.
+     * @return as map of of all verification of information.
+     */
     private HashMap<String, StrategySetter> composeStrategyMap(Map<String, String> evenDetailMap, Event event) {
         final HashMap<String, StrategySetter> strategyHashMap = new HashMap<>();
         strategyHashMap.put(ASSIGNED_TO, () -> validateDetailsOfNewEvent(evenDetailMap.get(ASSIGNED_TO), event.getAssignedToUser()));
@@ -152,14 +159,19 @@ public class EventSteps {
         strategyHashMap.put(NAME, () -> validateDetailsOfNewEvent(evenDetailMap.get(NAME), event.getNameContact()));
         strategyHashMap.put(RELATED_TO, () -> validateDetailsOfNewEvent(evenDetailMap.get(RELATED_TO), event.getRelatedToAccount()));
         strategyHashMap.put(LOCATION, () -> validateDetailsOfNewEvent(evenDetailMap.get(LOCATION), event.getLocation()));
-//        strategyHashMap.put(START_DATE, () -> validateDetailsOfNewEvent(evenDetailMap.get(START_DATE), event.getStartDate()));
-//        strategyHashMap.put(END_DATE, () -> validateDetailsOfNewEvent(evenDetailMap.get(END_DATE), event.getEndDate()));
+        strategyHashMap.put(START_DATE, () -> validateDetailsOfNewEvent(evenDetailMap.get(START_DATE), event.getStartDateToString()));
+        strategyHashMap.put(END_DATE, () -> validateDetailsOfNewEvent(evenDetailMap.get(END_DATE), event.getEndDateToString()));
         strategyHashMap.put(DESCRIPTION, () -> validateDetailsOfNewEvent(evenDetailMap.get(DESCRIPTION), event.getDescription()));
         return strategyHashMap;
     }
 
-    public void validateDetailsOfNewEvent(String uiDeatail, String eventDetail ) {
-
-        assertEquals(uiDeatail, eventDetail);
+    /**
+     * Verifies whether the UI Event information is the same of Event object.
+     *
+     * @param uiDetail    is the value of information of detail Event page .
+     * @param eventDetail is the value of information of Event.
+     */
+    public void validateDetailsOfNewEvent(String uiDetail, String eventDetail) {
+        assertEquals(uiDetail, eventDetail);
     }
 }

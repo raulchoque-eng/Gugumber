@@ -12,10 +12,7 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.event;
 
-import java.util.Date;
-
 import org.fjala.gugumber.core.selenium.utils.DriverMethods;
-import org.fjala.gugumber.salesforce.utils.DateMethods;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -176,10 +173,12 @@ public class EventClassicForm extends EventFormAbstract {
      * @param startDate as a Date.
      */
     @Override
-    public void setStartDate(final Date startDate) {
-        final String pattern = "dd-MM-yyyy";
-        DriverMethods.setTxt(startDateTxtb, DriverMethods.convertDateToString(startDate, pattern));
-        DriverMethods.setTxt(startTimeTxtb, DateMethods.getHourBefore(startDate, 2));
+    public void setStartDate(final String startDate) {
+        final String[] dateTime = startDate.split(" ");
+        final String date = dateTime[0];
+        final String time = dateTime[1];
+        DriverMethods.setTxt(startDateTxtb, date);
+        DriverMethods.setTxt(startTimeTxtb, time);
     }
 
     /**
@@ -198,10 +197,12 @@ public class EventClassicForm extends EventFormAbstract {
      * @param endDate as a Date.
      */
     @Override
-    public void setEndDate(final Date endDate) {
-        final String pattern = "dd-MM-yyyy";
-        DriverMethods.setTxt(endDateTxtb, DriverMethods.convertDateToString(endDate, pattern));
-        DriverMethods.setTxt(endTimeTxtb, DateMethods.getHourBefore(endDate, 3));
+    public void setEndDate(final String endDate) {
+        final String[] dateTime = endDate.split(" ");
+        final String date = dateTime[0];
+        final String time = dateTime[1];
+        DriverMethods.setTxt(endDateTxtb, date);
+        DriverMethods.setTxt(endTimeTxtb, time);
     }
 
     /**
