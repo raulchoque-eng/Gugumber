@@ -16,8 +16,6 @@ Feature: Contact manage
     Then the contact last name should be displayed in the Contact Details page
     When I go to the Contacts page
     Then the contact last name should be displayed in the contacts list of Contacts page
-#    When I request the get of the contact
-#    Then the response should contain the contact information
 
   @create-account @delete-account @delete-contact
   Scenario: Create a new contact for an user with only required data
@@ -60,12 +58,10 @@ Feature: Contact manage
     Then the contact last name should be displayed in the Contact Details page
     When I go to the Contacts page
     Then the contact information should be displayed in the contacts list of Contacts page
-#    When I request the get of the contact
-#    Then the response should contain the contact information
 
   Scenario: Delete a new contact for an user with only required data
-    When I go to the Contacts page
-      And I open Contact form
+    Given I go to the Contacts page
+    When I open Contact form
       And I create a new Contact with the following information in Contact form
         | Last Name | Valdez |
     Then a message that indicates the Contact was created should be displayed

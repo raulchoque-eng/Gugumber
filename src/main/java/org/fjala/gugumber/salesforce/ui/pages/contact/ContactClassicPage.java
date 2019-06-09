@@ -182,7 +182,7 @@ public class ContactClassicPage extends ContactPageAbstract {
     }
 
     /**
-     * Check name in contact List.
+     * Checks name in contact List.
      *
      * @param name string.
      * @return boolean.

@@ -22,7 +22,6 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.path.json.JsonPath;
 import org.fjala.gugumber.core.selenium.utils.Logs;
-import org.fjala.gugumber.salesforce.api.ContactAPI;
 import org.fjala.gugumber.salesforce.entities.Contact;
 import org.fjala.gugumber.salesforce.entities.Context;
 import org.fjala.gugumber.salesforce.ui.PageLayoutConfig;
@@ -168,7 +167,7 @@ public class ContactSteps {
 
     @When("^I delete a Contact exist in the Contact page$")
     public void iDeleteAContactExistInTheContactPage() {
-        contactProfilePage.deleteContact();
+        contactProfilePage.deleteContactProfilePage();
     }
 
     @Then("^a message that indicates the Contact was deleted should be displayed$")
@@ -183,7 +182,7 @@ public class ContactSteps {
     }
 
     @Then("^the contact last name don't should be displayed in the contacts list of Contacts page$")
-    public void noDisplayContactInTheContactsListOfContactsPage() {
+    public void isNotDisplayContactInTheContactsListOfContactsPage() {
         contactPage = PageLayoutFactory.getContactPage();
         Assert.assertFalse(contactPage.getListOfContactsName().contains(contact.getFullNameContactList()), "the Contact Name not displayed");
     }

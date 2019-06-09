@@ -102,17 +102,17 @@ public class ContactLightningProfilePage extends ContactProfilePageAbstract {
     }
 
     /**
-     * Delete contact.
+     * Deletes contact.
      */
     @Override
-    public void deleteContact() {
+    public void deleteContactProfilePage() {
         mainMenuCmbb.click();
         deleteOptionCmb.click();
         deleteBtn.click();
     }
 
     /**
-     * Check the section Details.
+     * Checks the section Details.
      *
      * @return ContactLightningDetails.
      */

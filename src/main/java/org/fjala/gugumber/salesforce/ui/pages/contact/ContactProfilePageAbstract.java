@@ -49,5 +49,5 @@ public abstract class ContactProfilePageAbstract extends BasePage {
     /**
      * Delete Contact in contact page.
      */
-    public abstract void deleteContact();
+    public abstract void deleteContactProfilePage();
 }

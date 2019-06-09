@@ -67,10 +67,10 @@ public class ContactClassicProfilePage extends ContactProfilePageAbstract {
     }
 
     /**
-     * Delete contact.
+     * Deletes contact.
      */
     @Override
-    public void deleteContact() {
+    public void deleteContactProfilePage() {
         deleteBtn.click();
         driver.switchTo().alert().accept();
     }
