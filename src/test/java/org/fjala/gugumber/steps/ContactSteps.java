@@ -27,7 +27,12 @@ import org.fjala.gugumber.salesforce.entities.Context;
 import org.fjala.gugumber.salesforce.ui.PageLayoutConfig;
 import org.fjala.gugumber.salesforce.ui.PageLayoutFactory;
 import org.fjala.gugumber.salesforce.ui.PageLayoutType;
-import org.fjala.gugumber.salesforce.ui.pages.contact.*;
+import org.fjala.gugumber.salesforce.ui.pages.contact.ContactDetailsAbstract;
+import org.fjala.gugumber.salesforce.ui.pages.contact.ContactFormAbstract;
+import org.fjala.gugumber.salesforce.ui.pages.contact.ContactLightningPage;
+import org.fjala.gugumber.salesforce.ui.pages.contact.ContactLightningProfilePage;
+import org.fjala.gugumber.salesforce.ui.pages.contact.ContactPageAbstract;
+import org.fjala.gugumber.salesforce.ui.pages.contact.ContactProfilePageAbstract;
 import org.testng.Assert;
 
 /**
