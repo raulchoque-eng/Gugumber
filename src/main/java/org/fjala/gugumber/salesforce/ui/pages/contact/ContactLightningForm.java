@@ -19,6 +19,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.Date;
+
 /**
  * ContactLightningForm class.
  *
@@ -330,8 +332,8 @@ public class ContactLightningForm extends ContactFormAbstract {
      * @param birthdate of type String.
      */
     @Override
-    protected void setBirthdate(final String birthdate) {
-        DriverMethods.setTxt(birthdateTxtb, birthdate);
+    protected void setBirthdate(final Date birthdate) {
+        DriverMethods.setTxt(birthdateTxtb, DriverMethods.convertDateToString(birthdate, "dd-MM-yyyy"));
         birthdateTxtb.sendKeys(Keys.TAB);
     }
 

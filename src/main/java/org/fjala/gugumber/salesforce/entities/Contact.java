@@ -828,9 +828,9 @@ public class Contact {
      */
     public String getFullNameContactList() {
         if (layout.equals(CLASSIC)) {
-            System.out.println("classic :  " +getFullContactClassic());
+            getFullContactClassic();
         } else {
-            System.out.println("light :  " +getFullContactLightning());
+            getFullContactLightning();
         }
         return fullName.trim();
     }

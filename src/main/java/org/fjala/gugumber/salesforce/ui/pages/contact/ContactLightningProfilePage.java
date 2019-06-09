@@ -43,7 +43,25 @@ public class ContactLightningProfilePage extends ContactProfilePageAbstract {
     private WebElement contactDetailsTab;
 
     /**
-     * Web Element of profile contact with title.
+     * Web Element main menu contact.
+     */
+    @FindBy(css ="li[class='slds-button slds-button--icon-border-filled oneActionsDropDown'] [title='Show 5 more actions']")
+    private WebElement mainMenuCmbb;
+
+    /**
+     * Web Element delete button contact.
+     */
+    @FindBy(css = "a[title='Delete'][role='menuitem']" )
+    private WebElement deleteOptionCmb;
+
+    /**
+     * Web Element delete button contact.
+     */
+    @FindBy(css = "[class='modal-container slds-modal__container'] [class='slds-button slds-button--neutral uiButton--default uiButton--brand uiButton forceActionButton']" )
+    private WebElement deleteBtn;
+
+    /**
+     * Web Element message save of profile contact page.
      */
     @FindBy(css = "[class='forceVisualMessageQueue'] [class='toastMessage slds-text-heading--small forceActionsText']")
     private WebElement contactMessageSaveTxt;
@@ -81,6 +99,16 @@ public class ContactLightningProfilePage extends ContactProfilePageAbstract {
      */
     public void clickContactDetailsTab() {
         contactDetailsTab.click();
+    }
+
+    /**
+     * Delete contact.
+     */
+    @Override
+    public void deleteContact() {
+        mainMenuCmbb.click();
+        deleteOptionCmb.click();
+        deleteBtn.click();
     }
 
     /**

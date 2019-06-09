@@ -36,9 +36,15 @@ public class ContactLightningPage extends ContactPageAbstract {
     private WebElement newContactForm;
 
     /**
+     * Web Element message delete of contact page.
+     */
+    @FindBy(css = "[class='forceVisualMessageQueue'] [class='toastMessage slds-text-heading--small forceActionsText']")
+    private WebElement contactMessageDeleteTxt;
+
+    /**
      * List of web elements for contacts name.
      */
-    @FindBy(css = "[class='slds-truncate outputLookupLink slds-truncate forceOutputLookup']")
+    @FindBy(css = "th[scope='row'] a[class='slds-truncate outputLookupLink slds-truncate forceOutputLookup']")
     private List<WebElement> contactNameList;
 
     /**
@@ -47,7 +53,7 @@ public class ContactLightningPage extends ContactPageAbstract {
     @FindBy(css = "a[Title='New']")
     private WebElement newContactBtn;
 
-    final String lastNameList = "a[title='titleOfList']";
+    final String lastNameList = "[scope='row'] a[title='titleOfList']";
 
     /**
      * Waits until page object is loaded.
@@ -82,6 +88,7 @@ public class ContactLightningPage extends ContactPageAbstract {
      */
     @Override
     public List<String> getListOfContactsName() {
+        wait.until(ExpectedConditions.stalenessOf(contactNameList.get(0)));
         final List<String> contactName = new ArrayList<>();
         try {
             for (WebElement contName : contactNameList) {
@@ -99,12 +106,31 @@ public class ContactLightningPage extends ContactPageAbstract {
     }
 
     /**
+     * Check name in contact List.
+     *
+     * @param name string.
+     * @return boolean.
+     */
+    @Override
+    public boolean checkContactList(String name) {
+        return driver.findElement(By.cssSelector(lastNameList.replace("titleOfList", name))).isDisplayed();
+    }
+
+    /**
      * Clicks at the last name for open contact profile page.
      *
      * @param text as String.
      */
     public void openContactProfile(final String text) {
-        driver.findElement(By.xpath(lastNameList.replace("titleOfList", text))).click();
+        driver.findElement(By.cssSelector(lastNameList.replace("titleOfList", text))).click();
+    }
+
+    /**
+     * Gets message of deleted.
+     *
+     * @return the message.
+     */
+    public String getMessageDelete() {
+        return contactMessageDeleteTxt.getText();
     }
 }
-

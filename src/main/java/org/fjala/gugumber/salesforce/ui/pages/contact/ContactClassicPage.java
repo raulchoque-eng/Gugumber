@@ -173,11 +173,23 @@ public class ContactClassicPage extends ContactPageAbstract {
      */
     @Override
     public List<String> getListOfContactsName() {
+        wait.until(ExpectedConditions.stalenessOf(contactNameList.get(0)));
         final List<String> contactsName = new ArrayList<>();
         for (WebElement contName : contactNameList) {
             contactsName.add(contName.getText());
         }
         return contactsName;
+    }
+
+    /**
+     * Check name in contact List.
+     *
+     * @param name string.
+     * @return boolean.
+     */
+    @Override
+    public boolean checkContactList(String name) {
+        return driver.findElement(By.xpath(lastNameList.replace("titleOfList", name))).isDisplayed();
     }
 
     /**

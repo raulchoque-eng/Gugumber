@@ -1,14 +1,15 @@
-@contact @delete-contact @create-account @delete-account
+@contact
 Feature: Contact manage
   Background:
     Given I am logged in SalesForce with "username.admin" and "password.admin"
       And I navigate to the Home page
 
+  @delete-contact
   Scenario: Create a new contact for an user with only required data
     When I go to the Contacts page
       And I open Contact form
       And I create a new Contact with the following information in Contact form
-        | Last Name | Carvajal |
+        | Last Name | Valdez |
     Then a message that indicates the Contact was created should be displayed
       And the contact last name should be displayed in the Contact Profile page
     When I go to the Contact Details
@@ -18,6 +19,7 @@ Feature: Contact manage
 #    When I request the get of the contact
 #    Then the response should contain the contact information
 
+  @create-account @delete-account @delete-contact
   Scenario: Create a new contact for an user with only required data
     When I go to the Contacts page
       And I open Contact form
@@ -28,14 +30,14 @@ Feature: Contact manage
         | Account                 | Account_Test     |
         | Title                   | Task             |
         | Department              | Test             |
-        | Birthdate               | 5/06/1990        |
+        | Birthdate               | 05/06/1990       |
         | Reports To              | Contact Event    |
         | Lead Source             | Web              |
         | Phone                   | 12345678         |
+        | Home Phone              | 4444444          |
+        | Mobile                  | 55555555         |
         | Other Phone             | 777777           |
         | Fax                     | 123123           |
-        | Mobile                  | 55555555         |
-        | Home Phone              | 4444444          |
         | Email                   | Cxriss@email.com |
         | Assistant               | Pedro            |
         | Asst Phone              | 838383           |
@@ -57,17 +59,17 @@ Feature: Contact manage
     When I go to the Contact Details
     Then the contact last name should be displayed in the Contact Details page
     When I go to the Contacts page
-    Then the contact last name should be displayed in the contacts list of Contacts page
     Then the contact information should be displayed in the contacts list of Contacts page
 #    When I request the get of the contact
 #    Then the response should contain the contact information
 
-#  Scenario: Delete a new contact for an user with only required data
-#    When I go to the Contacts page
-#      And I open Contact form
-#      And I delete a Contact exist with the following information in Contact form
-#        |Last Name |Valdez |
-#    Then a message that indicates the Contact was deleted should be displayed
-#      And the contact last name dont should be displayed in the Contact Profile page
-#    When I go to the Contacts page
-#    Then the contact last name dont should be displayed in the contacts list of Contacts page
+  Scenario: Delete a new contact for an user with only required data
+    When I go to the Contacts page
+      And I open Contact form
+      And I create a new Contact with the following information in Contact form
+        | Last Name | Valdez |
+    Then a message that indicates the Contact was created should be displayed
+    When I delete a Contact exist in the Contact page
+    Then a message that indicates the Contact was deleted should be displayed
+    When I go to the Contacts page
+    Then the contact last name don't should be displayed in the contacts list of Contacts page

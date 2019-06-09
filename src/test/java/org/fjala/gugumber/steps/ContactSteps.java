@@ -28,11 +28,8 @@ import org.fjala.gugumber.salesforce.entities.Context;
 import org.fjala.gugumber.salesforce.ui.PageLayoutConfig;
 import org.fjala.gugumber.salesforce.ui.PageLayoutFactory;
 import org.fjala.gugumber.salesforce.ui.PageLayoutType;
-import org.fjala.gugumber.salesforce.ui.pages.contact.ContactDetailsAbstract;
-import org.fjala.gugumber.salesforce.ui.pages.contact.ContactFormAbstract;
-import org.fjala.gugumber.salesforce.ui.pages.contact.ContactLightningProfilePage;
-import org.fjala.gugumber.salesforce.ui.pages.contact.ContactPageAbstract;
-import org.fjala.gugumber.salesforce.ui.pages.contact.ContactProfilePageAbstract;
+import org.fjala.gugumber.salesforce.ui.pages.contact.*;
+import org.testng.Assert;
 
 /**
  * ContactSteps class.
@@ -110,7 +107,6 @@ public class ContactSteps {
         contact.processInformation(contactMap);
         contactForm.setContactInformation(contactMap);
         contactProfilePage = contactForm.clickSaveNewContact();
-        contact.setId(contactProfilePage.getIdFromUrl());
     }
 
     /**
@@ -140,6 +136,7 @@ public class ContactSteps {
      */
     @When("^I go to the Contact Details$")
     public void openTheContactDetailsPage() {
+        contact.setId(contactProfilePage.getIdFromUrl());
         contactDetails = contactProfilePage.checkDetailsSection();
     }
 
@@ -157,29 +154,38 @@ public class ContactSteps {
     @Then("^the contact last name should be displayed in the contacts list of Contacts page$")
     public void displayContactInTheContactsListOfContactsPage() {
         contactPage = PageLayoutFactory.getContactPage();
-        assertTrue(contactPage.getListOfContactsName().contains(contact.getFullNameContactList()), "the Contact Name not displayed");
+        assertTrue(contactPage.checkContactList(contact.getFullNameContactList()),"the Contact Name not displayed");
+        Assert.assertFalse(contactPage.getListOfContactsName().contains(contact.getFullNameContactList()), "the Contact Name not displayed");
     }
 
     /**
-     * Gets contact by Id.
+     * Verifies that contact is displayed in the list of contact page.
      */
-    @When("^I request the get of the contact$")
-    public void requestTheGetOfTheContact() {
-        ContactAPI.getInstance().readContactById(contact.getId());
-    }
-
-
-    @Then("^the response should contain the contact information$")
-    public void theResponseShouldContainTheContactInformation(final Map<String, String> contactMap) {
-
-        contactMap.forEach((key, value) -> {
-            contact.setJsonContactValues(key, jsonPath);
-        });
-
-    }
-
     @Then("^the contact information should be displayed in the contacts list of Contacts page$")
     public void displayContactInformationInTheContactsListOfContactsPage() {
-
+        assertTrue(contactPage.getListOfContactsName().contains(contact.getFullNameContactList()), "the Contact Name not displayed");
     }
+
+    @When("^I delete a Contact exist in the Contact page$")
+    public void iDeleteAContactExistInTheContactPage() {
+        contactProfilePage.deleteContact();
+    }
+
+    @Then("^a message that indicates the Contact was deleted should be displayed$")
+    public void displayMessageThatIndicatesTheContactWasDeleted() {
+        if (layout.equals(LIGHTNING)) {
+            final ContactLightningPage contactLightningPage = new ContactLightningPage();
+            final String message = (contactLightningPage.getMessageDelete());
+            assertEquals(message, "Contact \"".concat(contact.getLastName()).concat("\" was deleted."), "not successfully created");
+        } else {
+            Logs.getInstance().getLog().info("In classic Layout is not message of confirmation");
+        }
+    }
+
+    @Then("^the contact last name don't should be displayed in the contacts list of Contacts page$")
+    public void noDisplayContactInTheContactsListOfContactsPage() {
+        contactPage = PageLayoutFactory.getContactPage();
+        Assert.assertFalse(contactPage.getListOfContactsName().contains(contact.getFullNameContactList()), "the Contact Name not displayed");
+    }
+
 }

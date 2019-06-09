@@ -45,4 +45,9 @@ public abstract class ContactProfilePageAbstract extends BasePage {
     public String getIdFromUrl() {
         return UrlComponents.splitUrlToId(driver.getCurrentUrl());
     }
+
+    /**
+     * Delete Contact in contact page.
+     */
+    public abstract void deleteContact();
 }
