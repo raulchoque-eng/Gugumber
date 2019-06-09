@@ -13,8 +13,7 @@
 package org.fjala.gugumber.steps;
 
 import static org.fjala.gugumber.salesforce.ui.PageLayoutType.LIGHTNING;
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
+import static org.testng.Assert.*;
 
 import java.util.Map;
 
@@ -159,7 +158,7 @@ public class ContactSteps {
     public void displayContactInTheContactsListOfContactsPage() {
         contactPage = PageLayoutFactory.getContactPage();
         assertTrue(contactPage.checkContactList(contact.getFullNameContactList()),"the Contact Name not displayed");
-        Assert.assertFalse(contactPage.getListOfContactsName().contains(contact.getFullNameContactList()), "the Contact Name not displayed");
+        assertTrue(contactPage.getListOfContactsName().contains(contact.getFullNameContactList()), "the Contact Name not displayed");
     }
 
     /**
