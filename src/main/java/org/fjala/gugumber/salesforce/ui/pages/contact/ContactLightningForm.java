@@ -237,6 +237,11 @@ public class ContactLightningForm extends ContactFormAbstract {
     final String LEVEL_CMBB = "ul[class='scrollable'] [title='nameTitle']";
 
     /**
+     * Variable for type date.
+     */
+    final String PATTERN = "dd-MM-yyyy";
+
+    /**
      * Waits until page object is loaded.
      */
     @Override
@@ -333,7 +338,7 @@ public class ContactLightningForm extends ContactFormAbstract {
      */
     @Override
     protected void setBirthdate(final Date birthdate) {
-        DriverMethods.setTxt(birthdateTxtb, DriverMethods.convertDateToString(birthdate, "dd-MM-yyyy"));
+        DriverMethods.setTxt(birthdateTxtb, DriverMethods.convertDateToString(birthdate, PATTERN));
         birthdateTxtb.sendKeys(Keys.TAB);
     }
 

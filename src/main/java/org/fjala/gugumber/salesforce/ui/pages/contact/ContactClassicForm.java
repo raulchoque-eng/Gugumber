@@ -259,6 +259,11 @@ public class ContactClassicForm extends ContactFormAbstract {
     final String LEVEL_CMBB = "[id='00N4P000007C3DL'] [value='nameTitle']";
 
     /**
+     * Variable for type date.
+     */
+    final String PATTERN = "dd-MM-yyyy";
+
+    /**
      * Sets the salutation name.
      *
      * @param salutation of type String
@@ -353,7 +358,7 @@ public class ContactClassicForm extends ContactFormAbstract {
      */
     @Override
     protected void setBirthdate(final Date birthdate) {
-        DriverMethods.setTxt(birthdateTxtb, DriverMethods.convertDateToString(birthdate, "dd-MM-yyyy"));
+        DriverMethods.setTxt(birthdateTxtb, DriverMethods.convertDateToString(birthdate, PATTERN));
         birthdateTxtb.sendKeys(Keys.TAB);
     }
 
