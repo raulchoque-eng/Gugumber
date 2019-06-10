@@ -30,6 +30,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class AccountsLightningPage extends AccountsPageAbstract {
 
     /**
+     * Constant for replace to replace.
+     */
+    public static final String VALUE_TO_REPLACE = "valueToReplace";
+    /**
      * Variable for xpath to replace the value of id account.
      */
     private String xpathToGetAccountById = "//a[@data-recordid='valueToReplace']";
@@ -101,7 +105,7 @@ public class AccountsLightningPage extends AccountsPageAbstract {
      */
     @Override
     public AccountProfilePageAbstract openAccount(final String id) {
-        driver.findElement(By.xpath(xpathToGetAccountById.replace("valueToReplace", id))).click();
+        driver.findElement(By.xpath(xpathToGetAccountById.replace(VALUE_TO_REPLACE, id))).click();
         return new AccountProfileLightningPage();
     }
 }

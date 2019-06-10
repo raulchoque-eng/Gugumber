@@ -12,6 +12,8 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.account;
 
+import static org.fjala.gugumber.salesforce.ui.pages.account.AccountsLightningPage.VALUE_TO_REPLACE;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -106,7 +108,7 @@ public class AccountsClassicPage extends AccountsPageAbstract {
      * @return xpahtForGetAcountById as string.
      */
     private String getXpathForGetAccountById(final String id) {
-        xpahtForGetAcountById = xpahtForGetAcountById.replace("valueToReplace", id);
+        xpahtForGetAcountById = xpahtForGetAcountById.replace(VALUE_TO_REPLACE, id);
         xpahtForGetAcountById = xpahtForGetAcountById.
                 substring(0, xpahtForGetAcountById.length() - CANT_TO_REMOVE_OF_ID).concat("']");
         return xpahtForGetAcountById;

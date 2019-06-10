@@ -14,7 +14,6 @@ package org.fjala.gugumber.steps;
 
 import java.util.Map;
 
-import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -142,7 +141,7 @@ public class AccountSteps {
     /**
      * Deletes the account from the account page.
      */
-    @And("^I delete the Account from the Account page$")
+    @When("^I delete the Account from the Account page$")
     public void deleteTheAccountFromTheAccountPage() {
         accountsPage = accountProfilePage.clickOnDeleteBtn();
     }
