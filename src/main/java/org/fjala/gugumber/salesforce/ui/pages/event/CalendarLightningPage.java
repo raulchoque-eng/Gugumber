@@ -80,7 +80,6 @@ public class CalendarLightningPage extends BasePage {
         } catch (Exception e) {
             System.out.println(e);
         }
-
         try {
             DriverMethods.waitUntilElementIsClickable(driver, closeMessageBtn);
             closeMessageBtn.click();
