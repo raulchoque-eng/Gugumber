@@ -107,8 +107,8 @@ public class AccountsClassicPage extends AccountsPageAbstract {
      */
     private String getXpathForGetAccountById(final String id) {
         xpahtForGetAcountById = xpahtForGetAcountById.replace("valueToReplace", id);
-        xpahtForGetAcountById = xpahtForGetAcountById.substring(
-                0, xpahtForGetAcountById.length() - CANT_TO_REMOVE_OF_ID).concat("']");
+        xpahtForGetAcountById = xpahtForGetAcountById.
+                substring(0, xpahtForGetAcountById.length() - CANT_TO_REMOVE_OF_ID).concat("']");
         return xpahtForGetAcountById;
     }
 }
