@@ -1,13 +1,13 @@
 package org.fjala.gugumber.hooks;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import org.fjala.gugumber.salesforce.api.ContactAPI;
 import org.fjala.gugumber.salesforce.entities.Contact;
 import org.fjala.gugumber.salesforce.entities.Context;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * ContactHooks class.
