@@ -12,38 +12,8 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.contact;
 
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.ACCOUNT;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.ASSISTANT;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.ASST_PHONE;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.BIRTHDATE;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.DEPARTMENT;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.DESCRIPTION;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.EMAIL;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.FAX;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.FIRST_NAME;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.HOME_PHONE;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.LANGUAGES;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.LAST_NAME;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.LEAD_SOURCE;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.LEVEL;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.MAILING_CITY;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.MAILING_COUNTRY;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.MAILING_POSTAL_CODE;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.MAILING_STATE;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.MAILING_STREET;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.MOBILE;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.OTHER_CITY;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.OTHER_COUNTRY;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.OTHER_PHONE;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.OTHER_POSTAL_CODE;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.OTHER_STATE;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.OTHER_STREET;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.PHONE;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.REPORTS_TO;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.SALUTATION;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.TITLE;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.*;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -58,6 +28,7 @@ import org.fjala.gugumber.salesforce.ui.pages.BasePage;
  * @version 0.0.1
  */
 public abstract class ContactFormAbstract extends BasePage {
+
 
     /**
      * Process information for composing the strategy map.
