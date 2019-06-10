@@ -66,7 +66,7 @@ public class EventHooks {
         createNewEvent.put("Subject", "Dinner");
         createNewEvent.put("StartDateTime", "2019-06-10T205:00:00.000+0000");
         createNewEvent.put("EndDateTime", "2019-06-10T206:00:00.000+0000");
-        createNewEvent.put("OwnerId", "0054P000008Red0QAC");
+        createNewEvent.put("OwnerId", "0054P000006uWBxQAM");
         event.setId(EventAPI.getInstance().createEvent(createNewEvent));
     }
 }
