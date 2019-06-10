@@ -12,11 +12,12 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.account;
 
+import org.fjala.gugumber.core.selenium.utils.DriverMethods;
+import org.fjala.gugumber.core.selenium.utils.Logs;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 
 /**
  * AccountClassicForm class.
@@ -123,6 +124,120 @@ public class AccountClassicForm extends AccountFormAbstract {
     private WebElement sICCodeTxtB;
 
     /**
+     * Web element for the text-box of billing Street.
+     */
+    @FindBy(id = "acc17street")
+    private WebElement billingStreetTxtb;
+
+    /**
+     * Web element for the text-box of billing Zip or Postal Code.
+     */
+    @FindBy(id = "acc17zip")
+    private WebElement billingZipOrPostalCodeTxtb;
+
+    /**
+     * Web element for the text-box of billing city.
+     */
+    @FindBy(id = "acc17city")
+    private WebElement billingCityTxtb;
+
+    /**
+     * Web element for the text-box of billing state or province.
+     */
+    @FindBy(id = "acc17state")
+    private WebElement billingStateOrProvinceTxtb;
+
+    /**
+     * Web element for the text-box of billing country.
+     */
+    @FindBy(id = "acc17country")
+    private WebElement billingCountryTxtb;
+
+    /**
+     * Web element for the text-box of shipping Street.
+     */
+    @FindBy(id = "acc18street")
+    private WebElement shippingStreetTxtb;
+
+    /**
+     * Web element for the text-box of shipping Zip or Postal code.
+     */
+    @FindBy(id = "acc18zip")
+    private WebElement shippingZipOrPostalCodeTxtb;
+
+    /**
+     * Web element for the text-box of shipping city.
+     */
+    @FindBy(id = "acc18city")
+    private WebElement shippingCityTxtb;
+
+    /**
+     * Web element for the text-box of shipping state or province.
+     */
+    @FindBy(id = "acc18state")
+    private WebElement shippingStateOrProvinceTxtb;
+
+    /**
+     * Web element for the text-box of shipping country.
+     */
+    @FindBy(id = "acc18country")
+    private WebElement shippingCountryTxtb;
+
+    /**
+     * Web element for the combo-box of customer priority.
+     */
+    @FindBy(id = "00N4P000007onVF")
+    private WebElement customerPriorityCmbb;
+
+    /**
+     * Web element for the text-box of SLA Expiration Date.
+     */
+    @FindBy(id = "00N4P000007onVI")
+    private WebElement sLAExpirationDateTxtb;
+
+    /**
+     * Web element for the link of Date.
+     */
+    @FindBy(css = "span[class='dateFormat'] a")
+    private WebElement dateLnk;
+
+    /**
+     * Web element for the text-box of number pf locations.
+     */
+    @FindBy(id = "00N4P000007onVG")
+    private WebElement numberOfLocationsTxtb;
+
+    /**
+     * Web element for the combo-box of active.
+     */
+    @FindBy(id = "00N4P000007onVE")
+    private WebElement activeCmbb;
+
+    /**
+     * Web element for the combo-box of SLA.
+     */
+    @FindBy(id = "00N4P000007onVH")
+    private WebElement sLACmbb;
+
+    /**
+     * Web element for the text-box of SLA serial number.
+     */
+    @FindBy(id = "00N4P000007onVJ")
+    private WebElement sLASerialNumberTxtb;
+
+    /**
+     * Web element for the combo-box of upsell Opportunity.
+     */
+    @FindBy(id = "00N4P000007onVK")
+    private WebElement upsellOpportunityCmbb;
+
+    /**
+     * Web element for the text-box of description.
+     */
+    @FindBy(id = "acc20")
+    private WebElement descriptionTxtb;
+
+    /**
      * Web element for the button save of footer.
      */
     @FindBy(css = "td[id='bottomButtonRow'] input[name='save']")
@@ -143,7 +258,7 @@ public class AccountClassicForm extends AccountFormAbstract {
      */
     @Override
     public void setNameAccountOnTxtB(final String accountName) {
-        accountNameTxtB.sendKeys(accountName);
+        DriverMethods.setTxt(accountNameTxtB, accountName);
     }
 
     /**
@@ -164,7 +279,7 @@ public class AccountClassicForm extends AccountFormAbstract {
      */
     @Override
     public void setAccountNumberOnTxtb(final String accountNumber) {
-        accountNumberTxtB.sendKeys(accountNumber);
+        DriverMethods.setTxt(accountNumberTxtB, accountNumber);
     }
 
     /**
@@ -174,7 +289,7 @@ public class AccountClassicForm extends AccountFormAbstract {
      */
     @Override
     public void setAccountSiteOnTxtb(final String accountSite) {
-        accountSiteTxtB.sendKeys(accountSite);
+        DriverMethods.setTxt(accountSiteTxtB, accountSite);
     }
 
     /**
@@ -184,8 +299,7 @@ public class AccountClassicForm extends AccountFormAbstract {
      */
     @Override
     public void setTypeOnCmbb(final String type) {
-        Select selectType = new Select(typeCmbB);
-        selectType.selectByVisibleText(type);
+        DriverMethods.selectOptionFromComboBox(typeCmbB, type);
     }
 
     /**
@@ -195,8 +309,7 @@ public class AccountClassicForm extends AccountFormAbstract {
      */
     @Override
     public void setIndustryOnCmbb(final String industry) {
-        Select selectIndustry = new Select(industryCmbB);
-        selectIndustry.selectByVisibleText(industry);
+        DriverMethods.selectOptionFromComboBox(industryCmbB, industry);
     }
 
     /**
@@ -206,7 +319,7 @@ public class AccountClassicForm extends AccountFormAbstract {
      */
     @Override
     public void setAnnualRevenueOnTxtb(final String annualRevenue) {
-        annualRevenueTxtB.sendKeys(annualRevenue);
+        DriverMethods.setTxt(annualRevenueTxtB, annualRevenue);
     }
 
     /**
@@ -216,8 +329,7 @@ public class AccountClassicForm extends AccountFormAbstract {
      */
     @Override
     public void setRatingOnCmbb(final String rating) {
-        Select selectRating = new Select(ratingCmbB);
-        selectRating.selectByVisibleText(rating);
+        DriverMethods.selectOptionFromComboBox(ratingCmbB, rating);
     }
 
     /**
@@ -227,7 +339,7 @@ public class AccountClassicForm extends AccountFormAbstract {
      */
     @Override
     public void setPhoneOnTxtb(final String phone) {
-        phoneTxtB.sendKeys(phone);
+        DriverMethods.setTxt(phoneTxtB, phone);
     }
 
     /**
@@ -237,7 +349,7 @@ public class AccountClassicForm extends AccountFormAbstract {
      */
     @Override
     public void setFaxOnTxtb(final String fax) {
-        faxTxtB.sendKeys(fax);
+        DriverMethods.setTxt(faxTxtB, fax);
     }
 
     /**
@@ -247,7 +359,7 @@ public class AccountClassicForm extends AccountFormAbstract {
      */
     @Override
     public void setWebsiteOnTxtb(final String website) {
-        websiteTxtB.sendKeys(website);
+        DriverMethods.setTxt(websiteTxtB, website);
     }
 
     /**
@@ -257,7 +369,7 @@ public class AccountClassicForm extends AccountFormAbstract {
      */
     @Override
     public void setTickerSymbolOnTxtb(final String tickerSymbol) {
-        tickerSymbolTxtB.sendKeys(tickerSymbol);
+        DriverMethods.setTxt(tickerSymbolTxtB, tickerSymbol);
     }
 
     /**
@@ -267,8 +379,7 @@ public class AccountClassicForm extends AccountFormAbstract {
      */
     @Override
     public void setOwnershipCmbb(final String ownership) {
-        Select selectOwnership = new Select(ownershipCmbB);
-        selectOwnership.selectByVisibleText(ownership);
+        DriverMethods.selectOptionFromComboBox(ownershipCmbB, ownership);
     }
 
     /**
@@ -278,7 +389,7 @@ public class AccountClassicForm extends AccountFormAbstract {
      */
     @Override
     public void setEmployeesOnTxtb(final String employees) {
-        employeesTxtB.sendKeys(employees);
+        DriverMethods.setTxt(employeesTxtB, employees);
     }
 
     /**
@@ -289,6 +400,190 @@ public class AccountClassicForm extends AccountFormAbstract {
     @Override
     public void setsICCodeOnTxtb(final String sICCode) {
         sICCodeTxtB.sendKeys(sICCode);
+    }
+
+    /**
+     * Sets the billing Street of the account in the form.
+     *
+     * @param billingStreet for the billing street.
+     */
+    @Override
+    public void setBillingStreetOnTxtb(final String billingStreet) {
+        DriverMethods.setTxt(billingStreetTxtb, billingStreet);
+    }
+
+    /**
+     * Sets the billing Zip or Postal Code of the account in the form.
+     *
+     * @param billingZipOrPostalCode for the billing Zip or Postal Code.
+     */
+    @Override
+    public void setBillingZipOrPostalCodeOnTxtb(final String billingZipOrPostalCode) {
+        DriverMethods.setTxt(billingZipOrPostalCodeTxtb, billingZipOrPostalCode);
+    }
+
+    /**
+     * Sets the billing city of the account in the form.
+     *
+     * @param billingCity for the billing city.
+     */
+    @Override
+    public void setBillingCityOnTxtb(final String billingCity) {
+        DriverMethods.setTxt(billingCityTxtb, billingCity);
+    }
+
+    /**
+     * Sets the billing State or Province of the account in the form.
+     *
+     * @param billingStateOrProvince for the billing State or Province.
+     */
+    @Override
+    public void setBillingStateOrProvinceOnTxtb(final String billingStateOrProvince) {
+        DriverMethods.setTxt(billingStateOrProvinceTxtb, billingStateOrProvince);
+    }
+
+    /**
+     * Sets the billing country of the account in the form.
+     *
+     * @param billingCountry for the billing country.
+     */
+    @Override
+    public void setBillingCountryOnTxtb(final String billingCountry) {
+        DriverMethods.setTxt(billingCountryTxtb, billingCountry);
+    }
+
+    /**
+     * Sets the shipping Street of the account in the form.
+     *
+     * @param shippingStreet for the shipping Street.
+     */
+    @Override
+    public void setShippingStreetOnTxtb(final String shippingStreet) {
+        DriverMethods.setTxt(shippingStreetTxtb, shippingStreet);
+    }
+
+    /**
+     * Sets the shipping Zip or Postal Code of the account in the form.
+     *
+     * @param shippingZipOrPostalCode for the shipping Zip or Postal Code.
+     */
+    @Override
+    public void setShippingZipOrPostalCodeOnTxtb(final String shippingZipOrPostalCode) {
+        DriverMethods.setTxt(shippingZipOrPostalCodeTxtb, shippingZipOrPostalCode);
+    }
+
+    /**
+     * Sets the shipping city of the account in the form.
+     *
+     * @param shippingCity for the shipping city.
+     */
+    @Override
+    public void setShippingCityOnTxtb(final String shippingCity) {
+        DriverMethods.setTxt(shippingCityTxtb, shippingCity);
+    }
+
+    /**
+     * Sets the shipping State Or Province of the account in the form.
+     *
+     * @param shippingStateOrProvince for the shipping State Or Province.
+     */
+    @Override
+    public void setShippingStateOrProvinceOnTxtb(final String shippingStateOrProvince) {
+        DriverMethods.setTxt(shippingStateOrProvinceTxtb, shippingStateOrProvince);
+    }
+
+    /**
+     * Sets the shipping country of the account in the form.
+     *
+     * @param shippingCountry for the shipping country.
+     */
+    @Override
+    public void setShippingCountryOnTxtb(final String shippingCountry) {
+        DriverMethods.setTxt(shippingCountryTxtb, shippingCountry);
+    }
+
+    /**
+     * Sets the customer priority of the account in the form.
+     *
+     * @param customerPriority for the customer priority.
+     */
+    @Override
+    public void setCustomerPriorityOnCmbb(final String customerPriority) {
+        DriverMethods.selectOptionFromComboBox(customerPriorityCmbb, customerPriority);
+    }
+
+    /**
+     * Sets the SLA Expiration Date of the account in the form.
+     *
+     * @param sLAExpirationDate for the SLA Expiration Date.
+     */
+    @Override
+    public void setSLAExpirationDateOnTxtb(final String sLAExpirationDate) {
+        if (sLAExpirationDate.equals("Today")) {
+            dateLnk.click();
+        } else {
+            Logs.getInstance().getLog().info("The date is not Today");
+        }
+    }
+
+    /**
+     * Sets the number Of Locations of the account in the form.
+     *
+     * @param numberOfLocations for the number Of Locations.
+     */
+    @Override
+    public void setNumberOfLocationsOnTxtb(final String numberOfLocations) {
+        DriverMethods.setTxt(numberOfLocationsTxtb, numberOfLocations);
+    }
+
+    /**
+     * Sets the active type of the account in the form.
+     *
+     * @param active for the active type.
+     */
+    @Override
+    public void setActiveOnCmbb(final String active) {
+        DriverMethods.selectOptionFromComboBox(activeCmbb, active);
+    }
+
+    /**
+     * Sets the SLA type of the account in the form.
+     *
+     * @param sLA for the SLA type.
+     */
+    @Override
+    public void setSLAOnCmbb(final String sLA) {
+        DriverMethods.selectOptionFromComboBox(sLACmbb, sLA);
+    }
+
+    /**
+     * Sets the SLA Serial Number of the account in the form.
+     *
+     * @param sLASerialNumber for the SLA Serial Number.
+     */
+    @Override
+    public void setSLASerialNumberOnTxtb(final String sLASerialNumber) {
+        DriverMethods.setTxt(sLASerialNumberTxtb, sLASerialNumber);
+    }
+
+    /**
+     * Sets the upsell Opportunity type of the account in the form.
+     *
+     * @param upsellOpportunity for the upsell Opportunity type.
+     */
+    @Override
+    public void setUpsellOpportunityOnCmbb(final String upsellOpportunity) {
+        DriverMethods.selectOptionFromComboBox(upsellOpportunityCmbb, upsellOpportunity);
+    }
+
+    /**
+     * Sets the description of the account in the form.
+     *
+     * @param description for the description.
+     */
+    @Override
+    public void setDescriptionOnTxtb(final String description) {
+        DriverMethods.setTxt(descriptionTxtb, description);
     }
 
     /**

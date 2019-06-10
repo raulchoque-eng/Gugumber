@@ -96,6 +96,96 @@ public class AccountKeys {
     public static final String SIC_CODE = "SIC Code";
 
     /**
+     * Constant for key of Billing Street.
+     */
+    public static final String BILLING_STREET = "Billing Street";
+
+    /**
+     * Constant for key of Billing Zip/Postal Code.
+     */
+    public static final String BILLING_ZIP_POSTAL_CODE = "Billing Zip/Postal Code";
+
+    /**
+     * Constant for key of Billing City.
+     */
+    public static final String BILLING_CITY = "Billing City";
+
+    /**
+     * Constant for key of Billing State/Province.
+     */
+    public static final String BILLING_STATE_PROVINCE = "Billing State/Province";
+
+    /**
+     * Constant for key of Billing Country.
+     */
+    public static final String BILLING_COUNTRY = "Billing Country";
+
+    /**
+     * Constant for key of Shipping Street.
+     */
+    public static final String SHIPPING_STREET = "Shipping Street";
+
+    /**
+     * Constant for key of Shipping Zip/Postal Code.
+     */
+    public static final String SHIPPING_ZIP_POSTAL_CODE = "Shipping Zip/Postal Code";
+
+    /**
+     * Constant for key of Shipping City.
+     */
+    public static final String SHIPPING_CITY = "Shipping City";
+
+    /**
+     * Constant for key of Shipping State/Province.
+     */
+    public static final String SHIPPING_STATE_PROVINCE = "Shipping State/Province";
+
+    /**
+     * Constant for key of Shipping Country.
+     */
+    public static final String SHIPPING_COUNTRY = "Shipping Country";
+
+    /**
+     * Constant for key of Customer Priority.
+     */
+    public static final String CUSTOMER_PRIORITY = "Customer Priority";
+
+    /**
+     * Constant for key of SLA Expiration Date.
+     */
+    public static final String SLA_EXPIRATION_DATE = "SLA Expiration Date";
+
+    /**
+     * Constant for key of Number Of Locations.
+     */
+    public static final String NUMBER_OF_LOCATIONS = "Number of Locations";
+
+    /**
+     * Constant for key of Active.
+     */
+    public static final String ACTIVE = "Active";
+
+    /**
+     * Constant for key of SLA.
+     */
+    public static final String SLA = "SLA";
+
+    /**
+     * Constant for key of SLA Serial Number.
+     */
+    public static final String SLA_SERIAL_NUMBER = "SLA Serial Number";
+
+    /**
+     * Constant for key of Upsell Opportunity.
+     */
+    public static final String UPSELL_OPPORTUNITY = "Upsell Opportunity";
+
+    /**
+     * Constant for key of Description.
+     */
+    public static final String DESCRIPTION_ACCOUNT = "Description";
+
+    /**
      * Constructor protected of AccountKeys.
      */
     protected AccountKeys() { }

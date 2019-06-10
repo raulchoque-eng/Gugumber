@@ -12,11 +12,15 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.account;
 
+import org.fjala.gugumber.core.selenium.utils.DriverMethods;
+import org.fjala.gugumber.core.selenium.utils.Logs;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import java.util.Date;
 
 /**
  * AccountLightningForm class.
@@ -27,9 +31,19 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class AccountLightningForm extends AccountFormAbstract {
 
     /**
-     * Locator xpath to replace with the value sending for the combo-box of type, industry, rating and ownership.
+     * Locator xpath to replace with the value sent for the combo-box of type, industry, rating and ownership.
      */
-    public static final String LOCATOR_TO_REPLACE_IN_CMB_BOX = "//a[contains(.,'valueToReplace')]";
+    public static final String LOCATOR_TO_REPLACE_IN_CMB_B = "//a[contains(.,'valueToReplace')]";
+
+    /**
+     * Locator xpath to replace with the value sent for the combo-box active.
+     */
+    public static final String XPATH_OF_ACTIVE_CMBB = "//a[starts-with(.,'valueToReplace')][@title='valueToReplace']";
+
+    /**
+     * Locator xpath to replace with the value sent for the combo-box of SLA.
+     */
+    public static final String XPATH_OF_SLA_CMBB = "//div[@class='select-options']//a[contains(.,'valueToReplace')]";
 
     /**
      * Web element for the body of the form.
@@ -128,6 +142,114 @@ public class AccountLightningForm extends AccountFormAbstract {
     private WebElement sICCodeTxtB;
 
     /**
+     * Web element for the text-box of billing street.
+     */
+    @FindBy(xpath = "//textarea[@id=//label[contains(.,'Street') and starts-with(.,'Billing')]/@for]")
+    private WebElement billingStreetTxtb;
+
+    /**
+     * Web element for the text-box of billing Zip or Postal Code.
+     */
+    @FindBy(xpath = "//input[@id=//label[contains(.,'Zip/Postal') and starts-with(.,'Billing')]/@for]")
+    private WebElement billingZipOrPostalCodeTxtb;
+
+    /**
+     * Web element for the text-box of billing City.
+     */
+    @FindBy(xpath = "//input[@id=//label[contains(.,'City') and starts-with(.,'Billing')]/@for]")
+    private WebElement billingCityTxtb;
+
+    /**
+     * Web element for the text-box of billing State or Province.
+     */
+    @FindBy(xpath = "//input[@id=//label[contains(.,'State/Province') and starts-with(.,'Billing')]/@for]")
+    private WebElement billingStateOrProvinceTxtb;
+
+    /**
+     * Web element for the text-box of billing Country.
+     */
+    @FindBy(xpath = "//input[@id=//label[contains(.,'Country') and starts-with(.,'Billing')]/@for]")
+    private WebElement billingCountryTxtb;
+
+    /**
+     * Web element for the text-box of shipping Street.
+     */
+    @FindBy(xpath = "//textarea[@id=//label[contains(.,'Street') and starts-with(.,'Shipping')]/@for]")
+    private WebElement shippingStreetTxtb;
+
+    /**
+     * Web element for the text-box of shipping Zip or Postal Code.
+     */
+    @FindBy(xpath = "//input[@id=//label[contains(.,'Zip/Postal') and starts-with(.,'Shipping')]/@for]")
+    private WebElement shippingZipOrPostalCodeTxtb;
+
+    /**
+     * Web element for the text-box of shipping City.
+     */
+    @FindBy(xpath = "//input[@id=//label[contains(.,'City') and starts-with(.,'Shipping')]/@for]")
+    private WebElement shippingCityTxtb;
+
+    /**
+     * Web element for the text-box of shipping state or province.
+     */
+    @FindBy(xpath = "//input[@id=//label[contains(.,'State/Province') and starts-with(.,'Shipping')]/@for]")
+    private WebElement shippingStateOrProvinceTxtb;
+
+    /**
+     * Web element for the text-box of shipping Country.
+     */
+    @FindBy(xpath = "//input[@id=//label[contains(.,'Country') and starts-with(.,'Shipping')]/@for]")
+    private WebElement shippingCountryTxtb;
+
+    /**
+     * Web element for the combo-box of customer priority.
+     */
+    @FindBy(xpath = "//a[@aria-describedby=//span[contains(.,'Customer Priority')]/@id]")
+    private WebElement customerPriorityCmbb;
+
+    /**
+     * Web element for the text-box of SLA Expiration Date.
+     */
+    @FindBy(xpath = "//input[@id=//label[contains(.,'SLA Expiration Date') and starts-with(.,'SLA')]/@for]")
+    private WebElement sLAExpirationDateTxtb;
+
+    /**
+     * Web element for the text-box of number of locations.
+     */
+    @FindBy(xpath = "//input[@id=//label[contains(.,'Number of Locations') and starts-with(.,'Number')]/@for]")
+    private WebElement numberOfLocationsTxtb;
+
+    /**
+     * Web element for the combo-box of active.
+     */
+    @FindBy(xpath = "//a[@aria-describedby=//span[contains(.,'Active') and starts-with(.,'Active')]/@id]")
+    private WebElement activeCmbb;
+
+    /**
+     * Web element for the combo-box of SLA.
+     */
+    @FindBy(xpath = "//a[@aria-describedby=//span[contains(.,'SLA')]/@id]")
+    private WebElement sLACmbb;
+
+    /**
+     * Web element for the text-box of SLA serial number.
+     */
+    @FindBy(xpath = "//input[@id=//label[contains(.,'SLA Serial Number') and starts-with(.,'SLA')]/@for]")
+    private WebElement sLASerialNumberTxtb;
+
+    /**
+     * Web element for the combo-box of upsell Opportunity.
+     */
+    @FindBy(xpath = "//a[@aria-describedby=//span[contains(.,'Upsell Opportunity') and starts-with(.,'Upsell')]/@id]")
+    private WebElement upsellOpportunityCmbb;
+
+    /**
+     * Web element for the text-box of description.
+     */
+    @FindBy(xpath = "//textarea[@id=//label[contains(.,'Description') and starts-with(.,'Description')]/@for]")
+    private WebElement descriptionTxtb;
+
+    /**
      * Web element for the button save of the footer in the form.
      */
     @FindBy(css = "[data-aura-class='uiButton--default uiButton--brand uiButton forceActionButton']")
@@ -148,7 +270,7 @@ public class AccountLightningForm extends AccountFormAbstract {
      */
     @Override
     public void setNameAccountOnTxtB(final String accountName) {
-        accountNameTxtB.sendKeys(accountName);
+        DriverMethods.setTxt(accountNameTxtB, accountName);
     }
 
     /**
@@ -169,7 +291,7 @@ public class AccountLightningForm extends AccountFormAbstract {
      */
     @Override
     public void setAccountNumberOnTxtb(final String accountNumber) {
-        accountNumberTxtB.sendKeys(accountNumber);
+        DriverMethods.setTxt(accountNumberTxtB, accountNumber);
     }
 
     /**
@@ -179,7 +301,7 @@ public class AccountLightningForm extends AccountFormAbstract {
      */
     @Override
     public void setAccountSiteOnTxtb(final String accountSite) {
-        accountSiteTxtB.sendKeys(accountSite);
+        DriverMethods.setTxt(accountSiteTxtB, accountSite);
     }
 
     /**
@@ -190,7 +312,7 @@ public class AccountLightningForm extends AccountFormAbstract {
     @Override
     public void setTypeOnCmbb(final String type) {
         typeCmbB.click();
-        driver.findElement(By.xpath(replaceValueInLocator(LOCATOR_TO_REPLACE_IN_CMB_BOX, type))).click();
+        driver.findElement(By.xpath(replaceValueInLocator(LOCATOR_TO_REPLACE_IN_CMB_B, type))).click();
     }
 
     /**
@@ -201,7 +323,7 @@ public class AccountLightningForm extends AccountFormAbstract {
     @Override
     public void setIndustryOnCmbb(final String industry) {
         industryCmbB.click();
-        driver.findElement(By.xpath(replaceValueInLocator(LOCATOR_TO_REPLACE_IN_CMB_BOX, industry))).click();
+        driver.findElement(By.xpath(replaceValueInLocator(LOCATOR_TO_REPLACE_IN_CMB_B, industry))).click();
     }
 
     /**
@@ -211,7 +333,7 @@ public class AccountLightningForm extends AccountFormAbstract {
      */
     @Override
     public void setAnnualRevenueOnTxtb(final String annualRevenue) {
-        annualRevenueTxtB.sendKeys(annualRevenue);
+        DriverMethods.setTxt(annualRevenueTxtB, annualRevenue);
     }
 
     /**
@@ -222,7 +344,7 @@ public class AccountLightningForm extends AccountFormAbstract {
     @Override
     public void setRatingOnCmbb(final String rating) {
         ratingCmbB.click();
-        driver.findElement(By.xpath(replaceValueInLocator(LOCATOR_TO_REPLACE_IN_CMB_BOX, rating))).click();
+        driver.findElement(By.xpath(replaceValueInLocator(LOCATOR_TO_REPLACE_IN_CMB_B, rating))).click();
     }
 
     /**
@@ -232,7 +354,7 @@ public class AccountLightningForm extends AccountFormAbstract {
      */
     @Override
     public void setPhoneOnTxtb(final String phone) {
-        phoneTxtB.sendKeys(phone);
+        DriverMethods.setTxt(phoneTxtB, phone);
     }
 
     /**
@@ -242,7 +364,7 @@ public class AccountLightningForm extends AccountFormAbstract {
      */
     @Override
     public void setFaxOnTxtb(final String fax) {
-        faxTxtB.sendKeys(fax);
+        DriverMethods.setTxt(faxTxtB, fax);
     }
 
     /**
@@ -252,7 +374,7 @@ public class AccountLightningForm extends AccountFormAbstract {
      */
     @Override
     public void setWebsiteOnTxtb(final String website) {
-        websiteTxtB.sendKeys(website);
+        DriverMethods.setTxt(websiteTxtB, website);
     }
 
     /**
@@ -262,7 +384,7 @@ public class AccountLightningForm extends AccountFormAbstract {
      */
     @Override
     public void setTickerSymbolOnTxtb(final String tickerSymbol) {
-        tickerSymbolTxtB.sendKeys(tickerSymbol);
+        DriverMethods.setTxt(tickerSymbolTxtB, tickerSymbol);
     }
 
     /**
@@ -273,7 +395,7 @@ public class AccountLightningForm extends AccountFormAbstract {
     @Override
     public void setOwnershipCmbb(final String ownership) {
         ownershipCmbB.click();
-        driver.findElement(By.xpath(replaceValueInLocator(LOCATOR_TO_REPLACE_IN_CMB_BOX, ownership))).click();
+        driver.findElement(By.xpath(replaceValueInLocator(LOCATOR_TO_REPLACE_IN_CMB_B, ownership))).click();
     }
 
     /**
@@ -283,7 +405,7 @@ public class AccountLightningForm extends AccountFormAbstract {
      */
     @Override
     public void setEmployeesOnTxtb(final String employees) {
-        employeesTxtB.sendKeys(employees);
+        DriverMethods.setTxt(employeesTxtB, employees);
     }
 
     /**
@@ -293,7 +415,199 @@ public class AccountLightningForm extends AccountFormAbstract {
      */
     @Override
     public void setsICCodeOnTxtb(final String sICCode) {
-        sICCodeTxtB.sendKeys(sICCode);
+        DriverMethods.setTxt(sICCodeTxtB, sICCode);
+    }
+
+    /**
+     * Sets the billing Street of the account in the form.
+     *
+     * @param billingStreet for the billing street.
+     */
+    @Override
+    public void setBillingStreetOnTxtb(final String billingStreet) {
+        DriverMethods.setTxt(billingStreetTxtb, billingStreet);
+    }
+
+    /**
+     * Sets the billing Zip or Postal Code of the account in the form.
+     *
+     * @param billingZipOrPostalCode for the billing Zip or Postal Code.
+     */
+    @Override
+    public void setBillingZipOrPostalCodeOnTxtb(final String billingZipOrPostalCode) {
+        DriverMethods.setTxt(billingZipOrPostalCodeTxtb, billingZipOrPostalCode);
+    }
+
+    /**
+     * Sets the billing city of the account in the form.
+     *
+     * @param billingCity for the billing city.
+     */
+    @Override
+    public void setBillingCityOnTxtb(final String billingCity) {
+        DriverMethods.setTxt(billingCityTxtb, billingCity);
+    }
+
+    /**
+     * Sets the billing State or Province of the account in the form.
+     *
+     * @param billingStateOrProvince for the billing State or Province.
+     */
+    @Override
+    public void setBillingStateOrProvinceOnTxtb(final String billingStateOrProvince) {
+        DriverMethods.setTxt(billingStateOrProvinceTxtb, billingStateOrProvince);
+    }
+
+    /**
+     * Sets the billing country of the account in the form.
+     *
+     * @param billingCountry for the billing country.
+     */
+    @Override
+    public void setBillingCountryOnTxtb(final String billingCountry) {
+        DriverMethods.setTxt(billingCountryTxtb, billingCountry);
+    }
+
+    /**
+     * Sets the shipping Street of the account in the form.
+     *
+     * @param shippingStreet for the shipping Street.
+     */
+    @Override
+    public void setShippingStreetOnTxtb(final String shippingStreet) {
+        DriverMethods.setTxt(shippingStreetTxtb, shippingStreet);
+    }
+
+    /**
+     * Sets the shipping Zip or Postal Code of the account in the form.
+     *
+     * @param shippingZipOrPostalCode for the shipping Zip or Postal Code.
+     */
+    @Override
+    public void setShippingZipOrPostalCodeOnTxtb(final String shippingZipOrPostalCode) {
+        DriverMethods.setTxt(shippingZipOrPostalCodeTxtb, shippingZipOrPostalCode);
+    }
+
+    /**
+     * Sets the shipping city of the account in the form.
+     *
+     * @param shippingCity for the shipping city.
+     */
+    @Override
+    public void setShippingCityOnTxtb(final String shippingCity) {
+        DriverMethods.setTxt(shippingCityTxtb, shippingCity);
+    }
+
+    /**
+     * Sets the shipping State Or Province of the account in the form.
+     *
+     * @param shippingStateOrProvince for the shipping State Or Province.
+     */
+    @Override
+    public void setShippingStateOrProvinceOnTxtb(final String shippingStateOrProvince) {
+        DriverMethods.setTxt(shippingStateOrProvinceTxtb, shippingStateOrProvince);
+    }
+
+    /**
+     * Sets the shipping country of the account in the form.
+     *
+     * @param shippingCountry for the shipping country.
+     */
+    @Override
+    public void setShippingCountryOnTxtb(final String shippingCountry) {
+        DriverMethods.setTxt(shippingCountryTxtb, shippingCountry);
+    }
+
+    /**
+     * Sets the customer priority of the account in the form.
+     *
+     * @param customerPriority for the customer priority.
+     */
+    @Override
+    public void setCustomerPriorityOnCmbb(final String customerPriority) {
+        customerPriorityCmbb.click();
+        driver.findElement(By.xpath(replaceValueInLocator(LOCATOR_TO_REPLACE_IN_CMB_B, customerPriority))).click();
+    }
+
+    /**
+     * Sets the SLA Expiration Date of the account in the form.
+     *
+     * @param sLAExpirationDate for the SLA Expiration Date.
+     */
+    @Override
+    public void setSLAExpirationDateOnTxtb(final String sLAExpirationDate) {
+        if (sLAExpirationDate.equals("Today")) {
+            Date date = new Date();
+            DriverMethods.setTxt(sLAExpirationDateTxtb, DriverMethods.convertDateToString(date, "dd/MM/yyyy"));
+            sLAExpirationDateTxtb.sendKeys(Keys.TAB);
+        } else {
+            Logs.getInstance().getLog().info("The date is different to Today");
+            //TODO
+            //Implement for other days different to Today
+        }
+    }
+
+    /**
+     * Sets the number Of Locations of the account in the form.
+     *
+     * @param numberOfLocations for the number Of Locations.
+     */
+    @Override
+    public void setNumberOfLocationsOnTxtb(final String numberOfLocations) {
+        DriverMethods.setTxt(numberOfLocationsTxtb, numberOfLocations);
+    }
+
+    /**
+     * Sets the active type of the account in the form.
+     *
+     * @param active for the active type.
+     */
+    @Override
+    public void setActiveOnCmbb(final String active) {
+        activeCmbb.click();
+        driver.findElement(By.xpath(replaceValueInLocator(XPATH_OF_ACTIVE_CMBB, active))).click();
+    }
+
+    /**
+     * Sets the SLA type of the account in the form.
+     *
+     * @param sLA for the SLA type.
+     */
+    @Override
+    public void setSLAOnCmbb(final String sLA) {
+        sLACmbb.click();
+        driver.findElement(By.xpath(replaceValueInLocator(XPATH_OF_SLA_CMBB, sLA))).click();
+    }
+
+    /**
+     * Sets the SLA Serial Number of the account in the form.
+     *
+     * @param sLASerialNumber for the SLA Serial Number.
+     */
+    @Override
+    public void setSLASerialNumberOnTxtb(final String sLASerialNumber) {
+        DriverMethods.setTxt(sLASerialNumberTxtb, sLASerialNumber);
+    }
+
+    /**
+     * Sets the upsell Opportunity type of the account in the form.
+     *
+     * @param upsellOpportunity for the upsell Opportunity type.
+     */
+    @Override
+    public void setUpsellOpportunityOnCmbb(final String upsellOpportunity) {
+        upsellOpportunityCmbb.click();
+        driver.findElement(By.xpath(replaceValueInLocator(LOCATOR_TO_REPLACE_IN_CMB_B, upsellOpportunity))).click();
+    }
+
+    /**
+     * Sets the description of the account in the form.
+     *
+     * @param description for the description.
+     */
+    @Override
+    public void setDescriptionOnTxtb(final String description) {
+        DriverMethods.setTxt(descriptionTxtb, description);
     }
 
     /**
