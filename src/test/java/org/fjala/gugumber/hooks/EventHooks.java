@@ -1,5 +1,5 @@
 /*
- * @(#) AccountHooks.java Copyright (c) 2019 Jala Foundation.
+ * @(#) EventHooks.java Copyright (c) 2019 Jala Foundation.
  * 2643 Av. Melchor Perez de Olguin, Colquiri Sud, Cochabamba, Bolivia.
  * All rights reserved.
  *
@@ -14,20 +14,20 @@ package org.fjala.gugumber.hooks;
 
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
-import org.fjala.gugumber.salesforce.api.AccountAPI;
-import org.fjala.gugumber.salesforce.entities.Account;
+import org.fjala.gugumber.salesforce.api.EventAPI;
 import org.fjala.gugumber.salesforce.entities.Context;
+import org.fjala.gugumber.salesforce.entities.Event;
 
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * AccountHooks class.
+ * EventHooks class.
  *
- * @author Areliez Vargas
+ * @author Raul Choque
  * @version 0.0.1
  */
-public class AccountHooks {
+public class EventHooks {
 
     /**
      * Variable for the context.
@@ -35,35 +35,38 @@ public class AccountHooks {
     private Context context;
 
     /**
-     * Variable for account.
+     * Variable for event.
      */
-    private Account account;
+    private Event event;
 
     /**
-     * Constructor of account hooks sending the context.
+     * Constructor of event hooks sending the context.
      *
      * @param context init the context.
      */
-    public AccountHooks(Context context) {
+    public EventHooks(Context context) {
         this.context = context;
-        account = context.getAccount();
+        event = context.getEvent();
     }
 
     /**
      * Deletes an account by id after scenario.
      */
-    @After("@delete-account")
+    @After("@delete-event")
     public void afterScenario() {
-        AccountAPI.getInstance().deleteAccount(account.getId());
+        EventAPI.getInstance().deleteEvent(event.getId());
     }
 
     /**
-     * Creates an account before scenario.
+     * Creates an event by id before scenario.
      */
-    @Before("@create-account")
+    @Before("@create-event")
     public void beforeScenario() {
-        Map<String, String> createNewAccount = new HashMap<>();
-        createNewAccount.put("Name", "Account_Test");
-        account.setId(AccountAPI.getInstance().createAccount(createNewAccount));
+        Map<String, String> createNewEvent = new HashMap<>();
+        createNewEvent.put("Subject", "Dinner");
+        createNewEvent.put("StartDateTime", "2019-06-10T205:00:00.000+0000");
+        createNewEvent.put("EndDateTime", "2019-06-10T206:00:00.000+0000");
+        createNewEvent.put("OwnerId", "0054P000006uWBxQAM");
+        event.setId(EventAPI.getInstance().createEvent(createNewEvent));
     }
 }
