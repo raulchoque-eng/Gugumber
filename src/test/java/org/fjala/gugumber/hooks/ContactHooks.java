@@ -37,7 +37,7 @@ public class ContactHooks {
         this.contact = context.getContact();
     }
 
-     /**
+    /**
      * Deletes an contact by id after scenario.
      */
     @After("@delete-contact")

@@ -188,5 +188,6 @@ public class AccountKeys {
     /**
      * Constructor protected of AccountKeys.
      */
-    protected AccountKeys() { }
+    protected AccountKeys() {
+    }
 }

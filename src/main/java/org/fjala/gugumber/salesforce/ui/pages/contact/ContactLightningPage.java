@@ -135,3 +135,4 @@ public class ContactLightningPage extends ContactPageAbstract {
         return contactMessageDeleteTxt.getText();
     }
 }
+

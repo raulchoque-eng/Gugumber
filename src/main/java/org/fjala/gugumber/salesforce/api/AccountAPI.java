@@ -12,11 +12,11 @@
 
 package org.fjala.gugumber.salesforce.api;
 
-import static org.fjala.gugumber.salesforce.api.Endpoints.ACCOUNT_ENDPOINT;
+import io.restassured.response.Response;
 
 import java.util.Map;
 
-import io.restassured.response.Response;
+import static org.fjala.gugumber.salesforce.api.Endpoints.ACCOUNT_ENDPOINT;
 
 /**
  * AccountAPI class.

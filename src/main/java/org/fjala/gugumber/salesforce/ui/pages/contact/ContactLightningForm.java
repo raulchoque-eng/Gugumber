@@ -582,7 +582,7 @@ public class ContactLightningForm extends ContactFormAbstract {
     /**
      * Replaces the a value in the locator xpath to select an option in comboBox.
      *
-     * @param locator to replace value.
+     * @param locator        to replace value.
      * @param valueToReplace to replace in locator.
      * @return a xpath as string with el value replaced for the comboBox.
      */

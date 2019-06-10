@@ -12,6 +12,10 @@
 
 package org.fjala.gugumber.steps;
 
+import static org.fjala.gugumber.salesforce.ui.PageLayoutType.CLASSIC;
+import static org.fjala.gugumber.salesforce.ui.PageLayoutType.LIGHTNING;
+import static org.testng.Assert.assertEquals;
+
 import java.util.Map;
 import java.util.Set;
 
@@ -27,10 +31,7 @@ import org.fjala.gugumber.salesforce.ui.pages.Home.HomeClassicPage;
 import org.fjala.gugumber.salesforce.ui.pages.Home.HomePage;
 import org.fjala.gugumber.salesforce.ui.pages.event.CalendarLightningPage;
 import org.fjala.gugumber.salesforce.ui.pages.event.EventFormAbstract;
-
-import static org.fjala.gugumber.salesforce.ui.PageLayoutType.CLASSIC;
-import static org.fjala.gugumber.salesforce.ui.PageLayoutType.LIGHTNING;
-import static org.testng.Assert.assertEquals;
+import org.fjala.gugumber.salesforce.ui.pages.event.EventPageAbstract;
 
 /**
  * EventSteps class
@@ -64,6 +65,8 @@ public class EventSteps {
      * Variable by the page layout type.
      */
     private PageLayoutType layout;
+
+    private EventPageAbstract eventPage;
 
     /**
      * Builds an instance from EventSteps class.
@@ -107,9 +110,41 @@ public class EventSteps {
     @Then("^the Subject of new Event should be displayed on Calendar Section$")
     public void validateSubjectNameOfNewEvent() {
         if (layout == LIGHTNING) {
+            calendarPage = new CalendarLightningPage();
+            calendarPage.verifyMessageSuccessfulIsClose();
             homePage = PageTransporter.getInstance().navigateToHomePage();
         }
         final String nameSubject = homePage.getCalendarSection().getSubjectNewEvent();
         assertEquals(nameSubject, event.getSubject());
+    }
+
+    /**
+     * Opens the event detail from calendar section.
+     */
+    @When("^I open the Event Details page from Calendar Section$")
+    public void openEventDetailFromCalendarSection() {
+        eventPage = homePage.getCalendarSection().getEventDetails();
+        event.setId(eventPage.getIdEventFromUrl());
+    }
+
+    /**
+     * Verifies the details of the new Event.
+     */
+    @Then("^the information of new Event should be displayed in Event Detail page$")
+    public void validateEventDetail() {
+        Set<String> eventKeys = event.getEventKeys();
+        Map<String, String> evenDetailMap = eventPage.getEventDetail(eventKeys);
+        Map<String, String> evenMap = event.getEventInMap();
+        eventKeys.forEach(key -> assertEquals(evenMap.get(key), evenDetailMap.get(key)));
+    }
+
+    /**
+     * Opens an Event page.
+     */
+    @When("^I open the Event that with subject with name Launch$")
+    public void openEvent() {
+        System.out.println("Hello WORLD!!!!");
+        eventPage = homePage.getCalendarSection().getEventDetails();
+        eventPage = homePage.getCalendarSection().openEvent();
     }
 }
