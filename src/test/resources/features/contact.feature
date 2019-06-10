@@ -57,7 +57,7 @@ Feature: Contact manage
     When I go to the Contact Details
     Then the contact last name should be displayed in the Contact Details page
     When I go to the Contacts page
-    Then the contact last name should be displayed in the contacts list of Contacts page
+    Then the contact last name should be displayed in the Contact Details page
 
   Scenario: Delete a new contact for an user with only required data
     Given I go to the Contacts page
@@ -70,3 +70,17 @@ Feature: Contact manage
     Then a message that indicates the Contact was deleted should be displayed
     When I go to the Contacts page
     Then the contact last name don't should be displayed in the contacts list of Contacts page
+
+#  @delete-contact
+#  Scenario: Update a new contact for an user with some dates
+#    Given I have a new Contact with the following information
+#        | LastName | Valdez |
+#    When I go to the Contacts page
+#    Then the contact last name should be displayed in the contacts list of Contacts page
+#    When I go to the Contact Profile page of new contact created by API
+#      And I edit the Contact with the following values
+#        | Salutation | Mr.    |
+#        | First Name | Pepito |
+#        | Last Name  | Feliz  |
+#    Then a message that indicates the Contact was created should be displayed
+#    And the contact last name should be displayed in the Contact Profile page
