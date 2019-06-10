@@ -12,13 +12,12 @@
 
 package org.fjala.gugumber.core.selenium.utils;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 /**
  * DriverMethods class.
@@ -27,6 +26,11 @@ import java.util.Date;
  * @version 0.0.1
  */
 public class DriverMethods {
+
+    /**
+     * Constructor private.
+     */
+    private DriverMethods() { }
 
     /**
      * Sets the text into the webElement.
@@ -52,6 +56,17 @@ public class DriverMethods {
         final DateFormat dateFormat = new SimpleDateFormat(pattern);
         return dateFormat.format(date);
 
+    }
+
+    /**
+     * Selects an option from combo-box sending the element and the text to select the option.
+     *
+     * @param webElement for the combo-box.
+     * @param option to select from combo-box.
+     */
+    public static void selectOptionFromComboBox(final WebElement webElement, final String option) {
+        Select selectType = new Select(webElement);
+        selectType.selectByVisibleText(option);
     }
 
     /**
