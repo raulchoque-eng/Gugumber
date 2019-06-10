@@ -14,7 +14,6 @@ package org.fjala.gugumber.salesforce.ui.pages.contact;
 
 import static org.fjala.gugumber.salesforce.keys.ContactKeys.*;
 
-
 import java.util.HashMap;
 import java.util.Map;
 
