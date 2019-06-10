@@ -12,42 +12,14 @@
 
 package org.fjala.gugumber.salesforce.entities;
 
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.ACCOUNT;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.ASSISTANT;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.ASST_PHONE;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.BIRTHDATE;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.DEPARTMENT;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.DESCRIPTION;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.EMAIL;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.FAX;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.FIRST_NAME;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.HOME_PHONE;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.LANGUAGES;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.LAST_NAME;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.LEAD_SOURCE;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.LEVEL;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.MAILING_CITY;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.MAILING_COUNTRY;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.MAILING_POSTAL_CODE;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.MAILING_STATE;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.MAILING_STREET;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.MOBILE;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.OTHER_CITY;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.OTHER_COUNTRY;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.OTHER_PHONE;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.OTHER_POSTAL_CODE;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.OTHER_STATE;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.OTHER_STREET;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.PHONE;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.REPORTS_TO;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.SALUTATION;
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.TITLE;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.*;
 import static org.fjala.gugumber.salesforce.ui.PageLayoutType.CLASSIC;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
-import io.restassured.path.json.JsonPath;
 import org.fjala.gugumber.core.StrategySetter;
 import org.fjala.gugumber.salesforce.ui.PageLayoutConfig;
 import org.fjala.gugumber.salesforce.ui.PageLayoutType;
@@ -224,6 +196,11 @@ public class Contact {
      * Variable for concat the full name.
      */
     private String fullName = null;
+
+    /**
+     * Variable to create the keys of the contact attributes.
+     */
+    private Set<String> contactKeys = new HashSet<String>();
 
     /**
      * Gets the id of the Contact.
@@ -784,25 +761,33 @@ public class Contact {
     }
 
     /**
-     * Sets the json values into Contact.
+     * Returns the contact keys of the an Contact
      *
-     * @param json JsonPath.
-     * @param key  string.
+     * @return as a set of string the contact.
      */
-    public void setJsonContactValues(final String key, final JsonPath json) {
-        if (key.equals("Id")) {
-            setId(json.getString(key));
-        }
-        if (key.equals("Salutation")) {
-            setSalutation(json.getString(key));
-        }
-        if (key.equals("First Name")) {
-            setFirstName(json.getString(key));
-        }
-        if (key.equals("Last Name")) {
-            setLastName(json.getString(key));
-        }
+    public Set<String> getContactKeys() {
+        return contactKeys;
+    }
 
+    /**
+     * Gets the contact in a map.
+     *
+     * @return as a map the contact.
+     */
+    public Map<String, String> getContactInMap() {
+        final Map<String, String> contact = new HashMap<>();
+        contact.put(SALUTATION, getSalutation());
+        contact.put(FIRST_NAME, getFirstName());
+        contact.put(LAST_NAME, getLastName());
+        contact.put(ACCOUNT, getAccount());
+        contact.put(PHONE, String.valueOf(getPhone()));
+        contact.put(EMAIL, getEmail());
+        contact.put(HOME_PHONE, String.valueOf(getHomePhone()));
+        contact.put(TITLE, getTitle());
+        contact.put(DEPARTMENT, getDepartment());
+        contact.put(MOBILE, String.valueOf(getMobile()));
+        contact.put(DESCRIPTION, getDescription());
+        return contact;
     }
 
     /**

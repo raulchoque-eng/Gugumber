@@ -51,7 +51,8 @@ public class ContactHooks {
     @Before("@create-contact")
     public void beforeScenario() {
         Map<String,String> createNewContat = new HashMap<>();
-        createNewContat.put("LastName", "Contact_Test001");
+        createNewContat.put("LastName", "Contact_Test");
         contact.setId(ContactAPI.getInstance().createContact(createNewContat));
     }
+
 }

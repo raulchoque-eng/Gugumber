@@ -197,13 +197,13 @@ public class ContactClassicForm extends ContactFormAbstract {
     /**
      * Locator for text box of languages.
      */
-    @FindBy(id = "00N4P000007C3DK")
+    @FindBy(css = "[class='dataCol last col02'] [id^='00N4P000007']")
     private WebElement languagesTxtb;
 
     /**
      * Locator for text box of level.
      */
-    @FindBy(id = "00N4P000007C3DL")
+    @FindBy(css = "[class='last dataCol'] [id^='00N4P000007']")
     private WebElement levelCmbb;
 
     /**

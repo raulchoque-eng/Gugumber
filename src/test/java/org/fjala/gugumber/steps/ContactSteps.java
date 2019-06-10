@@ -15,8 +15,8 @@ package org.fjala.gugumber.steps;
 import static org.fjala.gugumber.salesforce.ui.PageLayoutType.LIGHTNING;
 import static org.testng.Assert.*;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
