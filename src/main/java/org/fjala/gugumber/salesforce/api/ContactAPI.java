@@ -16,6 +16,8 @@ import static org.fjala.gugumber.salesforce.api.Endpoints.CONTACT_ENDPOINT;
 
 import io.restassured.response.Response;
 
+import java.util.Map;
+
 /**
  * ContactAPI class
  *
@@ -68,5 +70,14 @@ public class ContactAPI {
     public void readContactById(final String contactId) {
         finalEndpoint = CONTACT_ENDPOINT.concat("/".concat(contactId));
         final Response response = restClient.get(finalEndpoint);
+    }
+
+    /**
+     * Create a contact.
+     */
+    public String createContact(Map<String, String> NewContat) {
+        finalEndpoint = CONTACT_ENDPOINT;
+        final Response response = restClient.post(finalEndpoint, NewContat);
+        return response.body().jsonPath().getString("id");
     }
 }

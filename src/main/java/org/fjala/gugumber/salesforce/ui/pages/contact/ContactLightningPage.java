@@ -36,9 +36,15 @@ public class ContactLightningPage extends ContactPageAbstract {
     private WebElement newContactForm;
 
     /**
+     * Web Element message delete of contact page.
+     */
+    @FindBy(css = "[class='forceVisualMessageQueue'] [class='toastMessage slds-text-heading--small forceActionsText']")
+    private WebElement contactMessageDeleteTxt;
+
+    /**
      * List of web elements for contacts name.
      */
-    @FindBy(css = "[class='slds-truncate outputLookupLink slds-truncate forceOutputLookup']")
+    @FindBy(css = "a[class='slds-truncate outputLookupLink slds-truncate forceOutputLookup']")
     private List<WebElement> contactNameList;
 
     /**
@@ -47,7 +53,7 @@ public class ContactLightningPage extends ContactPageAbstract {
     @FindBy(css = "a[Title='New']")
     private WebElement newContactBtn;
 
-    final String lastNameList = "a[title='titleOfList']";
+    final String FULL_NAME_LIST = "[scope='row'] a[title='titleOfList']";
 
     /**
      * Waits until page object is loaded.
@@ -82,6 +88,7 @@ public class ContactLightningPage extends ContactPageAbstract {
      */
     @Override
     public List<String> getListOfContactsName() {
+        wait.until(ExpectedConditions.stalenessOf(contactNameList.get(0)));
         final List<String> contactName = new ArrayList<>();
         try {
             for (WebElement contName : contactNameList) {
@@ -90,7 +97,7 @@ public class ContactLightningPage extends ContactPageAbstract {
         } catch (StaleElementReferenceException sere) {
              contactNameList = driver.findElements(
                     By.cssSelector(
-                        "[class='slds-truncate outputLookupLink slds-truncate forceOutputLookup']"));
+                        "a[class='slds-truncate outputLookupLink slds-truncate forceOutputLookup']"));
             for (WebElement contName : contactNameList) {
                 contactName.add(contName.getText());
             }
@@ -99,12 +106,32 @@ public class ContactLightningPage extends ContactPageAbstract {
     }
 
     /**
+     * Checks name in contact List.
+     *
+     * @param name string.
+     * @return boolean.
+     */
+    @Override
+    public boolean isDisplayedNewContact(String name) {
+        return driver.findElement(By.cssSelector(FULL_NAME_LIST.replace("titleOfList", name))).isDisplayed();
+    }
+
+    /**
      * Clicks at the last name for open contact profile page.
      *
      * @param text as String.
      */
-    public void openContactProfile(final String text) {
-        driver.findElement(By.xpath(lastNameList.replace("titleOfList", text))).click();
+    public ContactProfilePageAbstract openContactProfile(final String text) {
+        driver.findElement(By.cssSelector(FULL_NAME_LIST.replace("titleOfList", text))).click();
+        return new ContactLightningProfilePage();
+    }
+
+    /**
+     * Gets message of deleted.
+     *
+     * @return the message.
+     */
+    public String getMessageDelete() {
+        return contactMessageDeleteTxt.getText();
     }
 }
-

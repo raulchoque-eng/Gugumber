@@ -43,7 +43,31 @@ public class ContactLightningProfilePage extends ContactProfilePageAbstract {
     private WebElement contactDetailsTab;
 
     /**
-     * Web Element of profile contact with title.
+     * Web Element main menu contact.
+     */
+    @FindBy(css ="li[class='slds-button slds-button--icon-border-filled oneActionsDropDown'] [title='Show 5 more actions']")
+    private WebElement mainMenuCmbb;
+
+    /**
+     * Web Element delete button contact.
+     */
+    @FindBy(css = "a[title='Delete'][role='menuitem']" )
+    private WebElement deleteOptionCmb;
+
+    /**
+     * Web Element edit button contact.
+     */
+    @FindBy(css = "a[title='Edit'][role='menuitem']" )
+    private WebElement editOptionCmb;
+
+    /**
+     * Web Element delete button contact.
+     */
+    @FindBy(css = "[class='modal-container slds-modal__container'] [class='slds-button slds-button--neutral uiButton--default uiButton--brand uiButton forceActionButton']" )
+    private WebElement deleteBtn;
+
+    /**
+     * Web Element message save of profile contact page.
      */
     @FindBy(css = "[class='forceVisualMessageQueue'] [class='toastMessage slds-text-heading--small forceActionsText']")
     private WebElement contactMessageSaveTxt;
@@ -84,7 +108,27 @@ public class ContactLightningProfilePage extends ContactProfilePageAbstract {
     }
 
     /**
-     * Check the section Details.
+     * Deletes contact.
+     */
+    @Override
+    public void deleteContactProfilePage() {
+        mainMenuCmbb.click();
+        deleteOptionCmb.click();
+        deleteBtn.click();
+    }
+
+    /**
+     * Updates contact.
+     */
+    @Override
+    public ContactFormAbstract updateContactProfilePage() {
+        mainMenuCmbb.click();
+        editOptionCmb.click();
+        return new ContactLightningForm();
+    }
+
+    /**
+     * Checks the section Details.
      *
      * @return ContactLightningDetails.
      */
