@@ -124,6 +124,7 @@ public class EventSteps {
     @When("^I open the Event Details page from Calendar Section$")
     public void openEventDetailFromCalendarSection() {
         eventPage = homePage.getCalendarSection().getEventDetails();
+        event.setId(eventPage.getIdEventFromUrl());
     }
 
     /**
