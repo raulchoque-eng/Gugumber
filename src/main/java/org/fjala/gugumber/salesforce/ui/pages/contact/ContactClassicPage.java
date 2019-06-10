@@ -193,7 +193,7 @@ public class ContactClassicPage extends ContactPageAbstract {
     }
 
     /**
-     * Contact open contact profile page.
+     * Clicks at the last name for open contact profile page.
      *
      * @param text of the type String.
      */
