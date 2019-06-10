@@ -63,7 +63,10 @@ public class AccountAPI {
     }
 
     /**
-     * Create an account.
+     * Creates an account.
+     *
+     * @param newAccount to sent the body of the request.
+     * @return the id of account created.
      */
     public String createAccount(final Map<String, String> newAccount) {
         finalEndpoint = ACCOUNT_ENDPOINT;

@@ -37,4 +37,12 @@ public abstract class AccountsPageAbstract extends BasePage {
      * @return a list of names account as string.
      */
     public abstract List<String> getListOfAccountsName();
+
+    /**
+     * Returns the account page by id of an account.
+     *
+     * @param id of the account.
+     * @return Account page.
+     */
+    public abstract AccountProfilePageAbstract openAccount(String id);
 }
