@@ -198,7 +198,7 @@ public class Contact {
     private String fullName = null;
 
     /**
-     * Variable to create the keys of the event attributes.
+     * Variable to create the keys of the contact attributes.
      */
     private Set<String> contactKeys = new HashSet<String>();
 
