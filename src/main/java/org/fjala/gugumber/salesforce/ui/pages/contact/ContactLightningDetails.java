@@ -37,46 +37,22 @@ public class ContactLightningDetails extends ContactDetailsAbstract {
     private WebElement nameTxtb;
 
     /**
-     * Web element for verifies the subject of a Event.
+     * Web element for verifies the subject of a contact.
      */
     @FindBy(xpath = "//div[span[text() = 'Account Name']]/following-sibling::div//span[@class='test-id__field-value slds-form-element__static slds-grow ']")
     private WebElement accountNameTxtb;
 
     /**
-     * Web element for verifies the name contact of a Event.
+     * Web element for verifies the name contact of a contact.
      */
     @FindBy(xpath = "//div[span[text() = 'Title']]/following-sibling::div//span[@class='test-id__field-value slds-form-element__static slds-grow ']")
     private WebElement titleTxtb;
 
     /**
-     * Web element for verifies the related to account of a Event.
+     * Web element for verifies the related to account of a contact.
      */
     @FindBy(xpath = "//div[span[text() = 'Phone']]/following-sibling::div//span[@class='test-id__field-value slds-form-element__static slds-grow ']")
     private WebElement phoneTxtb;
-
-    /**
-     * Wen element for verifies the description of a Event.
-     */
-    @FindBy(xpath = "//div[span[text() = 'Description']]/following-sibling::div//span[@class='uiOutputTextArea']")
-    private WebElement descriptionTxtb;
-
-    /**
-     * Web element for verifies the location of a Event.
-     */
-    @FindBy(xpath = "//div[span[text() = 'Location']]/following-sibling::div//span[@class='uiOutputText']")
-    private WebElement locationTxtb;
-
-    /**
-     * Web element for verifies the start date of a Event.
-     */
-    @FindBy(xpath = "//div[span[text() = 'Start']]/following-sibling::div//span[@class='uiOutputDateTime']")
-    private WebElement startDateTxtb;
-
-    /**
-     * Web element for verifies the end date of a Event.
-     */
-    @FindBy(xpath = "//div[span[text() = 'End']]/following-sibling::div//span[@class='uiOutputDateTime']")
-    private WebElement endDateTxtb;
 
 
     /**
