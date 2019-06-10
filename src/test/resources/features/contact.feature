@@ -17,7 +17,7 @@ Feature: Contact manage
     When I go to the Contacts page
     Then the contact last name should be displayed in the contacts list of Contacts page
 
-  @create-account @delete-account @delete-contact
+  @create-account @create-contact @delete-account @delete-contact
   Scenario: Create a new contact for an user with only required data
     When I go to the Contacts page
       And I open Contact form
@@ -28,8 +28,8 @@ Feature: Contact manage
         | Account                 | Account_Test     |
         | Title                   | Task             |
         | Department              | Test             |
-        | Birthdate               | 05/06/1990       |
-        | Reports To              | Contact Event    |
+        | Birthdate               | 05/08/1990       |
+        | Reports To              | Contact_Test     |
         | Lead Source             | Web              |
         | Phone                   | 12345678         |
         | Home Phone              | 4444444          |
@@ -57,7 +57,7 @@ Feature: Contact manage
     When I go to the Contact Details
     Then the contact last name should be displayed in the Contact Details page
     When I go to the Contacts page
-    Then the contact information should be displayed in the contacts list of Contacts page
+    Then the contact last name should be displayed in the Contact Details page
 
   Scenario: Delete a new contact for an user with only required data
     Given I go to the Contacts page

@@ -58,7 +58,7 @@ public class AccountHooks {
     }
 
     /**
-     * Creates an account by id before scenario.
+     * Creates an account before scenario.
      */
     @Before("@create-account")
     public void beforeScenario() {
