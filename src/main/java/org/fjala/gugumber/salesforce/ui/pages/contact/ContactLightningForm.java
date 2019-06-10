@@ -98,7 +98,7 @@ public class ContactLightningForm extends ContactFormAbstract {
     /**
      * Locator for text box of lead Source.
      */
-    @FindBy(css = "div[id^='533']")
+    @FindBy(css = "div[id^='533'] [class='select']")
     private WebElement leadSourceCmbb;
 
     /**
@@ -206,7 +206,7 @@ public class ContactLightningForm extends ContactFormAbstract {
     /**
      * Locator for text box of level.
      */
-    @FindBy(css = "div[id^='777'][class='uiPopupTrigger']")
+    @FindBy(css = "div[id^='777'] [class='select']")
     private WebElement levelCmbb;
 
     /**
@@ -214,6 +214,12 @@ public class ContactLightningForm extends ContactFormAbstract {
      */
     @FindBy(css = "textarea[id^='831'][class=' textarea']")
     private WebElement descriptionTxtb;
+
+    /**
+     * Locator for text box of description.
+     */
+    @FindBy(css = "[class='today slds-show--inline-block slds-text-link slds-p-bottom--x-small']")
+    private WebElement todayCalendarBtn;
 
     /**
      * Locator for button of save button.
@@ -576,7 +582,7 @@ public class ContactLightningForm extends ContactFormAbstract {
     /**
      * Replaces the a value in the locator xpath to select an option in comboBox.
      *
-     * @param locator to replace value.
+     * @param locator        to replace value.
      * @param valueToReplace to replace in locator.
      * @return a xpath as string with el value replaced for the comboBox.
      */

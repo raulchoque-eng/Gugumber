@@ -12,16 +12,14 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.event;
 
-import java.util.Date;
-
 import org.fjala.gugumber.core.selenium.utils.DriverMethods;
 import org.fjala.gugumber.salesforce.utils.DateMethods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * EventClassicForm class.
@@ -112,7 +110,7 @@ public class EventClassicForm extends EventFormAbstract {
     /**
      * Web element by the event save of a new Event.
      */
-    @FindBy(id = "bottomButtonRow")
+    @FindBy(css = "td#bottomButtonRow [name = \"save\"]")
     private WebElement saveEventBtn;
 
     /**
@@ -137,7 +135,9 @@ public class EventClassicForm extends EventFormAbstract {
      */
     @Override
     public void setAssignedToUser(final String assignedToUser) {
-        userTxtb.sendKeys(Keys.chord(Keys.CONTROL, "a"), assignedToUser);
+        final WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.attributeToBeNotEmpty(userTxtb, "value"));
+        setInputFieldJavaScript(userTxtb, assignedToUser);
     }
 
     /**
@@ -177,10 +177,9 @@ public class EventClassicForm extends EventFormAbstract {
      * @param startDate as a Date.
      */
     @Override
-    public void setStartDate(final Date startDate) {
-        final String pattern = "dd-MM-yyyy";
-        DriverMethods.setTxt(startDateTxtb, DriverMethods.convertDateToString(startDate, pattern));
-        DriverMethods.setTxt(startTimeTxtb, DateMethods.getHourBefore(startDate, 2));
+    public void setStartDate(final String startDate) {
+        DriverMethods.setTxt(startDateTxtb, DateMethods.getDateTime(startDate, "date"));
+        DriverMethods.setTxt(startTimeTxtb, DateMethods.getDateTime(startDate, "time"));
     }
 
     /**
@@ -199,10 +198,9 @@ public class EventClassicForm extends EventFormAbstract {
      * @param endDate as a Date.
      */
     @Override
-    public void setEndDate(final Date endDate) {
-        final String pattern = "dd-MM-yyyy";
-        DriverMethods.setTxt(endDateTxtb, DriverMethods.convertDateToString(endDate, pattern));
-        DriverMethods.setTxt(endTimeTxtb, DateMethods.getHourBefore(endDate, 3));
+    public void setEndDate(final String endDate) {
+        DriverMethods.setTxt(endDateTxtb, DateMethods.getDateTime(endDate, "date"));
+        DriverMethods.setTxt(endTimeTxtb, DateMethods.getDateTime(endDate, "time"));
     }
 
     /**

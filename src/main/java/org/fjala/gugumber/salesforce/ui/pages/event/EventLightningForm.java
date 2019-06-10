@@ -12,10 +12,9 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.event;
 
-import java.util.Date;
-
 import org.fjala.gugumber.core.selenium.utils.DriverMethods;
 import org.fjala.gugumber.salesforce.utils.DateMethods;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -30,7 +29,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class EventLightningForm extends EventFormAbstract {
 
     /**
-     * Web element by validate the Event form is open..
+     * Web element by validate the Event form is open.
      */
     @FindBy(css = "div.modal-header h2.title")
     private WebElement titleFormLbl;
@@ -75,25 +74,25 @@ public class EventLightningForm extends EventFormAbstract {
      * Web element by the start date.
      */
     @FindBy(css = "div.modal-body div.slds-grid.slds-gutters_small:nth-of-type(2) div.dateTime-inputDate input")
-    private WebElement startDateTxt;
+    private WebElement startDateTxtb;
 
     /**
      * Web element by the start time.
      */
     @FindBy(css = "div.modal-body div.slds-grid.slds-gutters_small:nth-of-type(2) div.dateTime-inputTime input")
-    private WebElement startTimeTxt;
+    private WebElement startTimeTxtb;
 
     /**
      * Web element by the end date.
      */
     @FindBy(css = "div.modal-body div.slds-grid.slds-gutters_small:nth-of-type(3) div.dateTime-inputDate input")
-    private WebElement endDateTxt;
+    private WebElement endDateTxtb;
 
     /**
      * Web element by the end time.
      */
     @FindBy(css = "div.modal-body div.slds-grid.slds-gutters_small:nth-of-type(3) div.dateTime-inputTime input")
-    private WebElement endTimeTxt;
+    private WebElement endTimeTxtb;
 
     /**
      * Web element by check all days.
@@ -130,6 +129,7 @@ public class EventLightningForm extends EventFormAbstract {
     public void setAssignedToUser(final String username) {
         final String locatorBySelect = "[title = \"nameTitle\"]";
         closeLnk.click();
+        driver.findElement(By.cssSelector(locatorBySelect.replace("nameTitle", username))).click();
 //        DriverMethods.selectCmb(driver, locatorBySelect, username);
     }
 
@@ -152,6 +152,7 @@ public class EventLightningForm extends EventFormAbstract {
     public void setNameContact(final String nameContact) {
         final String locatorBySelect = "[title = \"nameTitle\"]";
         contactCmbbx.click();
+        driver.findElement(By.cssSelector(locatorBySelect.replace("nameTitle", nameContact))).click();
 //        DriverMethods.selectCmb(driver, locatorBySelect, nameContact);
     }
 
@@ -164,6 +165,7 @@ public class EventLightningForm extends EventFormAbstract {
     public void setRelatedToAccount(final String relatedToAccount) {
         final String locatorBySelect = "[title = \"nameTitle\"]";
         accountCmbbx.click();
+        driver.findElement(By.cssSelector(locatorBySelect.replace("nameTitle", relatedToAccount))).click();
 //        DriverMethods.selectCmb(driver, locatorBySelect, relatedToAccount);
     }
 
@@ -193,22 +195,22 @@ public class EventLightningForm extends EventFormAbstract {
      * @param startDate as a Date.
      */
     @Override
-    public void setStartDate(final Date startDate) {
-        final String pattern = "dd-MM-yyyy";
-        DriverMethods.setTxt(startDateTxt, DriverMethods.convertDateToString(startDate, pattern));
-        setInputFieldJavaScript(startTimeTxt, DateMethods.getHourBefore(startDate, 2));
+    public void setStartDate(final String startDate) {
+        DriverMethods.setTxt(startDateTxtb, DateMethods.getDateTime(startDate, "date"));
+        System.out.println("start time lightning: " + DateMethods.getDateTime(startDate, "time"));
+        setInputFieldJavaScript(startTimeTxtb, DateMethods.getDateTime(startDate, "time"));
     }
 
     /**
      * Sets the endDate in a Event lightning form sending a string by validate the date.
      *
-     * @param eventEndDate as a Date.
+     * @param endDate as a Date.
      */
     @Override
-    public void setEndDate(final Date eventEndDate) {
-        final String pattern = "dd-MM-yyyy";
-        DriverMethods.setTxt(endDateTxt, DriverMethods.convertDateToString(eventEndDate, pattern));
-        setInputFieldJavaScript(endTimeTxt, DateMethods.getHourBefore(eventEndDate, 3));
+    public void setEndDate(final String endDate) {
+        DriverMethods.setTxt(endDateTxtb, DateMethods.getDateTime(endDate, "date"));
+        System.out.println("end time lightning: " + DateMethods.getDateTime(endDate, "time"));
+        setInputFieldJavaScript(endTimeTxtb, DateMethods.getDateTime(endDate, "time"));
     }
 
     /**

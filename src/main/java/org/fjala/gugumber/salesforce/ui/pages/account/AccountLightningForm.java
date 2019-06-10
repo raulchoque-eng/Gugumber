@@ -624,7 +624,7 @@ public class AccountLightningForm extends AccountFormAbstract {
     /**
      * Replaces the a value in the locator xpath to select an option in combo-box.
      *
-     * @param locator to replace value.
+     * @param locator        to replace value.
      * @param valueToReplace to replace in locator.
      * @return a xpath as string with el value replaced for the combo-box.
      */
