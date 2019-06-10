@@ -43,6 +43,8 @@ import static org.fjala.gugumber.salesforce.keys.ContactKeys.REPORTS_TO;
 import static org.fjala.gugumber.salesforce.keys.ContactKeys.SALUTATION;
 import static org.fjala.gugumber.salesforce.keys.ContactKeys.TITLE;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -86,7 +88,7 @@ public abstract class ContactFormAbstract extends BasePage {
         strategyMap.put(HOME_PHONE, () -> setHomePhone(Integer.parseInt(contact.get(HOME_PHONE))));
         strategyMap.put(TITLE, () -> setTitle(contact.get(TITLE)));
         strategyMap.put(DEPARTMENT, () -> setDepartment(contact.get(DEPARTMENT)));
-        strategyMap.put(BIRTHDATE,() -> setBirthdate(contact.get(BIRTHDATE)));
+        strategyMap.put(BIRTHDATE,() -> setBirthdate(new Date(contact.get(BIRTHDATE))));
         strategyMap.put(REPORTS_TO, () -> setReportsTo(contact.get(REPORTS_TO)));
         strategyMap.put(LEAD_SOURCE, () -> setLeadSource(contact.get(LEAD_SOURCE)));
         strategyMap.put(MOBILE, () -> setMobile(Integer.parseInt(contact.get(MOBILE))));
@@ -109,6 +111,7 @@ public abstract class ContactFormAbstract extends BasePage {
         strategyMap.put(DESCRIPTION, () -> setDescription(contact.get(DESCRIPTION)));
         return strategyMap;
     }
+
 
     /**
      * Sets the salutation sending a string.
@@ -178,7 +181,7 @@ public abstract class ContactFormAbstract extends BasePage {
      *
      * @param birthdate for the contact.
      */
-    protected abstract void setBirthdate(String birthdate);
+    protected abstract void setBirthdate(Date birthdate);
 
     /**
      * Sets the reports to sending a string.

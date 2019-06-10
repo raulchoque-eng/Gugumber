@@ -37,4 +37,19 @@ public abstract class ContactPageAbstract extends BasePage {
      * @return a list of last names contact as string.
      */
     public abstract List<String> getListOfContactsName();
+
+    /**
+     * Gets check the contact list.
+     *
+     * @param name string.
+     * @return boolean.
+     */
+    public abstract boolean isDisplayedNewContact(String name);
+
+    /**
+     * Returns an Contact Details after clicking on link button.
+     *
+     * @return an Contact Details.
+     */
+    public abstract ContactProfilePageAbstract openContactProfile(String fullName);
 }

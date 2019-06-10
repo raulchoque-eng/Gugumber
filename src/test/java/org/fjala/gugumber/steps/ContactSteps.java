@@ -13,11 +13,13 @@
 package org.fjala.gugumber.steps;
 
 import static org.fjala.gugumber.salesforce.ui.PageLayoutType.LIGHTNING;
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
+import static org.testng.Assert.*;
 
+import java.util.HashMap;
 import java.util.Map;
 
+import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.path.json.JsonPath;
@@ -30,9 +32,11 @@ import org.fjala.gugumber.salesforce.ui.PageLayoutFactory;
 import org.fjala.gugumber.salesforce.ui.PageLayoutType;
 import org.fjala.gugumber.salesforce.ui.pages.contact.ContactDetailsAbstract;
 import org.fjala.gugumber.salesforce.ui.pages.contact.ContactFormAbstract;
+import org.fjala.gugumber.salesforce.ui.pages.contact.ContactLightningPage;
 import org.fjala.gugumber.salesforce.ui.pages.contact.ContactLightningProfilePage;
 import org.fjala.gugumber.salesforce.ui.pages.contact.ContactPageAbstract;
 import org.fjala.gugumber.salesforce.ui.pages.contact.ContactProfilePageAbstract;
+import org.testng.Assert;
 
 /**
  * ContactSteps class.
@@ -110,7 +114,6 @@ public class ContactSteps {
         contact.processInformation(contactMap);
         contactForm.setContactInformation(contactMap);
         contactProfilePage = contactForm.clickSaveNewContact();
-        contact.setId(contactProfilePage.getIdFromUrl());
     }
 
     /**
@@ -140,6 +143,7 @@ public class ContactSteps {
      */
     @When("^I go to the Contact Details$")
     public void openTheContactDetailsPage() {
+        contact.setId(contactProfilePage.getIdFromUrl());
         contactDetails = contactProfilePage.checkDetailsSection();
     }
 
@@ -157,15 +161,45 @@ public class ContactSteps {
     @Then("^the contact last name should be displayed in the contacts list of Contacts page$")
     public void displayContactInTheContactsListOfContactsPage() {
         contactPage = PageLayoutFactory.getContactPage();
+        assertTrue(contactPage.isDisplayedNewContact(contact.getFullNameContactList()),"the Contact Name not displayed");
+    }
+
+    /**
+     * Verifies that contact is displayed in the list of contact page.
+     */
+    @Then("^the contact information should be displayed in the contacts list of Contacts page$")
+    public void displayContactInformationInTheContactsListOfContactsPage() {
         assertTrue(contactPage.getListOfContactsName().contains(contact.getFullNameContactList()), "the Contact Name not displayed");
     }
 
     /**
-     * Gets contact by Id.
+     * Deletes a contact exist.
      */
-    @When("^I request the get of the contact$")
-    public void requestTheGetOfTheContact() {
-        ContactAPI.getInstance().readContactById(contact.getId());
+    @When("^I delete a Contact exist in the Contact page$")
+    public void iDeleteAContactExistInTheContactPage() {
+        contactProfilePage.deleteContactProfilePage();
     }
 
+    /**
+     * Verifies with a message of confirmation that the contact is deleted.
+     */
+    @Then("^a message that indicates the Contact was deleted should be displayed$")
+    public void displayMessageThatIndicatesTheContactWasDeleted() {
+        if (layout.equals(LIGHTNING)) {
+            final ContactLightningPage contactLightningPage = new ContactLightningPage();
+            final String message = (contactLightningPage.getMessageDelete());
+            assertEquals(message, "Contact \"".concat(contact.getLastName()).concat("\" was deleted."), "not successfully created");
+        } else {
+            Logs.getInstance().getLog().info("In classic Layout is not message of confirmation");
+        }
+    }
+
+    /**
+     * Verifies that contact is not displayed in the list of contact page.
+     */
+    @Then("^the contact last name don't should be displayed in the contacts list of Contacts page$")
+    public void isNotDisplayContactInTheContactsListOfContactsPage() {
+        contactPage = PageLayoutFactory.getContactPage();
+        Assert.assertFalse(contactPage.getListOfContactsName().contains(contact.getFullNameContactList()), "the Contact Name not displayed");
+    }
 }

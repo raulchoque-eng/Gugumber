@@ -1,6 +1,10 @@
 package org.fjala.gugumber.hooks;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import org.fjala.gugumber.salesforce.api.ContactAPI;
 import org.fjala.gugumber.salesforce.entities.Contact;
 import org.fjala.gugumber.salesforce.entities.Context;
@@ -39,5 +43,15 @@ public class ContactHooks {
     @After("@delete-contact")
     public void afterScenario() {
         ContactAPI.getInstance().deleteContact(contact.getId());
+    }
+
+    /**
+     * Creates a contact before scenario.
+     */
+    @Before("@create-contact")
+    public void beforeScenario() {
+        Map<String,String> createNewContat = new HashMap<>();
+        createNewContat.put("LastName", "Contact_Test001");
+        contact.setId(ContactAPI.getInstance().createContact(createNewContat));
     }
 }
