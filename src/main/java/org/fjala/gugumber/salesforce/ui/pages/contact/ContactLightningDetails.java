@@ -37,6 +37,25 @@ public class ContactLightningDetails extends ContactDetailsAbstract {
     private WebElement nameTxtb;
 
     /**
+     * Web element for verifies the subject of a contact.
+     */
+    @FindBy(xpath = "//div[span[text() = 'Account Name']]/following-sibling::div//span[@class='test-id__field-value slds-form-element__static slds-grow ']")
+    private WebElement accountNameTxtb;
+
+    /**
+     * Web element for verifies the name contact of a contact.
+     */
+    @FindBy(xpath = "//div[span[text() = 'Title']]/following-sibling::div//span[@class='test-id__field-value slds-form-element__static slds-grow ']")
+    private WebElement titleTxtb;
+
+    /**
+     * Web element for verifies the related to account of a contact.
+     */
+    @FindBy(xpath = "//div[span[text() = 'Phone']]/following-sibling::div//span[@class='test-id__field-value slds-form-element__static slds-grow ']")
+    private WebElement phoneTxtb;
+
+
+    /**
      * Waits until page object is loaded.
      */
     @Override

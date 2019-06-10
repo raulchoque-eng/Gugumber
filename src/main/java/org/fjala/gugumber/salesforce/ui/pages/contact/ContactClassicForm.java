@@ -256,7 +256,7 @@ public class ContactClassicForm extends ContactFormAbstract {
     /**
      * Variable for locator of level comboBox.
      */
-    final String LEVEL_CMBB = "[id='00N4P000007C3DL'] [value='nameTitle']";
+    final String LEVEL_CMBB = "[id^='00N4P000007'] [value='nameTitle']";
 
     /**
      * Variable for type date.
