@@ -173,7 +173,7 @@ public class ContactSteps {
     }
 
     /**
-     * Delete a contact exist .
+     * Deletes a contact exist.
      */
     @When("^I delete a Contact exist in the Contact page$")
     public void iDeleteAContactExistInTheContactPage() {
