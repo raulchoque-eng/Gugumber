@@ -70,3 +70,5 @@ Feature: Manage the following functions of account: create and delete
       And I open the the Account page
       And I delete the Account from the Account page
     Then the account name shouldn't be displayed in the Accounts page
+    When I send a request GET of the account
+    Then I get a "404" status code as response

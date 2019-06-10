@@ -17,6 +17,7 @@ import java.util.Map;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import io.restassured.response.Response;
 import org.fjala.gugumber.salesforce.api.AccountAPI;
 import org.fjala.gugumber.salesforce.entities.Context;
 import org.fjala.gugumber.salesforce.ui.PageLayoutFactory;
@@ -49,12 +50,20 @@ public class AccountSteps {
      */
     private AccountProfilePageAbstract accountProfilePage;
 
+    /**
+     * Variable for the account details page.
+     */
     private AccountDetailsAbstract accountDetails;
+
+    /**
+     * Variable for the response of request to API.
+     */
+    private Response response;
 
     /**
      * Variable for the context.
      */
-    Context context;
+    private Context context;
 
     /**
      * Constructor of account steps sending the context.
@@ -150,7 +159,25 @@ public class AccountSteps {
      * Verifies that the account deleted isn't displayed in the accounts page.
      */
     @Then("^the account name shouldn't be displayed in the Accounts page$")
-    public void theAccountNameShouldnTBeDisplayedInTheAccountsPage() {
+    public void isNotDisplayedInTheAccountsPage() {
         Assert.assertFalse(accountsPage.getListOfAccountsName().contains(context.getAccount().getAccountName()));
+    }
+
+    /**
+     * Sends a GET request for the account by id.
+     */
+    @When("^I send a request GET of the account$")
+    public void sendARequestGETOfTheAccount() {
+        response = AccountAPI.getInstance().getAccountById(context.getAccount().getId());
+    }
+
+    /**
+     * Verifies that the account doesn't exist.
+     *
+     * @param statusCode to verify.
+     */
+    @Then("^I get a \"([^\"]*)\" status code as response$")
+    public void getAStatusCodeAsResponse(final String statusCode) {
+        Assert.assertEquals(statusCode, String.valueOf(response.getStatusCode()));
     }
 }
