@@ -44,5 +44,12 @@ public abstract class ContactPageAbstract extends BasePage {
      * @param name string.
      * @return boolean.
      */
-    public abstract boolean checkContactList(String name);
+    public abstract boolean isDisplayedNewContact(String name);
+
+    /**
+     * Returns an Contact Details after clicking on link button.
+     *
+     * @return an Contact Details.
+     */
+    public abstract ContactProfilePageAbstract openContactProfile(String fullName);
 }

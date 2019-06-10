@@ -15,12 +15,16 @@ package org.fjala.gugumber.steps;
 import static org.fjala.gugumber.salesforce.ui.PageLayoutType.LIGHTNING;
 import static org.testng.Assert.*;
 
+import java.util.HashMap;
 import java.util.Map;
 
+import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.path.json.JsonPath;
 import org.fjala.gugumber.core.selenium.utils.Logs;
+import org.fjala.gugumber.salesforce.api.ContactAPI;
 import org.fjala.gugumber.salesforce.entities.Contact;
 import org.fjala.gugumber.salesforce.entities.Context;
 import org.fjala.gugumber.salesforce.ui.PageLayoutConfig;
@@ -157,8 +161,7 @@ public class ContactSteps {
     @Then("^the contact last name should be displayed in the contacts list of Contacts page$")
     public void displayContactInTheContactsListOfContactsPage() {
         contactPage = PageLayoutFactory.getContactPage();
-        assertTrue(contactPage.checkContactList(contact.getFullNameContactList()),"the Contact Name not displayed");
-        assertTrue(contactPage.getListOfContactsName().contains(contact.getFullNameContactList()), "the Contact Name not displayed");
+        assertTrue(contactPage.isDisplayedNewContact(contact.getFullNameContactList()),"the Contact Name not displayed");
     }
 
     /**
@@ -169,11 +172,17 @@ public class ContactSteps {
         assertTrue(contactPage.getListOfContactsName().contains(contact.getFullNameContactList()), "the Contact Name not displayed");
     }
 
+    /**
+     * Delete a contact exist .
+     */
     @When("^I delete a Contact exist in the Contact page$")
     public void iDeleteAContactExistInTheContactPage() {
         contactProfilePage.deleteContactProfilePage();
     }
 
+    /**
+     * Verifies with a message of confirmation that the contact is deleted.
+     */
     @Then("^a message that indicates the Contact was deleted should be displayed$")
     public void displayMessageThatIndicatesTheContactWasDeleted() {
         if (layout.equals(LIGHTNING)) {
@@ -185,10 +194,12 @@ public class ContactSteps {
         }
     }
 
+    /**
+     * Verifies that contact is not displayed in the list of contact page.
+     */
     @Then("^the contact last name don't should be displayed in the contacts list of Contacts page$")
     public void isNotDisplayContactInTheContactsListOfContactsPage() {
         contactPage = PageLayoutFactory.getContactPage();
         Assert.assertFalse(contactPage.getListOfContactsName().contains(contact.getFullNameContactList()), "the Contact Name not displayed");
     }
-
 }

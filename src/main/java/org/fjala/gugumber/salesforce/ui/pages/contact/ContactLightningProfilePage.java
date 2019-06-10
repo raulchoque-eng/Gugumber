@@ -55,6 +55,12 @@ public class ContactLightningProfilePage extends ContactProfilePageAbstract {
     private WebElement deleteOptionCmb;
 
     /**
+     * Web Element edit button contact.
+     */
+    @FindBy(css = "a[title='Edit'][role='menuitem']" )
+    private WebElement editOptionCmb;
+
+    /**
      * Web Element delete button contact.
      */
     @FindBy(css = "[class='modal-container slds-modal__container'] [class='slds-button slds-button--neutral uiButton--default uiButton--brand uiButton forceActionButton']" )
@@ -109,6 +115,16 @@ public class ContactLightningProfilePage extends ContactProfilePageAbstract {
         mainMenuCmbb.click();
         deleteOptionCmb.click();
         deleteBtn.click();
+    }
+
+    /**
+     * Updates contact.
+     */
+    @Override
+    public ContactFormAbstract updateContactProfilePage() {
+        mainMenuCmbb.click();
+        editOptionCmb.click();
+        return new ContactLightningForm();
     }
 
     /**

@@ -65,6 +65,7 @@ Feature: Contact manage
       And I create a new Contact with the following information in Contact form
         | Last Name | Valdez |
     Then a message that indicates the Contact was created should be displayed
+      And the contact last name should be displayed in the Contact Profile page
     When I delete a Contact exist in the Contact page
     Then a message that indicates the Contact was deleted should be displayed
     When I go to the Contacts page

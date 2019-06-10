@@ -38,7 +38,7 @@ public abstract class ContactProfilePageAbstract extends BasePage {
     public abstract ContactDetailsAbstract checkDetailsSection();
 
     /**
-     * Return the id from url.
+     * Returns the id from url.
      *
      * @return id as string.
      */
@@ -47,7 +47,12 @@ public abstract class ContactProfilePageAbstract extends BasePage {
     }
 
     /**
-     * Delete Contact in contact page.
+     * Deletes Contact in contact page.
      */
     public abstract void deleteContactProfilePage();
+
+    /**
+     * Deletes Contact in contact page.
+     */
+    public abstract ContactFormAbstract updateContactProfilePage();
 }

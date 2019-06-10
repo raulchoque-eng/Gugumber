@@ -44,7 +44,7 @@ public class ContactLightningPage extends ContactPageAbstract {
     /**
      * List of web elements for contacts name.
      */
-    @FindBy(css = "th[scope='row'] a[class='slds-truncate outputLookupLink slds-truncate forceOutputLookup']")
+    @FindBy(css = "a[class='slds-truncate outputLookupLink slds-truncate forceOutputLookup']")
     private List<WebElement> contactNameList;
 
     /**
@@ -53,7 +53,7 @@ public class ContactLightningPage extends ContactPageAbstract {
     @FindBy(css = "a[Title='New']")
     private WebElement newContactBtn;
 
-    final String lastNameList = "[scope='row'] a[title='titleOfList']";
+    final String FULL_NAME_LIST = "[scope='row'] a[title='titleOfList']";
 
     /**
      * Waits until page object is loaded.
@@ -97,7 +97,7 @@ public class ContactLightningPage extends ContactPageAbstract {
         } catch (StaleElementReferenceException sere) {
              contactNameList = driver.findElements(
                     By.cssSelector(
-                        "[class='slds-truncate outputLookupLink slds-truncate forceOutputLookup']"));
+                        "a[class='slds-truncate outputLookupLink slds-truncate forceOutputLookup']"));
             for (WebElement contName : contactNameList) {
                 contactName.add(contName.getText());
             }
@@ -112,8 +112,8 @@ public class ContactLightningPage extends ContactPageAbstract {
      * @return boolean.
      */
     @Override
-    public boolean checkContactList(String name) {
-        return driver.findElement(By.cssSelector(lastNameList.replace("titleOfList", name))).isDisplayed();
+    public boolean isDisplayedNewContact(String name) {
+        return driver.findElement(By.cssSelector(FULL_NAME_LIST.replace("titleOfList", name))).isDisplayed();
     }
 
     /**
@@ -121,8 +121,9 @@ public class ContactLightningPage extends ContactPageAbstract {
      *
      * @param text as String.
      */
-    public void openContactProfile(final String text) {
-        driver.findElement(By.cssSelector(lastNameList.replace("titleOfList", text))).click();
+    public ContactProfilePageAbstract openContactProfile(final String text) {
+        driver.findElement(By.cssSelector(FULL_NAME_LIST.replace("titleOfList", text))).click();
+        return new ContactLightningProfilePage();
     }
 
     /**

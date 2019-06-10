@@ -86,7 +86,7 @@ public class ContactClassicPage extends ContactPageAbstract {
     /**
      * Locator for open a contact profile.
      */
-    final String lastNameList = "//a[text()='titleOfList']";
+    final String FULL_NAME_LIST = "//a[text()='titleOfList']";
 
     /**
      * Waits until page object is loaded.
@@ -188,8 +188,8 @@ public class ContactClassicPage extends ContactPageAbstract {
      * @return boolean.
      */
     @Override
-    public boolean checkContactList(String name) {
-        return driver.findElement(By.xpath(lastNameList.replace("titleOfList", name))).isDisplayed();
+    public boolean isDisplayedNewContact(String name) {
+        return driver.findElement(By.xpath(FULL_NAME_LIST.replace("titleOfList", name))).isDisplayed();
     }
 
     /**
@@ -197,7 +197,8 @@ public class ContactClassicPage extends ContactPageAbstract {
      *
      * @param text of the type String.
      */
-    public void openContactProfile(final String text) {
-        driver.findElement(By.xpath(lastNameList.replace("titleOfList", text))).click();
+    public ContactProfilePageAbstract openContactProfile(final String text) {
+        driver.findElement(By.xpath(FULL_NAME_LIST.replace("titleOfList", text))).click();
+        return new ContactClassicProfilePage();
     }
 }
