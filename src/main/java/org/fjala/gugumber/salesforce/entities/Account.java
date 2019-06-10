@@ -108,6 +108,96 @@ public class Account {
     private String sICCode;
 
     /**
+     * Variable for the billing Street of an Account.
+     */
+    private String billingStreet;
+
+    /**
+     * Variable for the billing Zip or Postal Code of an Account.
+     */
+    private String billingZipOrPostalCode;
+
+    /**
+     * Variable for the billing city of an Account.
+     */
+    private String billingCity;
+
+    /**
+     * Variable for the billing State Or Province of an Account.
+     */
+    private String billingStateOrProvince;
+
+    /**
+     * Variable for the billing country of an Account.
+     */
+    private String billingCountry;
+
+    /**
+     * Variable for the shipping Street of an Account.
+     */
+    private String shippingStreet;
+
+    /**
+     * Variable for the shipping Zip Or Postal Code of an Account.
+     */
+    private String shippingZipOrPostalCode;
+
+    /**
+     * Variable for the shipping city of an Account.
+     */
+    private String shippingCity;
+
+    /**
+     * Variable for the shipping state or province of an Account.
+     */
+    private String shippingStateOrProvince;
+
+    /**
+     * Variable for the shipping country of an Account.
+     */
+    private String shippingCountry;
+
+    /**
+     * Variable for the customer priority of an Account.
+     */
+    private String customerPriority;
+
+    /**
+     * Variable for the SLA Expiration Date of an Account.
+     */
+    private String sLAExpirationDate;
+
+    /**
+     * Variable for the number Of Locations of an Account.
+     */
+    private String numberOfLocations;
+
+    /**
+     * Variable for the active of an Account.
+     */
+    private String active;
+
+    /**
+     * Variable for the SLA of an Account.
+     */
+    private String sLA;
+
+    /**
+     * Variable for the SLA serial number of an Account.
+     */
+    private String sLASerialNumber;
+
+    /**
+     * Variable for the upsell Opportunity of an Account.
+     */
+    private String upsellOpportunity;
+
+    /**
+     * Variable for the description of an Account.
+     */
+    private String description;
+
+    /**
      * Returns the id of the account.
      *
      * @return the id as string.
@@ -145,6 +235,8 @@ public class Account {
 
     /**
      * Returns the parent name of an Account.
+     *
+     * @return parentAccount as string.
      */
     public String getParentAccount() {
         return parentAccount;
@@ -394,6 +486,330 @@ public class Account {
     }
 
     /**
+     * Returns the billing Street of account.
+     *
+     * @return billing Street as string.
+     */
+    public String getBillingStreet() {
+        return billingStreet;
+    }
+
+    /**
+     * Sets the billingStreet of account.
+     *
+     * @param billingStreet to set in account.
+     */
+    public void setBillingStreet(final String billingStreet) {
+        this.billingStreet = billingStreet;
+    }
+
+    /**
+     * Returns the billingZip  Or Postal Code of account.
+     *
+     * @return billing Zip Or Postal Code as string.
+     */
+    public String getBillingZipOrPostalCode() {
+        return billingZipOrPostalCode;
+    }
+
+    /**
+     * Sets the billing Zip Or Postal Code of account.
+     *
+     * @param billingZipOrPostalCode to set in account.
+     */
+    public void setBillingZipOrPostalCode(final String billingZipOrPostalCode) {
+        this.billingZipOrPostalCode = billingZipOrPostalCode;
+    }
+
+    /**
+     * Returns the billing City of account.
+     *
+     * @return billing City as string.
+     */
+    public String getBillingCity() {
+        return billingCity;
+    }
+
+    /**
+     * Sets the billing City of account.
+     *
+     * @param billingCity to set in account.
+     */
+    public void setBillingCity(final String billingCity) {
+        this.billingCity = billingCity;
+    }
+
+    /**
+     * Returns the billing State Or Province of account.
+     *
+     * @return billing State Or Province as string.
+     */
+    public String getBillingStateOrProvince() {
+        return billingStateOrProvince;
+    }
+
+    /**
+     * Sets the billing State Or Province of account.
+     *
+     * @param billingStateOrProvince to set in account.
+     */
+    public void setBillingStateOrProvince(final String billingStateOrProvince) {
+        this.billingStateOrProvince = billingStateOrProvince;
+    }
+
+    /**
+     * Returns the billing Country of account.
+     *
+     * @return billing Country as string.
+     */
+    public String getBillingCountry() {
+        return billingCountry;
+    }
+
+    /**
+     * Sets the billing Country of account.
+     *
+     * @param billingCountry to set in account.
+     */
+    public void setBillingCountry(final String billingCountry) {
+        this.billingCountry = billingCountry;
+    }
+
+    /**
+     * Returns the shipping Street of account.
+     *
+     * @return shipping Street as string.
+     */
+    public String getShippingStreet() {
+        return shippingStreet;
+    }
+
+    /**
+     * Sets the shipping Street of account.
+     *
+     * @param shippingStreet to set in account.
+     */
+    public void setShippingStreet(final String shippingStreet) {
+        this.shippingStreet = shippingStreet;
+    }
+
+    /**
+     * Returns the shipping Zip Or Postal Code of account.
+     *
+     * @return shipping Zip Or Postal Code as string.
+     */
+    public String getShippingZipOrPostalCode() {
+        return shippingZipOrPostalCode;
+    }
+
+    /**
+     * Sets the shipping Zip Or Postal Code of account.
+     *
+     * @param shippingZipOrPostalCode to set in account.
+     */
+    public void setShippingZipOrPostalCode(final String shippingZipOrPostalCode) {
+        this.shippingZipOrPostalCode = shippingZipOrPostalCode;
+    }
+
+    /**
+     * Returns the shipping City of account.
+     *
+     * @return shipping City as string.
+     */
+    public String getShippingCity() {
+        return shippingCity;
+    }
+
+    /**
+     * Sets the shipping City of account.
+     *
+     * @param shippingCity to set in account.
+     */
+    public void setShippingCity(final String shippingCity) {
+        this.shippingCity = shippingCity;
+    }
+
+    /**
+     * Returns the shipping State Or Province of account.
+     *
+     * @return shipping State Or Province as string.
+     */
+    public String getShippingStateOrProvince() {
+        return shippingStateOrProvince;
+    }
+
+    /**
+     * Sets the shipping State Or Province of account.
+     *
+     * @param shippingStateOrProvince to set in account.
+     */
+    public void setShippingStateOrProvince(final String shippingStateOrProvince) {
+        this.shippingStateOrProvince = shippingStateOrProvince;
+    }
+
+    /**
+     * Returns the shipping Country of account.
+     *
+     * @return shipping Country as string.
+     */
+    public String getShippingCountry() {
+        return shippingCountry;
+    }
+
+    /**
+     * Sets the shipping Country of account.
+     *
+     * @param shippingCountry to set in account.
+     */
+    public void setShippingCountry(final String shippingCountry) {
+        this.shippingCountry = shippingCountry;
+    }
+
+    /**
+     * Returns customer Priority of account.
+     *
+     * @return customer Priority as string.
+     */
+    public String getCustomerPriority() {
+        return customerPriority;
+    }
+
+    /**
+     * Sets the customer Priority of account.
+     *
+     * @param customerPriority to set in account.
+     */
+    public void setCustomerPriority(final String customerPriority) {
+        this.customerPriority = customerPriority;
+    }
+
+    /**
+     * Returns SLA Expiration Date of account.
+     *
+     * @return SLA Expiration Date as string.
+     */
+    public String getsLAExpirationDate() {
+        return sLAExpirationDate;
+    }
+
+    /**
+     * Sets the SLA Expiration Date of account.
+     *
+     * @param sLAExpirationDate to set in account.
+     */
+    public void setsLAExpirationDate(final String sLAExpirationDate) {
+        this.sLAExpirationDate = sLAExpirationDate;
+    }
+
+    /**
+     * Returns number Of Locations of account.
+     *
+     * @return number Of Locations as string.
+     */
+    public String getNumberOfLocations() {
+        return numberOfLocations;
+    }
+
+    /**
+     * Sets the number Of Locations of account.
+     *
+     * @param numberOfLocations to set in account.
+     */
+    public void setNumberOfLocations(final String numberOfLocations) {
+        this.numberOfLocations = numberOfLocations;
+    }
+
+    /**
+     * Returns active of account.
+     *
+     * @return active as string.
+     */
+    public String getActive() {
+        return active;
+    }
+
+    /**
+     * Sets the active of account.
+     *
+     * @param active to set in account.
+     */
+    public void setActive(final String active) {
+        this.active = active;
+    }
+
+    /**
+     * Returns SLA of account.
+     *
+     * @return SLA as string.
+     */
+    public String getsLA() {
+        return sLA;
+    }
+
+    /**
+     * Sets the SLA of account.
+     *
+     * @param sLA to set in account.
+     */
+    public void setsLA(final String sLA) {
+        this.sLA = sLA;
+    }
+
+    /**
+     * Returns SLA Serial Number of account.
+     *
+     * @return SLA Serial Number as string.
+     */
+    public String getsLASerialNumber() {
+        return sLASerialNumber;
+    }
+
+    /**
+     * Sets the SLA Serial Number of account.
+     *
+     * @param sLASerialNumber to set in account.
+     */
+    public void setsLASerialNumber(final String sLASerialNumber) {
+        this.sLASerialNumber = sLASerialNumber;
+    }
+
+    /**
+     * Returns upsell Opportunity of account.
+     *
+     * @return upsell Opportunity as string.
+     */
+    public String getUpsellOpportunity() {
+        return upsellOpportunity;
+    }
+
+    /**
+     * Sets the upsell Opportunity of account.
+     *
+     * @param upsellOpportunity to set in account.
+     */
+    public void setUpsellOpportunity(final String upsellOpportunity) {
+        this.upsellOpportunity = upsellOpportunity;
+    }
+
+    /**
+     * Returns description of account.
+     *
+     * @return description as string.
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * Sets the description of account.
+     *
+     * @param description to set in account.
+     */
+    public void setDescription(final String description) {
+        this.description = description;
+    }
+
+    /**
      * Sets the values of an Account sending a map with the information to set.
      *
      * @param accountMap to set the information.
@@ -426,6 +842,28 @@ public class Account {
         strategyMap.put(OWNERSHIP, () -> setOwnership(accountMap.get(OWNERSHIP)));
         strategyMap.put(EMPLOYEES, () -> setEmployees(accountMap.get(EMPLOYEES)));
         strategyMap.put(SIC_CODE, () -> setsICCode(accountMap.get(SIC_CODE)));
+        strategyMap.put(BILLING_STREET, () -> setBillingStreet(accountMap.get(BILLING_STREET)));
+        strategyMap.put(BILLING_ZIP_POSTAL_CODE, () -> setBillingZipOrPostalCode(
+                accountMap.get(BILLING_ZIP_POSTAL_CODE)));
+        strategyMap.put(BILLING_CITY, () -> setBillingCity(accountMap.get(BILLING_CITY)));
+        strategyMap.put(BILLING_STATE_PROVINCE, () -> setBillingStateOrProvince(
+                accountMap.get(BILLING_STATE_PROVINCE)));
+        strategyMap.put(BILLING_COUNTRY, () -> setBillingCountry(accountMap.get(BILLING_COUNTRY)));
+        strategyMap.put(SHIPPING_STREET, () -> setShippingStreet(accountMap.get(SHIPPING_STREET)));
+        strategyMap.put(SHIPPING_ZIP_POSTAL_CODE, () -> setShippingZipOrPostalCode(
+                accountMap.get(SHIPPING_ZIP_POSTAL_CODE)));
+        strategyMap.put(SHIPPING_CITY, () -> setShippingCity(accountMap.get(SHIPPING_CITY)));
+        strategyMap.put(SHIPPING_STATE_PROVINCE, () -> setShippingStateOrProvince(
+                accountMap.get(SHIPPING_STATE_PROVINCE)));
+        strategyMap.put(SHIPPING_COUNTRY, () -> setShippingCountry(accountMap.get(SHIPPING_COUNTRY)));
+        strategyMap.put(CUSTOMER_PRIORITY, () -> setCustomerPriority(accountMap.get(CUSTOMER_PRIORITY)));
+        strategyMap.put(SLA_EXPIRATION_DATE, () -> setsLAExpirationDate(accountMap.get(SLA_EXPIRATION_DATE)));
+        strategyMap.put(NUMBER_OF_LOCATIONS, () -> setNumberOfLocations(accountMap.get(NUMBER_OF_LOCATIONS)));
+        strategyMap.put(ACTIVE, () -> setActive(accountMap.get(ACTIVE)));
+        strategyMap.put(SLA, () -> setsLA(accountMap.get(SLA)));
+        strategyMap.put(SLA_SERIAL_NUMBER, () -> setsLASerialNumber(accountMap.get(SLA_SERIAL_NUMBER)));
+        strategyMap.put(UPSELL_OPPORTUNITY, () -> setUpsellOpportunity(accountMap.get(UPSELL_OPPORTUNITY)));
+        strategyMap.put(DESCRIPTION_ACCOUNT, () -> setDescription(accountMap.get(DESCRIPTION_ACCOUNT)));
         return strategyMap;
     }
 }

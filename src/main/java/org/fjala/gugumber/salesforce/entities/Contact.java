@@ -12,16 +12,45 @@
 
 package org.fjala.gugumber.salesforce.entities;
 
-import io.restassured.path.json.JsonPath;
-import org.fjala.gugumber.core.StrategySetter;
-import org.fjala.gugumber.salesforce.ui.PageLayoutConfig;
-import org.fjala.gugumber.salesforce.ui.PageLayoutType;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.ACCOUNT;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.ASSISTANT;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.ASST_PHONE;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.BIRTHDATE;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.DEPARTMENT;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.DESCRIPTION;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.EMAIL;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.FAX;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.FIRST_NAME;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.HOME_PHONE;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.LANGUAGES;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.LAST_NAME;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.LEAD_SOURCE;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.LEVEL;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.MAILING_CITY;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.MAILING_COUNTRY;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.MAILING_POSTAL_CODE;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.MAILING_STATE;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.MAILING_STREET;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.MOBILE;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.OTHER_CITY;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.OTHER_COUNTRY;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.OTHER_PHONE;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.OTHER_POSTAL_CODE;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.OTHER_STATE;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.OTHER_STREET;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.PHONE;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.REPORTS_TO;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.SALUTATION;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.TITLE;
+import static org.fjala.gugumber.salesforce.ui.PageLayoutType.CLASSIC;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.*;
-import static org.fjala.gugumber.salesforce.ui.PageLayoutType.CLASSIC;
+import io.restassured.path.json.JsonPath;
+import org.fjala.gugumber.core.StrategySetter;
+import org.fjala.gugumber.salesforce.ui.PageLayoutConfig;
+import org.fjala.gugumber.salesforce.ui.PageLayoutType;
 
 /**
  * Contact class.
@@ -799,9 +828,9 @@ public class Contact {
      */
     public String getFullNameContactList() {
         if (layout.equals(CLASSIC)) {
-            System.out.println("classic :  " + getFullContactClassic());
+            getFullContactClassic();
         } else {
-            System.out.println("light :  " + getFullContactLightning());
+            getFullContactLightning();
         }
         return fullName.trim();
     }

@@ -12,13 +12,15 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.contact;
 
-import org.fjala.gugumber.core.StrategySetter;
-import org.fjala.gugumber.salesforce.ui.pages.BasePage;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.*;
+
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.*;
+import org.fjala.gugumber.core.StrategySetter;
+import org.fjala.gugumber.salesforce.ui.pages.BasePage;
+
 
 /**
  * ContactFormAbstract class

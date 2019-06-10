@@ -12,14 +12,12 @@
 
 package org.fjala.gugumber.core.selenium.utils;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 /**
  * DriverMethods class.
@@ -30,10 +28,15 @@ import java.util.Date;
 public class DriverMethods {
 
     /**
+     * Constructor private.
+     */
+    private DriverMethods() { }
+
+    /**
      * Sets the text into the webElement.
      *
      * @param webElement that sets its text.
-     * @param text       new value of webElement.
+     * @param text new value of webElement.
      */
     public static void setTxt(final WebElement webElement, final String text) {
         webElement.clear();
@@ -56,26 +59,13 @@ public class DriverMethods {
     }
 
     /**
-     * Waits until that web element is Clickable.
+     * Selects an option from combo-box sending the element and the text to select the option.
      *
-     * @param driver     it is the manager of get UI page.
-     * @param webElement is for verifies if it is clickable.
+     * @param webElement for the combo-box.
+     * @param option to select from combo-box.
      */
-    public static void waitUntilElementIsClickable(final WebDriver driver, final WebElement webElement) {
-        int index = 0;
-        boolean isClickable = false;
-        do {
-            try {
-                final WebDriverWait wait = new WebDriverWait(driver, 10);
-                isClickable = wait.until(ExpectedConditions.elementToBeClickable(webElement)) != null;
-            } catch (Exception e) {
-                System.out.println(e);
-            }
-        } while (!isClickable && index++ < 3);
+    public static void selectOptionFromComboBox(final WebElement webElement, final String option) {
+        Select selectType = new Select(webElement);
+        selectType.selectByVisibleText(option);
     }
-    /**
-     * TODO method to clear a checkbox
-     * TODO method que valida que un elemento este en el DOM cambiando el implicit wait (1)
-     * TODO validate method that a webElement is in the DOM change the implicit wait (1)
-     */
 }

@@ -39,8 +39,11 @@ public class AccountsClassicPage extends AccountsPageAbstract {
     @FindBy(css = "input[class='btn'][name='new']")
     private WebElement newAccountBtn;
 
+    /**
+     * List of web elements account name.
+     */
     @FindBy(css = "th[class=' dataCell  ']")
-    private List<WebElement> AccountsNameList;
+    private List<WebElement> accountsNameList;
 
     /**
      * Waits until page object is loaded.
@@ -69,7 +72,7 @@ public class AccountsClassicPage extends AccountsPageAbstract {
     @Override
     public List<String> getListOfAccountsName() {
         final List<String> accountsName = new ArrayList<>();
-        for (WebElement accountName : AccountsNameList) {
+        for (WebElement accountName : accountsNameList) {
             accountsName.add(accountName.getText());
         }
         return accountsName;

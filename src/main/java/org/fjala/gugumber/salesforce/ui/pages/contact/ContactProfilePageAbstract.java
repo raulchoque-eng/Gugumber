@@ -38,11 +38,21 @@ public abstract class ContactProfilePageAbstract extends BasePage {
     public abstract ContactDetailsAbstract checkDetailsSection();
 
     /**
-     * Return the id from url.
+     * Returns the id from url.
      *
      * @return id as string.
      */
     public String getIdFromUrl() {
         return UrlComponents.splitUrlToId(driver.getCurrentUrl());
     }
+
+    /**
+     * Deletes Contact in contact page.
+     */
+    public abstract void deleteContactProfilePage();
+
+    /**
+     * Deletes Contact in contact page.
+     */
+    public abstract ContactFormAbstract updateContactProfilePage();
 }
