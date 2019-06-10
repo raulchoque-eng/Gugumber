@@ -14,6 +14,7 @@ package org.fjala.gugumber.salesforce.ui.pages.event;
 
 import org.fjala.gugumber.core.selenium.utils.DriverMethods;
 import org.fjala.gugumber.salesforce.utils.DateMethods;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -109,7 +110,7 @@ public class EventClassicForm extends EventFormAbstract {
     /**
      * Web element by the event save of a new Event.
      */
-    @FindBy(css = "td#bottomButtonRow [name = \"save\"]")
+    @FindBy(id = "bottomButtonRow")
     private WebElement saveEventBtn;
 
     /**
@@ -211,7 +212,7 @@ public class EventClassicForm extends EventFormAbstract {
     public void setRelatedToAccount(final String relatedToAccount) {
         final String locatorBySelect = "//option[contains(text(), 'nameTitle')]";
         relatedToAccountCmbbx.click();
-        DriverMethods.selectCmb(driver, locatorBySelect, "Account");
+        driver.findElement(By.xpath(locatorBySelect.replace("nameTitle", "Account"))).click();
         DriverMethods.setTxt(relatedToAccountTxtb, relatedToAccount);
     }
 

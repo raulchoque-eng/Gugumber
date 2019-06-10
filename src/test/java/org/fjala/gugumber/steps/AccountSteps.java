@@ -12,9 +12,6 @@
 
 package org.fjala.gugumber.steps;
 
-import java.util.Map;
-
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.fjala.gugumber.salesforce.entities.Context;
@@ -24,6 +21,8 @@ import org.fjala.gugumber.salesforce.ui.pages.account.AccountFormAbstract;
 import org.fjala.gugumber.salesforce.ui.pages.account.AccountProfilePageAbstract;
 import org.fjala.gugumber.salesforce.ui.pages.account.AccountsPageAbstract;
 import org.testng.Assert;
+
+import java.util.Map;
 
 /**
  * AccountSteps class.
@@ -81,7 +80,7 @@ public class AccountSteps {
     @When("^I create a new Account with the following information$")
     public void createANewAccountWithTheFollowingInformation(final Map<String,String> accountMap) {
         context.getAccount().setAccountInformation(accountMap);
-        accountForm.setNameAccountOnTxtB(context.getAccount().getNameAccount());
+        accountForm.setAccountInformationOnForm(accountMap);
         accountProfilePage = accountForm.clickOnSaveBtnFoot();
         context.getAccount().setId(accountProfilePage.getIdFromUrl());
     }
@@ -91,7 +90,7 @@ public class AccountSteps {
      */
     @Then("^the account name should be displayed in the Account page$")
     public void displayAccountNameOnTheAccountPage() {
-        Assert.assertEquals(accountProfilePage.getNameAccountFromProfileHeader(), context.getAccount().getNameAccount());
+        Assert.assertEquals(accountProfilePage.getNameAccountFromProfileHeader(), context.getAccount().getAccountName());
     }
 
     /**
@@ -100,7 +99,7 @@ public class AccountSteps {
     @Then("^the account should be displayed on Accounts page$")
     public void displayAccountOnAccountsPage() {
         accountsPage = PageLayoutFactory.getAccountsPage();
-        Assert.assertTrue(accountsPage.getListOfAccountsName().contains(context.getAccount().getNameAccount()));
+        Assert.assertTrue(accountsPage.getListOfAccountsName().contains(context.getAccount().getAccountName()));
     }
 
     /**
@@ -116,6 +115,6 @@ public class AccountSteps {
      */
     @Then("^the account name should be displayed in the Account Details$")
     public void displayAccountNameInTheAccountDetails() {
-        Assert.assertEquals(accountDetails.getValueOfAccountNameField(), context.getAccount().getNameAccount());
+        Assert.assertTrue(accountDetails.getValueOfAccountNameField().startsWith(context.getAccount().getAccountName()));
     }
 }

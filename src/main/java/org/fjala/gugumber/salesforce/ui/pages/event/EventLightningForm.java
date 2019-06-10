@@ -14,6 +14,7 @@ package org.fjala.gugumber.salesforce.ui.pages.event;
 
 import org.fjala.gugumber.core.selenium.utils.DriverMethods;
 import org.fjala.gugumber.salesforce.utils.DateMethods;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -128,7 +129,8 @@ public class EventLightningForm extends EventFormAbstract {
     public void setAssignedToUser(final String username) {
         final String locatorBySelect = "[title = \"nameTitle\"]";
         closeLnk.click();
-        DriverMethods.selectCmb(driver, locatorBySelect, username);
+        driver.findElement(By.cssSelector(locatorBySelect.replace("nameTitle", username))).click();
+//        DriverMethods.selectCmb(driver, locatorBySelect, username);
     }
 
     /**
@@ -150,7 +152,8 @@ public class EventLightningForm extends EventFormAbstract {
     public void setNameContact(final String nameContact) {
         final String locatorBySelect = "[title = \"nameTitle\"]";
         contactCmbbx.click();
-        DriverMethods.selectCmb(driver, locatorBySelect, nameContact);
+        driver.findElement(By.cssSelector(locatorBySelect.replace("nameTitle", nameContact))).click();
+//        DriverMethods.selectCmb(driver, locatorBySelect, nameContact);
     }
 
     /**
@@ -162,7 +165,8 @@ public class EventLightningForm extends EventFormAbstract {
     public void setRelatedToAccount(final String relatedToAccount) {
         final String locatorBySelect = "[title = \"nameTitle\"]";
         accountCmbbx.click();
-        DriverMethods.selectCmb(driver, locatorBySelect, relatedToAccount);
+        driver.findElement(By.cssSelector(locatorBySelect.replace("nameTitle", relatedToAccount))).click();
+//        DriverMethods.selectCmb(driver, locatorBySelect, relatedToAccount);
     }
 
     /**

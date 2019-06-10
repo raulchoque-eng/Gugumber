@@ -12,7 +12,6 @@
 
 package org.fjala.gugumber.core.selenium.utils;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -43,21 +42,6 @@ public class DriverMethods {
     }
 
     /**
-     * Sets the comboBox into the webElement.
-     *
-     * @param driver that connection for web elements.
-     * @param replaceCmb value for replace.
-     * @param text new value of webElement.
-     */
-    public static void selectCmb(final WebDriver driver, final String replaceCmb, final String text) {
-      if(replaceCmb.contains("//")) {
-          driver.findElement(By.xpath(replaceCmb.replace("nameTitle", text))).click();
-      } else {
-          driver.findElement(By.cssSelector(replaceCmb.replace("nameTitle", text))).click();
-      }
-    }
-
-    /**
      * Converts a date to string applying a pattern.
      *
      * @param date    changes of type to convert in a string, applying "pattern" variable
@@ -69,6 +53,7 @@ public class DriverMethods {
         // the string representation of date according to the chosen pattern
         final DateFormat dateFormat = new SimpleDateFormat(pattern);
         return dateFormat.format(date);
+
     }
 
     /**

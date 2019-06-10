@@ -12,13 +12,13 @@
 
 package org.fjala.gugumber.salesforce.api;
 
-import static io.restassured.RestAssured.given;
-
-import java.util.Map;
-
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.fjala.gugumber.salesforce.common.ReaderApplicationProperties;
+
+import java.util.Map;
+
+import static io.restassured.RestAssured.given;
 
 /**
  * RestClientAPI class.

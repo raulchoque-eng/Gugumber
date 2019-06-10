@@ -27,7 +27,7 @@ public class ContactLightningProfilePage extends ContactProfilePageAbstract {
     /**
      * Web Element of profile contact form.
      */
-    @FindBy(css = "div[class='slds-page-header--object-home slds-page-header_joined slds-page-header_bleed slds-page-header slds-shrink-none test-headerRegion forceListViewManagerHeader']")
+    @FindBy(css = "[class='forceHighlightsPanel']")
     private WebElement profileContactHeader;
 
     /**
@@ -54,6 +54,7 @@ public class ContactLightningProfilePage extends ContactProfilePageAbstract {
     @Override
     protected void waitUntilPageObjectIsLoaded() {
         wait.until(ExpectedConditions.visibilityOf(profileContactHeader));
+        wait.until(ExpectedConditions.visibilityOf(contactMessageSaveTxt));
     }
 
     /**
