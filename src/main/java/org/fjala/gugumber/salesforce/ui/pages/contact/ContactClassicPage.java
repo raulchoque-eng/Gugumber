@@ -12,14 +12,14 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.contact;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.fjala.gugumber.core.selenium.utils.DriverMethods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * ContactClassicPage class.
@@ -83,6 +83,9 @@ public class ContactClassicPage extends ContactPageAbstract {
     @FindBy(css = "[value=' New ']")
     private WebElement newContactBtn;
 
+    /**
+     * Locator for open a contact profile.
+     */
     final String lastNameList = "//a[text()='titleOfList']";
 
     /**
@@ -170,11 +173,11 @@ public class ContactClassicPage extends ContactPageAbstract {
      */
     @Override
     public List<String> getListOfContactsName() {
-        final List<String> contactName = new ArrayList<>();
+        final List<String> contactsName = new ArrayList<>();
         for (WebElement contName : contactNameList) {
-            contactName.add(contName.getText());
+            contactsName.add(contName.getText());
         }
-        return contactName;
+        return contactsName;
     }
 
     /**
@@ -183,6 +186,6 @@ public class ContactClassicPage extends ContactPageAbstract {
      * @param text of the type String.
      */
     public void openContactProfile(final String text) {
-        driver.findElement(By.cssSelector(lastNameList.replace("titleOfList", text))).click();
+        driver.findElement(By.xpath(lastNameList.replace("titleOfList", text))).click();
     }
 }

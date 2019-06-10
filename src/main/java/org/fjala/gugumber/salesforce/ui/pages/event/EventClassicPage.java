@@ -36,43 +36,43 @@ public class EventClassicPage extends EventPageAbstract {
     private WebElement assignedToUserLnk;
 
     /**
-     * Web element for verifies the subject of a Event.
+     * Web element to verify the subject of an Event..
      */
     @FindBy(xpath = "//td[text()='Subject']/following-sibling::td[1]//div")
     private WebElement subjectTxtb;
 
     /**
-     * Web element for verifies the name of a Event.
+     * Web element to verify the name of an Event.
      */
     @FindBy(xpath = "//td[text()='Name']/following-sibling::td[@class='dataCol col02']//a")
     private WebElement nameContactLnk;
 
     /**
-     * Web element for verifies the related to account of a Event.
+     * Web element to verify the related to account of an Event.
      */
     @FindBy(xpath = "//td[text()='Related To']/following-sibling::td[@class='dataCol col02']//a")
     private WebElement relatedToAccountLnk;
 
     /**
-     * Web element for verifies the description of a Event.
+     * Web element to verify the description of an Event.
      */
     @FindBy(xpath = "//td[text()='Description']/following-sibling::td//div")
     private WebElement descriptionTxtb;
 
     /**
-     * Web element for verifies the location of a Event.
+     * Web element to verify the location of an Event.
      */
     @FindBy(xpath = "//td[text()='Location']/following-sibling::td//div")
     private WebElement locationTxtb;
 
     /**
-     * Web element for verifies the start date of a Event.
+     * Web element to verify the start date of an Event.
      */
     @FindBy(id = "StartDateTime_ileinner")
     private WebElement startDateTxtb;
 
     /**
-     * Web element for verifies the end date of a Event.
+     * Web element to verifies the end date of an Event.
      */
     @FindBy(id = "EndDateTime_ileinner")
     private WebElement endDateTxtb;
@@ -154,7 +154,8 @@ public class EventClassicPage extends EventPageAbstract {
      */
     @Override
     public String getStartDate() {
-        return startDateTxtb.getText();
+        final String[] dateTime = startDateTxtb.getText().split("    ");
+        return dateTime[0];
     }
 
     /**

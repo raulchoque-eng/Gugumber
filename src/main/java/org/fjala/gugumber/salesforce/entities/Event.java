@@ -12,21 +12,12 @@
 
 package org.fjala.gugumber.salesforce.entities;
 
-import static org.fjala.gugumber.salesforce.keys.EventKeys.ASSIGNED_TO;
-import static org.fjala.gugumber.salesforce.keys.EventKeys.DESCRIPTION;
-import static org.fjala.gugumber.salesforce.keys.EventKeys.END_DATE;
-import static org.fjala.gugumber.salesforce.keys.EventKeys.LOCATION;
-import static org.fjala.gugumber.salesforce.keys.EventKeys.NAME;
-import static org.fjala.gugumber.salesforce.keys.EventKeys.RELATED_TO;
-import static org.fjala.gugumber.salesforce.keys.EventKeys.START_DATE;
-import static org.fjala.gugumber.salesforce.keys.EventKeys.SUBJECT;
-
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-
 import org.fjala.gugumber.core.StrategySetter;
 import org.fjala.gugumber.salesforce.utils.DateMethods;
+
+import java.util.*;
+
+import static org.fjala.gugumber.salesforce.keys.EventKeys.*;
 
 /**
  * Event class
@@ -42,52 +33,52 @@ public class Event {
     private String id;
 
     /**
-     * Saves value of variable "Assigned To", to create an Event.
+     * Variable "Assigned To", to create an Event.
      */
     private String assignedToUser;
 
     /**
-     * Saves value of variable "Subject", to create an Event.
+     * Variable "Subject", to create an Event.
      */
     private String subject;
 
     /**
-     * Saves value of variable "Name", to create an Event.
+     * Variable "Name", to create an Event.
      */
     private String nameContact;
 
     /**
-     * Saves value of variable "Related To", to create an Event.
+     * Variable "Related To", to create an Event.
      */
     private String relatedToAccount;
 
     /**
-     * Saves value of variable "Location", to create an Event.
+     * Variable "Location", to create an Event.
      */
     private String location;
 
     /**
-     * Saves value of variable "Start Date", to create an Event.
+     * Variable "Start Date", to create an Event.
      */
     private Date startDate;
 
     /**
-     * Saves value of variable "Start Time", to create an Event.
+     * Variable "Start Time", to create an Event.
      */
     private String startTime;
 
     /**
-     * Saves value of variable "End Date", to create an Event.
+     * Variable "End Date", to create an Event.
      */
     private Date endDate;
 
     /**
-     * Saves value of variable "End Time", to create an Event.
+     * Variable "End Time", to create an Event.
      */
     private String endTime;
 
     /**
-     * Saves value of variable "Description", to create an Event.
+     * Variable "Description", to create an Event.
      */
     private String description;
 
@@ -110,6 +101,11 @@ public class Event {
     }
 
     /**
+     * Variable to create the keys of the event attributes.
+     */
+    private Set<String> eventKeys = new HashSet<String>();
+
+    /**
      * Returns the assignedToUser of a Event.
      *
      * @return assignedToUser as a string
@@ -124,6 +120,7 @@ public class Event {
      * @param assignedToUser as a string.
      */
     public void setAssignedToUser(final String assignedToUser) {
+        eventKeys.add(ASSIGNED_TO);
         this.assignedToUser = assignedToUser;
     }
 
@@ -142,6 +139,7 @@ public class Event {
      * @param subject as a String.
      */
     public void setSubject(final String subject) {
+        eventKeys.add(SUBJECT);
         this.subject = subject;
     }
 
@@ -160,6 +158,7 @@ public class Event {
      * @param nameContact as a String.
      */
     public void setNameContact(final String nameContact) {
+        eventKeys.add(NAME);
         this.nameContact = nameContact;
     }
 
@@ -178,6 +177,7 @@ public class Event {
      * @param relatedToAccount as a string.
      */
     public void setRelatedToAccount(final String relatedToAccount) {
+        eventKeys.add(RELATED_TO);
         this.relatedToAccount = relatedToAccount;
     }
 
@@ -196,6 +196,7 @@ public class Event {
      * @param location as a string.
      */
     public void setLocation(final String location) {
+        eventKeys.add(LOCATION);
         this.location = location;
     }
 
@@ -215,6 +216,7 @@ public class Event {
      */
     public void setStartDate(final String startDate) {
         if (startDate.equals("One hour from now")) {
+            eventKeys.add(START_DATE);
             this.startDate = new Date();
         }
     }
@@ -235,6 +237,7 @@ public class Event {
      */
     public void setEndDate(final String endDate) {
         if (endDate.equals("Two hours from now")) {
+            eventKeys.add(END_DATE);
             this.endDate = new Date();
         }
     }
@@ -254,6 +257,7 @@ public class Event {
      * @param description as a string.
      */
     public void setDescription(final String description) {
+        eventKeys.add(DESCRIPTION);
         this.description = description;
     }
 
@@ -292,7 +296,7 @@ public class Event {
      * @return as a string the start date.
      */
     public String getStartDateToString() {
-        return DateMethods.getHourBefore(getStartDate(), 2);
+        return DateMethods.getHourBefore(getStartDate(), 1);
     }
 
     /**
@@ -301,6 +305,35 @@ public class Event {
      * @return as a string the and date.
      */
     public String getEndDateToString() {
-        return DateMethods.getHourBefore(getEndDate(), 3);
+        return DateMethods.getHourBefore(getEndDate(), 2);
+    }
+
+
+    /**
+     * Returns the event keys of the an Event
+     *
+     * @return as a set of string the eventKeys.
+     */
+    public Set<String> getEventKeys() {
+        return eventKeys;
+    }
+
+    /**
+     * Returns the event in a map.
+     *
+     * @return as a map the event.
+     */
+    public Map<String, String> getEventInMap() {
+        final Map<String, String> event = new HashMap<>();
+        event.put(ASSIGNED_TO, getAssignedToUser());
+        event.put(SUBJECT, getSubject());
+        event.put(NAME, getNameContact());
+        event.put(RELATED_TO, getRelatedToAccount());
+        event.put(LOCATION, getLocation());
+        event.put(START_DATE, getStartDateToString());
+        event.put(END_DATE, getEndDateToString());
+        event.put(DESCRIPTION, getDescription());
+
+        return event;
     }
 }

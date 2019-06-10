@@ -12,7 +12,9 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.event;
 
+import org.fjala.gugumber.core.selenium.utils.DriverMethods;
 import org.fjala.gugumber.salesforce.ui.pages.BasePage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -28,14 +30,27 @@ public class CalendarLightningPage extends BasePage {
     /**
      * Web element for the calendar header.
      */
-    @FindBy(css = "div.calendarHeader")
+    @FindBy(css = "div.calendarRow")
     private WebElement calendarHeader;
+
 
     /**
      * Web element for open the  event form.
      */
     @FindBy(css = "button.new-event-button")
     private WebElement newEventBtn;
+
+    /**
+     * Web Element of successful message after create an new Event.
+     */
+    @FindBy(css = "span[data-aura-class=\"forceActionsText\"]")
+    private WebElement contactMessageSaveTxt;
+
+    /**
+     * Web Element of close message after create an new Event.
+     */
+    @FindBy(css = "button[title='Close']")
+    private WebElement closeMessageBtn;
 
     /**
      * Waits until the calendar page is loaded.
@@ -51,7 +66,30 @@ public class CalendarLightningPage extends BasePage {
      * @return an instance EventForm.
      */
     public EventFormAbstract openEventForm() {
+        DriverMethods.waitUntilElementIsClickable(driver, newEventBtn);
         newEventBtn.click();
         return new EventLightningForm();
+    }
+
+    /**
+     * Verifies the successful message is close.
+     */
+    public void verifyMessajeSuccessfulIsClose() {
+//        final WebElement myDynamicElement = (new WebDriverWait(driver, 10)).
+//                until(ExpectedConditions.presenceOfElementLocated(By.
+//                        cssSelector("span[data-aura-class=\"forceActionsText\"]")));
+        try {
+            driver.findElement(By.cssSelector("span[data-aura-class=\"forceActionsText\"]"));
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        try {
+            DriverMethods.waitUntilElementIsClickable(driver, closeMessageBtn);
+            closeMessageBtn.click();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
     }
 }

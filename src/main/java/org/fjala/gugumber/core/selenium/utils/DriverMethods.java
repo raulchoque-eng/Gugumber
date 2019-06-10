@@ -12,9 +12,10 @@
 
 package org.fjala.gugumber.core.selenium.utils;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -32,26 +33,11 @@ public class DriverMethods {
      * Sets the text into the webElement.
      *
      * @param webElement that sets its text.
-     * @param text new value of webElement.
+     * @param text       new value of webElement.
      */
     public static void setTxt(final WebElement webElement, final String text) {
         webElement.clear();
         webElement.sendKeys(text);
-    }
-
-    /**
-     * Sets the comboBox into the webElement.
-     *
-     * @param driver that connection for web elements.
-     * @param replaceCmb value for replace.
-     * @param text new value of webElement.
-     */
-    public static void selectCmb(final WebDriver driver, final String replaceCmb, final String text) {
-      if(replaceCmb.contains("//")) {
-          driver.findElement(By.xpath(replaceCmb.replace("nameTitle", text))).click();
-      } else {
-          driver.findElement(By.cssSelector(replaceCmb.replace("nameTitle", text))).click();
-      }
     }
 
     /**
@@ -66,8 +52,27 @@ public class DriverMethods {
         // the string representation of date according to the chosen pattern
         final DateFormat dateFormat = new SimpleDateFormat(pattern);
         return dateFormat.format(date);
+
     }
 
+    /**
+     * Waits until that web element is Clickable.
+     *
+     * @param driver     it is the manager of get UI page.
+     * @param webElement is for verifies if it is clickable.
+     */
+    public static void waitUntilElementIsClickable(final WebDriver driver, final WebElement webElement) {
+        int index = 0;
+        boolean isClickable = false;
+        do {
+            try {
+                final WebDriverWait wait = new WebDriverWait(driver, 10);
+                isClickable = wait.until(ExpectedConditions.elementToBeClickable(webElement)) != null;
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        } while (!isClickable && index++ < 3);
+    }
     /**
      * TODO method to clear a checkbox
      * TODO method que valida que un elemento este en el DOM cambiando el implicit wait (1)

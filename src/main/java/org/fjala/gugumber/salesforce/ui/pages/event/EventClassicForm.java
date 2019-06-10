@@ -13,11 +13,13 @@
 package org.fjala.gugumber.salesforce.ui.pages.event;
 
 import org.fjala.gugumber.core.selenium.utils.DriverMethods;
+import org.fjala.gugumber.salesforce.utils.DateMethods;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * EventClassicForm class.
@@ -133,7 +135,9 @@ public class EventClassicForm extends EventFormAbstract {
      */
     @Override
     public void setAssignedToUser(final String assignedToUser) {
-        userTxtb.sendKeys(Keys.chord(Keys.CONTROL, "a"), assignedToUser);
+        final WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.attributeToBeNotEmpty(userTxtb, "value"));
+        setInputFieldJavaScript(userTxtb, assignedToUser);
     }
 
     /**
@@ -174,11 +178,8 @@ public class EventClassicForm extends EventFormAbstract {
      */
     @Override
     public void setStartDate(final String startDate) {
-        final String[] dateTime = startDate.split(" ");
-        final String date = dateTime[0];
-        final String time = dateTime[1].concat(" " + dateTime[2]);;
-        DriverMethods.setTxt(startDateTxtb, date);
-        DriverMethods.setTxt(startTimeTxtb, time);
+        DriverMethods.setTxt(startDateTxtb, DateMethods.getDateTime(startDate, "date"));
+        DriverMethods.setTxt(startTimeTxtb, DateMethods.getDateTime(startDate, "time"));
     }
 
     /**
@@ -198,11 +199,8 @@ public class EventClassicForm extends EventFormAbstract {
      */
     @Override
     public void setEndDate(final String endDate) {
-        final String[] dateTime = endDate.split(" ");
-        final String date = dateTime[0];
-        final String time = dateTime[1].concat(" " + dateTime[2]);
-        DriverMethods.setTxt(endDateTxtb, date);
-        DriverMethods.setTxt(endTimeTxtb, time);
+        DriverMethods.setTxt(endDateTxtb, DateMethods.getDateTime(endDate, "date"));
+        DriverMethods.setTxt(endTimeTxtb, DateMethods.getDateTime(endDate, "time"));
     }
 
     /**
@@ -214,7 +212,7 @@ public class EventClassicForm extends EventFormAbstract {
     public void setRelatedToAccount(final String relatedToAccount) {
         final String locatorBySelect = "//option[contains(text(), 'nameTitle')]";
         relatedToAccountCmbbx.click();
-        DriverMethods.selectCmb(driver, locatorBySelect, "Account");
+        driver.findElement(By.xpath(locatorBySelect.replace("nameTitle", "Account"))).click();
         DriverMethods.setTxt(relatedToAccountTxtb, relatedToAccount);
     }
 

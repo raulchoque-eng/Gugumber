@@ -13,6 +13,8 @@
 package org.fjala.gugumber.salesforce.ui.pages.event;
 
 import org.fjala.gugumber.core.selenium.utils.DriverMethods;
+import org.fjala.gugumber.salesforce.utils.DateMethods;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -72,25 +74,25 @@ public class EventLightningForm extends EventFormAbstract {
      * Web element by the start date.
      */
     @FindBy(css = "div.modal-body div.slds-grid.slds-gutters_small:nth-of-type(2) div.dateTime-inputDate input")
-    private WebElement startDateTxt;
+    private WebElement startDateTxtb;
 
     /**
      * Web element by the start time.
      */
     @FindBy(css = "div.modal-body div.slds-grid.slds-gutters_small:nth-of-type(2) div.dateTime-inputTime input")
-    private WebElement startTimeTxt;
+    private WebElement startTimeTxtb;
 
     /**
      * Web element by the end date.
      */
     @FindBy(css = "div.modal-body div.slds-grid.slds-gutters_small:nth-of-type(3) div.dateTime-inputDate input")
-    private WebElement endDateTxt;
+    private WebElement endDateTxtb;
 
     /**
      * Web element by the end time.
      */
     @FindBy(css = "div.modal-body div.slds-grid.slds-gutters_small:nth-of-type(3) div.dateTime-inputTime input")
-    private WebElement endTimeTxt;
+    private WebElement endTimeTxtb;
 
     /**
      * Web element by check all days.
@@ -127,7 +129,8 @@ public class EventLightningForm extends EventFormAbstract {
     public void setAssignedToUser(final String username) {
         final String locatorBySelect = "[title = \"nameTitle\"]";
         closeLnk.click();
-        DriverMethods.selectCmb(driver, locatorBySelect, username);
+        driver.findElement(By.cssSelector(locatorBySelect.replace("nameTitle", username))).click();
+//        DriverMethods.selectCmb(driver, locatorBySelect, username);
     }
 
     /**
@@ -149,7 +152,8 @@ public class EventLightningForm extends EventFormAbstract {
     public void setNameContact(final String nameContact) {
         final String locatorBySelect = "[title = \"nameTitle\"]";
         contactCmbbx.click();
-        DriverMethods.selectCmb(driver, locatorBySelect, nameContact);
+        driver.findElement(By.cssSelector(locatorBySelect.replace("nameTitle", nameContact))).click();
+//        DriverMethods.selectCmb(driver, locatorBySelect, nameContact);
     }
 
     /**
@@ -161,7 +165,8 @@ public class EventLightningForm extends EventFormAbstract {
     public void setRelatedToAccount(final String relatedToAccount) {
         final String locatorBySelect = "[title = \"nameTitle\"]";
         accountCmbbx.click();
-        DriverMethods.selectCmb(driver, locatorBySelect, relatedToAccount);
+        driver.findElement(By.cssSelector(locatorBySelect.replace("nameTitle", relatedToAccount))).click();
+//        DriverMethods.selectCmb(driver, locatorBySelect, relatedToAccount);
     }
 
     /**
@@ -191,11 +196,9 @@ public class EventLightningForm extends EventFormAbstract {
      */
     @Override
     public void setStartDate(final String startDate) {
-        final String[] dateTime = startDate.split(" ");
-        final String date = dateTime[0];
-        final String time = dateTime[1];
-        DriverMethods.setTxt(startDateTxt, date);
-        setInputFieldJavaScript(startTimeTxt, time);
+        DriverMethods.setTxt(startDateTxtb, DateMethods.getDateTime(startDate, "date"));
+        System.out.println("start time lightning: " + DateMethods.getDateTime(startDate, "time"));
+        setInputFieldJavaScript(startTimeTxtb, DateMethods.getDateTime(startDate, "time"));
     }
 
     /**
@@ -205,11 +208,9 @@ public class EventLightningForm extends EventFormAbstract {
      */
     @Override
     public void setEndDate(final String endDate) {
-        final String[] dateTime = endDate.split(" ");
-        final String date = dateTime[0];
-        final String time = dateTime[1];
-        DriverMethods.setTxt(endDateTxt, date);
-        setInputFieldJavaScript(endTimeTxt, time);
+        DriverMethods.setTxt(endDateTxtb, DateMethods.getDateTime(endDate, "date"));
+        System.out.println("end time lightning: " + DateMethods.getDateTime(endDate, "time"));
+        setInputFieldJavaScript(endTimeTxtb, DateMethods.getDateTime(endDate, "time"));
     }
 
     /**
