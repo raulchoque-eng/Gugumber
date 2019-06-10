@@ -245,7 +245,7 @@ public class ContactLightningForm extends ContactFormAbstract {
     /**
      * Variable for type date.
      */
-    final String PATTERN = "dd/MM/yyyy";
+    final String PATTERN = "dd-MM-yyyy";
 
     /**
      * Waits until page object is loaded.
