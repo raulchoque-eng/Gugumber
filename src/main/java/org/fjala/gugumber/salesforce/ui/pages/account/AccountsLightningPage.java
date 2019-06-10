@@ -30,6 +30,15 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class AccountsLightningPage extends AccountsPageAbstract {
 
     /**
+     * Constant for replace to replace.
+     */
+    public static final String VALUE_TO_REPLACE = "valueToReplace";
+    /**
+     * Variable for xpath to replace the value of id account.
+     */
+    private String xpathToGetAccountById = "//a[@data-recordid='valueToReplace']";
+
+    /**
      * Web element to the header the accounts page.
      */
     @FindBy(xpath = "//div[@data-aura-class='forceListViewManagerHeader']")
@@ -80,12 +89,23 @@ public class AccountsLightningPage extends AccountsPageAbstract {
                 accountsName.add(accountName.getText());
             }
         } catch (StaleElementReferenceException sere) {
-            accountsNameList = driver.findElements(
+            List<WebElement> accountsList = driver.findElements(
                     By.cssSelector("a[class='slds-truncate outputLookupLink slds-truncate forceOutputLookup']"));
-            for (WebElement accountName : accountsNameList) {
+            for (WebElement accountName : accountsList) {
                 accountsName.add(accountName.getText());
             }
         }
         return accountsName;
+    }
+
+    /**
+     * Returns the account lightning page by id of an account.
+     *
+     * @return Account lightning page.
+     */
+    @Override
+    public AccountProfilePageAbstract openAccount(final String id) {
+        driver.findElement(By.xpath(xpathToGetAccountById.replace(VALUE_TO_REPLACE, id))).click();
+        return new AccountProfileLightningPage();
     }
 }
