@@ -29,12 +29,11 @@ import java.util.Date;
  */
 public class DriverMethods {
 
-
     /**
      * Sets the text into the webElement.
      *
      * @param webElement that sets its text.
-     * @param text new value of webElement.
+     * @param text       new value of webElement.
      */
     public static void setTxt(final WebElement webElement, final String text) {
         webElement.clear();
@@ -62,40 +61,18 @@ public class DriverMethods {
      * @param driver     it is the manager of get UI page.
      * @param webElement is for verifies if it is clickable.
      */
-    public static void waitUntilElementIsClickable(WebDriver driver, WebElement webElement) {
+    public static void waitUntilElementIsClickable(final WebDriver driver, final WebElement webElement) {
         int index = 0;
         boolean isClickable = false;
         do {
             try {
-                WebDriverWait wait = new WebDriverWait(driver, 10);
+                final WebDriverWait wait = new WebDriverWait(driver, 10);
                 isClickable = wait.until(ExpectedConditions.elementToBeClickable(webElement)) != null;
             } catch (Exception e) {
                 System.out.println(e);
             }
         } while (!isClickable && index++ < 3);
     }
-
-    public static void waitUntilElementIsVisible(WebDriver driver, WebElement webElement) {
-
-        try {
-            WebDriverWait wait = new WebDriverWait(driver, 10);
-            wait.until(ExpectedConditions.visibilityOf(webElement));
-            System.out.println("text of web element visible: " + webElement.getText());
-        } catch (Exception e) {
-            System.out.println("visible-----------/" + e);
-        }
-    }
-
-    public static void waitUntilElementIsNotVisible(WebDriver driver, WebElement webElement) {
-        try {
-            WebDriverWait wait = new WebDriverWait(driver, 10);
-            wait.until(ExpectedConditions.invisibilityOf(webElement));
-            System.out.println("text of web element is not visible :( ");
-        } catch (Exception e) {
-            System.out.println("not visible-------------------/" + e);
-        }
-    }
-
     /**
      * TODO method to clear a checkbox
      * TODO method que valida que un elemento este en el DOM cambiando el implicit wait (1)
