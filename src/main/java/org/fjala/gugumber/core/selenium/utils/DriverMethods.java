@@ -16,8 +16,11 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * DriverMethods class.
@@ -65,7 +68,26 @@ public class DriverMethods {
      * @param option to select from combo-box.
      */
     public static void selectOptionFromComboBox(final WebElement webElement, final String option) {
-        Select selectType = new Select(webElement);
+        final Select selectType = new Select(webElement);
         selectType.selectByVisibleText(option);
+    }
+
+    /**
+     * Waits until that web element is Clickable.
+     *
+     * @param driver     it is the manager of get UI page.
+     * @param webElement is for verifies if it is clickable.
+     */
+    public static void waitUntilElementIsClickable(final WebDriver driver, final WebElement webElement) {
+        int index = 0;
+        boolean isClickable = false;
+        do {
+            try {
+                final WebDriverWait wait = new WebDriverWait(driver, 10);
+                isClickable = wait.until(ExpectedConditions.elementToBeClickable(webElement)) != null;
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        } while (!isClickable && index++ < 3);
     }
 }

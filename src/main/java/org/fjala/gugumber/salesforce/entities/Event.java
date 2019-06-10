@@ -12,12 +12,23 @@
 
 package org.fjala.gugumber.salesforce.entities;
 
+import static org.fjala.gugumber.salesforce.keys.EventKeys.ASSIGNED_TO;
+import static org.fjala.gugumber.salesforce.keys.EventKeys.DESCRIPTION;
+import static org.fjala.gugumber.salesforce.keys.EventKeys.END_DATE;
+import static org.fjala.gugumber.salesforce.keys.EventKeys.LOCATION;
+import static org.fjala.gugumber.salesforce.keys.EventKeys.NAME;
+import static org.fjala.gugumber.salesforce.keys.EventKeys.RELATED_TO;
+import static org.fjala.gugumber.salesforce.keys.EventKeys.START_DATE;
+import static org.fjala.gugumber.salesforce.keys.EventKeys.SUBJECT;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
 import org.fjala.gugumber.core.StrategySetter;
 import org.fjala.gugumber.salesforce.utils.DateMethods;
-
-import java.util.*;
-
-import static org.fjala.gugumber.salesforce.keys.EventKeys.*;
 
 /**
  * Event class
@@ -83,6 +94,11 @@ public class Event {
     private String description;
 
     /**
+     * Variable to create the keys of the event attributes.
+     */
+    private Set<String> eventKeys = new HashSet<String>();
+
+    /**
      * Returns the id from an event.
      *
      * @return as a string the id of a event.
@@ -96,14 +112,9 @@ public class Event {
      *
      * @param id for the event.
      */
-    public void setId(String id) {
+    public void setId(final String id) {
         this.id = id;
     }
-
-    /**
-     * Variable to create the keys of the event attributes.
-     */
-    private Set<String> eventKeys = new HashSet<String>();
 
     /**
      * Returns the assignedToUser of a Event.
@@ -308,9 +319,8 @@ public class Event {
         return DateMethods.getHourBefore(getEndDate(), 2);
     }
 
-
     /**
-     * Returns the event keys of the an Event
+     * Returns the event keys of the an Event.
      *
      * @return as a set of string the eventKeys.
      */
@@ -333,7 +343,6 @@ public class Event {
         event.put(START_DATE, getStartDateToString());
         event.put(END_DATE, getEndDateToString());
         event.put(DESCRIPTION, getDescription());
-
         return event;
     }
 }

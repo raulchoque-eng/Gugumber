@@ -74,10 +74,7 @@ public class CalendarLightningPage extends BasePage {
     /**
      * Verifies the successful message is close.
      */
-    public void verifyMessajeSuccessfulIsClose() {
-//        final WebElement myDynamicElement = (new WebDriverWait(driver, 10)).
-//                until(ExpectedConditions.presenceOfElementLocated(By.
-//                        cssSelector("span[data-aura-class=\"forceActionsText\"]")));
+    public void verifyMessageSuccessfulIsClose() {
         try {
             driver.findElement(By.cssSelector("span[data-aura-class=\"forceActionsText\"]"));
         } catch (Exception e) {
@@ -90,6 +87,5 @@ public class CalendarLightningPage extends BasePage {
         } catch (Exception e) {
             System.out.println(e);
         }
-
     }
 }

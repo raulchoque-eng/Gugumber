@@ -12,9 +12,11 @@
 
 package org.fjala.gugumber.salesforce.api;
 
-import io.restassured.response.Response;
-
 import static org.fjala.gugumber.salesforce.api.Endpoints.EVENT_ENDPOINT;
+
+import java.util.Map;
+
+import io.restassured.response.Response;
 
 /**
  * EventAPI class.
@@ -58,5 +60,17 @@ public class EventAPI {
     public void deleteEvent(final String eventId) {
         finalEndpoint = EVENT_ENDPOINT.concat("/".concat(eventId));
         final Response response = restClient.delete(finalEndpoint);
+    }
+
+    /**
+     * Creates an event.
+     *
+     * @param newEvent to sent the body of the request.
+     * @return the id of event created.
+     */
+    public String createEvent(final Map<String, String> newEvent) {
+        finalEndpoint = EVENT_ENDPOINT;
+        final Response response = restClient.post(finalEndpoint, newEvent);
+        return response.body().jsonPath().getString("id");
     }
 }

@@ -4,7 +4,7 @@ Feature: Event manage
 
   Background:
     Given I am logged in SalesForce with "username.admin" and "password.admin"
-    And I navigate to the Home page
+      And I navigate to the Home page
 
   @delete-event
   Scenario: Create a new Event with required information
@@ -34,3 +34,8 @@ Feature: Event manage
     When I open the Event Details page from Calendar Section
     Then the information of new Event should be displayed in Event Detail page
 
+  @create_event
+  Scenario: Delete an Event with subject "Launch" that I was created previously
+    When I open the Event that with subject with name Launch
+        And I delete the Event selected
+    Then the Event is clear the Calendar Section

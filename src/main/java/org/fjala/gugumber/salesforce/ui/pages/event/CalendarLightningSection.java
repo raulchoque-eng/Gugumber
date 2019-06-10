@@ -64,4 +64,15 @@ public class CalendarLightningSection extends CalendarSectionAbstract {
         subjectNewEventLnk.click();
         return new EventLightningPage();
     }
+
+    /**
+     * Opens the even lightning page details.
+     *
+     * @return an instance event lightning page.
+     */
+    @Override
+    public EventPageAbstract openEvent(){
+        subjectNewEventLnk.click();
+        return new EventLightningPage();
+    }
 }

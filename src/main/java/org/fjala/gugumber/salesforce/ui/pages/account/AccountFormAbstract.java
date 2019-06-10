@@ -12,13 +12,13 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.account;
 
+import static org.fjala.gugumber.salesforce.keys.AccountKeys.*;
+
 import org.fjala.gugumber.core.StrategySetter;
 import org.fjala.gugumber.salesforce.ui.pages.BasePage;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import static org.fjala.gugumber.salesforce.keys.AccountKeys.*;
 
 /**
  * AccountFormAbstract abstract class.

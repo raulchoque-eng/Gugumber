@@ -12,6 +12,8 @@
 
 package org.fjala.gugumber.steps;
 
+import java.util.Map;
+
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.fjala.gugumber.salesforce.entities.Context;
@@ -21,8 +23,6 @@ import org.fjala.gugumber.salesforce.ui.pages.account.AccountFormAbstract;
 import org.fjala.gugumber.salesforce.ui.pages.account.AccountProfilePageAbstract;
 import org.fjala.gugumber.salesforce.ui.pages.account.AccountsPageAbstract;
 import org.testng.Assert;
-
-import java.util.Map;
 
 /**
  * AccountSteps class.
