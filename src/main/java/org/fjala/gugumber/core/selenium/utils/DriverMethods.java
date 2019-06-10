@@ -15,6 +15,8 @@ package org.fjala.gugumber.core.selenium.utils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -27,6 +29,7 @@ import java.util.Date;
  * @version 0.0.1
  */
 public class DriverMethods {
+
 
     /**
      * Sets the text into the webElement.
@@ -66,6 +69,46 @@ public class DriverMethods {
         // the string representation of date according to the chosen pattern
         final DateFormat dateFormat = new SimpleDateFormat(pattern);
         return dateFormat.format(date);
+    }
+
+    /**
+     * Waits until that web element is Clickable.
+     *
+     * @param driver     it is the manager of get UI page.
+     * @param webElement is for verifies if it is clickable.
+     */
+    public static void waitUntilElementIsClickable(WebDriver driver, WebElement webElement) {
+        int index = 0;
+        boolean isClickable = false;
+        do {
+            try {
+                WebDriverWait wait = new WebDriverWait(driver, 10);
+                isClickable = wait.until(ExpectedConditions.elementToBeClickable(webElement)) != null;
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        } while (!isClickable && index++ < 3);
+    }
+
+    public static void waitUntilElementIsVisible(WebDriver driver, WebElement webElement) {
+
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, 10);
+            wait.until(ExpectedConditions.visibilityOf(webElement));
+            System.out.println("text of web element visible: " + webElement.getText());
+        } catch (Exception e) {
+            System.out.println("visible-----------/" + e);
+        }
+    }
+
+    public static void waitUntilElementIsNotVisible(WebDriver driver, WebElement webElement) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, 10);
+            wait.until(ExpectedConditions.invisibilityOf(webElement));
+            System.out.println("text of web element is not visible :( ");
+        } catch (Exception e) {
+            System.out.println("not visible-------------------/" + e);
+        }
     }
 
     /**

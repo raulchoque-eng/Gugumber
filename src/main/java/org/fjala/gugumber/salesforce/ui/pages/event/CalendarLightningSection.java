@@ -33,7 +33,7 @@ public class CalendarLightningSection extends CalendarSectionAbstract {
     /**
      * Web element by subject the new Event.
      */
-    @FindBy(css = "div.homeEventContainer div.rowItem:last-child a span")
+    @FindBy(css = "div.listContent ul li.horizontalContainer.homeEventCardStencil.forceRecordLayout:last-child div.verticalContainer a span")
     private WebElement subjectNewEventLnk;
 
     /**

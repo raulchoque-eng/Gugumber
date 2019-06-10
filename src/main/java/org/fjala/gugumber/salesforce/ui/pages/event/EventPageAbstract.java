@@ -12,12 +12,14 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.event;
 
+import org.fjala.gugumber.core.StrategySetter;
 import org.fjala.gugumber.salesforce.ui.pages.BasePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 import static org.fjala.gugumber.salesforce.keys.EventKeys.*;
 
@@ -50,21 +52,36 @@ public abstract class EventPageAbstract extends BasePage {
         wait.until(ExpectedConditions.visibilityOf(getDetailEvent()));
     }
 
+    Map<String, String> eventDetailInMap = new HashMap<>();
+
     /**
-     * Returns the event detail in a map.
+     * Gets all values from event detail.
      *
-     * @return as a map the event detail.
+     * @param keyEvent is the keys of Event into a set.
      */
-    public Map<String, String> getEventDetailInMap() {
-        Map<String, String> eventDetail = new HashMap<>();
-        eventDetail.put(ASSIGNED_TO, getAssignedToUser());
-        eventDetail.put(SUBJECT, getSubject());
-        eventDetail.put(NAME, getNameContact());
-        eventDetail.put(RELATED_TO, getRelatedToAccount());
-        eventDetail.put(LOCATION, getLocation());
-//        eventDetail.put(START_DATE, getStartDate());
-//        eventDetail.put(END_DATE, getEndDate());
-        eventDetail.put(DESCRIPTION, getDescription());
+    public Map<String, String> getEventDetail(final Set<String> keyEvent) {
+        final HashMap<String, StrategySetter> strategyMap = composeStrategyMap();
+        keyEvent.forEach(key -> strategyMap.get(key).executeMethod()
+
+        );
+        return eventDetailInMap;
+    }
+
+    /**
+     * Composes an Strategy Map.
+     *
+     * @return an instance HashMap with keys and methods to run.
+     */
+    public HashMap<String, StrategySetter> composeStrategyMap() {
+        final HashMap<String, StrategySetter> eventDetail = new HashMap<>();
+        eventDetail.put(ASSIGNED_TO, () -> eventDetailInMap.put(ASSIGNED_TO, getAssignedToUser()));
+        eventDetail.put(SUBJECT, () -> eventDetailInMap.put(SUBJECT, getSubject()));
+        eventDetail.put(NAME, () -> eventDetailInMap.put(NAME, getNameContact()));
+        eventDetail.put(RELATED_TO, () -> eventDetailInMap.put(RELATED_TO, getRelatedToAccount()));
+        eventDetail.put(LOCATION, () -> eventDetailInMap.put(LOCATION, getLocation()));
+        eventDetail.put(START_DATE, () -> eventDetailInMap.put(START_DATE, getStartDate()));
+        eventDetail.put(END_DATE, () -> eventDetailInMap.put(END_DATE, getEndDate()));
+        eventDetail.put(DESCRIPTION, () -> eventDetailInMap.put(DESCRIPTION, getDescription()));
 
         return eventDetail;
     }
