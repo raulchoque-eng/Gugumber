@@ -23,38 +23,38 @@ public class EventKeys {
     /**
      * Constant for key of assigned to a new Event.
      */
-    public final static String ASSIGNED_TO = "Assigned To";
+    public static final String ASSIGNED_TO = "Assigned To";
 
     /**
      * Constant for key of assigned to a new Event.
      */
-    public final static String SUBJECT = "Subject";
+    public static final String SUBJECT = "Subject";
 
     /**
      * Constant for key of assigned to a new Event.
      */
-    public final static String NAME = "Name";
+    public static final String NAME = "Name";
     /**
      * Constant for key of assigned to a new Event.
      */
-    public final static String RELATED_TO = "Related To";
+    public static final String RELATED_TO = "Related To";
 
     /**
      * Constant for key of assigned to a new Event.
      */
-    public final static String LOCATION = "Location";
+    public static final String LOCATION = "Location";
     /**
      * Constant for key of assigned to a new Event.
      */
-    public final static String START_DATE = "Start Date";
+    public static final String START_DATE = "Start Date";
     /**
      * Constant for key of assigned to a new Event.
      */
-    public final static String END_DATE = "End Date";
+    public static final String END_DATE = "End Date";
     /**
      * Constant for key of assigned to a new Event.
      */
-    public final static String DESCRIPTION = "Description";
+    public static final String DESCRIPTION = "Description";
 
     /**
      * Constructor of class.
