@@ -57,7 +57,7 @@ Feature: Contact manage
     When I go to the Contact Details
     Then the contact last name should be displayed in the Contact Details page
     When I go to the Contacts page
-    Then the contact last name should be displayed in the Contact Details page
+    Then the contact last name should be displayed in the contacts list of Contacts page
 
   Scenario: Delete a new contact for an user with only required data
     Given I go to the Contacts page
