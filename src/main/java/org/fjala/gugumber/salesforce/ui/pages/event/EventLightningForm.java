@@ -29,6 +29,16 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class EventLightningForm extends EventFormAbstract {
 
     /**
+     * Returns a WebElement by create new Event.
+     *
+     * @return a saveEventBtn web element
+     */
+    @Override
+    public WebElement getSaveEventBtn() {
+        return saveEventBtn;
+    }
+
+    /**
      * Web element by validate the Event form is open.
      */
     @FindBy(css = "div.modal-header h2.title")
@@ -224,13 +234,13 @@ public class EventLightningForm extends EventFormAbstract {
         ((JavascriptExecutor) driver).executeScript("arguments[0].value = arguments[1]", element, text);
     }
 
-    /**
-     * Returns a WebElement by create new Event.
-     *
-     * @return a saveEventBtn web element
-     */
-    @Override
-    public WebElement getSaveEventBtn() {
-        return saveEventBtn;
-    }
+//    /**
+//     * Returns a WebElement by create new Event.
+//     *
+//     * @return a saveEventBtn web element
+//     */
+//    @Override
+//    public WebElement getSaveEventBtn() {
+//        return saveEventBtn;
+//    }
 }

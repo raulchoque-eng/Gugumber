@@ -30,6 +30,16 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class EventClassicForm extends EventFormAbstract {
 
     /**
+     * Returns a WebElement by create new Event.
+     *
+     * @return a saveEventBtn web element
+     */
+    @Override
+    public WebElement getSaveEventBtn() {
+        return saveEventBtn;
+    }
+
+    /**
      * Web element by validate the Event form is open.
      */
     @FindBy(id = "ep")
@@ -226,13 +236,13 @@ public class EventClassicForm extends EventFormAbstract {
         DriverMethods.setTxt(descriptionTxtar, description);
     }
 
-    /**
-     * Returns a WebElement by create new Event.
-     *
-     * @return a saveEventBtn web element
-     */
-    @Override
-    public WebElement getSaveEventBtn() {
-        return saveEventBtn;
-    }
+//    /**
+//     * Returns a WebElement by create new Event.
+//     *
+//     * @return a saveEventBtn web element
+//     */
+//    @Override
+//    public WebElement getSaveEventBtn() {
+//        return saveEventBtn;
+//    }
 }
