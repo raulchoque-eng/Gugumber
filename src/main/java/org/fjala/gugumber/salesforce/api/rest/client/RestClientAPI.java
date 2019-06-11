@@ -10,7 +10,7 @@
  * with Jala Foundation.
  */
 
-package org.fjala.gugumber.salesforce.api;
+package org.fjala.gugumber.salesforce.api.rest.client;
 
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
