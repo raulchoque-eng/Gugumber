@@ -13,7 +13,7 @@
 package org.fjala.gugumber.salesforce.ui.pages.account;
 
 import org.fjala.gugumber.core.selenium.utils.DriverMethods;
-import org.fjala.gugumber.core.selenium.utils.Logs;
+import org.fjala.gugumber.core.log.Logs;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
