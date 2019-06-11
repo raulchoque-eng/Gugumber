@@ -17,6 +17,7 @@ import static org.fjala.gugumber.salesforce.api.Endpoints.EVENT_ENDPOINT;
 import java.util.Map;
 
 import io.restassured.response.Response;
+import org.fjala.gugumber.salesforce.api.rest.client.RestClientAPI;
 
 /**
  * EventAPI class.

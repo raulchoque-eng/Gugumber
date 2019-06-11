@@ -15,6 +15,7 @@ package org.fjala.gugumber.salesforce.api;
 import static org.fjala.gugumber.salesforce.api.Endpoints.CONTACT_ENDPOINT;
 
 import io.restassured.response.Response;
+import org.fjala.gugumber.salesforce.api.rest.client.RestClientAPI;
 
 import java.util.Map;
 
