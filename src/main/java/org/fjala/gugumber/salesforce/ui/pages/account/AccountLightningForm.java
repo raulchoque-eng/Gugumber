@@ -537,8 +537,8 @@ public class AccountLightningForm extends AccountFormAbstract {
     @Override
     public void setSLAExpirationDateOnTxtb(final String sLAExpirationDate) {
         if (sLAExpirationDate.equals("Today")) {
-            Date date = new Date();
-            DriverMethods.setTxt(sLAExpirationDateTxtb, DriverMethods.convertDateToString(date, "dd/MM/yyyy"));
+            final Date date = new Date();
+            DriverMethods.setTxt(sLAExpirationDateTxtb, DriverMethods.convertDateToString(date, "dd-MM-yyyy"));
             sLAExpirationDateTxtb.sendKeys(Keys.TAB);
         } else {
             Logs.getInstance().getLog().info("The date is different to Today");
@@ -624,7 +624,7 @@ public class AccountLightningForm extends AccountFormAbstract {
     /**
      * Replaces the a value in the locator xpath to select an option in combo-box.
      *
-     * @param locator to replace value.
+     * @param locator        to replace value.
      * @param valueToReplace to replace in locator.
      * @return a xpath as string with el value replaced for the combo-box.
      */

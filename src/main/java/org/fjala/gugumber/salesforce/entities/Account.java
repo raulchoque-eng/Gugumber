@@ -12,12 +12,12 @@
 
 package org.fjala.gugumber.salesforce.entities;
 
-import static org.fjala.gugumber.salesforce.keys.AccountKeys.*;
+import org.fjala.gugumber.core.StrategySetter;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import org.fjala.gugumber.core.StrategySetter;
+import static org.fjala.gugumber.salesforce.keys.AccountKeys.*;
 
 /**
  * Account class.

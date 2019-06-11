@@ -31,6 +31,11 @@ public class Endpoints {
     public final static String CONTACT_ENDPOINT = "/Contact";
 
     /**
+     * Endpoint of event.
+     */
+    public final static String EVENT_ENDPOINT = "/Event";
+
+    /**
      * Constructor protected.
      */
     protected Endpoints() {}
