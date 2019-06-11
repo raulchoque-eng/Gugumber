@@ -10,7 +10,7 @@ Feature: Event manage
   Scenario: Create a new Event with required information
     When I open the New Event form
       And I add a new Event with the following information
-        | Assigned To | Automation Testing  |
+        | Assigned To | Automation Testing |
         | Subject     | Call               |
         | Start Date  | One hour from now  |
         | End Date    | Two hours from now |
