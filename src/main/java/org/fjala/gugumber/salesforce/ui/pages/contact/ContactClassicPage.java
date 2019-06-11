@@ -173,7 +173,6 @@ public class ContactClassicPage extends ContactPageAbstract {
      */
     @Override
     public List<String> getListOfContactsName() {
-        wait.until(ExpectedConditions.stalenessOf(contactNameList.get(0)));
         final List<String> contactsName = new ArrayList<>();
         for (WebElement contName : contactNameList) {
             contactsName.add(contName.getText());
