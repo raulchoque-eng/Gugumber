@@ -146,8 +146,6 @@ public class EventSteps {
      */
     @When("^I open the Event that with subject with name Launch$")
     public void openEvent() {
-        System.out.println("Hello WORLD!!!!");
-        eventPage = homePage.getCalendarSection().getEventDetails();
         eventPage = homePage.getCalendarSection().openEvent();
     }
 }
