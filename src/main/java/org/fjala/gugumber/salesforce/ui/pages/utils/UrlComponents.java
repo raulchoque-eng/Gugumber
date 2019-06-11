@@ -12,7 +12,7 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.utils;
 
-import org.fjala.gugumber.core.selenium.utils.Logs;
+import org.fjala.gugumber.core.log.Logs;
 import org.fjala.gugumber.salesforce.ui.PageLayoutConfig;
 import org.fjala.gugumber.salesforce.ui.PageLayoutType;
 

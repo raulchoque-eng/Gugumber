@@ -15,7 +15,7 @@ package org.fjala.gugumber.steps;
 import cucumber.api.java.en.When;
 import org.fjala.gugumber.salesforce.ui.PageLayoutFactory;
 import org.fjala.gugumber.salesforce.ui.pages.account.AccountsPageAbstract;
-import org.fjala.gugumber.salesforce.ui.pages.app.BaseAppPage;
+import org.fjala.gugumber.salesforce.ui.pages.app.BaseAppPageAbstract;
 import org.fjala.gugumber.salesforce.ui.pages.contact.ContactPageAbstract;
 
 /**
@@ -39,7 +39,7 @@ public class BaseAppSteps {
     /**
      * Variable for the base app page.
      */
-    private BaseAppPage baseAppPage;
+    private BaseAppPageAbstract baseAppPage;
 
     /**
      * Opens the contacts page.

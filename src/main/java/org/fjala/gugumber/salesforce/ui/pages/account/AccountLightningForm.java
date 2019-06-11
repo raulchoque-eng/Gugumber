@@ -13,7 +13,7 @@
 package org.fjala.gugumber.salesforce.ui.pages.account;
 
 import org.fjala.gugumber.core.selenium.utils.DriverMethods;
-import org.fjala.gugumber.core.selenium.utils.Logs;
+import org.fjala.gugumber.core.log.Logs;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -537,8 +537,8 @@ public class AccountLightningForm extends AccountFormAbstract {
     @Override
     public void setSLAExpirationDateOnTxtb(final String sLAExpirationDate) {
         if (sLAExpirationDate.equals("Today")) {
-            Date date = new Date();
-            DriverMethods.setTxt(sLAExpirationDateTxtb, DriverMethods.convertDateToString(date, "dd/MM/yyyy"));
+            final Date date = new Date();
+            DriverMethods.setTxt(sLAExpirationDateTxtb, DriverMethods.convertDateToString(date, "dd-MM-yyyy"));
             sLAExpirationDateTxtb.sendKeys(Keys.TAB);
         } else {
             Logs.getInstance().getLog().info("The date is different to Today");

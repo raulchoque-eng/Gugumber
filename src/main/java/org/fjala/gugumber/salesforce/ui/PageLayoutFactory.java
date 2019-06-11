@@ -20,11 +20,10 @@ import org.fjala.gugumber.salesforce.ui.pages.account.AccountsLightningPage;
 import org.fjala.gugumber.salesforce.ui.pages.account.AccountsPageAbstract;
 import org.fjala.gugumber.salesforce.ui.pages.app.BaseAppClassicPage;
 import org.fjala.gugumber.salesforce.ui.pages.app.BaseAppLightningPage;
-import org.fjala.gugumber.salesforce.ui.pages.app.BaseAppPage;
+import org.fjala.gugumber.salesforce.ui.pages.app.BaseAppPageAbstract;
 import org.fjala.gugumber.salesforce.ui.pages.contact.ContactClassicPage;
 import org.fjala.gugumber.salesforce.ui.pages.contact.ContactLightningPage;
 import org.fjala.gugumber.salesforce.ui.pages.contact.ContactPageAbstract;
-import org.fjala.gugumber.salesforce.ui.pages.event.CalendarLightningPage;
 
 /**
  * PageLayoutFactory class.
@@ -74,8 +73,8 @@ public class PageLayoutFactory {
      *
      * @return a base app page.
      */
-    public static BaseAppPage getBaseAppPage() {
-        final BaseAppPage baseAppPage;
+    public static BaseAppPageAbstract getBaseAppPage() {
+        final BaseAppPageAbstract baseAppPage;
         switch (PAGE_LAYOUT_TYPE) {
             case CLASSIC:
                 baseAppPage = new BaseAppClassicPage();

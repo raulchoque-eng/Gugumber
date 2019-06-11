@@ -21,7 +21,7 @@ import java.util.Set;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.fjala.gugumber.core.selenium.utils.Logs;
+import org.fjala.gugumber.core.log.Logs;
 import org.fjala.gugumber.salesforce.entities.Context;
 import org.fjala.gugumber.salesforce.entities.Event;
 import org.fjala.gugumber.salesforce.ui.PageLayoutConfig;

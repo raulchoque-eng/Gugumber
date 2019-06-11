@@ -16,15 +16,11 @@ import static org.fjala.gugumber.salesforce.ui.PageLayoutType.LIGHTNING;
 import static org.testng.Assert.*;
 
 import java.util.Map;
-import java.util.Set;
 
-import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.path.json.JsonPath;
-import org.fjala.gugumber.core.selenium.utils.Logs;
-import org.fjala.gugumber.salesforce.api.ContactAPI;
+import org.fjala.gugumber.core.log.Logs;
 import org.fjala.gugumber.salesforce.entities.Contact;
 import org.fjala.gugumber.salesforce.entities.Context;
 import org.fjala.gugumber.salesforce.ui.PageLayoutConfig;
