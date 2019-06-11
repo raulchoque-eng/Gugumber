@@ -16,12 +16,12 @@ import org.fjala.gugumber.salesforce.ui.pages.BasePage;
 import org.fjala.gugumber.salesforce.ui.pages.components.NavBar;
 
 /**
- * BaseAppPage class.
+ * BaseAppPageAbstract class.
  *
  * @author Cristian Lujan.
  * @version 0.0.1
  */
-public abstract class BaseAppPage extends BasePage {
+public abstract class BaseAppPageAbstract extends BasePage {
 
     /**
      * Gets NavBar.

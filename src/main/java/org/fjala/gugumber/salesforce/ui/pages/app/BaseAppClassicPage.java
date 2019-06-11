@@ -24,7 +24,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
  * @author Cristian Lujan
  * @version 0.0.1
  */
-public class BaseAppClassicPage extends BaseAppPage {
+public class BaseAppClassicPage extends BaseAppPageAbstract {
 
     /**
      * Locator for switchPage link.
