@@ -64,9 +64,9 @@ public class EventHooks {
     public void beforeScenario() {
         Map<String, String> createNewEvent = new HashMap<>();
         createNewEvent.put("Subject", "Dinner");
-        createNewEvent.put("StartDateTime", "2019-06-11T01:00:00.000+0000");
-        createNewEvent.put("EndDateTime", "2019-06-11T02:00:00.000+0000");
-        createNewEvent.put("OwnerId", "0054P000008Red0QAC");
+        createNewEvent.put("StartDateTime", "2019-06-11T05:00:00.000+0000");
+        createNewEvent.put("EndDateTime", "2019-06-11T06:00:00.000+0000");
+        createNewEvent.put("OwnerId", "0054P000006uWBxQAM");
         event.setId(EventAPI.getInstance().createEvent(createNewEvent));
     }
 }
