@@ -12,15 +12,22 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.event;
 
-import org.fjala.gugumber.core.StrategySetter;
-import org.fjala.gugumber.salesforce.entities.Event;
-import org.fjala.gugumber.salesforce.ui.pages.BasePage;
-import org.openqa.selenium.WebElement;
+import static org.fjala.gugumber.salesforce.keys.EventKeys.ASSIGNED_TO;
+import static org.fjala.gugumber.salesforce.keys.EventKeys.DESCRIPTION;
+import static org.fjala.gugumber.salesforce.keys.EventKeys.END_DATE;
+import static org.fjala.gugumber.salesforce.keys.EventKeys.LOCATION;
+import static org.fjala.gugumber.salesforce.keys.EventKeys.NAME;
+import static org.fjala.gugumber.salesforce.keys.EventKeys.RELATED_TO;
+import static org.fjala.gugumber.salesforce.keys.EventKeys.START_DATE;
+import static org.fjala.gugumber.salesforce.keys.EventKeys.SUBJECT;
 
 import java.util.HashMap;
 import java.util.Set;
 
-import static org.fjala.gugumber.salesforce.keys.EventKeys.*;
+import org.fjala.gugumber.core.StrategySetter;
+import org.fjala.gugumber.salesforce.entities.Event;
+import org.fjala.gugumber.salesforce.ui.pages.BasePage;
+import org.openqa.selenium.WebElement;
 
 /**
  * EventFormAbstract class

@@ -12,13 +12,44 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.contact;
 
-import org.fjala.gugumber.core.StrategySetter;
-import org.fjala.gugumber.salesforce.ui.pages.BasePage;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.ACCOUNT;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.ASSISTANT;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.ASST_PHONE;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.BIRTHDATE;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.DEPARTMENT;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.DESCRIPTION;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.EMAIL;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.FAX;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.FIRST_NAME;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.HOME_PHONE;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.LANGUAGES;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.LAST_NAME;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.LEAD_SOURCE;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.LEVEL;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.MAILING_CITY;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.MAILING_COUNTRY;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.MAILING_POSTAL_CODE;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.MAILING_STATE;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.MAILING_STREET;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.MOBILE;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.OTHER_CITY;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.OTHER_COUNTRY;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.OTHER_PHONE;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.OTHER_POSTAL_CODE;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.OTHER_STATE;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.OTHER_STREET;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.PHONE;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.REPORTS_TO;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.SALUTATION;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.TITLE;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.*;
+import org.fjala.gugumber.core.StrategySetter;
+import org.fjala.gugumber.salesforce.ui.pages.BasePage;
 
 /**
  * ContactFormAbstract class
@@ -57,7 +88,7 @@ public abstract class ContactFormAbstract extends BasePage {
         strategyMap.put(HOME_PHONE, () -> setHomePhone(Integer.parseInt(contact.get(HOME_PHONE))));
         strategyMap.put(TITLE, () -> setTitle(contact.get(TITLE)));
         strategyMap.put(DEPARTMENT, () -> setDepartment(contact.get(DEPARTMENT)));
-        strategyMap.put(BIRTHDATE, () -> setBirthdate(contact.get(BIRTHDATE)));
+        strategyMap.put(BIRTHDATE,() -> setBirthdate(new Date(contact.get(BIRTHDATE))));
         strategyMap.put(REPORTS_TO, () -> setReportsTo(contact.get(REPORTS_TO)));
         strategyMap.put(LEAD_SOURCE, () -> setLeadSource(contact.get(LEAD_SOURCE)));
         strategyMap.put(MOBILE, () -> setMobile(Integer.parseInt(contact.get(MOBILE))));
@@ -80,6 +111,7 @@ public abstract class ContactFormAbstract extends BasePage {
         strategyMap.put(DESCRIPTION, () -> setDescription(contact.get(DESCRIPTION)));
         return strategyMap;
     }
+
 
     /**
      * Sets the salutation sending a string.
@@ -149,7 +181,7 @@ public abstract class ContactFormAbstract extends BasePage {
      *
      * @param birthdate for the contact.
      */
-    protected abstract void setBirthdate(String birthdate);
+    protected abstract void setBirthdate(Date birthdate);
 
     /**
      * Sets the reports to sending a string.

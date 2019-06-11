@@ -37,6 +37,12 @@ public class AccountProfileClassicPage extends AccountProfilePageAbstract {
     private WebElement accountTitle;
 
     /**
+     * Web element for the delete button of top.
+     */
+    @FindBy(css = "td[id='topButtonRow'] input[title='Delete']")
+    private WebElement deleteTopBtn;
+
+    /**
      * Waits until page object is loaded.
      */
     @Override
@@ -62,5 +68,17 @@ public class AccountProfileClassicPage extends AccountProfilePageAbstract {
     @Override
     public AccountDetailsAbstract getAccountDetails() {
         return new AccountDetailsClassic();
+    }
+
+    /**
+     * Returns the accounts classic page after deleting an account.
+     *
+     * @return Accounts classic page.
+     */
+    @Override
+    public AccountsPageAbstract clickOnDeleteBtn() {
+        deleteTopBtn.click();
+        driver.switchTo().alert().accept();
+        return new AccountsClassicPage();
     }
 }

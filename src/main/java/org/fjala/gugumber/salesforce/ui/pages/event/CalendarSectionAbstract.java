@@ -35,4 +35,11 @@ public abstract class CalendarSectionAbstract extends BasePage {
      * @return an instance event page.
      */
     public abstract EventPageAbstract getEventDetails();
+
+    /**
+     * Returns the even page details.
+     *
+     * @return an instance event page.
+     */
+    public abstract EventPageAbstract openEvent();
 }

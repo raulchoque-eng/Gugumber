@@ -45,4 +45,11 @@ public abstract class AccountProfilePageAbstract extends BasePage {
     public String getIdFromUrl() {
         return UrlComponents.splitUrlToId(driver.getCurrentUrl());
     }
+
+    /**
+     * Returns the accounts page after deleting an account.
+     *
+     * @return Accounts page.
+     */
+    public abstract AccountsPageAbstract clickOnDeleteBtn();
 }

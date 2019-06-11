@@ -12,6 +12,13 @@
 
 package org.fjala.gugumber.steps;
 
+import static org.fjala.gugumber.salesforce.ui.PageLayoutType.CLASSIC;
+import static org.fjala.gugumber.salesforce.ui.PageLayoutType.LIGHTNING;
+import static org.testng.Assert.assertEquals;
+
+import java.util.Map;
+import java.util.Set;
+
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.fjala.gugumber.core.selenium.utils.Logs;
@@ -26,13 +33,6 @@ import org.fjala.gugumber.salesforce.ui.pages.Home.HomePage;
 import org.fjala.gugumber.salesforce.ui.pages.event.CalendarLightningPage;
 import org.fjala.gugumber.salesforce.ui.pages.event.EventFormAbstract;
 import org.fjala.gugumber.salesforce.ui.pages.event.EventPageAbstract;
-
-import java.util.Map;
-import java.util.Set;
-
-import static org.fjala.gugumber.salesforce.ui.PageLayoutType.CLASSIC;
-import static org.fjala.gugumber.salesforce.ui.PageLayoutType.LIGHTNING;
-import static org.testng.Assert.assertEquals;
 
 /**
  * EventSteps class
@@ -114,7 +114,7 @@ public class EventSteps {
         if (layout == LIGHTNING) {
             Logs.getInstance().getLog().info("In lightning Layout we go Home page for find Calendar section");
             calendarPage = new CalendarLightningPage();
-            calendarPage.verifyMessajeSuccessfulIsClose();
+            calendarPage.verifyMessageSuccessfulIsClose();
             homePage = PageTransporter.getInstance().navigateToHomePage();
         }
         final String nameSubject = homePage.getCalendarSection().getSubjectNewEvent();
@@ -127,6 +127,7 @@ public class EventSteps {
     @When("^I open the Event Details page from Calendar Section$")
     public void openEventDetailFromCalendarSection() {
         eventPage = homePage.getCalendarSection().getEventDetails();
+        event.setId(eventPage.getIdEventFromUrl());
     }
 
     /**
@@ -138,5 +139,15 @@ public class EventSteps {
         Map<String, String> evenDetailMap = eventPage.getEventDetail(eventKeys);
         Map<String, String> evenMap = event.getEventInMap();
         eventKeys.forEach(key -> assertEquals(evenMap.get(key), evenDetailMap.get(key)));
+    }
+
+    /**
+     * Opens an Event page.
+     */
+    @When("^I open the Event that with subject with name Launch$")
+    public void openEvent() {
+        System.out.println("Hello WORLD!!!!");
+        eventPage = homePage.getCalendarSection().getEventDetails();
+        eventPage = homePage.getCalendarSection().openEvent();
     }
 }

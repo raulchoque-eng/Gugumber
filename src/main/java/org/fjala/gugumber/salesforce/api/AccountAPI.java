@@ -63,11 +63,26 @@ public class AccountAPI {
     }
 
     /**
-     * Create an account.
+     * Creates an account.
+     *
+     * @param newAccount to sent the body of the request.
+     * @return the id of account created.
      */
     public String createAccount(final Map<String, String> newAccount) {
         finalEndpoint = ACCOUNT_ENDPOINT;
         final Response response = restClient.post(finalEndpoint, newAccount);
         return response.body().jsonPath().getString("id");
+    }
+
+    /**
+     * return the response after requesting an account by Id.
+     *
+     * @param id to request.
+     * @return the response.
+     */
+    public Response getAccountById(final String id) {
+        finalEndpoint = ACCOUNT_ENDPOINT.concat("/".concat(id));
+        final Response response = restClient.get(finalEndpoint);
+        return response;
     }
 }

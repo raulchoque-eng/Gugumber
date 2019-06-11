@@ -43,6 +43,18 @@ public class ContactClassicProfilePage extends ContactProfilePageAbstract {
     private WebElement contactDetailsTab;
 
     /**
+     * Web Element delete button contact.
+     */
+    @FindBy(css = "[id='topButtonRow'] [name='del']" )
+    private WebElement deleteBtn;
+
+    /**
+     * Web Element edit button contact.
+     */
+    @FindBy(css = "[id='topButtonRow'] [name='edit']" )
+    private WebElement editBtn;
+
+    /**
      * Waits until page object is loaded.
      */
     @Override
@@ -58,6 +70,24 @@ public class ContactClassicProfilePage extends ContactProfilePageAbstract {
     @Override
     public String getFullNameTitleContact() {
         return contactTitle.getText();
+    }
+
+    /**
+     * Deletes contact.
+     */
+    @Override
+    public void deleteContactProfilePage() {
+        deleteBtn.click();
+        driver.switchTo().alert().accept();
+    }
+
+    /**
+     * Updates contact.
+     */
+    @Override
+    public ContactFormAbstract updateContactProfilePage() {
+        editBtn.click();
+        return new ContactClassicForm();
     }
 
     /**

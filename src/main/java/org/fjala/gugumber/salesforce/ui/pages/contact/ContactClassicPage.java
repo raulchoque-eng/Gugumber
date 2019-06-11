@@ -86,7 +86,7 @@ public class ContactClassicPage extends ContactPageAbstract {
     /**
      * Locator for open a contact profile.
      */
-    final String lastNameList = "//a[text()='titleOfList']";
+    final String FULL_NAME_LIST = "//a[text()='titleOfList']";
 
     /**
      * Waits until page object is loaded.
@@ -173,6 +173,7 @@ public class ContactClassicPage extends ContactPageAbstract {
      */
     @Override
     public List<String> getListOfContactsName() {
+        wait.until(ExpectedConditions.stalenessOf(contactNameList.get(0)));
         final List<String> contactsName = new ArrayList<>();
         for (WebElement contName : contactNameList) {
             contactsName.add(contName.getText());
@@ -181,11 +182,23 @@ public class ContactClassicPage extends ContactPageAbstract {
     }
 
     /**
-     * Contact open contact profile page.
+     * Checks name in contact List.
+     *
+     * @param name string.
+     * @return boolean.
+     */
+    @Override
+    public boolean isDisplayedNewContact(String name) {
+        return driver.findElement(By.xpath(FULL_NAME_LIST.replace("titleOfList", name))).isDisplayed();
+    }
+
+    /**
+     * Clicks at the last name for open contact profile page.
      *
      * @param text of the type String.
      */
-    public void openContactProfile(final String text) {
-        driver.findElement(By.xpath(lastNameList.replace("titleOfList", text))).click();
+    public ContactProfilePageAbstract openContactProfile(final String text) {
+        driver.findElement(By.xpath(FULL_NAME_LIST.replace("titleOfList", text))).click();
+        return new ContactClassicProfilePage();
     }
 }

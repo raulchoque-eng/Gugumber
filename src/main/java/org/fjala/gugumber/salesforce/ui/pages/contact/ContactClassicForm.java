@@ -12,16 +12,17 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.contact;
 
+import java.util.Date;
+import java.util.LinkedList;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
 import org.fjala.gugumber.core.selenium.utils.DriverMethods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
-import java.util.LinkedList;
-import java.util.Set;
-import java.util.concurrent.TimeUnit;
 
 /**
  * ContactClassicForm class
@@ -196,13 +197,13 @@ public class ContactClassicForm extends ContactFormAbstract {
     /**
      * Locator for text box of languages.
      */
-    @FindBy(id = "00N4P000007vcCK")
+    @FindBy(css = "[class='dataCol last col02'] [id^='00N4P000007']")
     private WebElement languagesTxtb;
 
     /**
      * Locator for text box of level.
      */
-    @FindBy(id = "00N4P000007vcCL")
+    @FindBy(css = "[class='last dataCol'] [id^='00N4P000007']")
     private WebElement levelCmbb;
 
     /**
@@ -255,7 +256,12 @@ public class ContactClassicForm extends ContactFormAbstract {
     /**
      * Variable for locator of level comboBox.
      */
-    final String LEVEL_CMBB = "[id='00N4P000007vcCL'] [value='nameTitle']";
+    final String LEVEL_CMBB = "[id='00N4P000007C3DL'] [value='nameTitle']";
+
+    /**
+     * Variable for type date.
+     */
+    final String PATTERN = "dd-MM-yyyy";
 
     /**
      * Sets the salutation name.
@@ -351,8 +357,8 @@ public class ContactClassicForm extends ContactFormAbstract {
      * @param birthdate of type String.
      */
     @Override
-    protected void setBirthdate(final String birthdate) {
-        DriverMethods.setTxt(birthdateTxtb, birthdate);
+    protected void setBirthdate(final Date birthdate) {
+        DriverMethods.setTxt(birthdateTxtb, DriverMethods.convertDateToString(birthdate, PATTERN));
         birthdateTxtb.sendKeys(Keys.TAB);
     }
 
@@ -596,7 +602,7 @@ public class ContactClassicForm extends ContactFormAbstract {
     /**
      * Replaces the a value in the locator xpath to select an option in comboBox.
      *
-     * @param locator        to replace value.
+     * @param locator to replace value.
      * @param valueToReplace to replace in locator.
      * @return a xpath as string with el value replaced for the comboBox.
      */

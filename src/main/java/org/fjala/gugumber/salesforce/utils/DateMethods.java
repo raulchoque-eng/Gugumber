@@ -12,9 +12,9 @@
 
 package org.fjala.gugumber.salesforce.utils;
 
-import org.fjala.gugumber.core.selenium.utils.DriverMethods;
-
 import java.util.Date;
+
+import org.fjala.gugumber.core.selenium.utils.DriverMethods;
 
 /**
  * DateMethods class.
@@ -97,7 +97,7 @@ public class DateMethods {
     /**
      * Returns the date or time as a string of a date..
      *
-     * @param date           is the date as a string.
+     * @param date is the date as a string.
      * @param nameDateOrTime is the value that get the date.
      * @return as a strin the date or time.
      */

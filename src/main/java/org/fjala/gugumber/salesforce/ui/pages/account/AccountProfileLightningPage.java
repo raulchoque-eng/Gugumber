@@ -43,6 +43,24 @@ public class AccountProfileLightningPage extends AccountProfilePageAbstract {
     private WebElement detaildTab;
 
     /**
+     * Web element for more options button.
+     */
+    @FindBy(css = "a[title='Show 7 more actions']")
+    private WebElement moreoptions;
+
+    /**
+     * Web element for delete options.
+     */
+    @FindBy(css = "a[title='Delete']")
+    private WebElement optionDelete;
+
+    /**
+     * Web element for delete button of modal.
+     */
+    @FindBy(css = "button[title='Delete']")
+    private WebElement deleteModalbtn;
+
+    /**
      * Waits until page object is loaded.
      */
     @Override
@@ -69,5 +87,18 @@ public class AccountProfileLightningPage extends AccountProfilePageAbstract {
     public AccountDetailsAbstract getAccountDetails() {
         detaildTab.click();
         return new AccountDetailsLightning();
+    }
+
+    /**
+     * Returns the accounts lightning page after deleting an account.
+     *
+     * @return Accounts lightning page.
+     */
+    @Override
+    public AccountsPageAbstract clickOnDeleteBtn() {
+        moreoptions.click();
+        optionDelete.click();
+        deleteModalbtn.click();
+        return new AccountsLightningPage();
     }
 }

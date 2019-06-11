@@ -13,9 +13,13 @@
 package org.fjala.gugumber.hooks;
 
 import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import org.fjala.gugumber.salesforce.api.EventAPI;
 import org.fjala.gugumber.salesforce.entities.Context;
 import org.fjala.gugumber.salesforce.entities.Event;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * EventHooks class.
@@ -51,5 +55,18 @@ public class EventHooks {
     @After("@delete-event")
     public void afterScenario() {
         EventAPI.getInstance().deleteEvent(event.getId());
+    }
+
+    /**
+     * Creates an event by id before scenario.
+     */
+    @Before("@create-event")
+    public void beforeScenario() {
+        Map<String, String> createNewEvent = new HashMap<>();
+        createNewEvent.put("Subject", "Dinner");
+        createNewEvent.put("StartDateTime", "2019-06-11T01:00:00.000+0000");
+        createNewEvent.put("EndDateTime", "2019-06-11T02:00:00.000+0000");
+        createNewEvent.put("OwnerId", "0054P000008Red0QAC");
+        event.setId(EventAPI.getInstance().createEvent(createNewEvent));
     }
 }

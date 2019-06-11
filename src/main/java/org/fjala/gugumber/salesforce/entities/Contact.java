@@ -12,16 +12,17 @@
 
 package org.fjala.gugumber.salesforce.entities;
 
-import io.restassured.path.json.JsonPath;
+import static org.fjala.gugumber.salesforce.keys.ContactKeys.*;
+import static org.fjala.gugumber.salesforce.ui.PageLayoutType.CLASSIC;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
 import org.fjala.gugumber.core.StrategySetter;
 import org.fjala.gugumber.salesforce.ui.PageLayoutConfig;
 import org.fjala.gugumber.salesforce.ui.PageLayoutType;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import static org.fjala.gugumber.salesforce.keys.ContactKeys.*;
-import static org.fjala.gugumber.salesforce.ui.PageLayoutType.CLASSIC;
 
 /**
  * Contact class.
@@ -195,6 +196,11 @@ public class Contact {
      * Variable for concat the full name.
      */
     private String fullName = null;
+
+    /**
+     * Variable to create the keys of the contact attributes.
+     */
+    private Set<String> contactKeys = new HashSet<String>();
 
     /**
      * Gets the id of the Contact.
@@ -755,25 +761,33 @@ public class Contact {
     }
 
     /**
-     * Sets the json values into Contact.
+     * Returns the contact keys of the an Contact
      *
-     * @param json JsonPath.
-     * @param key  string.
+     * @return as a set of string the contact.
      */
-    public void setJsonContactValues(final String key, final JsonPath json) {
-        if (key.equals("Id")) {
-            setId(json.getString(key));
-        }
-        if (key.equals("Salutation")) {
-            setSalutation(json.getString(key));
-        }
-        if (key.equals("First Name")) {
-            setFirstName(json.getString(key));
-        }
-        if (key.equals("Last Name")) {
-            setLastName(json.getString(key));
-        }
+    public Set<String> getContactKeys() {
+        return contactKeys;
+    }
 
+    /**
+     * Gets the contact in a map.
+     *
+     * @return as a map the contact.
+     */
+    public Map<String, String> getContactInMap() {
+        final Map<String, String> contact = new HashMap<>();
+        contact.put(SALUTATION, getSalutation());
+        contact.put(FIRST_NAME, getFirstName());
+        contact.put(LAST_NAME, getLastName());
+        contact.put(ACCOUNT, getAccount());
+        contact.put(PHONE, String.valueOf(getPhone()));
+        contact.put(EMAIL, getEmail());
+        contact.put(HOME_PHONE, String.valueOf(getHomePhone()));
+        contact.put(TITLE, getTitle());
+        contact.put(DEPARTMENT, getDepartment());
+        contact.put(MOBILE, String.valueOf(getMobile()));
+        contact.put(DESCRIPTION, getDescription());
+        return contact;
     }
 
     /**
@@ -799,9 +813,9 @@ public class Contact {
      */
     public String getFullNameContactList() {
         if (layout.equals(CLASSIC)) {
-            System.out.println("classic :  " + getFullContactClassic());
+            getFullContactClassic();
         } else {
-            System.out.println("light :  " + getFullContactLightning());
+            getFullContactLightning();
         }
         return fullName.trim();
     }

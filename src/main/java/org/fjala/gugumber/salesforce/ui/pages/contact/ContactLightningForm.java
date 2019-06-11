@@ -12,6 +12,8 @@
 
 package org.fjala.gugumber.salesforce.ui.pages.contact;
 
+import java.util.Date;
+
 import org.fjala.gugumber.core.selenium.utils.DriverMethods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -96,7 +98,7 @@ public class ContactLightningForm extends ContactFormAbstract {
     /**
      * Locator for text box of lead Source.
      */
-    @FindBy(css = "div[id^='533']")
+    @FindBy(css = "div[id^='533'] [class='select']")
     private WebElement leadSourceCmbb;
 
     /**
@@ -204,7 +206,7 @@ public class ContactLightningForm extends ContactFormAbstract {
     /**
      * Locator for text box of level.
      */
-    @FindBy(css = "div[id^='777'][class='uiPopupTrigger']")
+    @FindBy(css = "div[id^='777'] [class='select']")
     private WebElement levelCmbb;
 
     /**
@@ -212,6 +214,12 @@ public class ContactLightningForm extends ContactFormAbstract {
      */
     @FindBy(css = "textarea[id^='831'][class=' textarea']")
     private WebElement descriptionTxtb;
+
+    /**
+     * Locator for text box of description.
+     */
+    @FindBy(css = "[class='today slds-show--inline-block slds-text-link slds-p-bottom--x-small']")
+    private WebElement todayCalendarBtn;
 
     /**
      * Locator for button of save button.
@@ -233,6 +241,11 @@ public class ContactLightningForm extends ContactFormAbstract {
      * Variable for locator of lead source and level comboBox.
      */
     final String LEVEL_CMBB = "ul[class='scrollable'] [title='nameTitle']";
+
+    /**
+     * Variable for type date.
+     */
+    final String PATTERN = "dd-MM-yyyy";
 
     /**
      * Waits until page object is loaded.
@@ -330,8 +343,8 @@ public class ContactLightningForm extends ContactFormAbstract {
      * @param birthdate of type String.
      */
     @Override
-    protected void setBirthdate(final String birthdate) {
-        DriverMethods.setTxt(birthdateTxtb, birthdate);
+    protected void setBirthdate(final Date birthdate) {
+        DriverMethods.setTxt(birthdateTxtb, DriverMethods.convertDateToString(birthdate, PATTERN));
         birthdateTxtb.sendKeys(Keys.TAB);
     }
 
