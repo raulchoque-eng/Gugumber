@@ -20,20 +20,35 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 /**
  * WebDriverManager class.
  *
- * @author Cxrisstian
+ * @author Cristian Lujan
  * @version 0.0.1
  */
 public class WebDriverManager {
 
+    /**
+     * Variable for the web diver config.
+     */
     private WebDriverConfig webDriverConfig = WebDriverConfig.getInstance();
+
+    /**
+     *  Variable for el web driver.
+     */
     private WebDriver webDriver;
+
+    /**
+     * Variable for the web driver wait.
+     */
     private WebDriverWait webDriverWait;
+
+    /**
+     * Static variable for the use in the get instance method.
+     */
     private static WebDriverManager instance = null;
 
     /**
      * Constructor of page WebDriverManager.
      */
-    protected WebDriverManager() {
+    private WebDriverManager() {
         initialize();
     }
 
