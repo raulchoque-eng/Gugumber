@@ -786,7 +786,13 @@ public class Contact {
         contact.put(TITLE, getTitle());
         contact.put(DEPARTMENT, getDepartment());
         contact.put(MOBILE, String.valueOf(getMobile()));
-        contact.put(DESCRIPTION, getDescription());
+        contact.put(BIRTHDATE, getBirthdate());
+        contact.put(REPORTS_TO, getReportsTo());
+        contact.put(LEAD_SOURCE, getLeadSource());
+        contact.put(OTHER_PHONE, String.valueOf(getOtherPhone()));
+        contact.put(FAX, String.valueOf(getFax()));
+        contact.put(ASSISTANT, getAssistant());
+        contact.put(ASST_PHONE, String.valueOf(getAsstPhone()));
         return contact;
     }
 

@@ -29,7 +29,7 @@ public class LoginPage extends BasePage {
     /**
      * Constant for the title of home page.
      */
-    public static final String HOME_PAGE_TITLE = "Home Page ~ Salesforce - Developer Edition";
+    private static final String HOME_PAGE_TITLE = "Home Page ~ Salesforce - Developer Edition";
 
     /**
      * Web element for the user name text-box.
@@ -81,7 +81,7 @@ public class LoginPage extends BasePage {
      *
      * @param userName for the log in.
      */
-    public void setUserName(final String userName) {
+    private void setUserName(final String userName) {
         userNameTxtb.sendKeys(userName);
     }
 
@@ -90,14 +90,14 @@ public class LoginPage extends BasePage {
      *
      * @param password for the log in.
      */
-    public void setPassword(final String password) {
+    private void setPassword(final String password) {
         passwordTxtb.sendKeys(password);
     }
 
     /**
      * Clicks on sing in button.
      */
-    public void clickSignInBtn() {
+    private void clickSignInBtn() {
         loginBtn.click();
     }
 }
