@@ -20,7 +20,7 @@ import java.util.Map;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.path.json.JsonPath;
-import org.fjala.gugumber.core.selenium.utils.Logs;
+import org.fjala.gugumber.core.log.Logs;
 import org.fjala.gugumber.salesforce.entities.Contact;
 import org.fjala.gugumber.salesforce.entities.Context;
 import org.fjala.gugumber.salesforce.ui.PageLayoutConfig;

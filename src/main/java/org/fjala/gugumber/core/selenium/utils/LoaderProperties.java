@@ -13,6 +13,8 @@
 
 package org.fjala.gugumber.core.selenium.utils;
 
+import org.fjala.gugumber.core.log.Logs;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -47,14 +49,14 @@ public class LoaderProperties {
      * @param path of properties.
      * @return the properties.
      */
-    public Properties readFile(String path) {
+    public Properties readFile(final String path) {
         Properties prop = new Properties();
         try {
-            InputStream input = new FileInputStream(path);
             Logs.getInstance().getLog().info("Load a file properties");
+            InputStream input = new FileInputStream(path);
             prop.load(input);
         } catch (IOException e) {
-            e.printStackTrace();
+            Logs.getInstance().getLog().info(e);
         }
         return prop;
     }
