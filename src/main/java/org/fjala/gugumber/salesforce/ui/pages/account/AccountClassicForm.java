@@ -192,7 +192,7 @@ public class AccountClassicForm extends AccountFormAbstract {
     /**
      * Web element for the text-box of SLA Expiration Date.
      */
-    @FindBy(id = "00N4P000007onVI")
+    @FindBy(xpath = "//input[@id=//label[starts-with(.,'SLA Expiration Date')]/@for]")
     private WebElement sLAExpirationDateTxtb;
 
     /**
@@ -204,31 +204,31 @@ public class AccountClassicForm extends AccountFormAbstract {
     /**
      * Web element for the text-box of number pf locations.
      */
-    @FindBy(id = "00N4P000007onVG")
+    @FindBy(xpath = "//input[@id=//label[starts-with(.,'Number of Locations')]/@for]")
     private WebElement numberOfLocationsTxtb;
 
     /**
      * Web element for the combo-box of active.
      */
-    @FindBy(id = "00N4P000007onVE")
+    @FindBy(xpath = "//select[@id=//label[starts-with(.,'Active')]/@for]")
     private WebElement activeCmbb;
 
     /**
      * Web element for the combo-box of SLA.
      */
-    @FindBy(id = "00N4P000007onVH")
+    @FindBy(xpath = "//select[@id=//label[starts-with(.,'SLA')]/@for]")
     private WebElement sLACmbb;
 
     /**
      * Web element for the text-box of SLA serial number.
      */
-    @FindBy(id = "00N4P000007onVJ")
+    @FindBy(xpath = "//input[@id=//label[starts-with(.,'SLA Serial Number')]/@for]")
     private WebElement sLASerialNumberTxtb;
 
     /**
      * Web element for the combo-box of upsell Opportunity.
      */
-    @FindBy(id = "00N4P000007onVK")
+    @FindBy(xpath = "//select[@id=//label[starts-with(.,'Upsell Opportunity')]/@for]")
     private WebElement upsellOpportunityCmbb;
 
     /**
