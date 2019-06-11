@@ -110,6 +110,7 @@ public class ContactSteps {
         contact.processInformation(contactMap);
         contactForm.setContactInformation(contactMap);
         contactProfilePage = contactForm.clickSaveNewContact();
+        contact.setId(contactProfilePage.getIdFromUrl());
     }
 
     /**
@@ -139,7 +140,6 @@ public class ContactSteps {
      */
     @When("^I go to the Contact Details$")
     public void openTheContactDetailsPage() {
-        contact.setId(contactProfilePage.getIdFromUrl());
         contactDetails = contactProfilePage.checkDetailsSection();
     }
 
@@ -195,7 +195,6 @@ public class ContactSteps {
      */
     @Then("^the contact last name don't should be displayed in the contacts list of Contacts page$")
     public void isNotDisplayContactInTheContactsListOfContactsPage() {
-        contactPage = PageLayoutFactory.getContactPage();
-        Assert.assertFalse(contactPage.getListOfContactsName().contains(contact.getFullNameContactList()), "the Contact Name not displayed");
+        Assert.assertFalse(contactPage.getListOfContactsName().contains(contact.getLastName()));
     }
 }
