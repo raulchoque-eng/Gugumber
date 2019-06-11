@@ -16,15 +16,11 @@ import static org.fjala.gugumber.salesforce.ui.PageLayoutType.LIGHTNING;
 import static org.testng.Assert.*;
 
 import java.util.Map;
-import java.util.Set;
 
-import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.path.json.JsonPath;
 import org.fjala.gugumber.core.selenium.utils.Logs;
-import org.fjala.gugumber.salesforce.api.ContactAPI;
 import org.fjala.gugumber.salesforce.entities.Contact;
 import org.fjala.gugumber.salesforce.entities.Context;
 import org.fjala.gugumber.salesforce.ui.PageLayoutConfig;
@@ -202,22 +198,4 @@ public class ContactSteps {
         contactPage = PageLayoutFactory.getContactPage();
         Assert.assertFalse(contactPage.getListOfContactsName().contains(contact.getFullNameContactList()), "the Contact Name not displayed");
     }
-//
-//    @When("^I go to the Contact Profile page of new contact created by API$")
-//    public void goToTheContactProfilePageOfNewContactCreatedByAPI() {
-//        contactProfilePage = contactPage.openContactProfile(contact.getLastName());
-//    }
-//
-//    @And("^I edit the Contact with the following values$")
-//    public void editTheContactWithTheFollowingValues(final Map<String, String> contactMap) {
-//        contactForm = contactProfilePage.updateContactProfilePage();
-//        contact.processInformation(contactMap);
-//        contactForm.setContactInformation(contactMap);
-//        contactProfilePage = contactForm.clickSaveNewContact();
-//    }
-//
-//    @Given("^I have a new Contact with the following information$")
-//    public void createANewContactWithTheFollowingInformationByAPI(final Map<String, String> createNewContat) {
-//        contact.setId(ContactAPI.getInstance().createContact(createNewContat));
-//    }
 }

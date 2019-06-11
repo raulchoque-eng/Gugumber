@@ -35,13 +35,13 @@ public class LoginPage extends BasePage {
      * Web element for the user name text-box.
      */
     @FindBy(id = "username")
-    private WebElement userNameTxtB;
+    private WebElement userNameTxtb;
 
     /**
      * Web element for the password text-box.
      */
     @FindBy(id = "password")
-    private WebElement passwordTxtB;
+    private WebElement passwordTxtb;
 
     /**
      * Web element for the login button.
@@ -82,7 +82,7 @@ public class LoginPage extends BasePage {
      * @param userName for the log in.
      */
     public void setUserName(final String userName) {
-        userNameTxtB.sendKeys(userName);
+        userNameTxtb.sendKeys(userName);
     }
 
     /**
@@ -91,7 +91,7 @@ public class LoginPage extends BasePage {
      * @param password for the log in.
      */
     public void setPassword(final String password) {
-        passwordTxtB.sendKeys(password);
+        passwordTxtb.sendKeys(password);
     }
 
     /**
