@@ -21,6 +21,7 @@ import java.util.Set;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.fjala.gugumber.core.log.Logs;
 import org.fjala.gugumber.salesforce.entities.Context;
 import org.fjala.gugumber.salesforce.entities.Event;
 import org.fjala.gugumber.salesforce.ui.PageLayoutConfig;
@@ -87,6 +88,7 @@ public class EventSteps {
             homePage = PageLayoutFactory.getHomePageManager();
             eventForm = ((HomeClassicPage) homePage).openEventForm();
         } else {
+            Logs.getInstance().getLog().info("In lightning Layout we go calendar page for open the event form");
             calendarPage = PageTransporter.getInstance().navigateToCalendarPage();
             eventForm = calendarPage.openEventForm();
         }
@@ -110,6 +112,7 @@ public class EventSteps {
     @Then("^the Subject of new Event should be displayed on Calendar Section$")
     public void validateSubjectNameOfNewEvent() {
         if (layout == LIGHTNING) {
+            Logs.getInstance().getLog().info("In lightning Layout we go Home page for find Calendar section");
             calendarPage = new CalendarLightningPage();
             calendarPage.verifyMessageSuccessfulIsClose();
             homePage = PageTransporter.getInstance().navigateToHomePage();
@@ -143,8 +146,6 @@ public class EventSteps {
      */
     @When("^I open the Event that with subject with name Launch$")
     public void openEvent() {
-        System.out.println("Hello WORLD!!!!");
-        eventPage = homePage.getCalendarSection().getEventDetails();
         eventPage = homePage.getCalendarSection().openEvent();
     }
 }
