@@ -19,7 +19,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 /**
  * ContactLightningDetails class.
  *
- * @author Cxrisstian
+ * @author Cristian Lujan
  * @version 0.0.1
  */
 public class ContactLightningDetails extends ContactDetailsAbstract {
