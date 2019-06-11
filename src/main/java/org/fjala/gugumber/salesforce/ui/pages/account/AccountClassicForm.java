@@ -186,7 +186,7 @@ public class AccountClassicForm extends AccountFormAbstract {
     /**
      * Web element for the combo-box of customer priority.
      */
-    @FindBy(id = "00N4P000007onVF")
+    @FindBy(xpath = "//select[@id=//label[starts-with(.,'Customer')]/@for]")
     private WebElement customerPriorityCmbb;
 
     /**

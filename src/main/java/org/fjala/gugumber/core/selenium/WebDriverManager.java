@@ -28,12 +28,16 @@ public class WebDriverManager {
     private WebDriverConfig webDriverConfig = WebDriverConfig.getInstance();
     private WebDriver webDriver;
     private WebDriverWait webDriverWait;
+
+    /**
+     * The field for storing the singleton instance
+     */
     private static WebDriverManager instance = null;
 
     /**
      * Constructor of page WebDriverManager.
      */
-    protected WebDriverManager() {
+    private WebDriverManager() {
         initialize();
     }
 
