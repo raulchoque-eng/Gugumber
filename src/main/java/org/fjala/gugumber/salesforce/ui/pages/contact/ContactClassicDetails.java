@@ -21,7 +21,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 /**
  * ContactClassicDetails class.
  *
- * @author Cxrisstian
+ * @author Crstian Lujan
  * @version 0.0.1
  */
 public class ContactClassicDetails extends ContactDetailsAbstract {
