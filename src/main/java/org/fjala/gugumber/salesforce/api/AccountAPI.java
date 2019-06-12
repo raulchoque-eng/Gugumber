@@ -34,6 +34,11 @@ public class AccountAPI {
     private RestClientAPI restClient;
 
     /**
+     * Variable for the response.
+     */
+    private Response response;
+
+    /**
      * Variable for the final endpoint.
      */
     private String finalEndpoint;
@@ -61,7 +66,7 @@ public class AccountAPI {
      */
     public void deleteAccount(final String accountId) {
         finalEndpoint = ACCOUNT_ENDPOINT.concat(SLASH.concat(accountId));
-        final Response response = restClient.delete(finalEndpoint);
+        response = restClient.delete(finalEndpoint);
     }
 
     /**
@@ -72,7 +77,7 @@ public class AccountAPI {
      */
     public String createAccount(final Map<String, String> newAccount) {
         finalEndpoint = ACCOUNT_ENDPOINT;
-        final Response response = restClient.post(finalEndpoint, newAccount);
+        response = restClient.post(finalEndpoint, newAccount);
         return response.body().jsonPath().getString("id");
     }
 
@@ -84,7 +89,7 @@ public class AccountAPI {
      */
     public Response getAccountById(final String id) {
         finalEndpoint = ACCOUNT_ENDPOINT.concat(SLASH.concat(id));
-        final Response response = restClient.get(finalEndpoint);
+        response = restClient.get(finalEndpoint);
         return response;
     }
 }
