@@ -12,13 +12,14 @@
 
 package org.fjala.gugumber.salesforce.api.rest.client;
 
-import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
-import org.fjala.gugumber.salesforce.common.ReaderApplicationProperties;
+import static io.restassured.RestAssured.given;
+import static org.fjala.gugumber.salesforce.common.ReaderApplicationProperties.CONTENT_TYPE;
 
 import java.util.Map;
 
-import static io.restassured.RestAssured.given;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
+import org.fjala.gugumber.salesforce.common.ReaderApplicationProperties;
 
 /**
  * RestClientAPI class.
@@ -66,7 +67,7 @@ public class RestClientAPI {
     /**
      * Constructor of base API.
      */
-    protected RestClientAPI() {
+    private RestClientAPI() {
         initialize();
         requestAuthentication();
     }
@@ -87,16 +88,16 @@ public class RestClientAPI {
      * Initializes the setting for the API.
      */
     private void initialize() {
-        urlAPI = ReaderApplicationProperties.getInstance().getAppProperties().get("urlAPI");
-        accessToken = ReaderApplicationProperties.getInstance().getAppProperties().get("Access-Token");
-        contentType = ReaderApplicationProperties.getInstance().getAppProperties().get("Content-Type");
+        urlAPI = ReaderApplicationProperties.getInstance().getUrlApi();
+        accessToken = ReaderApplicationProperties.getInstance().getAccessToken();
+        contentType = ReaderApplicationProperties.getInstance().getContentType();
     }
 
     /**
      * Requests the authentication.
      */
     private void requestAuthentication() {
-        request = given().headers("Content-Type", contentType)
+        request = given().headers(CONTENT_TYPE, contentType)
                 .auth().oauth2(accessToken);
     }
 

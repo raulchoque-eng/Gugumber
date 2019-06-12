@@ -26,10 +26,27 @@ import java.util.Properties;
  * @version 0.0.1
  */
 public class ReaderApplicationProperties {
+
     /**
      * Constant for path of application properties.
      */
     private static final String SALESFORCE_PROPERTIES = "salesforce.properties";
+
+    /**
+     * Constant for the key content type.
+     */
+    public static final String CONTENT_TYPE = "Content-Type";
+
+    /**
+     * Constant for the key access token.
+     */
+    public static final String TOKEN = "Access-Token";
+
+    /**
+     * Constant for the key url.
+     */
+    public static final String URL_API = "urlAPI";
+
     /**
      * Map to save the properties of the application.
      */
@@ -68,5 +85,32 @@ public class ReaderApplicationProperties {
     private void addSalesForceProperties() {
         Properties propertiesSalesForce = LoaderProperties.getInstance().readFile(SALESFORCE_PROPERTIES);
         propertiesSalesForce.forEach((key, value) -> applicationProperties.put(key.toString(), value.toString()));
+    }
+
+    /**
+     * Returns the token from the properties file.
+     *
+     * @return the token as string.
+     */
+    public String getAccessToken() {
+        return getAppProperties().get(TOKEN);
+    }
+
+    /**
+     * Returns the url to request to the API from the properties file.
+     *
+     * @return the url as string.
+     */
+    public String getUrlApi() {
+        return getAppProperties().get(URL_API);
+    }
+
+    /**
+     * Returns the content type from the properties file.
+     *
+     * @return the content type as string.
+     */
+    public String getContentType() {
+        return getAppProperties().get(CONTENT_TYPE);
     }
 }
