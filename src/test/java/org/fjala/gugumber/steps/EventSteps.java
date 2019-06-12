@@ -146,6 +146,7 @@ public class EventSteps {
      */
     @When("^I open the Event that with subject with name Launch$")
     public void openEvent() {
+        homePage = PageLayoutFactory.getHomePageManager();
         eventPage = homePage.getCalendarSection().openEvent();
     }
 }
