@@ -12,12 +12,13 @@
 
 package org.fjala.gugumber.salesforce.api;
 
-import io.restassured.response.Response;
-import org.fjala.gugumber.salesforce.api.rest.client.RestClientAPI;
+import static org.fjala.gugumber.salesforce.api.Endpoints.ACCOUNT_ENDPOINT;
+import static org.fjala.gugumber.salesforce.api.Endpoints.SLASH;
 
 import java.util.Map;
 
-import static org.fjala.gugumber.salesforce.api.Endpoints.ACCOUNT_ENDPOINT;
+import io.restassured.response.Response;
+import org.fjala.gugumber.salesforce.api.rest.client.RestClientAPI;
 
 /**
  * AccountAPI class.
@@ -59,7 +60,7 @@ public class AccountAPI {
      * @param accountId to concat with the base endpoint.
      */
     public void deleteAccount(final String accountId) {
-        finalEndpoint = ACCOUNT_ENDPOINT.concat("/".concat(accountId));
+        finalEndpoint = ACCOUNT_ENDPOINT.concat(SLASH.concat(accountId));
         final Response response = restClient.delete(finalEndpoint);
     }
 
@@ -82,7 +83,7 @@ public class AccountAPI {
      * @return the response.
      */
     public Response getAccountById(final String id) {
-        finalEndpoint = ACCOUNT_ENDPOINT.concat("/".concat(id));
+        finalEndpoint = ACCOUNT_ENDPOINT.concat(SLASH.concat(id));
         final Response response = restClient.get(finalEndpoint);
         return response;
     }

@@ -21,22 +21,27 @@ package org.fjala.gugumber.salesforce.api;
 public class Endpoints {
 
     /**
+     * Constant to concat with the endpoint.
+     */
+    public static final String SLASH = "/";
+
+    /**
      * Endpoint of Account.
      */
-    public final static String ACCOUNT_ENDPOINT = "/Account";
+    public static final String ACCOUNT_ENDPOINT = "/Account";
 
     /**
      * Endpoint of contact.
      */
-    public final static String CONTACT_ENDPOINT = "/Contact";
+    public static final String CONTACT_ENDPOINT = "/Contact";
 
     /**
      * Endpoint of event.
      */
-    public final static String EVENT_ENDPOINT = "/Event";
+    public static final String EVENT_ENDPOINT = "/Event";
 
     /**
      * Constructor protected.
      */
-    protected Endpoints() {}
+    protected Endpoints() { }
 }
